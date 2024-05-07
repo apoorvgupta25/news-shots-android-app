@@ -23,8 +23,7 @@ fun AppTheme(
     content: @Composable () -> Unit,
 ) {
     // Determine the color scheme based on the selected theme (dark or light)
-    /*if (!darkTheme) LightColors else DarkColors*/
-    val colors = LightColors
+    val colors = if (!darkTheme) LightColors else DarkColors
 
     // Apply MaterialTheme with specified color scheme, typography, and shapes
     MaterialTheme(
