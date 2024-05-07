@@ -9,12 +9,12 @@ import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.wrapContentHeight
 import androidx.compose.foundation.layout.wrapContentWidth
 import androidx.compose.material3.CircularProgressIndicator
+import androidx.compose.material3.MaterialTheme
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.window.Dialog
 import androidx.compose.ui.window.DialogProperties
 import com.apoorvgupta.capabilities.presentation.theme.StrokeWidthLarge
-import com.apoorvgupta.capabilities.presentation.theme.primary
 
 /**
  * Composable function that displays a circular progress bar component.
@@ -39,7 +39,7 @@ fun CircularProgressBarComponent(visibility: Boolean) {
                         .wrapContentHeight(),
                 ) {
                     CircularProgressIndicator(
-                        color = primary,
+                        color = MaterialTheme.colorScheme.primary,
                         strokeWidth = StrokeWidthLarge,
                     )
                 }

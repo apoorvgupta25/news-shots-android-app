@@ -22,11 +22,10 @@ import com.apoorvgupta.capabilities.presentation.theme.CornerRadiusLarge
 import com.apoorvgupta.capabilities.presentation.theme.HorizontalSpacingSmall
 import com.apoorvgupta.capabilities.presentation.theme.StrokeWidthMedium
 import com.apoorvgupta.capabilities.presentation.theme.StrokeWidthSmall
+import com.apoorvgupta.capabilities.presentation.theme.blackTextColor
 import com.apoorvgupta.capabilities.presentation.theme.buttonTextStyle
-import com.apoorvgupta.capabilities.presentation.theme.disabled_bg
-import com.apoorvgupta.capabilities.presentation.theme.primary
-import com.apoorvgupta.capabilities.presentation.theme.text_disabled
-import com.apoorvgupta.capabilities.presentation.theme.white
+import com.apoorvgupta.capabilities.presentation.theme.disabledBackgroundColor
+import com.apoorvgupta.capabilities.presentation.theme.disabledTextColor
 import com.apoorvgupta.core.utils.EMPTY_STRING
 
 /**
@@ -45,8 +44,8 @@ fun AppButton(
     modifier: Modifier,
     buttonTitle: String,
     isButtonFilled: Boolean = true,
-    fillColor: Color = primary,
-    textColor: Color = white,
+    fillColor: Color = MaterialTheme.colorScheme.primary,
+    textColor: Color = MaterialTheme.colorScheme.blackTextColor,
     isEnabled: MutableState<Boolean> = mutableStateOf(true),
     contentTag: String = EMPTY_STRING,
     isIconVisible: MutableState<Boolean> = mutableStateOf(false),
@@ -62,17 +61,17 @@ fun AppButton(
         border =
         BorderStroke(
             StrokeWidthSmall,
-            if (isEnabled.value) fillColor else disabled_bg,
+            if (isEnabled.value) fillColor else MaterialTheme.colorScheme.disabledBackgroundColor,
         ),
         elevation = null,
         enabled = isEnabled.value,
         colors =
         if (isButtonFilled) {
             ButtonDefaults.buttonColors(
-                disabledContainerColor = disabled_bg,
+                disabledContainerColor = MaterialTheme.colorScheme.disabledBackgroundColor,
                 containerColor = fillColor,
                 contentColor = textColor,
-                disabledContentColor = text_disabled,
+                disabledContentColor = MaterialTheme.colorScheme.disabledTextColor,
             )
         } else {
             ButtonDefaults.buttonColors(containerColor = Color.Transparent)

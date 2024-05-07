@@ -44,7 +44,7 @@ import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.dp
 import com.apoorvgupta.capabilities.presentation.theme.m_surrounding_spacing
-import com.apoorvgupta.capabilities.presentation.theme.white
+import com.apoorvgupta.capabilities.presentation.theme.whiteColor
 import com.apoorvgupta.capabilities.presentation.theme.xl_surrounding_spacing
 import com.apoorvgupta.core.utils.EMPTY_STRING
 import com.google.accompanist.web.AccompanistWebChromeClient
@@ -210,7 +210,7 @@ private fun WebTopAppBar(
 @Composable
 fun BackButton(
     modifier: Modifier = Modifier,
-    backgroundColor: Color = white,
+    backgroundColor: Color = MaterialTheme.colorScheme.whiteColor,
     onClickListener: () -> Unit,
 ) {
     IconButton(

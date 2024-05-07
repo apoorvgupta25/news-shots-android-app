@@ -10,7 +10,7 @@ import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.text.font.FontWeight
 import androidx.navigation.NavController
 import com.apoorvgupta.capabilities.presentation.reusableComponents.loader.CircularProgressBarComponent
-import com.apoorvgupta.capabilities.presentation.theme.login_in_button_bg_color
+import com.apoorvgupta.capabilities.presentation.theme.buttonBackgroundColor
 import com.apoorvgupta.core.interactions.session.FinishActivityChannel
 import com.apoorvgupta.home.intent.HomeIntent
 import com.apoorvgupta.home.intent.HomeNavEffect
@@ -89,13 +89,13 @@ fun HomeScreenDestination(
             Text(
                 text = homeViewState.apiErrorContentModel.title,
                 style = MaterialTheme.typography.headlineMedium,
-                color = login_in_button_bg_color,
+                color = MaterialTheme.colorScheme.buttonBackgroundColor,
                 fontWeight = FontWeight.Bold,
             )
             Text(
                 text = homeViewState.apiErrorContentModel.subTitle,
                 style = MaterialTheme.typography.bodyLarge,
-                color = login_in_button_bg_color,
+                color = MaterialTheme.colorScheme.buttonBackgroundColor,
                 fontWeight = FontWeight.Bold,
             )
         }

@@ -3,11 +3,11 @@ package com.apoorvgupta.splash.view
 import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.fillMaxSize
+import androidx.compose.material3.MaterialTheme
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.LaunchedEffect
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
-import com.apoorvgupta.capabilities.presentation.theme.primary
 import com.apoorvgupta.splash.intents.SplashIntent
 import com.apoorvgupta.splash.intents.SplashViewStates
 
@@ -23,7 +23,7 @@ fun SplashScreen(
     Box(
         modifier = Modifier
             .fillMaxSize()
-            .background(primary),
+            .background(MaterialTheme.colorScheme.primary),
         contentAlignment = Alignment.Center,
     ) {
 //        Image(painter =

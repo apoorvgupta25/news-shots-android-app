@@ -16,6 +16,7 @@ import androidx.browser.customtabs.CustomTabsIntent
 import androidx.browser.customtabs.CustomTabsIntent.SHARE_STATE_OFF
 import androidx.browser.customtabs.CustomTabsServiceConnection
 import androidx.browser.customtabs.CustomTabsSession
+import androidx.compose.material3.MaterialTheme
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.LaunchedEffect
 import androidx.compose.runtime.getValue
@@ -25,7 +26,6 @@ import androidx.compose.runtime.setValue
 import androidx.compose.ui.graphics.toArgb
 import androidx.compose.ui.platform.LocalContext
 import com.apoorvgupta.capabilities.presentation.reusableComponents.loader.CircularProgressBarComponent
-import com.apoorvgupta.capabilities.presentation.theme.primary
 import com.apoorvgupta.core.logger.AppLogger
 import java.net.URLDecoder
 import java.nio.charset.StandardCharsets
@@ -74,7 +74,7 @@ fun ChromeCustomTabWebView(url: String, onUrlLaunchedEvent: () -> Unit) {
         mCustomTabsServiceConnection,
     )
 
-    val colorInt: Int = primary.toArgb()
+    val colorInt: Int = MaterialTheme.colorScheme.primary.toArgb()
     val defaultColors = CustomTabColorSchemeParams.Builder()
         .setToolbarColor(colorInt)
         .build()
@@ -114,6 +114,7 @@ fun callback(onPageFinished: () -> Unit): CustomTabsCallback {
                 NAVIGATION_STARTED -> {
                     AppLogger.d("pageStarted", "starting...")
                 }
+
                 NAVIGATION_FINISHED -> {
                     onPageFinished()
                 }
