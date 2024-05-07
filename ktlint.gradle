@@ -1,0 +1,41 @@
+// This configures ktlint - a Kotlin style checker.
+// The kotlin-gradle-plugin must be a buildscript dependency for the configuration below to work.
+// (see https://kotlinlang.org/docs/reference/using-gradle.html)
+
+configurations {
+    ktlint
+}
+
+dependencies {
+    dependencies {
+        ktlint("com.pinterest.ktlint:ktlint-cli:1.0.1") {
+            attributes {
+                attribute(Bundling.BUNDLING_ATTRIBUTE, getObjects().named(Bundling, Bundling.EXTERNAL))
+            }
+        }
+        // additional 3rd party ruleset(s) can be specified here
+        // just add them to the classpath (e.g. ktlint 'groupId:artifactId:version') and
+        // ktlint will pick them up
+    }
+}
+
+// To check the project's style compliance, run this action.
+task ktlintCheck(type: JavaExec, group: "verification") {
+    description = "Check Kotlin code style."
+    classpath = configurations.ktlint
+    mainClass.set("com.pinterest.ktlint.Main")
+    args "src/**/*.kt","--reporter=checkstyle,output=${buildDir}/ktlint.xml","--reporter=plain,output=/dev/stderr"
+    // To generate report in checkstyle format prepend the following args:
+    // "--reporter=plain", "--reporter=checkstyle,output=${buildDir}/ktlint.xml"
+    // To add a baseline to check against, prepend the following arg:
+    // "--baseline=ktlint-baseline.xml"
+    // See https://github.com/pinterest/ktlint#usage for more.
+}
+
+// To apply all the automatic, suggested style fixes, run this action.
+task ktlintFormat(type: JavaExec, group: "formatting") {
+    description = "Fix Kotlin code style deviations."
+    classpath = configurations.ktlint
+    mainClass.set("com.pinterest.ktlint.Main")
+    args "-F", "src/**/*.kt"
+}

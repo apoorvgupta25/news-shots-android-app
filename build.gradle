@@ -1,0 +1,28 @@
+buildscript {
+    dependencies {
+        classpath Deps.gradle
+//        classpath Deps.google_services
+//        classpath Deps.firebase_crashlytics_gradle
+//        classpath Deps.firebase_performance_plugin
+    }
+} /**
+ * Copyright (c) 2024 Apoorv Gupta
+ * All rights reserved.
+ */
+
+// Top-level build file where you can add configuration options common to all sub-projects/modules.
+plugins {
+    // Android application plugin
+    id 'com.android.application' version '8.2.0' apply false
+    // Android library plugin
+    id 'com.android.library' version '8.2.0' apply false
+    // Kotlin Android plugin
+    id 'org.jetbrains.kotlin.android' version '1.9.21' apply false
+    // Dagger Hilt Android plugin
+    id 'com.google.dagger.hilt.android' version '2.49' apply false
+}
+
+// Apply ktlint to the entire project.
+allprojects {
+    apply from: "$rootDir/ktlint.gradle"
+}

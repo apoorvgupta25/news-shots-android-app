@@ -1,0 +1,38 @@
+ name: Android Build Check
+
+ # Run this upon a pull-request to the development branch.
+ on:
+   pull_request:
+     branches:
+       - main
+
+ jobs:
+   build:
+     runs-on: ubuntu-latest
+     steps:
+       # Check out the code.
+       - uses: actions/checkout@v3
+
+       # Setup the specific JDK.
+       - name: Setup JDK
+         uses: actions/setup-java@v3
+         with:
+           java-version: '17'
+           distribution: 'adopt'
+           cache: gradle
+
+       # Setup the permission for running Gradle.
+       - name: Grant execute permission for gradlew
+         run: chmod +x gradlew
+
+       # Run the ktlint check.
+       - name: Lint Checks
+         run: ./gradlew ktlintCheck
+
+       # Attempt to build the project.
+       - name: Build Project
+         run: ./gradlew assembleDebug
+
+       # Attempt to run the unit tests.
+       - name: Run Unit Tests
+         run: ./gradlew test

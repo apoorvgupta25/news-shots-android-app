@@ -1,0 +1,199 @@
+import groovy.json.JsonSlurper
+
+import java.util.regex.Matcher
+import java.util.regex.Pattern
+
+/**
+ * Copyright (c) 2024 Apoorv Gupta
+ * All rights reserved.
+ */
+plugins {
+    // Android application plugin
+    id 'com.android.application'
+    // Kotlin Android plugin
+    id 'org.jetbrains.kotlin.android'
+    // Kotlin Annotation Processing Tool plugin
+    id 'kotlin-kapt'
+    // Dagger Hilt Android plugin
+    id 'com.google.dagger.hilt.android'
+    // Firebase
+//    id 'com.google.gms.google-services'
+//    id 'com.google.firebase.crashlytics'
+//    id 'com.google.firebase.firebase-perf'
+}
+
+// For the Release build, setup Keystore properties here.
+def keystorePropertiesFile = rootProject.file("keystore.properties")
+def keystoreProperties = new Properties()
+keystoreProperties.load(new FileInputStream(keystorePropertiesFile))
+
+// Apply custom configurations from app-flavours.gradle file
+apply from: 'app-flavours.gradle'
+
+android {
+    // Set the namespace for the application
+    namespace 'com.apoorvgupta.newsshots'
+    // Set the compile SDK version
+    compileSdk BuildConfig.compileSdk
+
+    defaultConfig {
+        // Application ID
+        applicationId BuildConfig.applicationId
+        // Minimum SDK version
+        minSdk BuildConfig.minSdk
+        // Target SDK version
+        targetSdk BuildConfig.targetSdk
+        // Version code and version name
+        versionCode BuildConfig.versionCode
+        versionName BuildConfig.versionName
+
+        // Test instrumentation runner for unit tests
+        testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
+        // Enable vector drawables using the support library
+        vectorDrawables {
+            useSupportLibrary true
+        }
+
+        def currentBuildFlavour = getCurrentFlavor()
+        if (currentBuildFlavour.isEmpty()) {
+            currentBuildFlavour = "qa"
+            // set default value to avoid compilation issue of UnresolvedReference HEAP_ENV_ID, etc.
+        }
+        print("Current Floavour " + currentBuildFlavour)
+        if (currentBuildFlavour.contains("uat")) {
+            getProps("./src/configuration/uat.props").each { props ->
+                buildConfigField "String", props.key, props.value
+            }
+        } else if (currentBuildFlavour.contains("qa")) {
+            getProps("./src/configuration/qa.props").each { props ->
+                buildConfigField "String", props.key, props.value
+            }
+        } else if (currentBuildFlavour.contains("prod")) {
+            getProps("./src/configuration/prod.props").each { props ->
+                buildConfigField "String", props.key, props.value
+            }
+        } else if (currentBuildFlavour.contains("dev")) {
+            getProps("./src/configuration/dev.props").each { props ->
+                buildConfigField 'String', props.key, props.value
+            }
+        }
+    }
+
+    signingConfigs {
+        // This is not the main keystore file which uses to publish app on PlayStore.
+        release {
+            storeFile file(keystoreProperties['storeFile'])
+            keyAlias keystoreProperties['keyAlias']
+            keyPassword keystoreProperties['keyPassword']
+            storePassword keystoreProperties['storePassword']
+        }
+    }
+
+    buildTypes {
+        release {
+            debuggable true
+            // Enable Progaurd/R8 for release variants
+            minifyEnabled true
+            // Shrink Resources for release variants
+            shrinkResources true
+            // Specify ProGuard files
+            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+            // Specify App Signing Config
+            signingConfig signingConfigs.release
+        }
+    }
+
+    compileOptions {
+        // Set Java source and target compatibility to version 17
+        sourceCompatibility JavaVersion.VERSION_17
+        targetCompatibility JavaVersion.VERSION_17
+    }
+
+    kotlinOptions {
+        // Set JVM target version
+        jvmTarget = BuildConfig.jvmTarget
+    }
+
+    buildFeatures {
+        // Enable Compose support
+        compose true
+        //Enable Build Configs
+        buildConfig true
+    }
+
+    composeOptions {
+        // Set the Kotlin compiler extension version for Compose
+        kotlinCompilerExtensionVersion BuildConfig.kotlinCompilerExtensionVersion
+    }
+
+    packagingOptions {
+        resources {
+            // Exclude specific resources from packaging
+            excludes += '/META-INF/{AL2.0,LGPL2.1}'
+        }
+    }
+}
+
+dependencies {
+    // Testing dependencies
+    testImplementation Deps.junit
+    androidTestImplementation Deps.test_ext_junit
+
+    // Core, Capabilities, Feature Modules Integration in the main app
+    implementation project(':core')
+    implementation project(':capabilities')
+    implementation project(':features-home')
+    implementation project(':feature-common')
+
+    // Material design dependency
+    implementation Deps.material3
+
+    // Dagger Hilt
+    implementation Deps.hilt_android
+    implementation Deps.hilt_navigation_compose
+
+    // Firebase
+    kapt Deps.hilt_android_compiler
+
+    // Splash Screen
+    implementation Deps.splash_screen
+
+    implementation Deps.gson
+
+    // Image loading
+    implementation Deps.glide_compose
+
+}
+
+def getCurrentFlavor() {
+    Gradle gradle = getGradle()
+    String tskReqStr = gradle.getStartParameter().getTaskRequests().toString()
+
+    Pattern pattern
+
+    if (tskReqStr.contains("assemble")) // to run ./gradlew assembleRelease to build APK
+        pattern = Pattern.compile("assemble(\\w+)(Release|Debug)")
+    else if (tskReqStr.contains("bundle")) // to run ./gradlew bundleRelease to build .aab
+        pattern = Pattern.compile("bundle(\\w+)(Release|Debug)")
+    else if (tskReqStr.contains("test")) // to run ./gradlew testDebug to test
+        pattern = Pattern.compile("test(\\w+)(Release|Debug)")
+    else if (tskReqStr.contains("sonarqube"))
+        pattern = Pattern.compile("sonarqube")
+    else
+        pattern = Pattern.compile("generate(\\w+)(Release|Debug)")
+
+    Matcher matcher = pattern.matcher(tskReqStr)
+
+    if (matcher.find() && matcher.groupCount() >= 2)
+        return matcher.group(1).toLowerCase()
+    else {
+        return ""
+    }
+}
+
+def getProps(path) {
+    Properties props = new Properties()
+    props.load(new FileInputStream(file(path)))
+    return props
+}
+

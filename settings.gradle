@@ -1,0 +1,32 @@
+/**
+ * Copyright (c) 2024 Apoorv Gupta
+ * All rights reserved.
+ */
+
+// Plugin management configuration for Gradle build scripts
+pluginManagement {
+    repositories {
+        google() // Google Maven repository
+        mavenCentral() // Maven Central repository
+        gradlePluginPortal() // Gradle Plugin Portal repository
+    }
+}
+
+// Dependency resolution management for Gradle build scripts
+dependencyResolutionManagement {
+    repositoriesMode.set(RepositoriesMode.FAIL_ON_PROJECT_REPOS)
+    repositories {
+        google() // Google Maven repository
+        mavenCentral() // Maven Central repository
+    }
+}
+
+// Root project configuration
+rootProject.name = "newsshots"
+
+// Project inclusion configuration
+include ':app' // Main application module
+include ':features-home' // Feature module for Home
+include ':capabilities' // Capabilities module
+include ':core' // Core module
+include ':feature-common'

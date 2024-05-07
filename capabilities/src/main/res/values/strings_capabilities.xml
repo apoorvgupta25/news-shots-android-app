@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="noInternetErrorCtaLabel">No Internet</string>
+    <string name="noInternetErrorMessage">No Internet</string>
+    <string name="noInternetErrorTitle">No Internet</string>
+    <string name="copiedToClipboardText">Copied!</string>
+
+</resources>
