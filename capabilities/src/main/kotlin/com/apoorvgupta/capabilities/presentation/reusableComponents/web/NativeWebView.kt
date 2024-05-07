@@ -28,6 +28,7 @@ import androidx.compose.material.icons.filled.ArrowBack
 import androidx.compose.material3.CircularProgressIndicator
 import androidx.compose.material3.Icon
 import androidx.compose.material3.IconButton
+import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.getValue
@@ -42,9 +43,7 @@ import androidx.compose.ui.input.pointer.pointerInput
 import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.dp
-import com.apoorvgupta.capabilities.presentation.theme.h6
 import com.apoorvgupta.capabilities.presentation.theme.m_surrounding_spacing
-import com.apoorvgupta.capabilities.presentation.theme.text_black
 import com.apoorvgupta.capabilities.presentation.theme.white
 import com.apoorvgupta.capabilities.presentation.theme.xl_surrounding_spacing
 import com.apoorvgupta.core.utils.EMPTY_STRING
@@ -203,7 +202,7 @@ private fun WebTopAppBar(
             text = text,
             maxLines = 2,
             textAlign = TextAlign.Center,
-            style = h6.copy(color = text_black, textAlign = TextAlign.Center),
+            style = MaterialTheme.typography.titleLarge,
         )
     }
 }
