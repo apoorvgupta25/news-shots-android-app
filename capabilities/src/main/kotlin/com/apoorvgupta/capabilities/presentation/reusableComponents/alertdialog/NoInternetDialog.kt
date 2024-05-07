@@ -30,7 +30,6 @@ import com.apoorvgupta.capabilities.presentation.theme.m_surrounding_spacing
 import com.apoorvgupta.capabilities.presentation.theme.m_vertical_spacing
 import com.apoorvgupta.capabilities.presentation.theme.s_vertical_spacing
 import com.apoorvgupta.capabilities.presentation.theme.whiteColor
-
 import com.apoorvgupta.capabilities.presentation.theme.xl_vertical_spacing
 import com.apoorvgupta.capabilities.presentation.theme.xs_vertical_spacing
 import com.apoorvgupta.newsshots.capabilities.R
