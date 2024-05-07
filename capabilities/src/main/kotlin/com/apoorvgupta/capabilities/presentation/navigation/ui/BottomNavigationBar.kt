@@ -106,7 +106,7 @@ fun BottomNavigationBar(
             filledIcon = Icons.Filled.Home,
         ),
 
-        )
+    )
 
     // Testing CI
     // Build the Bottom Navigation Bar using Jetpack Compose.
