@@ -19,6 +19,7 @@ import androidx.compose.material3.Badge
 import androidx.compose.material3.BadgedBox
 import androidx.compose.material3.ExperimentalMaterial3Api
 import androidx.compose.material3.Icon
+import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.NavigationBar
 import androidx.compose.material3.NavigationBarItem
 import androidx.compose.material3.NavigationBarItemDefaults
@@ -38,7 +39,6 @@ import androidx.navigation.NavController
 import androidx.navigation.compose.currentBackStackEntryAsState
 import com.apoorvgupta.capabilities.presentation.navigation.Destinations
 import com.apoorvgupta.capabilities.presentation.theme.StrokeWidthSmall
-import com.apoorvgupta.capabilities.presentation.theme.body3
 import com.apoorvgupta.capabilities.presentation.theme.couple_internal_spacing
 import com.apoorvgupta.capabilities.presentation.theme.md_theme_light_primary
 import com.apoorvgupta.capabilities.presentation.theme.monuple_internal_spacing
@@ -158,7 +158,7 @@ fun BottomNavigationBar(
                 label = {
                     Text(
                         text = item.title,
-                        style = body3,
+                        style = MaterialTheme.typography.bodySmall,
                     )
                 },
                 selected = currentRoute == item.navigationRoute,

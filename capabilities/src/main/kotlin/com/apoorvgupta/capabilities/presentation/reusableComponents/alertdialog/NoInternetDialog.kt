@@ -12,6 +12,7 @@ import androidx.compose.foundation.layout.wrapContentWidth
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.Close
+import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
@@ -20,18 +21,14 @@ import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.semantics.contentDescription
 import androidx.compose.ui.semantics.semantics
 import androidx.compose.ui.semantics.testTag
-import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.window.Dialog
 import androidx.compose.ui.window.DialogProperties
 import com.apoorvgupta.capabilities.presentation.ContentTag
 import com.apoorvgupta.capabilities.presentation.reusableComponents.button.AppButton
-import com.apoorvgupta.capabilities.presentation.theme.body1
-import com.apoorvgupta.capabilities.presentation.theme.h6
 import com.apoorvgupta.capabilities.presentation.theme.m_corner_radius
 import com.apoorvgupta.capabilities.presentation.theme.m_surrounding_spacing
 import com.apoorvgupta.capabilities.presentation.theme.m_vertical_spacing
 import com.apoorvgupta.capabilities.presentation.theme.s_vertical_spacing
-import com.apoorvgupta.capabilities.presentation.theme.text_black
 import com.apoorvgupta.capabilities.presentation.theme.white
 import com.apoorvgupta.capabilities.presentation.theme.xl_vertical_spacing
 import com.apoorvgupta.capabilities.presentation.theme.xs_vertical_spacing
@@ -77,7 +74,7 @@ fun NoInternetDialog(
                     Spacer(modifier = Modifier.height(s_vertical_spacing))
                     Text(
                         text = stringResource(id = R.string.noInternetErrorTitle),
-                        style = h6.copy(color = text_black, textAlign = TextAlign.Center),
+                        style = MaterialTheme.typography.titleLarge,
                         modifier = Modifier.semantics {
                             contentDescription = "${ContentTag.DESC_TAG_NO_INTERNET} Title"
                             testTag = "${ContentTag.DESC_TAG_NO_INTERNET} Title"
@@ -86,7 +83,7 @@ fun NoInternetDialog(
                     Spacer(modifier = Modifier.height(xs_vertical_spacing))
                     Text(
                         text = stringResource(id = R.string.noInternetErrorMessage),
-                        style = body1.copy(color = text_black, textAlign = TextAlign.Center),
+                        style = MaterialTheme.typography.bodyLarge,
                         modifier = Modifier.semantics {
                             contentDescription = "${ContentTag.DESC_TAG_NO_INTERNET} Title"
                             testTag = "${ContentTag.DESC_TAG_NO_INTERNET} Title"
