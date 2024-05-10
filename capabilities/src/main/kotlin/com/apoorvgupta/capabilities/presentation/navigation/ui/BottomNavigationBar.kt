@@ -40,7 +40,6 @@ import androidx.navigation.compose.currentBackStackEntryAsState
 import com.apoorvgupta.capabilities.presentation.navigation.Destinations
 import com.apoorvgupta.capabilities.presentation.theme.StrokeWidthSmall
 import com.apoorvgupta.capabilities.presentation.theme.couple_internal_spacing
-import com.apoorvgupta.capabilities.presentation.theme.md_theme_light_primary
 import com.apoorvgupta.capabilities.presentation.theme.monuple_internal_spacing
 import com.apoorvgupta.capabilities.presentation.theme.monuple_large_internal_spacing
 import com.apoorvgupta.capabilities.presentation.theme.triple_internal_spacingg
@@ -144,7 +143,7 @@ fun BottomNavigationBar(
                                 ),
                             badge = {
                                 Badge(
-                                    containerColor = if (currentRoute == item.navigationRoute) md_theme_light_primary else Color.Black,
+                                    containerColor = if (currentRoute == item.navigationRoute) MaterialTheme.colorScheme.primary else Color.Black,
                                     contentColor = Color.White,
                                     modifier = Modifier.border(width = StrokeWidthSmall, shape = CircleShape, color = Color.White),
                                 ) {
@@ -163,9 +162,9 @@ fun BottomNavigationBar(
                 },
                 selected = currentRoute == item.navigationRoute,
                 colors = NavigationBarItemDefaults.colors(
-                    selectedIconColor = md_theme_light_primary,
+                    selectedIconColor = MaterialTheme.colorScheme.primary,
                     unselectedIconColor = Color.Black,
-                    selectedTextColor = md_theme_light_primary,
+                    selectedTextColor = MaterialTheme.colorScheme.primary,
                     unselectedTextColor = Color.Black,
                     indicatorColor = Color.White,
                 ),

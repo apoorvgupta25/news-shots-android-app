@@ -10,6 +10,7 @@ import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.size
 import androidx.compose.material3.CircularProgressIndicator
+import androidx.compose.material3.MaterialTheme
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
@@ -17,7 +18,6 @@ import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.unit.Dp
 import com.apoorvgupta.capabilities.presentation.theme.SurroundingSpacingLarge
 import com.apoorvgupta.capabilities.presentation.theme.SurroundingSpacingSmall
-import com.apoorvgupta.capabilities.presentation.theme.md_theme_light_primary
 
 /**
  * Composable function representing a circular progress bar in Jetpack Compose.
@@ -32,7 +32,7 @@ import com.apoorvgupta.capabilities.presentation.theme.md_theme_light_primary
 @Composable
 fun CircularProgressBar(
     modifier: Modifier = Modifier,
-    progressColor: Color = md_theme_light_primary,
+    progressColor: Color = MaterialTheme.colorScheme.primary,
     size: Dp = SurroundingSpacingLarge,
     strokeWidth: Dp = SurroundingSpacingSmall,
 ) {

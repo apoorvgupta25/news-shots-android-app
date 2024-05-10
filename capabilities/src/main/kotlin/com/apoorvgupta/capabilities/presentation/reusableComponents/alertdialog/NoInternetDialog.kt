@@ -29,7 +29,7 @@ import com.apoorvgupta.capabilities.presentation.theme.m_corner_radius
 import com.apoorvgupta.capabilities.presentation.theme.m_surrounding_spacing
 import com.apoorvgupta.capabilities.presentation.theme.m_vertical_spacing
 import com.apoorvgupta.capabilities.presentation.theme.s_vertical_spacing
-import com.apoorvgupta.capabilities.presentation.theme.white
+import com.apoorvgupta.capabilities.presentation.theme.whiteColor
 import com.apoorvgupta.capabilities.presentation.theme.xl_vertical_spacing
 import com.apoorvgupta.capabilities.presentation.theme.xs_vertical_spacing
 import com.apoorvgupta.newsshots.capabilities.R
@@ -60,7 +60,7 @@ fun NoInternetDialog(
                         .wrapContentWidth()
                         .wrapContentHeight()
                         .background(
-                            color = white,
+                            color = MaterialTheme.colorScheme.whiteColor,
                             shape = RoundedCornerShape(size = m_corner_radius),
                         )
                         .padding(m_surrounding_spacing),

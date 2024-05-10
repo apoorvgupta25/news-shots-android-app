@@ -11,25 +11,7 @@ import androidx.compose.material3.lightColorScheme
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.graphics.Color
 
-// Color constants for light theme
-val md_theme_light_primary = Color(0xFF7D4DBE)
-val md_theme_light_onPrimary = Color(0xFFFFFFFF)
-val md_theme_light_secondary = Color(0xFF6F5B40)
-val md_theme_light_onSecondary = Color(0xFFFFFFFF)
-val md_theme_light_background = Color(0xFFFFFFFF)
-val md_theme_light_error = Color(0xFFBA1A1A)
-val md_theme_light_errorContainer = Color(0xFFFFDAD6)
-val md_theme_light_primaryButton = Color(0xFF7D4DBE)
-
-// Color constants for dark theme
-val md_theme_dark_primary = Color(0xFF7D4DBE)
-val md_theme_dark_onPrimary = Color(0xFF452B00)
-val md_theme_dark_secondary = Color(0xFFDDC2A1)
-val md_theme_dark_onSecondary = Color(0xFF3E2D16)
-val md_theme_dark_background = Color(0xFF1F1B16)
-val md_theme_dark_error = Color(0xFFFFB4AB)
-val md_theme_dark_errorContainer = Color(0xFF93000A)
-val md_theme_dark_primaryButton = Color(0xFF7D4DBE)
+/*
 
 val login_in_button_bg_color = Color(0xFFF2F2F2)
 
@@ -39,7 +21,6 @@ val white = Color(0xFFFFFFFF)
 val disabled_bg = Color(0xFFD9D9D9)
 
 // Text Colors
-val text_black = Color(0xFF000000)
 val text_disabled = Color(0xFF707070)
 val text_light_grey = Color(0xFF777676)
 
@@ -47,6 +28,39 @@ val text_light_grey = Color(0xFF777676)
 val welcome_card_background_light = Color(0xFFF0ECF5)
 val divider_color = Color(0xFFE0D1FF)
 val divider_color_2 = Color(0xFFEFEFEF)
+
+*/
+
+// Color constants for light theme
+private val md_theme_light_primary = Color(0xFFE3E2DF)
+private val md_theme_light_onPrimary = Color(0xFFFFFFFF)
+private val md_theme_light_secondary = Color(0xFF6F5B40)
+private val md_theme_light_onSecondary = Color(0xFFFFFFFF)
+private val md_theme_light_background = Color(0xFFFFFFFF)
+private val md_theme_light_error = Color(0xFFBA1A1A)
+private val md_theme_light_errorContainer = Color(0xFFFFDAD6)
+private val md_theme_light_primaryButton = Color(0xFFE3E2DF)
+
+// Color constants for dark theme
+private val md_theme_dark_primary = Color(0xFFE3E2DF)
+private val md_theme_dark_onPrimary = Color(0xFF452B00)
+private val md_theme_dark_secondary = Color(0xFFDDC2A1)
+private val md_theme_dark_onSecondary = Color(0xFF3E2D16)
+private val md_theme_dark_background = Color(0xFF1F1B16)
+private val md_theme_dark_error = Color(0xFFFFB4AB)
+private val md_theme_dark_errorContainer = Color(0xFF93000A)
+private val md_theme_dark_primaryButton = Color(0xFFE3E2DF)
+
+private val button_bg_color = Color(0xFFF2F2F2)
+
+// App Colors
+private val white = Color(0xFFFFFFFF)
+private val disabled_bg = Color(0xFFD9D9D9)
+
+// Text Colors
+private val text_black = Color(0xFF000000)
+private val text_disabled = Color(0xFF707070)
+private val text_light_grey = Color(0xFF777676)
 
 // Light color scheme
 val LightColors =
@@ -76,25 +90,13 @@ val DarkColors =
         surfaceTint = white,
     )
 
-val ColorScheme.primaryBackground: Color
+val ColorScheme.whiteColor: Color
     @Composable
-    get() = md_theme_light_background
+    get() = white
 
 val ColorScheme.primaryButtonColor: Color
     @Composable
     get() = md_theme_light_primaryButton
-
-val ColorScheme.welcomeCardBackground: Color
-    @Composable
-    get() = welcome_card_background_light
-
-val ColorScheme.dividerColor: Color
-    @Composable
-    get() = divider_color
-
-val ColorScheme.dividerColorGrey: Color
-    @Composable
-    get() = divider_color_2
 
 val ColorScheme.primaryTextColor: Color
     @Composable
@@ -103,3 +105,19 @@ val ColorScheme.primaryTextColor: Color
 val ColorScheme.lightGreyTextColor: Color
     @Composable
     get() = text_light_grey
+
+val ColorScheme.blackTextColor: Color
+    @Composable
+    get() = text_black
+
+val ColorScheme.disabledTextColor: Color
+    @Composable
+    get() = text_disabled
+
+val ColorScheme.disabledBackgroundColor: Color
+    @Composable
+    get() = disabled_bg
+
+val ColorScheme.buttonBackgroundColor: Color
+    @Composable
+    get() = button_bg_color

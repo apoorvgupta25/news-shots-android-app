@@ -8,7 +8,7 @@ import androidx.compose.ui.text.font.FontWeight
 import androidx.navigation.NavController
 import com.apoorvgupta.capabilities.presentation.navigation.Destinations
 import com.apoorvgupta.capabilities.presentation.reusableComponents.loader.CircularProgressBarComponent
-import com.apoorvgupta.capabilities.presentation.theme.login_in_button_bg_color
+import com.apoorvgupta.capabilities.presentation.theme.buttonBackgroundColor
 import com.apoorvgupta.splash.intents.SplashIntent
 import com.apoorvgupta.splash.intents.SplashNavEffect
 import com.apoorvgupta.splash.intents.SplashViewStates
@@ -75,13 +75,13 @@ fun SplashScreenDestination(
             Text(
                 text = splashViewState.apiErrorContentModel.title,
                 style = MaterialTheme.typography.headlineMedium,
-                color = login_in_button_bg_color,
+                color = MaterialTheme.colorScheme.buttonBackgroundColor,
                 fontWeight = FontWeight.Bold,
             )
             Text(
                 text = splashViewState.apiErrorContentModel.subTitle,
                 style = MaterialTheme.typography.bodyLarge,
-                color = login_in_button_bg_color,
+                color = MaterialTheme.colorScheme.buttonBackgroundColor,
                 fontWeight = FontWeight.Bold,
             )
         }
