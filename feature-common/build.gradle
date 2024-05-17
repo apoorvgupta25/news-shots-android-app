@@ -64,7 +64,6 @@ dependencies {
     implementation Deps.compose_ui
     implementation Deps.ui_tooling_preview
     implementation Deps.material3
-    implementation Deps.navigation_runtime_ktx
     implementation Deps.activity_compose
 
 

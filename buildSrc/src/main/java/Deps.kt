@@ -14,7 +14,7 @@ object Deps {
 
     // Core dependencies
     const val kore_ktx = "androidx.core:core-ktx:${Versions.core_ktx}"
-    const val navigation_common_ktx = "androidx.navigation:navigation-common-ktx:${Versions.navigation_common_ktx}"
+    const val navigation_compose = "androidx.navigation:navigation-compose:${Versions.navigation_compose}"
     const val navigation_runtime_ktx = "androidx.navigation:navigation-runtime-ktx:${Versions.navigation_runtime_ktx}"
     const val lifecycle_runtime = "androidx.lifecycle:lifecycle-runtime-ktx:${Versions.lifecycle_runtime}"
     const val activity_compose = "androidx.activity:activity-compose:${Versions.activity_compose}"
@@ -52,7 +52,6 @@ object Deps {
     // Other dependencies
     const val test_compose_bom = "androidx.compose:compose-bom:${Versions.test_compose_bom}"
     const val appcompat = "androidx.appcompat:appcompat:${Versions.appcompat}"
-    const val material = "com.google.android.material:material:${Versions.material}"
     const val viewmodel_lifecycle = "androidx.lifecycle:lifecycle-viewmodel-ktx:${Versions.viewmodel_ktx}"
 
     // Timber
@@ -66,15 +65,7 @@ object Deps {
 
     // Image Loading library
     const val glide_compose = "com.github.bumptech.glide:compose:${Versions.glide_compose}"
-
-    // Firebase
-    const val google_services = "com.google.gms:google-services:${Versions.google_services}"
-    const val firebase_crashlytics_gradle = "com.google.firebase:firebase-crashlytics-gradle:${Versions.firebase_crashlytics_gradle}"
-    const val firebase_performance_plugin = "com.google.firebase:perf-plugin:${Versions.firebase_performance_plugin}"
-    const val firebase_crashlytics = "com.google.firebase:firebase-crashlytics:${Versions.firebase_crashlytics}"
-    const val firebase_analytics = "com.google.firebase:firebase-analytics:${Versions.firebase_analytics}"
-    const val firebase_performance = "com.google.firebase:firebase-perf:${Versions.firebase_performance}"
-    const val firebase_remote_config = "com.google.firebase:firebase-config:${Versions.firebase_remote_config}"
+    const val coil_compose = "io.coil-kt:coil-compose:${Versions.coil}"
 
     // Accompanist Web-View
     const val accompanist_web_view = "com.google.accompanist:accompanist-webview:${Versions.accompanist_web_view}"
