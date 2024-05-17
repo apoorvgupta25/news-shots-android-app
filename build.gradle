@@ -1,9 +1,6 @@
 buildscript {
     dependencies {
         classpath Deps.gradle
-//        classpath Deps.google_services
-//        classpath Deps.firebase_crashlytics_gradle
-//        classpath Deps.firebase_performance_plugin
     }
 } /**
  * Copyright (c) 2024 Apoorv Gupta

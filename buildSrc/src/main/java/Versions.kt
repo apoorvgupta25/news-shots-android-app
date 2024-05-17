@@ -40,7 +40,6 @@ object Versions {
     // UI dependencies
     const val appcompat = "1.6.1"
     const val material = "1.1.0"
-    const val compose_ui = "1.3.0"
 
     // Navigation dependencies
     const val navigation_runtime_ktx = "1.8.0"
@@ -63,18 +62,8 @@ object Versions {
     const val security_crypto = "1.1.0-alpha06"
 
     // Coil Image loading library
-    const val coil = "1.3.2"
+    const val coil = "2.6.0"
     const val glide_compose = "1.0.0-beta01"
-
-
-    // Firebase
-    const val google_services = "4.4.0"
-    const val firebase_crashlytics_gradle = "2.9.9"
-    const val firebase_performance_plugin = "1.4.2"
-    const val firebase_crashlytics = "18.6.0"
-    const val firebase_analytics = "21.5.0"
-    const val firebase_performance = "20.5.1"
-    const val firebase_remote_config = "21.6.0"
 
     const val gson = "2.10"
 

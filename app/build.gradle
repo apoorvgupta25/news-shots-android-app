@@ -161,7 +161,7 @@ dependencies {
     implementation Deps.gson
 
     // Image loading
-    implementation Deps.glide_compose
+    implementation Deps.coil_compose
 
 }
 

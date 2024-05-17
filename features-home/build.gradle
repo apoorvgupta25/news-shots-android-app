@@ -81,7 +81,7 @@ dependencies {
     androidTestImplementation Deps.test_ext_junit
 
     // Image Loading library
-    implementation Deps.glide_compose
+    implementation Deps.coil_compose
 
     implementation Deps.viewmodel_lifecycle
 

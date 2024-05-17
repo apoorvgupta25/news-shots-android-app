@@ -1,7 +1,5 @@
 package com.apoorvgupta.home.di
 
-import android.content.Context
-import com.apoorvgupta.capabilities.imageCaching.DiskCacheRepository
 import com.apoorvgupta.capabilities.util.Constants
 import com.apoorvgupta.home.data.network.HomeApiService
 import com.apoorvgupta.home.data.remote.HomeDataRepository
@@ -49,11 +47,5 @@ interface HomeModule {
         fun provideSearchApiService(
             @Named(Constants.NETWORK_NAMED_ARGUMENTS) retrofit: Retrofit,
         ): HomeApiService = retrofit.create(HomeApiService::class.java)
-
-        @Singleton
-        @Provides
-        fun provideDiskCacheRepository(context: Context): DiskCacheRepository {
-            return DiskCacheRepository(context)
-        }
     }
 }
