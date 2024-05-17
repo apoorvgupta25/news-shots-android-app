@@ -15,7 +15,7 @@ object Versions {
     // Core dependencies
     const val core_ktx = "1.8.0"
     const val lifecycle_runtime = "2.3.1"
-    const val activity_compose = "1.5.1"
+    const val activity_compose = "1.6.1"
 
     // Compose dependencies
     const val compose_bom = "2022.10.00"
