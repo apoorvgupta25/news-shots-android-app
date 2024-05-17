@@ -62,10 +62,9 @@ dependencies {
     implementation Deps.ui_tooling
     implementation Deps.ui_tooling_preview
     implementation Deps.material3
-    implementation Deps.navigation_runtime_ktx
-    implementation Deps.navigation_common_ktx
+    implementation Deps.navigation_compose
 
-    // Glide dependency
+    // Image Loader dependency
     implementation Deps.coil_compose
 
     // Testing dependencies
@@ -89,13 +88,11 @@ dependencies {
     // Accompanist Web-View
     implementation Deps.accompanist_web_view
 
-    // Firebase
-
     // AndroidX Browser
     implementation Deps.androidX_browser
 
     // Google play core dependency
-    implementation Deps.google_play_core
+//    implementation Deps.google_play_core
 
 
 }

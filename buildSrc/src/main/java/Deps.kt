@@ -14,7 +14,7 @@ object Deps {
 
     // Core dependencies
     const val kore_ktx = "androidx.core:core-ktx:${Versions.core_ktx}"
-    const val navigation_common_ktx = "androidx.navigation:navigation-common-ktx:${Versions.navigation_common_ktx}"
+    const val navigation_compose = "androidx.navigation:navigation-compose:${Versions.navigation_compose}"
     const val navigation_runtime_ktx = "androidx.navigation:navigation-runtime-ktx:${Versions.navigation_runtime_ktx}"
     const val lifecycle_runtime = "androidx.lifecycle:lifecycle-runtime-ktx:${Versions.lifecycle_runtime}"
     const val activity_compose = "androidx.activity:activity-compose:${Versions.activity_compose}"
