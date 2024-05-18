@@ -44,6 +44,7 @@ object Versions {
     // Navigation dependencies
     const val navigation_runtime_ktx = "1.8.0"
     const val navigation_compose = "2.8.0-alpha08" // "2.7.5"
+    const val kotlin_serialization = "1.6.3"
 
     // Hilt DI dependencies
     const val hilt = "2.49"
