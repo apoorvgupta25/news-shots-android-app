@@ -49,6 +49,7 @@ import com.apoorvgupta.capabilities.presentation.theme.StrokeWidthSmall
 import com.apoorvgupta.capabilities.presentation.theme.couple_internal_spacing
 import com.apoorvgupta.capabilities.presentation.theme.monuple_internal_spacing
 import com.apoorvgupta.capabilities.presentation.theme.monuple_large_internal_spacing
+import com.apoorvgupta.capabilities.presentation.theme.shadowBackgroundColor
 import com.apoorvgupta.capabilities.presentation.theme.triple_internal_spacingg
 import com.apoorvgupta.core.logger.AppLogger
 import com.apoorvgupta.core.utils.EMPTY_STRING
@@ -127,7 +128,7 @@ fun BottomNavigationBar(
             }
             .shadow(
                 elevation = monuple_internal_spacing,
-                spotColor = Color(0x26000000),
+                spotColor = MaterialTheme.colorScheme.shadowBackgroundColor,
             ),
     ) {
         items.forEach { item ->

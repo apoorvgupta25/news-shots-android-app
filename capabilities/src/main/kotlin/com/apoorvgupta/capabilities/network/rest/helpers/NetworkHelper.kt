@@ -8,6 +8,7 @@ package com.apoorvgupta.capabilities.network.rest.helpers
 import android.content.Context
 import com.apoorvgupta.capabilities.network.rest.data.ErrorCode
 import com.apoorvgupta.capabilities.network.rest.data.GenericErrorModel
+import com.apoorvgupta.core.utils.emptyValue
 import kotlinx.coroutines.flow.catch
 import kotlinx.coroutines.flow.flow
 
@@ -37,7 +38,7 @@ suspend fun <T> makeSafeApiCall(context: Context, api: suspend () -> Resource<T?
             Resource.error(
                 error = GenericErrorModel(
                     errorCode = ErrorCode.NETWORK_NOT_AVAILABLE,
-                    message = "",
+                    message = String.emptyValue(),
                 ),
             ),
         )
