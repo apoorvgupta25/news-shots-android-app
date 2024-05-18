@@ -5,6 +5,8 @@
 
 package com.apoorvgupta.capabilities.presentation.navigation
 
+import kotlinx.serialization.Serializable
+
 /**
  * Sealed class representing different destinations in the app.
  *
@@ -38,33 +40,12 @@ sealed class Destinations(val route: String) {
             }
         }
     }
-
-/*    private fun appendArguments(routeBuilder: StringBuilder, args: Array<out NavArgument>) {
-        var isFirstOptional = true
-        args.forEach { arg ->
-            if (arg.optional) {
-                if (arg.key == null) {
-                    Log.e("Destinations", "Exception: Key cannot be null for optional argument")
-                } else {
-                    routeBuilder.append(if (isFirstOptional) "?" else "&").append(arg.key).append("=").append(arg.argument)
-                    isFirstOptional = false
-                }
-            } else {
-                routeBuilder.append("/").append(arg.argument)
-            }
-        }
-    }
-
-    fun withArguments(vararg args: NavArgument): String {
-        val routeBuilder = StringBuilder(route)
-        appendArguments(routeBuilder, args)
-        return routeBuilder.toString()
-    }
-
-    fun String.toNavArgument(optional: Boolean = false, key: String? = null): NavArgument {
-        if (optional && key == null) {
-            throw IllegalArgumentException("Key cannot be null for optional argument")
-        }
-        return NavArgument(this, optional, key)
-    }*/
 }
+
+// Splash Destination
+@Serializable
+object Splash
+
+// Home Destination
+@Serializable
+object Home

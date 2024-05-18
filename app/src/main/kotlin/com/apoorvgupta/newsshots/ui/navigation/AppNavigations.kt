@@ -12,7 +12,8 @@ import androidx.navigation.NavGraphBuilder
 import androidx.navigation.NavHostController
 import androidx.navigation.compose.composable
 import com.apoorvgupta.capabilities.presentation.navigation.BaseComponentState
-import com.apoorvgupta.capabilities.presentation.navigation.Destinations
+import com.apoorvgupta.capabilities.presentation.navigation.Home
+import com.apoorvgupta.capabilities.presentation.navigation.Splash
 import com.apoorvgupta.home.navigation.HomeScreenDestination
 import com.apoorvgupta.home.viewmodels.HomeViewModel
 import com.apoorvgupta.splash.navigation.SplashScreenDestination
@@ -27,9 +28,7 @@ fun NavGraphBuilder.splashNavigationGraph(
     navController: NavHostController,
     baseComponentState: BaseComponentState,
 ) {
-    composable(
-        route = Destinations.SplashDestination.route,
-    ) {
+    composable<Splash> {
         // Hide bottom bar and floating action button for the splash screen
         hideBottomBar(baseComponentState)
         hideFloatingActionButton(baseComponentState)
@@ -56,7 +55,7 @@ fun NavGraphBuilder.homeNavigationGraph(
     navController: NavHostController,
     baseComponentState: BaseComponentState,
 ) {
-    composable(Destinations.HomeDestination.route) { _ ->
+    composable<Home> {
         // Show bottom bar and hide floating action button for the home screen
         showBottomBar(baseComponentState)
         hideFloatingActionButton(baseComponentState)

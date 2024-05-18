@@ -60,15 +60,14 @@ class MainActivity : ComponentActivity(), ActivityProvider {
         setContent {
             SetStatusBarColor(Color.White)
             // need to update start destination if authenticated navController.graph.setStartDestination(startDestinationRoute.value)
-            val startDestination = remember {
+            /*val startDestination = remember {
                 mutableStateOf(Destinations.SplashDestination.route)
-            }
+            }*/
 
             AppTheme {
                 // MainDestination is a composable that represents the main content
                 // of the app. It is included within the Row composable.
                 MainDestination(
-                    startDestination = startDestination,
                     viewModel = mainViewModel,
                 )
             }

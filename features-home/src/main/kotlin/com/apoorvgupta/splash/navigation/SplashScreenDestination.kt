@@ -7,6 +7,7 @@ import androidx.compose.runtime.LaunchedEffect
 import androidx.compose.ui.text.font.FontWeight
 import androidx.navigation.NavController
 import com.apoorvgupta.capabilities.presentation.navigation.Destinations
+import com.apoorvgupta.capabilities.presentation.navigation.Home
 import com.apoorvgupta.capabilities.presentation.reusableComponents.loader.CircularProgressBarComponent
 import com.apoorvgupta.capabilities.presentation.theme.buttonBackgroundColor
 import com.apoorvgupta.splash.intents.SplashIntent
@@ -36,7 +37,7 @@ fun SplashScreenDestination(
         when (navEvent) {
             SplashNavEffect.OpenHomeScreen -> {
                 navController.popBackStack()
-                navController.navigate(Destinations.HomeDestination.route)
+                navController.navigate(Home)
             }
         }
     }

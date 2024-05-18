@@ -33,7 +33,6 @@ fun MainScreenContent(
     coroutineScope: CoroutineScope,
     baseComponentState: BaseComponentState,
     viewModel: MainViewModel,
-    startDestination: MutableState<String>,
     viewState: MainViewStates.LoadedData,
     mainIntent: (MainIntent) -> Unit,
 ) {
@@ -72,7 +71,6 @@ fun MainScreenContent(
         // Include the NavigationHost composable within the Box
         NavigationHost(
             navController = navController,
-            startDestination = startDestination,
             baseComponentState = baseComponentState,
             coroutineScope = coroutineScope,
             drawerState = drawerState,

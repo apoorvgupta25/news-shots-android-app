@@ -4,10 +4,12 @@
  */
 
 plugins {
-    // Apply necessary plugins for Android library development, Kotlin, Dagger Hilt
     id 'com.android.library'
+    // Kotlin Android plugin
     id 'org.jetbrains.kotlin.android'
+    // Kotlin Annotation Processing Tool plugin
     id 'kotlin-kapt'
+    // Dagger Hilt Android plugin
     id 'com.google.dagger.hilt.android'
 }
 
@@ -69,8 +71,10 @@ dependencies {
     implementation Deps.compose_ui
     implementation Deps.ui_tooling_preview
     implementation Deps.material3
-    implementation Deps.navigation_runtime_ktx
     implementation Deps.activity_compose
+
+    // Navigation
+    implementation Deps.navigation_compose
 
     // Dagger Hilt for dependency injection
     implementation Deps.hilt_android
