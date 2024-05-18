@@ -127,7 +127,7 @@ fun BottomNavigationBar(
             }
             .shadow(
                 elevation = monuple_internal_spacing,
-                spotColor = Color(0x26000000)
+                spotColor = Color(0x26000000),
             ),
     ) {
         items.forEach { item ->

@@ -10,7 +10,6 @@ import androidx.compose.ui.Modifier
 
 @Composable
 fun CommonScreen(title: String) {
-
     Column(
         modifier = Modifier.fillMaxSize(),
         verticalArrangement = Arrangement.Center,

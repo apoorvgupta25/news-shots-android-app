@@ -5,13 +5,7 @@
 
 package com.apoorvgupta.home.view.home
 
-import androidx.compose.foundation.layout.Arrangement
-import androidx.compose.foundation.layout.Column
-import androidx.compose.foundation.layout.fillMaxSize
-import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
-import androidx.compose.ui.Alignment
-import androidx.compose.ui.Modifier
 import com.apoorvgupta.home.intent.HomeIntent
 import com.apoorvgupta.home.intent.HomeViewStates
 
@@ -25,5 +19,5 @@ fun HomeScreen(
     state: HomeViewStates.LoadedData,
     userIntent: (HomeIntent) -> Unit,
 ) {
-   CommonScreen(title = "Home")
+    CommonScreen(title = "Home")
 }
