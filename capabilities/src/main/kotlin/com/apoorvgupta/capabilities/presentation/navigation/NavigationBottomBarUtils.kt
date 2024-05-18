@@ -1,6 +1,5 @@
 package com.apoorvgupta.capabilities.presentation.navigation
 
-
 import androidx.compose.runtime.Composable
 import androidx.navigation.NavController
 import androidx.navigation.compose.currentBackStackEntryAsState

@@ -1,7 +1,6 @@
 package com.apoorvgupta.newsshots.ui.main.ui
 
 import android.annotation.SuppressLint
-import androidx.compose.material3.DrawerState
 import androidx.compose.material3.Scaffold
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.mutableStateOf
@@ -22,7 +21,6 @@ import com.apoorvgupta.newsshots.ui.main.intents.MainIntent
 import com.apoorvgupta.newsshots.ui.main.intents.MainViewStates
 import com.apoorvgupta.newsshots.ui.main.viewmodels.MainViewModel
 import com.apoorvgupta.newsshots.ui.navigation.NavigationHost
-import kotlinx.coroutines.CoroutineScope
 
 @SuppressLint("UnusedMaterial3ScaffoldPaddingParameter")
 @Composable

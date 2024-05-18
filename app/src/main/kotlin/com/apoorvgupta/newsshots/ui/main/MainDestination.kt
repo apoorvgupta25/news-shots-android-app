@@ -5,15 +5,10 @@
 package com.apoorvgupta.newsshots.ui.main
 
 import android.annotation.SuppressLint
-import androidx.compose.material3.DrawerValue
-import androidx.compose.material3.rememberDrawerState
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.LaunchedEffect
 import androidx.compose.runtime.collectAsState
 import androidx.compose.runtime.getValue
-import androidx.compose.runtime.mutableStateOf
-import androidx.compose.runtime.remember
-import androidx.compose.runtime.rememberCoroutineScope
 import androidx.navigation.compose.rememberNavController
 import com.apoorvgupta.newsshots.ui.main.intents.MainIntent
 import com.apoorvgupta.newsshots.ui.main.intents.MainNavEffect
