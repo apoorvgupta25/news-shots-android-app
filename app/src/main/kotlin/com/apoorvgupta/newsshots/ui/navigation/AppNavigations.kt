@@ -11,14 +11,15 @@ import androidx.hilt.navigation.compose.hiltViewModel
 import androidx.navigation.NavGraphBuilder
 import androidx.navigation.NavHostController
 import androidx.navigation.compose.composable
+import com.apoorvgupta.bookmark.BookmarkScreen
 import com.apoorvgupta.capabilities.presentation.navigation.BaseComponentState
 import com.apoorvgupta.capabilities.presentation.navigation.Bookmark
 import com.apoorvgupta.capabilities.presentation.navigation.Home
 import com.apoorvgupta.capabilities.presentation.navigation.Search
 import com.apoorvgupta.capabilities.presentation.navigation.Splash
 import com.apoorvgupta.home.navigation.HomeScreenDestination
-import com.apoorvgupta.home.view.home.CommonScreen
 import com.apoorvgupta.home.viewmodels.HomeViewModel
+import com.apoorvgupta.search.SearchScreen
 import com.apoorvgupta.splash.navigation.SplashScreenDestination
 import com.apoorvgupta.splash.viewmodel.SplashViewModel
 
@@ -78,13 +79,13 @@ fun NavGraphBuilder.homeNavigationGraph(
     composable<Search> {
         showBottomBar(baseComponentState)
         hideFloatingActionButton(baseComponentState)
-        CommonScreen(title = "Search")
+        SearchScreen()
     }
 
     composable<Bookmark> {
         showBottomBar(baseComponentState)
         hideFloatingActionButton(baseComponentState)
-        CommonScreen(title = "Bookmark")
+        BookmarkScreen()
     }
 }
 
