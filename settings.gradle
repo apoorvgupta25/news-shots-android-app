@@ -26,7 +26,8 @@ rootProject.name = "newsshots"
 
 // Project inclusion configuration
 include ':app' // Main application module
-include ':features-home' // Feature module for Home
+include ':feature-home' // Feature module for Home
+include ':feature-search' // Feature module for Search
+include ':feature-bookmark' // Feature module for Bookmark
 include ':capabilities' // Capabilities module
 include ':core' // Core module
-include ':feature-common'

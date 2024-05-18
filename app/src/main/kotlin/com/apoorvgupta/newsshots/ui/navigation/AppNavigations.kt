@@ -11,14 +11,14 @@ import androidx.hilt.navigation.compose.hiltViewModel
 import androidx.navigation.NavGraphBuilder
 import androidx.navigation.NavHostController
 import androidx.navigation.compose.composable
-import com.apoorvgupta.capabilities.presentation.navigation.BaseComponentState
+import com.apoorvgupta.bookmark.BookmarkScreen
 import com.apoorvgupta.capabilities.presentation.navigation.Bookmark
 import com.apoorvgupta.capabilities.presentation.navigation.Home
 import com.apoorvgupta.capabilities.presentation.navigation.Search
 import com.apoorvgupta.capabilities.presentation.navigation.Splash
 import com.apoorvgupta.home.navigation.HomeScreenDestination
-import com.apoorvgupta.home.view.home.CommonScreen
 import com.apoorvgupta.home.viewmodels.HomeViewModel
+import com.apoorvgupta.search.SearchScreen
 import com.apoorvgupta.splash.navigation.SplashScreenDestination
 import com.apoorvgupta.splash.viewmodel.SplashViewModel
 
@@ -29,13 +29,8 @@ import com.apoorvgupta.splash.viewmodel.SplashViewModel
  */
 fun NavGraphBuilder.splashNavigationGraph(
     navController: NavHostController,
-    baseComponentState: BaseComponentState,
 ) {
     composable<Splash> {
-        // Hide bottom bar and floating action button for the splash screen
-        hideBottomBar(baseComponentState)
-        hideFloatingActionButton(baseComponentState)
-
         val viewModel: SplashViewModel = hiltViewModel()
         val viewState by viewModel.viewState.collectAsState()
         val effect = viewModel.effect
@@ -56,13 +51,8 @@ fun NavGraphBuilder.splashNavigationGraph(
  */
 fun NavGraphBuilder.homeNavigationGraph(
     navController: NavHostController,
-    baseComponentState: BaseComponentState,
 ) {
     composable<Home> {
-        // Show bottom bar and hide floating action button for the home screen
-        showBottomBar(baseComponentState)
-        hideFloatingActionButton(baseComponentState)
-
         val viewModel: HomeViewModel = hiltViewModel()
         val viewState by viewModel.viewState.collectAsState()
         val effect = viewModel.effect
@@ -74,44 +64,20 @@ fun NavGraphBuilder.homeNavigationGraph(
             navController = navController,
         )
     }
+}
 
+fun NavGraphBuilder.searchNavigationGraph(
+    navController: NavHostController,
+) {
     composable<Search> {
-        showBottomBar(baseComponentState)
-        hideFloatingActionButton(baseComponentState)
-        CommonScreen(title = "Search")
+        SearchScreen()
     }
+}
 
+fun NavGraphBuilder.bookmarkNavigationGraph(
+    navController: NavHostController,
+) {
     composable<Bookmark> {
-        showBottomBar(baseComponentState)
-        hideFloatingActionButton(baseComponentState)
-        CommonScreen(title = "Bookmark")
+        BookmarkScreen()
     }
-}
-
-/**
- * Utility function to hide the bottom navigation bar.
- */
-fun hideBottomBar(baseComponentState: BaseComponentState) {
-    baseComponentState.displayBottomNavigationBar.value = false
-}
-
-/**
- * Utility function to show the bottom navigation bar.
- */
-fun showBottomBar(baseComponentState: BaseComponentState) {
-    baseComponentState.displayBottomNavigationBar.value = true
-}
-
-/**
- * Utility function to hide the floating action button.
- */
-fun hideFloatingActionButton(baseComponentState: BaseComponentState) {
-    baseComponentState.displayFloatingActionButton.value = false
-}
-
-/**
- * Utility function to show the floating action button.
- */
-fun showFloatingActionButton(baseComponentState: BaseComponentState) {
-    baseComponentState.displayFloatingActionButton.value = true
 }

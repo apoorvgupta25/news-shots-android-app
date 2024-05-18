@@ -7,15 +7,12 @@ package com.apoorvgupta.newsshots.ui.navigation
 import androidx.compose.animation.EnterTransition
 import androidx.compose.animation.ExitTransition
 import androidx.compose.foundation.layout.padding
-import androidx.compose.material3.DrawerState
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.unit.Dp
 import androidx.navigation.NavHostController
 import androidx.navigation.compose.NavHost
-import com.apoorvgupta.capabilities.presentation.navigation.BaseComponentState
 import com.apoorvgupta.capabilities.presentation.navigation.Splash
-import kotlinx.coroutines.CoroutineScope
 
 /**
  * NavigationHost composable function.
@@ -24,16 +21,12 @@ import kotlinx.coroutines.CoroutineScope
  * It is responsible for defining the navigation graph using Jetpack Compose Navigation.
  *
  * @param navController The NavHostController responsible for navigating between destinations.
- * @param baseComponentState The base component state that affects the app component's visibility behavior.
  *
  * @author Apoorv Gupta
  */
 @Composable
 fun NavigationHost(
     navController: NavHostController,
-    baseComponentState: BaseComponentState,
-    drawerState: DrawerState,
-    coroutineScope: CoroutineScope,
     paddingTop: Dp,
 ) {
     // NavHost is used to define the navigation graph with various destination composable functions.
@@ -47,12 +40,18 @@ fun NavigationHost(
         // Define the navigation graph using destination composable functions for each screen.
         splashNavigationGraph(
             navController = navController,
-            baseComponentState = baseComponentState,
         )
 
         homeNavigationGraph(
             navController = navController,
-            baseComponentState = baseComponentState,
+        )
+
+        searchNavigationGraph(
+            navController = navController,
+        )
+
+        bookmarkNavigationGraph(
+            navController = navController,
         )
     }
 }
