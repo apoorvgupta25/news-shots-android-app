@@ -11,26 +11,6 @@ import androidx.compose.material3.lightColorScheme
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.graphics.Color
 
-/*
-
-val login_in_button_bg_color = Color(0xFFF2F2F2)
-
-// App Colors
-val primary = Color(0xFF7D4DBE)
-val white = Color(0xFFFFFFFF)
-val disabled_bg = Color(0xFFD9D9D9)
-
-// Text Colors
-val text_disabled = Color(0xFF707070)
-val text_light_grey = Color(0xFF777676)
-
-// Home
-val welcome_card_background_light = Color(0xFFF0ECF5)
-val divider_color = Color(0xFFE0D1FF)
-val divider_color_2 = Color(0xFFEFEFEF)
-
-*/
-
 // Color constants for light theme
 private val md_theme_light_primary = Color(0xFFE3E2DF)
 private val md_theme_light_onPrimary = Color(0xFFFFFFFF)
@@ -51,11 +31,11 @@ private val md_theme_dark_error = Color(0xFFFFB4AB)
 private val md_theme_dark_errorContainer = Color(0xFF93000A)
 private val md_theme_dark_primaryButton = Color(0xFFE3E2DF)
 
-private val button_bg_color = Color(0xFFF2F2F2)
-
 // App Colors
 private val white = Color(0xFFFFFFFF)
 private val disabled_bg = Color(0xFFD9D9D9)
+private val shadow_bg = Color(0x26000000)
+private val button_bg_color = Color(0xFFF2F2F2)
 
 // Text Colors
 private val text_black = Color(0xFF000000)
@@ -121,3 +101,7 @@ val ColorScheme.disabledBackgroundColor: Color
 val ColorScheme.buttonBackgroundColor: Color
     @Composable
     get() = button_bg_color
+
+val ColorScheme.shadowBackgroundColor: Color
+    @Composable
+    get() = shadow_bg
