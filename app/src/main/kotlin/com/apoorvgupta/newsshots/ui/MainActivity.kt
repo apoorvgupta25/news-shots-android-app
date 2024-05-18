@@ -10,14 +10,11 @@ import android.os.Bundle
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
 import androidx.activity.viewModels
-import androidx.compose.runtime.mutableStateOf
-import androidx.compose.runtime.remember
 import androidx.compose.ui.graphics.Color
 import androidx.core.splashscreen.SplashScreen.Companion.installSplashScreen
 import androidx.lifecycle.lifecycleScope
 import com.apoorvgupta.capabilities.network.rest.helpers.ConnectivityChannel
 import com.apoorvgupta.capabilities.network.rest.helpers.getNetworkType
-import com.apoorvgupta.capabilities.presentation.navigation.Destinations
 import com.apoorvgupta.capabilities.presentation.reusableComponents.SetStatusBarColor
 import com.apoorvgupta.capabilities.presentation.theme.AppTheme
 import com.apoorvgupta.core.interactions.activityProvider.ActivityProvider
@@ -60,15 +57,14 @@ class MainActivity : ComponentActivity(), ActivityProvider {
         setContent {
             SetStatusBarColor(Color.White)
             // need to update start destination if authenticated navController.graph.setStartDestination(startDestinationRoute.value)
-            val startDestination = remember {
+            /*val startDestination = remember {
                 mutableStateOf(Destinations.SplashDestination.route)
-            }
+            }*/
 
             AppTheme {
                 // MainDestination is a composable that represents the main content
                 // of the app. It is included within the Row composable.
                 MainDestination(
-                    startDestination = startDestination,
                     viewModel = mainViewModel,
                 )
             }

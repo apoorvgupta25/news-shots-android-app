@@ -4,7 +4,6 @@ import android.annotation.SuppressLint
 import androidx.compose.material3.DrawerState
 import androidx.compose.material3.Scaffold
 import androidx.compose.runtime.Composable
-import androidx.compose.runtime.MutableState
 import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
 import androidx.compose.ui.Modifier
@@ -33,7 +32,6 @@ fun MainScreenContent(
     coroutineScope: CoroutineScope,
     baseComponentState: BaseComponentState,
     viewModel: MainViewModel,
-    startDestination: MutableState<String>,
     viewState: MainViewStates.LoadedData,
     mainIntent: (MainIntent) -> Unit,
 ) {
@@ -72,7 +70,6 @@ fun MainScreenContent(
         // Include the NavigationHost composable within the Box
         NavigationHost(
             navController = navController,
-            startDestination = startDestination,
             baseComponentState = baseComponentState,
             coroutineScope = coroutineScope,
             drawerState = drawerState,

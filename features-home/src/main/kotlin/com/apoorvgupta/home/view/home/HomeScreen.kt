@@ -5,10 +5,7 @@
 
 package com.apoorvgupta.home.view.home
 
-import androidx.compose.foundation.layout.Box
-import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.runtime.Composable
-import androidx.compose.ui.Modifier
 import com.apoorvgupta.home.intent.HomeIntent
 import com.apoorvgupta.home.intent.HomeViewStates
 
@@ -22,6 +19,5 @@ fun HomeScreen(
     state: HomeViewStates.LoadedData,
     userIntent: (HomeIntent) -> Unit,
 ) {
-    Box(modifier = Modifier.fillMaxSize()) {
-    }
+    CommonScreen(title = "Home")
 }

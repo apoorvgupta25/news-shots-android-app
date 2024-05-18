@@ -9,7 +9,6 @@ import androidx.compose.material3.DrawerValue
 import androidx.compose.material3.rememberDrawerState
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.LaunchedEffect
-import androidx.compose.runtime.MutableState
 import androidx.compose.runtime.collectAsState
 import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableStateOf
@@ -35,7 +34,6 @@ import com.apoorvgupta.newsshots.ui.main.viewmodels.MainViewModel
 @SuppressLint("UnusedMaterial3ScaffoldPaddingParameter")
 @Composable
 fun MainDestination(
-    startDestination: MutableState<String>,
     viewModel: MainViewModel,
 ) {
     val viewState by viewModel.viewState.collectAsState()
@@ -105,7 +103,6 @@ fun MainDestination(
                 drawerState = drawerState,
                 coroutineScope = coroutineScope,
                 baseComponentState = baseComponentState,
-                startDestination = startDestination,
                 viewState = viewState.appViewState as MainViewStates.LoadedData,
                 mainIntent = onUserAction(),
                 viewModel = viewModel,

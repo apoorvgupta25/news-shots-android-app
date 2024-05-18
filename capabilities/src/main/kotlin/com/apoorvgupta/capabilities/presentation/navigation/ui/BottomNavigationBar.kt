@@ -13,8 +13,13 @@ import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.shape.CircleShape
 import androidx.compose.material.icons.Icons
+import androidx.compose.material.icons.filled.Favorite
 import androidx.compose.material.icons.filled.Home
+import androidx.compose.material.icons.filled.Search
+import androidx.compose.material.icons.outlined.Favorite
+import androidx.compose.material.icons.outlined.FavoriteBorder
 import androidx.compose.material.icons.outlined.Home
+import androidx.compose.material.icons.outlined.Search
 import androidx.compose.material3.Badge
 import androidx.compose.material3.BadgedBox
 import androidx.compose.material3.ExperimentalMaterial3Api
@@ -37,7 +42,9 @@ import androidx.compose.ui.unit.Dp
 import androidx.compose.ui.unit.IntOffset
 import androidx.navigation.NavController
 import androidx.navigation.compose.currentBackStackEntryAsState
-import com.apoorvgupta.capabilities.presentation.navigation.Destinations
+import com.apoorvgupta.capabilities.presentation.navigation.Bookmark
+import com.apoorvgupta.capabilities.presentation.navigation.Home
+import com.apoorvgupta.capabilities.presentation.navigation.Search
 import com.apoorvgupta.capabilities.presentation.theme.StrokeWidthSmall
 import com.apoorvgupta.capabilities.presentation.theme.couple_internal_spacing
 import com.apoorvgupta.capabilities.presentation.theme.monuple_internal_spacing
@@ -64,7 +71,7 @@ fun BottomNavigationBar(
     bottomBarOffsetHeightPx: MutableState<Float>,
 ) {
     // State variables to track the selected item and current route.
-    var currentRoute by remember { mutableStateOf(Destinations.HomeDestination.route) }
+    var currentRoute by remember { mutableStateOf(Home.javaClass.name) }
 
     val route = navController.currentBackStackEntryAsState().value?.destination?.route
     AppLogger.d { "CURRENT_STACK: $route $currentRoute" }
@@ -76,7 +83,7 @@ fun BottomNavigationBar(
     val items = listOf(
         BottomNavItem(
             displayBadge = false,
-            navigationRoute = Destinations.HOME_ROUTE,
+            navigationRoute = Home,
             position = 0,
             title = "Home",
             visible = true,
@@ -86,28 +93,26 @@ fun BottomNavigationBar(
         ),
         BottomNavItem(
             displayBadge = false,
-            navigationRoute = Destinations.HOME_ROUTE,
+            navigationRoute = Search,
             position = 1,
-            title = "Home",
+            title = "Search",
             visible = true,
             badgeCount = 0,
-            icon = Icons.Outlined.Home,
-            filledIcon = Icons.Filled.Home,
+            icon = Icons.Outlined.Search,
+            filledIcon = Icons.Filled.Search,
         ),
         BottomNavItem(
             displayBadge = false,
-            navigationRoute = Destinations.HOME_ROUTE,
+            navigationRoute = Bookmark,
             position = 2,
-            title = "Home",
+            title = "Bookmark",
             visible = true,
             badgeCount = 0,
-            icon = Icons.Outlined.Home,
-            filledIcon = Icons.Filled.Home,
+            icon = Icons.Outlined.FavoriteBorder,
+            filledIcon = Icons.Filled.Favorite,
         ),
-
     )
 
-    // Testing CI
     // Build the Bottom Navigation Bar using Jetpack Compose.
     NavigationBar(
         containerColor = Color.White,
@@ -120,15 +125,19 @@ fun BottomNavigationBar(
                     y = -bottomBarOffsetHeightPx.value.roundToInt(),
                 )
             }
-            .shadow(elevation = monuple_internal_spacing, spotColor = Color(0x26000000)),
+            .shadow(
+                elevation = monuple_internal_spacing,
+                spotColor = Color(0x26000000),
+            ),
     ) {
         items.forEach { item ->
+            val isCurrentRouteSelected = currentRoute == item.navigationRoute.javaClass.name
 
             NavigationBarItem(
                 alwaysShowLabel = true,
                 icon = {
                     Icon(
-                        imageVector = if (currentRoute == item.navigationRoute) item.filledIcon else item.icon,
+                        imageVector = if (isCurrentRouteSelected) item.filledIcon else item.icon,
                         contentDescription = EMPTY_STRING,
                         modifier = Modifier.size(triple_internal_spacingg),
                     )
@@ -143,9 +152,13 @@ fun BottomNavigationBar(
                                 ),
                             badge = {
                                 Badge(
-                                    containerColor = if (currentRoute == item.navigationRoute) MaterialTheme.colorScheme.primary else Color.Black,
+                                    containerColor = if (isCurrentRouteSelected) MaterialTheme.colorScheme.primary else Color.Black,
                                     contentColor = Color.White,
-                                    modifier = Modifier.border(width = StrokeWidthSmall, shape = CircleShape, color = Color.White),
+                                    modifier = Modifier.border(
+                                        width = StrokeWidthSmall,
+                                        shape = CircleShape,
+                                        color = Color.White,
+                                    ),
                                 ) {
                                     Text(text = item.badgeCount.toString())
                                 }
@@ -160,15 +173,16 @@ fun BottomNavigationBar(
                         style = MaterialTheme.typography.bodySmall,
                     )
                 },
-                selected = currentRoute == item.navigationRoute,
+                selected = isCurrentRouteSelected,
                 colors = NavigationBarItemDefaults.colors(
-                    selectedIconColor = MaterialTheme.colorScheme.primary,
-                    unselectedIconColor = Color.Black,
-                    selectedTextColor = MaterialTheme.colorScheme.primary,
-                    unselectedTextColor = Color.Black,
+                    selectedIconColor = Color.Black,
+                    unselectedIconColor = MaterialTheme.colorScheme.primary,
+                    selectedTextColor = Color.Black,
+                    unselectedTextColor = MaterialTheme.colorScheme.primary,
                     indicatorColor = Color.White,
                 ),
                 onClick = {
+                    navController.navigate(item.navigationRoute)
                 },
             )
         }

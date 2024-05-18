@@ -1,5 +1,3 @@
-import groovy.json.JsonSlurper
-
 import java.util.regex.Matcher
 import java.util.regex.Pattern
 
@@ -16,10 +14,6 @@ plugins {
     id 'kotlin-kapt'
     // Dagger Hilt Android plugin
     id 'com.google.dagger.hilt.android'
-    // Firebase
-//    id 'com.google.gms.google-services'
-//    id 'com.google.firebase.crashlytics'
-//    id 'com.google.firebase.firebase-perf'
 }
 
 // For the Release build, setup Keystore properties here.
@@ -147,6 +141,9 @@ dependencies {
 
     // Material design dependency
     implementation Deps.material3
+
+    // Navigation
+    implementation Deps.navigation_compose
 
     // Dagger Hilt
     implementation Deps.hilt_android
