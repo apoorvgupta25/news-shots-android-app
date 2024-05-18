@@ -13,7 +13,7 @@ import androidx.compose.ui.input.nestedscroll.NestedScrollSource
 import androidx.compose.ui.input.nestedscroll.nestedScroll
 import androidx.compose.ui.platform.LocalDensity
 import androidx.navigation.NavHostController
-import com.apoorvgupta.capabilities.presentation.navigation.BaseComponentState
+import com.apoorvgupta.capabilities.presentation.navigation.showNavigationBottomBar
 import com.apoorvgupta.capabilities.presentation.navigation.ui.BottomNavigationBar
 import com.apoorvgupta.capabilities.presentation.reusableComponents.alertdialog.NoInternetDialog
 import com.apoorvgupta.capabilities.presentation.reusableComponents.loader.RoundedCircularProgressBarComponent
@@ -28,9 +28,6 @@ import kotlinx.coroutines.CoroutineScope
 @Composable
 fun MainScreenContent(
     navController: NavHostController,
-    drawerState: DrawerState,
-    coroutineScope: CoroutineScope,
-    baseComponentState: BaseComponentState,
     viewModel: MainViewModel,
     viewState: MainViewStates.LoadedData,
     mainIntent: (MainIntent) -> Unit,
@@ -57,8 +54,8 @@ fun MainScreenContent(
         topBar = {
         },
         bottomBar = {
-            // Display the BottomAppBar with BottomNavigationBar if specified by the state
-            if (baseComponentState.displayBottomNavigationBar.value) {
+            // Display the BottomAppBar with BottomNavigationBar if specified for route
+            if (showNavigationBottomBar(navController = navController)) {
                 BottomNavigationBar(
                     navController = navController,
                     bottomBarHeight = bottomBarHeight,
@@ -70,9 +67,6 @@ fun MainScreenContent(
         // Include the NavigationHost composable within the Box
         NavigationHost(
             navController = navController,
-            baseComponentState = baseComponentState,
-            coroutineScope = coroutineScope,
-            drawerState = drawerState,
             paddingTop = it.calculateTopPadding(),
         )
     }
