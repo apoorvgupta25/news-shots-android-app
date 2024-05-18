@@ -4,6 +4,8 @@
  */
 package com.apoorvgupta.newsshots.ui.navigation
 
+import androidx.compose.animation.EnterTransition
+import androidx.compose.animation.ExitTransition
 import androidx.compose.foundation.layout.padding
 import androidx.compose.material3.DrawerState
 import androidx.compose.runtime.Composable
@@ -39,8 +41,8 @@ fun NavigationHost(
         navController = navController,
         startDestination = Splash,
         modifier = Modifier.padding(top = paddingTop),
-//        enterTransition = { EnterTransition.None },
-//        exitTransition = { ExitTransition.None },
+        enterTransition = { EnterTransition.None },
+        exitTransition = { ExitTransition.None },
     ) {
         // Define the navigation graph using destination composable functions for each screen.
         splashNavigationGraph(

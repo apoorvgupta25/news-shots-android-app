@@ -70,6 +70,7 @@ dependencies {
     implementation Deps.material3
 
     // Navigation
+    implementation Deps.navigation_compose
     implementation Deps.kotlin_serialization
 
     // Image Loader dependency

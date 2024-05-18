@@ -4,7 +4,7 @@ import androidx.compose.ui.graphics.vector.ImageVector
 
 data class BottomNavItem(
     val displayBadge: Boolean,
-    val navigationRoute: String,
+    val navigationRoute: Any,
     val position: Int,
     val title: String,
     val visible: Boolean,
