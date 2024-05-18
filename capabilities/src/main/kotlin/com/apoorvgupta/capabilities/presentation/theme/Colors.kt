@@ -32,7 +32,6 @@ private val md_theme_dark_errorContainer = Color(0xFF93000A)
 private val md_theme_dark_primaryButton = Color(0xFFE3E2DF)
 
 // App Colors
-private val white = Color(0xFFFFFFFF)
 private val disabled_bg = Color(0xFFD9D9D9)
 private val shadow_bg = Color(0x26000000)
 private val button_bg_color = Color(0xFFF2F2F2)
@@ -40,10 +39,9 @@ private val button_bg_color = Color(0xFFF2F2F2)
 // Text Colors
 private val text_black = Color(0xFF000000)
 private val text_disabled = Color(0xFF707070)
-private val text_light_grey = Color(0xFF777676)
 
 // Light color scheme
-val LightColors =
+val LightColorScheme =
     lightColorScheme(
         primary = md_theme_light_primary,
         onPrimary = md_theme_light_onPrimary,
@@ -52,39 +50,31 @@ val LightColors =
         background = md_theme_light_background,
         error = md_theme_light_error,
         errorContainer = md_theme_light_errorContainer,
-        surface = white,
-        surfaceTint = white,
+        surface = Color.White,
+        surfaceTint = Color.White,
     )
 
 // Dark color scheme
-val DarkColors =
+val DarkColorScheme =
     darkColorScheme(
-        primary = md_theme_light_primary,
-        onPrimary = md_theme_light_onPrimary,
-        secondary = md_theme_light_secondary,
-        onSecondary = md_theme_light_onSecondary,
-        background = md_theme_light_background,
-        error = md_theme_light_error,
-        errorContainer = md_theme_light_errorContainer,
-        surface = white,
-        surfaceTint = white,
+        primary = md_theme_dark_primary,
+        onPrimary = md_theme_dark_onPrimary,
+        secondary = md_theme_dark_secondary,
+        onSecondary = md_theme_dark_onSecondary,
+        background = md_theme_dark_background,
+        error = md_theme_dark_error,
+        errorContainer = md_theme_dark_errorContainer,
+        surface = Color.Black,
+        surfaceTint = Color.Black,
     )
 
 val ColorScheme.whiteColor: Color
     @Composable
-    get() = white
+    get() = Color.White
 
 val ColorScheme.primaryButtonColor: Color
     @Composable
     get() = md_theme_light_primaryButton
-
-val ColorScheme.primaryTextColor: Color
-    @Composable
-    get() = md_theme_light_primaryButton
-
-val ColorScheme.lightGreyTextColor: Color
-    @Composable
-    get() = text_light_grey
 
 val ColorScheme.blackTextColor: Color
     @Composable
