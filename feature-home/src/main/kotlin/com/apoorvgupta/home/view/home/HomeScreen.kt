@@ -30,7 +30,7 @@ fun HomeScreen(
     LaunchedEffect(key1 = true) {
         // Need to remove this temp
         userIntent.invoke(
-            HomeIntent.LoadHomeScreen
+            HomeIntent.LoadHomeScreen,
         )
         // Need to update
         AppLogger.d { "state: ${state.isRefreshing}" }

@@ -45,7 +45,6 @@ class MainViewModel @Inject constructor(
      * @param mainScreenDataModel The data model containing login screen details.
      */
     private fun renderMainScreen(mainScreenDataModel: MainScreenDataModel) {
-
         emitViewState {
             copy(
                 appViewState = MainViewStates.LoadedData(

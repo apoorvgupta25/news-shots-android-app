@@ -40,9 +40,8 @@ fun MainScreenContent(
         // Need to update
         AppLogger.d { "viewState: ${viewState.data}" }
         mainIntent.invoke(
-            MainIntent.FetchNavigationScreenData
+            MainIntent.FetchNavigationScreenData,
         )
-
     }
 
     val nestedScrollConnection = remember {
