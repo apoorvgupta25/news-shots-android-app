@@ -1,6 +1,7 @@
 package com.apoorvgupta.capabilities.presentation.reusableComponents.web
 
 import android.annotation.SuppressLint
+import android.content.Context
 import android.content.Intent
 import android.webkit.WebResourceRequest
 import android.webkit.WebView
@@ -106,34 +107,10 @@ fun NativeWebView(
                     override fun shouldOverrideUrlLoading(
                         view: WebView?,
                         request: WebResourceRequest?,
-                    ): Boolean {
-                        val url = request?.url ?: return false
-                        if (url.toString().startsWith("mailto")
-                                .or(url.toString().startsWith("sms"))
-                                .or(url.toString().startsWith("whatsapp"))
-                                .or(url.toString().startsWith("fb-messenger"))
-                        ) {
-                            url.let {
-                                val intent = Intent(Intent.ACTION_VIEW, request.url)
-                                // Check if there is an app that can handle the intent
-                                if (intent.resolveActivity(context.packageManager) != null) {
-                                    context.startActivity(intent)
-                                    return true
-                                } else {
-                                    // Show alert
-                                    if (url.toString().startsWith("whatsapp").not()) {
-                                        Toast.makeText(
-                                            context,
-                                            "App not found. Please install to share, or use an alternate share method.",
-                                            Toast.LENGTH_LONG,
-                                        ).show()
-                                    }
-                                    return true
-                                }
-                            }
-                        }
-                        return false
-                    }
+                    ): Boolean = getShouldOverrideUrl(
+                        context = context,
+                        request = request,
+                    )
                 },
                 onCreated = { webView ->
                     webView.settings.javaScriptEnabled = true
@@ -232,4 +209,36 @@ fun BackButton(
             modifier = Modifier.size(m_surrounding_spacing),
         )
     }
+}
+
+private fun getShouldOverrideUrl(
+    context: Context,
+    request: WebResourceRequest?,
+): Boolean {
+    val url = request?.url ?: return false
+    if (url.toString().startsWith("mailto")
+            .or(url.toString().startsWith("sms"))
+            .or(url.toString().startsWith("whatsapp"))
+            .or(url.toString().startsWith("fb-messenger"))
+    ) {
+        url.let {
+            val intent = Intent(Intent.ACTION_VIEW, request.url)
+            // Check if there is an app that can handle the intent
+            return if (intent.resolveActivity(context.packageManager) != null) {
+                context.startActivity(intent)
+                true
+            } else {
+                // Show alert
+                if (url.toString().startsWith("whatsapp").not()) {
+                    Toast.makeText(
+                        context,
+                        "App not found. Please install to share, or use an alternate share method.",
+                        Toast.LENGTH_LONG,
+                    ).show()
+                }
+                true
+            }
+        }
+    }
+    return false
 }

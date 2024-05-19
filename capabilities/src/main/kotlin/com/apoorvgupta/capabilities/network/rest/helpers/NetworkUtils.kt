@@ -14,14 +14,30 @@ import okhttp3.ResponseBody
 import org.json.JSONObject
 
 /**
- * This class checks if the network is available or not and returns true/false.
+ * Get connection type
  *
- * @author Apoorv Gupta
+ * @param context
+ * @return connection type. 0: none; 1: mobile data; 2: wifi; 3: vpn
  */
-fun Context.isNetworkAvailable(): Boolean {
-    val connectivityManager = getSystemService(CONNECTIVITY_SERVICE) as ConnectivityManager?
-    val activeNetworkInfo = connectivityManager!!.activeNetworkInfo
-    return activeNetworkInfo != null && activeNetworkInfo.isConnected
+fun getConnectionType(context: Context): Int {
+    var result = 0
+    val connectivityManager = context.getSystemService(CONNECTIVITY_SERVICE) as ConnectivityManager?
+    connectivityManager?.run {
+        connectivityManager.getNetworkCapabilities(connectivityManager.activeNetwork)?.run {
+            when {
+                hasTransport(NetworkCapabilities.TRANSPORT_CELLULAR) -> {
+                    result = 1
+                }
+                hasTransport(NetworkCapabilities.TRANSPORT_WIFI) -> {
+                    result = 2
+                }
+                hasTransport(NetworkCapabilities.TRANSPORT_VPN) -> {
+                    result = 3
+                }
+            }
+        }
+    }
+    return result
 }
 
 fun fetchErrorGenericErrorBody(
@@ -66,10 +82,6 @@ fun fetchMainGenericErrorBody(
     }
 }
 
-fun setGenericErrorMessage(bffErrorCode: String, message: String?): String {
-    return "Unexpected error occurred"
-}
-
 fun getNetworkType(context: Context): String {
     val connectivityManager = context.getSystemService(CONNECTIVITY_SERVICE) as ConnectivityManager
     val network = connectivityManager.activeNetwork
@@ -79,14 +91,19 @@ fun getNetworkType(context: Context): String {
             return "WiFi"
         } else if (capabilities.hasTransport(NetworkCapabilities.TRANSPORT_CELLULAR)) {
             val upstreamBandwidth = capabilities.linkUpstreamBandwidthKbps
-            return if (upstreamBandwidth < 500) {
-                "2G"
-            } else if (upstreamBandwidth < 2000) {
-                "3G"
-            } else if (upstreamBandwidth < 20000) {
-                "4G"
-            } else {
-                "5G"
+            return when {
+                upstreamBandwidth < 500 -> {
+                    "2G"
+                }
+                upstreamBandwidth < 2000 -> {
+                    "3G"
+                }
+                upstreamBandwidth < 20000 -> {
+                    "4G"
+                }
+                else -> {
+                    "5G"
+                }
             }
         }
     }

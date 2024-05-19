@@ -46,12 +46,8 @@ fun NavigationHost(
             navController = navController,
         )
 
-        searchNavigationGraph(
-            navController = navController,
-        )
+        searchNavigationGraph()
 
-        bookmarkNavigationGraph(
-            navController = navController,
-        )
+        bookmarkNavigationGraph()
     }
 }

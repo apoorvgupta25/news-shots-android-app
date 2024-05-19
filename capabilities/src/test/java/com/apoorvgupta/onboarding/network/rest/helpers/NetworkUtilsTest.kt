@@ -8,7 +8,7 @@ package com.apoorvgupta.onboarding.network.rest.helpers
 import android.content.Context
 import android.net.ConnectivityManager
 import android.net.NetworkInfo
-import com.apoorvgupta.capabilities.network.rest.helpers.isNetworkAvailable
+import com.apoorvgupta.capabilities.network.rest.helpers.getConnectionType
 import io.mockk.every
 import io.mockk.mockk
 import io.mockk.mockkStatic
@@ -51,7 +51,7 @@ class NetworkUtilsTest {
         every { networkInfo.isConnected } returns true
 
         // When
-        val result = context.isNetworkAvailable()
+        val result = getConnectionType(context) != 0
 
         // Then
         assertTrue(result)
@@ -66,7 +66,7 @@ class NetworkUtilsTest {
         every { networkInfo.isConnected } returns false
 
         // When
-        val result = context.isNetworkAvailable()
+        val result = getConnectionType(context) != 0
 
         // Then
         assertFalse(result)
@@ -81,7 +81,7 @@ class NetworkUtilsTest {
         every { connectivityManager.activeNetworkInfo } returns null
 
         // When
-        val result = context.isNetworkAvailable()
+        val result = getConnectionType(context) != 0
 
         // Then
         assertFalse(result)
@@ -98,7 +98,7 @@ class NetworkUtilsTest {
         every { networkInfo.isConnected } returns false
 
         // When
-        val result = context.isNetworkAvailable()
+        val result = getConnectionType(context) != 0
 
         // Then
         assertFalse(result)
@@ -113,7 +113,7 @@ class NetworkUtilsTest {
         every { networkInfo.isConnected } returns false
 
         // When
-        val result = context.isNetworkAvailable()
+        val result = getConnectionType(context) != 0
 
         // Then
         assertFalse(result)

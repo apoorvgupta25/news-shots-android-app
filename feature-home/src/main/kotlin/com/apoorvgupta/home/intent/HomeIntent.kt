@@ -32,7 +32,7 @@ sealed class HomeUIIntent {
  * @author Apoorv Gupta
  */
 sealed class HomeNavEffect : NavEffect {
-    data class OpenSettingsPage(val userId: String) : HomeNavEffect()
+    data class OpenSearchPage(val userId: String) : HomeNavEffect()
 }
 
 /**

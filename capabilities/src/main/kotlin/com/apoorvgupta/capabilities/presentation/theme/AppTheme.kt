@@ -5,7 +5,6 @@
 
 package com.apoorvgupta.capabilities.presentation.theme
 
-import androidx.compose.foundation.isSystemInDarkTheme
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.runtime.Composable
 
@@ -19,11 +18,11 @@ import androidx.compose.runtime.Composable
  */
 @Composable
 fun AppTheme(
-    darkTheme: Boolean = isSystemInDarkTheme(),
     content: @Composable () -> Unit,
 ) {
     // Determine the color scheme based on the selected theme (dark or light)
-    val colors = LightColorScheme // if (!darkTheme) LightColorScheme else DarkColorScheme
+    val colors = LightColorScheme
+    // if (!darkTheme) LightColorScheme else DarkColorScheme darkTheme: Boolean = isSystemInDarkTheme(),
 
     // Apply MaterialTheme with specified color scheme, typography, and shapes
     MaterialTheme(

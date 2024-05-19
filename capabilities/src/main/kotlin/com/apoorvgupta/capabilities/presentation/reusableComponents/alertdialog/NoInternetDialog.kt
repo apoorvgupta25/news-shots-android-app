@@ -96,7 +96,6 @@ fun NoInternetDialog(
                             onCtaAction.invoke()
                         },
                         modifier = Modifier.fillMaxWidth(),
-                        contentTag = ContentTag.DESC_TAG_NO_INTERNET,
                     )
                 }
             },

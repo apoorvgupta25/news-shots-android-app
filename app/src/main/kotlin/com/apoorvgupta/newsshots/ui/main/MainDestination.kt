@@ -42,16 +42,7 @@ fun MainDestination(
     fun handleNavigation(navEvent: MainNavEffect) {
         when (navEvent) {
             is MainNavEffect.BottomBarItemNavigation -> {
-                // TODO: Optimization required after Sprint 2
-            }
-
-            is MainNavEffect.DrawerItemNavigation -> {
-                // TODO: Optimization required after Sprint 2
-            }
-
-            is MainNavEffect.ToolbarItemNavigation -> {
-                // TODO: Optimization required after Sprint 2
-                // navController.navigate(Destinations.NotificationDestination.route)
+                // Need to update
             }
         }
     }
@@ -85,9 +76,6 @@ fun MainDestination(
                 mainIntent = onUserAction(),
                 viewModel = viewModel,
             )
-        }
-
-        is MainViewStates.Offline -> {
         }
     }
 }

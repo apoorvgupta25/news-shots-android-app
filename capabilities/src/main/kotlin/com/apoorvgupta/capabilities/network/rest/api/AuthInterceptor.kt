@@ -57,13 +57,6 @@ class AuthInterceptor @Inject constructor() : Interceptor {
     @Throws(IOException::class)
     override fun intercept(chain: Interceptor.Chain): Response {
         val request = chain.request().newBuilder()
-        /*accessTokenStorageContract.getAccessToken()?.let {
-            // Add the Authorization Header to the request
-            request.addHeader(
-                HTTP_HEADER_REQUEST_AUTHORIZATION_KEY,
-                "$AUTHORIZATION_BEARER_PREFIX $it",
-            )
-        }*/
         // Proceed with the modified request
         return chain.proceed(request.build())
     }

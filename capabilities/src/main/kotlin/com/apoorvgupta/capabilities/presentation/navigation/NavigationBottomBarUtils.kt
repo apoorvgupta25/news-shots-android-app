@@ -44,8 +44,5 @@ private val displayNavigationBottomBarDestinations =
  */
 val navigationBottomBarDestinationRoutes =
     displayNavigationBottomBarDestinations.map {
-        when (it.javaClass.name) {
-            // add complete route if it contains arguments
-            else -> it.javaClass.name
-        }
+        it.javaClass.name
     }

@@ -8,6 +8,7 @@ import androidx.compose.runtime.Composable
 import androidx.compose.runtime.LaunchedEffect
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
+import com.apoorvgupta.core.logger.AppLogger
 import com.apoorvgupta.splash.intents.SplashIntent
 import com.apoorvgupta.splash.intents.SplashViewStates
 
@@ -26,20 +27,10 @@ fun SplashScreen(
             .background(MaterialTheme.colorScheme.primary),
         contentAlignment = Alignment.Center,
     ) {
-//        Image(painter =
-//        painterResource(id = R.drawable.vintage_bg)
-//            , contentDescription = ""
-//            , modifier = Modifier.fillMaxSize().
-//            background(primary)
-//        )
-        /*Image(
-            modifier = Modifier
-                .scale(0.48f),
-            painter = painterResource(id = R),
-            contentDescription = "Splash Logo",
-        )*/
     }
     LaunchedEffect(Unit) {
         userIntent.invoke(SplashIntent.ValidateSessionData)
+        // Need to update
+        AppLogger.d { "State: ${state.isRefreshing}" }
     }
 }
