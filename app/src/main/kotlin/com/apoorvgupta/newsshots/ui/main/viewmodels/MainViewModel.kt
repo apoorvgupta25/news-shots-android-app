@@ -27,12 +27,13 @@ class MainViewModel @Inject constructor(
     }
 
     override fun handleIntent(intent: MainIntent) {
+        // Need to update
         when (intent) {
             MainIntent.InitiateClearSession -> {
+                // Do Nothing
             }
 
             MainIntent.FetchNavigationScreenData -> {
-                // TODO: Fetch Screen data from RC and update the default content of the main screen. After Sprint 2.
                 renderMainScreen(MainScreenDataModel.defaultValue)
             }
         }
@@ -44,8 +45,6 @@ class MainViewModel @Inject constructor(
      * @param mainScreenDataModel The data model containing login screen details.
      */
     private fun renderMainScreen(mainScreenDataModel: MainScreenDataModel) {
-        mainScreenDataModel.versionName = buildConfigContract.getAppVersion()
-
         emitViewState {
             copy(
                 appViewState = MainViewStates.LoadedData(

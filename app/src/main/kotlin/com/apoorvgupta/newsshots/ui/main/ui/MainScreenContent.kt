@@ -3,6 +3,7 @@ package com.apoorvgupta.newsshots.ui.main.ui
 import android.annotation.SuppressLint
 import androidx.compose.material3.Scaffold
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.LaunchedEffect
 import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
 import androidx.compose.ui.Modifier
@@ -17,6 +18,7 @@ import com.apoorvgupta.capabilities.presentation.navigation.ui.BottomNavigationB
 import com.apoorvgupta.capabilities.presentation.reusableComponents.alertdialog.NoInternetDialog
 import com.apoorvgupta.capabilities.presentation.reusableComponents.loader.RoundedCircularProgressBarComponent
 import com.apoorvgupta.capabilities.presentation.theme.bottom_bar_height
+import com.apoorvgupta.core.logger.AppLogger
 import com.apoorvgupta.newsshots.ui.main.intents.MainIntent
 import com.apoorvgupta.newsshots.ui.main.intents.MainViewStates
 import com.apoorvgupta.newsshots.ui.main.viewmodels.MainViewModel
@@ -33,6 +35,14 @@ fun MainScreenContent(
     val bottomBarHeight = bottom_bar_height
     val bottomBarHeightPx = with(LocalDensity.current) { bottomBarHeight.roundToPx().toFloat() }
     val bottomBarOffsetHeightPx = remember { mutableStateOf(0f) }
+
+    LaunchedEffect(key1 = true) {
+        // Need to update
+        AppLogger.d { "viewState: ${viewState.data}" }
+        mainIntent.invoke(
+            MainIntent.FetchNavigationScreenData,
+        )
+    }
 
     val nestedScrollConnection = remember {
         object : NestedScrollConnection {

@@ -1,14 +1,13 @@
 package com.apoorvgupta.home.navigation
 
-import android.annotation.SuppressLint
 import androidx.activity.compose.BackHandler
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.LaunchedEffect
-import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.text.font.FontWeight
 import androidx.navigation.NavController
+import com.apoorvgupta.capabilities.presentation.navigation.Search
 import com.apoorvgupta.capabilities.presentation.reusableComponents.loader.CircularProgressBarComponent
 import com.apoorvgupta.capabilities.presentation.theme.buttonBackgroundColor
 import com.apoorvgupta.core.interactions.session.FinishActivityChannel
@@ -29,8 +28,6 @@ fun HomeScreenDestination(
     navEffect: Flow<HomeNavEffect>,
     navController: NavController,
 ) {
-    val context = LocalContext.current
-
     BackHandler {
         FinishActivityChannel.publish(
             true,
@@ -41,11 +38,11 @@ fun HomeScreenDestination(
      *
      * @param navEvent The navigation event to handle.
      */
-    @SuppressLint("RestrictedApi")
     fun handleNavigation(navEvent: HomeNavEffect) {
         when (navEvent) {
-            is HomeNavEffect.OpenSettingsPage -> {
-                // navController
+            // Need to update
+            is HomeNavEffect.OpenSearchPage -> {
+                navController.navigate(Search)
             }
         }
     }
@@ -102,7 +99,6 @@ fun HomeScreenDestination(
 
         is HomeViewStates.InitialLoading -> {
             CircularProgressBarComponent(homeViewState.showLoader)
-//            HomeScreenShimmer(homeViewState.data.homeMetaData)
         }
 
         is HomeViewStates.Offline -> {

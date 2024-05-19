@@ -30,7 +30,6 @@ import javax.inject.Named
 import javax.inject.Singleton
 
 // Constants
-// TODO Revert timeout to 30 L
 private const val READ_TIMEOUT = 40L
 private const val CONNECT_TIMEOUT = 40L
 
@@ -52,7 +51,7 @@ object NetworkModule {
     @Named(NETWORK_NAMED_ARGUMENTS)
     fun provideCache(
         @ApplicationContext context: Context,
-    ) = Cache(File(context.cacheDir, "somos_cache_file"), ((10 * 1024 * 1024)).toLong())
+    ) = Cache(File(context.cacheDir, "somos_cache_file"), (10 * 1024 * 1024).toLong())
 
     /**
      * Provides the [OkHttpClient] for creating a Retrofit instance.

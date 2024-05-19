@@ -47,9 +47,9 @@ class HomeViewModel @Inject constructor() : BaseViewModel<HomeIntent, HomeViewSt
                 }
             }
 
-            DataStatus.Error -> {}
-
-            else -> {}
+            else -> {
+                // Do Nothing
+            }
         }
     }
 

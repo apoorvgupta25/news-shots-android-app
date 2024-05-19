@@ -23,9 +23,9 @@ import kotlinx.coroutines.flow.flow
  *
  * @author Apoorv Gupta
  */
-suspend fun <T> makeSafeApiCall(context: Context, api: suspend () -> Resource<T?>) = flow {
+fun <T> makeSafeApiCall(context: Context, api: suspend () -> Resource<T?>) = flow {
     emit(Resource.loading())
-    if (context.isNetworkAvailable()) {
+    if (getConnectionType(context) != 0) {
         val response = api.invoke()
         if (response.status == Resource.Status.ERROR) {
             emit(Resource.error(error = response.error))

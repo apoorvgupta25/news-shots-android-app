@@ -14,7 +14,6 @@ import com.apoorvgupta.core.models.OfflineErrorModel
 sealed class SplashIntent : UserIntent {
     data object ValidateSessionData : SplashIntent()
     data object NavigateToHomeScreen : SplashIntent()
-    data object NavigateToLoginScreen : SplashIntent()
 }
 
 /**

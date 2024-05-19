@@ -6,7 +6,6 @@ package com.apoorvgupta.newsshots.ui.navigation
 
 import androidx.compose.runtime.collectAsState
 import androidx.compose.runtime.getValue
-import androidx.compose.ui.platform.LocalContext
 import androidx.hilt.navigation.compose.hiltViewModel
 import androidx.navigation.NavGraphBuilder
 import androidx.navigation.NavHostController
@@ -34,7 +33,6 @@ fun NavGraphBuilder.splashNavigationGraph(
         val viewModel: SplashViewModel = hiltViewModel()
         val viewState by viewModel.viewState.collectAsState()
         val effect = viewModel.effect
-        val context = LocalContext.current
 
         // Display the SplashScreen composable
         SplashScreenDestination(
@@ -66,17 +64,13 @@ fun NavGraphBuilder.homeNavigationGraph(
     }
 }
 
-fun NavGraphBuilder.searchNavigationGraph(
-    navController: NavHostController,
-) {
+fun NavGraphBuilder.searchNavigationGraph() {
     composable<Search> {
         SearchScreen()
     }
 }
 
-fun NavGraphBuilder.bookmarkNavigationGraph(
-    navController: NavHostController,
-) {
+fun NavGraphBuilder.bookmarkNavigationGraph() {
     composable<Bookmark> {
         BookmarkScreen()
     }

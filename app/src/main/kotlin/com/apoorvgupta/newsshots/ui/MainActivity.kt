@@ -4,7 +4,6 @@
  */
 package com.apoorvgupta.newsshots.ui
 
-import android.app.Activity
 import android.os.Build
 import android.os.Bundle
 import androidx.activity.ComponentActivity
@@ -17,7 +16,6 @@ import com.apoorvgupta.capabilities.network.rest.helpers.ConnectivityChannel
 import com.apoorvgupta.capabilities.network.rest.helpers.getNetworkType
 import com.apoorvgupta.capabilities.presentation.reusableComponents.SetStatusBarColor
 import com.apoorvgupta.capabilities.presentation.theme.AppTheme
-import com.apoorvgupta.core.interactions.activityProvider.ActivityProvider
 import com.apoorvgupta.core.interactions.session.FinishActivityChannel
 import com.apoorvgupta.core.logger.AppLogger
 import com.apoorvgupta.newsshots.ui.main.MainDestination
@@ -35,7 +33,7 @@ import kotlinx.coroutines.launch
  * @author Apoorv Gupta
  */
 @AndroidEntryPoint
-class MainActivity : ComponentActivity(), ActivityProvider {
+class MainActivity : ComponentActivity() {
 
     // ViewModel for managing main UI logic
     private val mainViewModel: MainViewModel by viewModels()
@@ -91,9 +89,5 @@ class MainActivity : ComponentActivity(), ActivityProvider {
                 }
             }
         }
-    }
-
-    override fun getActivity(): Activity {
-        return this
     }
 }

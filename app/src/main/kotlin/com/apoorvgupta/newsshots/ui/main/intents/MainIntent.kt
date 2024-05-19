@@ -5,7 +5,6 @@ import com.apoorvgupta.core.base.NavEffect
 import com.apoorvgupta.core.base.UserIntent
 import com.apoorvgupta.core.base.ViewState
 import com.apoorvgupta.core.models.MainScreenDataModel
-import com.apoorvgupta.core.models.OfflineScreenDataModel
 
 /**
  * Sealed class representing user intents for the app.
@@ -31,9 +30,7 @@ sealed class MainUIIntent {
  * @author Apoorv Gupta
  */
 sealed class MainNavEffect : NavEffect {
-    data class DrawerItemNavigation(val navigationRoute: String) : MainNavEffect()
     data class BottomBarItemNavigation(val navigationRoute: String) : MainNavEffect()
-    data class ToolbarItemNavigation(val navigationRoute: String) : MainNavEffect()
 }
 
 /**
@@ -51,17 +48,6 @@ sealed class MainViewStates {
         val showLoader: Boolean = false,
         val isRefreshing: Boolean = false,
         val data: MainScreenDataModel,
-    ) : MainViewStates()
-
-    /**
-     * Data class representing the offline state.
-     *
-     * @param offlineContentModel The offline screen data model.
-     */
-    data class Offline(
-        val showLoader: Boolean = false,
-        val isRefreshing: Boolean = false,
-        var offlineContentModel: OfflineScreenDataModel,
     ) : MainViewStates()
 }
 
