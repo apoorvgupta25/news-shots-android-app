@@ -29,6 +29,9 @@
        - name: Lint Checks
          run: ./gradlew ktlintCheck
 
+       - name: SonarCloud Scan
+         uses: SonarSource/sonarcloud-github-action@v2.1.1
+
        # Attempt to build the project.
        - name: Build Project
          run: ./gradlew assembleDebug
