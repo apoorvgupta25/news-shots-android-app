@@ -11,7 +11,6 @@ import androidx.compose.ui.text.TextStyle
 import androidx.compose.ui.text.font.Font
 import androidx.compose.ui.text.font.FontFamily
 import androidx.compose.ui.text.font.FontWeight
-import androidx.compose.ui.unit.sp
 import com.apoorvgupta.newsshots.capabilities.R
 
 /**
@@ -48,10 +47,7 @@ val Typography =
 
 val Typography.buttonTextStyle: TextStyle
     @Composable
-    get() = TextStyle(
-        fontSize = text_size_body,
-        lineHeight = line_height_body_regular,
+    get() = Typography.bodyMedium.copy(
         fontFamily = Poppins,
         fontWeight = FontWeight.Bold,
-        letterSpacing = 0.4.sp,
     )

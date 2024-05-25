@@ -44,12 +44,13 @@ import androidx.navigation.compose.currentBackStackEntryAsState
 import com.apoorvgupta.capabilities.presentation.navigation.Bookmark
 import com.apoorvgupta.capabilities.presentation.navigation.Home
 import com.apoorvgupta.capabilities.presentation.navigation.Search
-import com.apoorvgupta.capabilities.presentation.theme.StrokeWidthSmall
-import com.apoorvgupta.capabilities.presentation.theme.couple_internal_spacing
-import com.apoorvgupta.capabilities.presentation.theme.monuple_internal_spacing
-import com.apoorvgupta.capabilities.presentation.theme.monuple_large_internal_spacing
+import com.apoorvgupta.capabilities.presentation.theme.l_icon_size
+import com.apoorvgupta.capabilities.presentation.theme.m_horizontal_spacing
+import com.apoorvgupta.capabilities.presentation.theme.s_surrounding_spacing
 import com.apoorvgupta.capabilities.presentation.theme.shadowBackgroundColor
-import com.apoorvgupta.capabilities.presentation.theme.triple_internal_spacingg
+import com.apoorvgupta.capabilities.presentation.theme.sl_horizontal_spacing
+import com.apoorvgupta.capabilities.presentation.theme.sl_vertical_spacing
+import com.apoorvgupta.capabilities.presentation.theme.xxxs_stroke_width
 import com.apoorvgupta.core.logger.AppLogger
 import com.apoorvgupta.core.utils.EMPTY_STRING
 import kotlin.math.roundToInt
@@ -126,7 +127,7 @@ fun BottomNavigationBar(
                 )
             }
             .shadow(
-                elevation = monuple_internal_spacing,
+                elevation = s_surrounding_spacing,
                 spotColor = MaterialTheme.colorScheme.shadowBackgroundColor,
             ),
     ) {
@@ -139,23 +140,23 @@ fun BottomNavigationBar(
                     Icon(
                         imageVector = if (isCurrentRouteSelected) item.filledIcon else item.icon,
                         contentDescription = EMPTY_STRING,
-                        modifier = Modifier.size(triple_internal_spacingg),
+                        modifier = Modifier.size(l_icon_size),
                     )
                     if (item.displayBadge) {
                         BadgedBox(
                             modifier = Modifier
                                 .padding(
-                                    top = monuple_large_internal_spacing,
-                                    start = couple_internal_spacing,
-                                    end = monuple_large_internal_spacing,
-                                    bottom = monuple_large_internal_spacing,
+                                    top = sl_vertical_spacing,
+                                    start = m_horizontal_spacing,
+                                    end = sl_horizontal_spacing,
+                                    bottom = sl_vertical_spacing,
                                 ),
                             badge = {
                                 Badge(
                                     containerColor = if (isCurrentRouteSelected) MaterialTheme.colorScheme.primary else Color.Black,
                                     contentColor = Color.White,
                                     modifier = Modifier.border(
-                                        width = StrokeWidthSmall,
+                                        width = xxxs_stroke_width,
                                         shape = CircleShape,
                                         color = Color.White,
                                     ),

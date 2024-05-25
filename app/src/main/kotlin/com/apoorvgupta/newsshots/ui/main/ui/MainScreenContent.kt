@@ -17,7 +17,7 @@ import com.apoorvgupta.capabilities.presentation.navigation.showNavigationBottom
 import com.apoorvgupta.capabilities.presentation.navigation.ui.BottomNavigationBar
 import com.apoorvgupta.capabilities.presentation.reusableComponents.alertdialog.NoInternetDialog
 import com.apoorvgupta.capabilities.presentation.reusableComponents.loader.RoundedCircularProgressBarComponent
-import com.apoorvgupta.capabilities.presentation.theme.bottom_bar_height
+import com.apoorvgupta.capabilities.presentation.theme.xl6_horizontal_spacing
 import com.apoorvgupta.core.logger.AppLogger
 import com.apoorvgupta.newsshots.ui.main.intents.MainIntent
 import com.apoorvgupta.newsshots.ui.main.intents.MainViewStates
@@ -32,7 +32,7 @@ fun MainScreenContent(
     viewState: MainViewStates.LoadedData,
     mainIntent: (MainIntent) -> Unit,
 ) {
-    val bottomBarHeight = bottom_bar_height
+    val bottomBarHeight = xl6_horizontal_spacing
     val bottomBarHeightPx = with(LocalDensity.current) { bottomBarHeight.roundToPx().toFloat() }
     val bottomBarOffsetHeightPx = remember { mutableStateOf(0f) }
 

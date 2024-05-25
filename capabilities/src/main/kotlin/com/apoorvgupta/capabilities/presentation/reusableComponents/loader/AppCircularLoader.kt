@@ -9,8 +9,8 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.graphics.StrokeCap
 import androidx.compose.ui.unit.Dp
-import com.apoorvgupta.capabilities.presentation.theme.m_stroke_width
 import com.apoorvgupta.capabilities.presentation.theme.primaryButtonColor
+import com.apoorvgupta.capabilities.presentation.theme.s_stroke_width
 import com.apoorvgupta.capabilities.presentation.theme.xl5_surrounding_spacing
 
 /**
@@ -23,7 +23,7 @@ fun AppCircularLoader(
     height: Dp = xl5_surrounding_spacing,
     trackColor: Color = MaterialTheme.colorScheme.primary,
     color: Color = MaterialTheme.colorScheme.primaryButtonColor,
-    strokeWidth: Dp = m_stroke_width,
+    strokeWidth: Dp = s_stroke_width,
     strokeCap: StrokeCap = StrokeCap.Round,
 ) {
     CircularProgressIndicator(
