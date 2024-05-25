@@ -15,14 +15,13 @@ import androidx.compose.runtime.mutableStateOf
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.text.style.TextAlign
-import com.apoorvgupta.capabilities.presentation.theme.CornerRadiusLarge
-import com.apoorvgupta.capabilities.presentation.theme.HorizontalSpacingSmall
-import com.apoorvgupta.capabilities.presentation.theme.StrokeWidthMedium
-import com.apoorvgupta.capabilities.presentation.theme.StrokeWidthSmall
 import com.apoorvgupta.capabilities.presentation.theme.blackTextColor
 import com.apoorvgupta.capabilities.presentation.theme.buttonTextStyle
 import com.apoorvgupta.capabilities.presentation.theme.disabledBackgroundColor
 import com.apoorvgupta.capabilities.presentation.theme.disabledTextColor
+import com.apoorvgupta.capabilities.presentation.theme.sl_corner_radius
+import com.apoorvgupta.capabilities.presentation.theme.xs_horizontal_spacing
+import com.apoorvgupta.capabilities.presentation.theme.xxxs_stroke_width
 
 /**
  * Composable function to handle the Buttons through out the application
@@ -47,10 +46,10 @@ fun AppButton(
 ) {
     Button(
         modifier = modifier,
-        shape = RoundedCornerShape(CornerRadiusLarge),
+        shape = RoundedCornerShape(sl_corner_radius),
         border =
         BorderStroke(
-            StrokeWidthSmall,
+            xxxs_stroke_width,
             if (isEnabled.value) fillColor else MaterialTheme.colorScheme.disabledBackgroundColor,
         ),
         elevation = null,
@@ -68,9 +67,9 @@ fun AppButton(
         },
         onClick = onClickListener,
     ) {
-        Spacer(Modifier.size(StrokeWidthMedium))
+        Spacer(Modifier.size(xxxs_stroke_width))
         Text(
-            modifier = Modifier.padding(horizontal = HorizontalSpacingSmall),
+            modifier = Modifier.padding(horizontal = xs_horizontal_spacing),
             text = buttonTitle,
             textAlign = TextAlign.Center,
             style = MaterialTheme.typography.buttonTextStyle.copy(color = textColor),

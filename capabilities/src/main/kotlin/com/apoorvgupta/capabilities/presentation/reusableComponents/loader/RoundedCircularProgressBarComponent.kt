@@ -12,8 +12,8 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.StrokeCap
 import androidx.compose.ui.window.Dialog
 import androidx.compose.ui.window.DialogProperties
-import com.apoorvgupta.capabilities.presentation.theme.m_stroke_width
 import com.apoorvgupta.capabilities.presentation.theme.primaryButtonColor
+import com.apoorvgupta.capabilities.presentation.theme.s_stroke_width
 import com.apoorvgupta.capabilities.presentation.theme.xl5_surrounding_spacing
 
 /**
@@ -44,7 +44,7 @@ fun RoundedCircularProgressBarComponent(visibility: Boolean) {
                             .height(xl5_surrounding_spacing),
                         color = MaterialTheme.colorScheme.primaryButtonColor,
                         trackColor = MaterialTheme.colorScheme.primary,
-                        strokeWidth = m_stroke_width,
+                        strokeWidth = s_stroke_width,
                         strokeCap = StrokeCap.Round,
                     )
                 }
