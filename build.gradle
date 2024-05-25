@@ -16,7 +16,7 @@ plugins {
     // Kotlin Android plugin
     id 'org.jetbrains.kotlin.android' version '1.9.21' apply false
     // Dagger Hilt Android plugin
-    id 'com.google.dagger.hilt.android' version '2.49' apply false
+    id 'com.google.dagger.hilt.android' version '2.51.1' apply false
     // Kotlin serialization plugin for navigation in compose
     id 'org.jetbrains.kotlin.plugin.serialization' version '1.9.21'
 }
