@@ -4,7 +4,6 @@
  */
 package com.apoorvgupta.core.logger
 
-import android.os.Build
 import android.util.Log.ASSERT
 import android.util.Log.DEBUG
 import android.util.Log.ERROR
@@ -97,7 +96,7 @@ object AppLogger {
     internal fun getTagFromElement(element: StackTraceElement): String {
         val tag = "(${element.fileName}:${element.lineNumber}) :${element.methodName}"
         // Tag length limit was removed in API 26.
-        return if (tag.length <= MAX_TAG_LENGTH || Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
+        return if (tag.length <= MAX_TAG_LENGTH) {
             tag
         } else {
             tag.substring(0, MAX_TAG_LENGTH)
@@ -129,9 +128,7 @@ object AppLogger {
         tag: String = getTagName(),
         message: () -> String,
         throwable: Throwable? = null,
-        isRemoteLogsEnabled: Boolean = false,
     ) {
-        remoteLogging(isRemoteLogsEnabled = isRemoteLogsEnabled, tag = tag, message = message(), throwable = throwable)
         log { Timber.tag(tag).e(throwable, message()) }
     }
 
@@ -142,9 +139,7 @@ object AppLogger {
         tag: String = getTagName(),
         message: () -> String,
         throwable: Throwable? = null,
-        isRemoteLogsEnabled: Boolean = false,
     ) {
-        remoteLogging(isRemoteLogsEnabled = isRemoteLogsEnabled, tag = tag, message = message(), throwable = throwable)
         log { Timber.tag(tag).i(throwable, message()) }
     }
 
@@ -238,9 +233,7 @@ object AppLogger {
         tag: String,
         message: String,
         vararg args: Any,
-        isRemoteLogsEnabled: Boolean = false,
     ) {
-        remoteLogging(isRemoteLogsEnabled = isRemoteLogsEnabled, tag = tag, message = message)
         triggerLogger(ERROR, tag, message, *args)
     }
 
@@ -249,9 +242,7 @@ object AppLogger {
         tag: String,
         message: String,
         vararg args: Any,
-        isRemoteLogsEnabled: Boolean = false,
     ) {
-        remoteLogging(isRemoteLogsEnabled = isRemoteLogsEnabled, tag = tag, message = message)
         triggerLogger(INFO, tag, message, *args)
     }
 
@@ -262,25 +253,5 @@ object AppLogger {
         vararg args: Any,
     ) {
         triggerLogger(ASSERT, tag, message, *args)
-    }
-
-    /**
-     * Logs messages remotely if remote isRemoteLogsEnabled is true.
-     *
-     * @param isRemoteLogsEnabled Indicates whether remote logging is enabled or not.
-     * @param tag The tag to categorize the log message.
-     * @param message The log message to be logged remotely.
-     * @param throwable An optional throwable associated with the log message (default is null).
-     */
-    private fun remoteLogging(
-        isRemoteLogsEnabled: Boolean,
-        tag: String,
-        message: String,
-        throwable: Throwable? = null,
-    ) {
-        if (isRemoteLogsEnabled) {
-            val remoteLoggingHelper = RemoteLoggingHelper()
-            remoteLoggingHelper.performRemoteLogging(tag, message, throwable)
-        }
     }
 }

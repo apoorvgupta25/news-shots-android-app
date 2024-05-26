@@ -5,21 +5,16 @@
 
 // Apply necessary plugins for Android library development, Kotlin, Dagger Hilt
 plugins {
-    // Android application plugin
-    id 'com.android.library'
-    // Kotlin Android plugin
-    id 'org.jetbrains.kotlin.android'
-    // Kotlin Annotation Processing Tool plugin
-    id 'kotlin-kapt'
-    // Dagger Hilt Android plugin
-    id 'com.google.dagger.hilt.android'
-    // Kotlin Serialization plugin for navigation compose
-    id 'kotlinx-serialization'
+    alias(libs.plugins.android.library)
+    alias(libs.plugins.jetbrains.kotlin.android)
+    alias(libs.plugins.dagger.hilt)
+    alias(libs.plugins.jetbrains.kotlin.serialization)
+    alias(libs.plugins.jetbrains.kotlin.kapt)
 }
 
 // Android library configuration
 android {
-    namespace 'com.apoorvgupta.newsshots.capabilities' // Package namespace for the library
+    namespace 'com.apoorvgupta.newsshots.capabilities'
     compileSdk BuildConfig.compileSdk
 
     defaultConfig {
@@ -59,44 +54,39 @@ dependencies {
     // Core Module Integration in capabilities
     implementation project(':core')
 
-    // Third-party dependencies
-    implementation Deps.kore_ktx
-    implementation Deps.appcompat
+    // Other dependencies
 
     // UI dependencies
-    implementation Deps.compose_ui
-    implementation Deps.ui_tooling
-    implementation Deps.ui_tooling_preview
-    implementation Deps.material3
+    implementation libs.androidx.ui
+    implementation libs.androidx.ui.tooling
+    implementation libs.androidx.material3
 
     // Navigation
-    implementation Deps.navigation_compose
-    implementation Deps.kotlin_serialization
+    implementation libs.androidx.navigation.compose
+    implementation libs.kotlinx.serialization
 
     // Image Loader dependency
-    implementation Deps.coil_compose
+    implementation libs.coil.compose
 
     // Testing dependencies
-    testImplementation Deps.junit
-    androidTestImplementation Deps.test_ext_junit
+    testImplementation libs.junit
 
     // Dagger Hilt for dependency injection
-    implementation Deps.hilt_android
-    kapt Deps.hilt_compiler
-    implementation Deps.hilt_navigation_compose
+    implementation libs.hilt.android
+    kapt libs.hilt.android.compiler
 
     // Mocking library for testing
-    testImplementation Deps.mockk
+    testImplementation libs.mockk
 
     // Retrofit for networking
-    implementation Deps.retrofit
-    implementation Deps.retrofit_gson
-    implementation Deps.okhttp
-    implementation Deps.okhttpLogging
+    implementation libs.retrofit
+    implementation libs.retrofit.gson
+    implementation libs.okhttp
+    implementation libs.okhttp.logging
 
     // Accompanist Web-View
-    implementation Deps.accompanist_web_view
+    implementation libs.accompanist.webView
 
     // AndroidX Browser
-    implementation Deps.androidX_browser
+    implementation libs.androidx.browser
 }

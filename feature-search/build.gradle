@@ -4,13 +4,10 @@
  */
 
 plugins {
-    id 'com.android.library'
-    // Kotlin Android plugin
-    id 'org.jetbrains.kotlin.android'
-    // Kotlin Annotation Processing Tool plugin
-    id 'kotlin-kapt'
-    // Dagger Hilt Android plugin
-    id 'com.google.dagger.hilt.android'
+    alias(libs.plugins.android.library)
+    alias(libs.plugins.jetbrains.kotlin.android)
+    alias(libs.plugins.dagger.hilt)
+    alias(libs.plugins.jetbrains.kotlin.kapt)
 }
 
 android {
@@ -57,44 +54,28 @@ android {
     }
 }
 
-dependencies {
-    // Core, Capabilities Integration in Feature Modules
+dependencies {    // Core, Capabilities Integration in Feature Modules
     implementation project(':core')
     implementation project(':capabilities')
 
-    // Third-party dependencies
-    implementation Deps.kore_ktx
-    implementation Deps.appcompat
-
     // UI dependencies
-    implementation Deps.compose_ui
-    implementation Deps.ui_tooling_preview
-    implementation Deps.material3
-    implementation Deps.activity_compose
+    implementation libs.androidx.ui
+    implementation libs.androidx.material3
+    implementation libs.androidx.activity.compose
 
     // Navigation
-    implementation Deps.navigation_compose
+    implementation libs.androidx.navigation.compose
 
     // Dagger Hilt for dependency injection
-    implementation Deps.hilt_android
-    kapt Deps.hilt_compiler
+    implementation libs.hilt.android
+    kapt libs.hilt.android.compiler
 
     // Testing dependencies
-    testImplementation Deps.junit
-    androidTestImplementation Deps.test_ext_junit
+    testImplementation libs.junit
+
+    // Gson
+    implementation libs.gson
 
     // Image Loading library
-    implementation Deps.coil_compose
-
-    implementation Deps.viewmodel_lifecycle
-
-    // Retrofit for networking
-    implementation Deps.retrofit
-    implementation Deps.retrofit_gson
-    implementation Deps.okhttp
-    implementation Deps.okhttpLogging
-
-
-
-
+    implementation libs.coil.compose
 }
