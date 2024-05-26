@@ -233,7 +233,6 @@ object AppLogger {
         tag: String,
         message: String,
         vararg args: Any,
-        isRemoteLogsEnabled: Boolean = false,
     ) {
         triggerLogger(ERROR, tag, message, *args)
     }
