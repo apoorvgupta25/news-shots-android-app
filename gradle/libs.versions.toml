@@ -15,7 +15,7 @@ lifecycleRuntimeKtx = "2.8.0"
 activityCompose = "1.9.0"
 composeBom = "2024.05.00"
 retrofit = "2.9.0"
-retrofit_gson = "2.7.2"
+retrofitGson = "2.7.2"
 okhttp = "4.12.0"
 okhttpLogging = "4.11.0"
 hilt = "2.51.1"
@@ -54,7 +54,7 @@ androidx-ui-test-manifest = { group = "androidx.compose.ui", name = "ui-test-man
 mockk = { group = "io.mockk", name = "mockk", version.ref = "mockk" }
 # Networking dependencies
 retrofit = { group = "com.squareup.retrofit2", name = "retrofit", version.ref = "retrofit" }
-retrofit-gson = { group = "com.squareup.retrofit2", name = "converter-gson", version.ref = "retrofit_gson" }
+retrofit-gson = { group = "com.squareup.retrofit2", name = "converter-gson", version.ref = "retrofitGson" }
 okhttp = { group = "com.squareup.okhttp3", name = "okhttp", version.ref = "okhttp" }
 okhttp-logging = { group = "com.squareup.okhttp3", name = "logging-interceptor", version.ref = "okhttpLogging" }
 # Dagger and Hilt dependencies
