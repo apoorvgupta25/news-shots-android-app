@@ -1,8 +1,5 @@
 package com.apoorvgupta.newsshots.di
 
-import com.apoorvgupta.capabilities.network.rest.api.MainRemoteDataRepository
-import com.apoorvgupta.capabilities.network.rest.usecase.MainUseCase
-import com.apoorvgupta.capabilities.network.rest.usecase.MainUseCaseImpl
 import com.apoorvgupta.core.interactions.buildConfigProvider.BuildConfigContract
 import com.apoorvgupta.newsshots.buildConfigProvider.BuildConfigContractImpl
 import dagger.Module
@@ -29,13 +26,5 @@ class AppModule {
     @Singleton
     fun provideBuildConfigContract(): BuildConfigContract {
         return BuildConfigContractImpl()
-    }
-
-    @Provides
-    @Singleton
-    fun provideMainUseCase(
-        mainRemoteDataRepository: MainRemoteDataRepository,
-    ): MainUseCase {
-        return MainUseCaseImpl(mainRemoteDataRepository)
     }
 }

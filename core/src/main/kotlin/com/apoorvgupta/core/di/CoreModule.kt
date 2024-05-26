@@ -5,6 +5,9 @@
 
 package com.apoorvgupta.core.di
 
+import com.apoorvgupta.core.threading.AppDispatcherProvider
+import com.apoorvgupta.core.threading.DispatcherProvider
+import dagger.Binds
 import dagger.Module
 import dagger.hilt.InstallIn
 import dagger.hilt.components.SingletonComponent
@@ -16,4 +19,7 @@ import dagger.hilt.components.SingletonComponent
  */
 @Module
 @InstallIn(SingletonComponent::class)
-class CoreModule
+abstract class CoreModule {
+    @Binds
+    abstract fun dispatchersProvider(impl: AppDispatcherProvider): DispatcherProvider
+}

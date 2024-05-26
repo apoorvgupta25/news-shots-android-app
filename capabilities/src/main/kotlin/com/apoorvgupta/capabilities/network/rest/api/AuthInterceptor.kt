@@ -4,6 +4,7 @@
  */
 package com.apoorvgupta.capabilities.network.rest.api
 
+import com.apoorvgupta.core.utils.emptyValue
 import okhttp3.Interceptor
 import okhttp3.Response
 import java.io.IOException
@@ -29,7 +30,7 @@ class AuthInterceptor @Inject constructor() : Interceptor {
     var authorizationHeaderValue: String? = null
 
     @Volatile
-    var anonymousHeaderValue = ""
+    var anonymousHeaderValue = String.emptyValue()
 
     // Initialize with a default anonymous token value
     init {

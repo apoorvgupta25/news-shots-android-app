@@ -9,8 +9,12 @@ import android.content.Context
 import com.apoorvgupta.capabilities.network.rest.data.ErrorCode
 import com.apoorvgupta.capabilities.network.rest.data.GenericErrorModel
 import com.apoorvgupta.core.utils.emptyValue
+import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.flow.catch
+import kotlinx.coroutines.flow.channelFlow
 import kotlinx.coroutines.flow.flow
+import kotlinx.coroutines.flow.flowOn
+import retrofit2.Response
 
 /**
  * A utility function for making safe API calls within a Kotlin coroutine Flow. It handles
@@ -53,3 +57,24 @@ fun <T> makeSafeApiCall(context: Context, api: suspend () -> Resource<T?>) = flo
         ),
     )
 }
+
+fun <T> safeApiCallChannel(
+    apiCall: suspend () -> Response<T>,
+) = channelFlow<Resource<T>> {
+    send(Resource.loading())
+    try {
+        val response = apiCall()
+        if (response.isSuccessful) {
+            val body = response.body()
+            body?.let {
+                send(Resource.success(body))
+                return@channelFlow
+            }
+        }
+        send(error("${response.code()} ${response.message()}"))
+        return@channelFlow
+    } catch (e: Exception) {
+        send(error(e.message ?: e.toString()))
+        return@channelFlow
+    }
+}.flowOn(Dispatchers.IO)

@@ -1,5 +1,6 @@
 package com.apoorvgupta.home.models
 
+import com.apoorvgupta.capabilities.network.rest.data.model.NewsShots
 import com.apoorvgupta.core.utils.DataStatus
 import com.apoorvgupta.core.utils.EMPTY_STRING
 
@@ -15,11 +16,7 @@ import com.apoorvgupta.core.utils.EMPTY_STRING
 data class HomeDataModel(
     val status: DataStatus = DataStatus.Empty,
     val homeContent: HomeContent = HomeContent(),
-    val label: String = EMPTY_STRING,
-    val currency: String = EMPTY_STRING,
-    val showBottomSheet: Boolean = false,
-    val isNotificationVisible: Boolean = false,
-    val isBannerLoading: Boolean = true,
+    val newsShotsList: List<NewsShots> = emptyList()
 )
 
 data class HomeContent(

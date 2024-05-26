@@ -1,11 +1,8 @@
-package com.apoorvgupta.home.models.refreshdata
+package com.apoorvgupta.capabilities.network.rest.domain.newsshots.data
 
+import com.apoorvgupta.capabilities.network.rest.data.model.NewsShots
 import com.apoorvgupta.core.utils.DataStatus
 import com.apoorvgupta.core.utils.EMPTY_STRING
-
-/**
- * @author Apoorv Gupta
- */
 
 /**
  * Data class representing the response of a login operation.
@@ -16,21 +13,21 @@ import com.apoorvgupta.core.utils.EMPTY_STRING
  *
  * @author Apoorv Gupta
  */
-data class RefreshDataResult(
+data class RecentNewsShotsDataResult(
     var status: DataStatus = DataStatus.Empty,
-    var successResponseModel: RefreshDataResponse = RefreshDataResponse(),
-    var errorResponseModel: ErrorRefreshDataResponseModel = ErrorRefreshDataResponseModel.emptyValue,
+    var successResponseModel: List<NewsShots> = emptyList(),
+    var errorResponseModel: ErrorRecentNewsShotsDataResponseModel = ErrorRecentNewsShotsDataResponseModel.emptyValue,
 ) {
     companion object {
-        val emptyValue = RefreshDataResult()
+        val emptyValue = RecentNewsShotsDataResult()
     }
 }
 
-data class ErrorRefreshDataResponseModel(
+data class ErrorRecentNewsShotsDataResponseModel(
     val title: String = EMPTY_STRING,
     val message: String = EMPTY_STRING,
 ) {
     companion object {
-        val emptyValue = ErrorRefreshDataResponseModel()
+        val emptyValue = ErrorRecentNewsShotsDataResponseModel()
     }
 }
