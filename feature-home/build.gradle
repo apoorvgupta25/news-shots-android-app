@@ -6,8 +6,8 @@
 plugins {
     alias(libs.plugins.android.library)
     alias(libs.plugins.jetbrains.kotlin.android)
-    alias(libs.plugins.jetbrains.kotlin.kapt)
     alias(libs.plugins.dagger.hilt)
+    alias(libs.plugins.jetbrains.kotlin.kapt)
 }
 
 android {
@@ -59,13 +59,8 @@ dependencies {
     implementation project(':core')
     implementation project(':capabilities')
 
-    // Other dependencies
-    implementation libs.androidx.core.ktx
-    implementation libs.appcompat
-
     // UI dependencies
     implementation libs.androidx.ui
-    implementation libs.androidx.ui.tooling.preview
     implementation libs.androidx.material3
     implementation libs.androidx.activity.compose
 
@@ -78,16 +73,10 @@ dependencies {
 
     // Testing dependencies
     testImplementation libs.junit
-    androidTestImplementation libs.androidx.ext.junit
+
+    // Gson
+    implementation libs.gson
 
     // Image Loading library
     implementation libs.coil.compose
-
-    implementation libs.viewmodel.lifecycle
-
-    // Retrofit for networking
-    implementation libs.retrofit
-    implementation libs.retrofit.gson
-    implementation libs.okhttp
-    implementation libs.okhttp.logging
 }
