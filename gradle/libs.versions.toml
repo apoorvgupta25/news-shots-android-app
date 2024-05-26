@@ -27,7 +27,7 @@ splashScreen = "1.0.0"
 securityCrypto = "1.1.0-alpha06"
 coil = "2.6.0"
 gson = "2.10"
-androidXBrowser = "1.6.0"
+androidXBrowser = "1.8.0"
 accompanistWebView = "0.30.1"
 material3 = "1.1.0"
 
