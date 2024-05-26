@@ -2,6 +2,7 @@ package com.apoorvgupta.home.viewmodels
 
 import androidx.lifecycle.viewModelScope
 import com.apoorvgupta.capabilities.network.rest.domain.newsshots.usecase.GetRecentNewsShotsUseCase
+import com.apoorvgupta.capabilities.network.rest.helpers.Resource
 import com.apoorvgupta.core.base.BaseViewModel
 import com.apoorvgupta.core.utils.DataStatus
 import com.apoorvgupta.home.intent.HomeIntent
@@ -46,14 +47,14 @@ class HomeViewModel @Inject constructor(
         viewModelScope.launch {
             getRecentNewsShotsUseCase.getRecentNewsShots().collect {
                 when (it.status) {
-                    DataStatus.Loading -> {
+                    Resource.Status.LOADING -> {
                         // Loader
                     }
 
-                    DataStatus.Success -> {
+                    Resource.Status.SUCCESS -> {
                         homeDataModel = homeDataModel.copy(
                             status = DataStatus.Success,
-                            newsShotsList = it.successResponseModel,
+                            newsShotsList = it.data ?: emptyList(),
                         )
                         emitHomeData(homeDataModel)
                     }

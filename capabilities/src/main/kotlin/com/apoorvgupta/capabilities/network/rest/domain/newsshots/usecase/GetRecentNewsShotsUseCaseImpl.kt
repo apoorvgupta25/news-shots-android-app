@@ -15,37 +15,9 @@ class GetRecentNewsShotsUseCaseImpl @Inject constructor(
     private val newsShotsRepo: NewsShotsRepo,
 ) : GetRecentNewsShotsUseCase {
 
-    override fun getRecentNewsShots(): Flow<RecentNewsShotsDataResult> {
+    override fun getRecentNewsShots(): Flow<Resource<List<NewsShots>?>> {
         return newsShotsRepo.getRecentNewsShots(3, "createdAt").transform { response ->
-            when (response.status) {
-                Resource.Status.SUCCESS -> {
-                    emit(
-                        RecentNewsShotsDataResult(
-                            status = DataStatus.Success,
-                            successResponseModel = response.data as List<NewsShots>,
-                        ),
-                    )
-                }
-
-                Resource.Status.LOADING -> {
-                    emit(
-                        RecentNewsShotsDataResult(
-                            status = DataStatus.Loading,
-                        ),
-                    )
-                }
-
-                else -> {
-                    emit(
-                        RecentNewsShotsDataResult(
-                            status = DataStatus.Error,
-                            errorResponseModel = ErrorRecentNewsShotsDataResponseModel(
-                                message = response.error?.message.getValueOrEmpty(),
-                            ),
-                        ),
-                    )
-                }
-            }
+            emit(response)
         }
     }
 }
