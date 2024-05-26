@@ -1,0 +1,89 @@
+[versions]
+agp = "8.2.0"
+kotlin = "1.9.21"
+dagger = "2.49"
+
+coreKtx = "1.8.0"
+navigationCompose = "2.8.0-alpha08"
+kotlinSerialization = "1.6.3"
+junit = "4.13.2"
+junitVersion = "1.1.5"
+espressoCore = "3.5.1"
+mockk = "1.13.8"
+lifecycleRuntimeKtx = "2.3.1"
+activityCompose = "1.6.1"
+composeBom = "2022.10.00"
+retrofit = "2.9.0"
+retrofit_gson = "2.7.2"
+okhttp = "4.9.3"
+okhttpLogging = "4.11.0"
+hilt = "2.49"
+hiltCompose = "1.1.0"
+appcompat = "1.6.1"
+viewmodelKtx = "2.6.2"
+timber = "5.0.1"
+splashScreen = "1.0.0"
+securityCrypto = "1.1.0-alpha06"
+coil = "2.6.0"
+gson = "2.10"
+androidXBrowser = "1.6.0"
+accompanistWebView = "0.30.1"
+material3 = "1.1.0"
+
+[libraries]
+
+# Core dependencies
+androidx-core-ktx = { group = "androidx.core", name = "core-ktx", version.ref = "coreKtx" }
+androidx-lifecycle-runtime-ktx = { group = "androidx.lifecycle", name = "lifecycle-runtime-ktx", version.ref = "lifecycleRuntimeKtx" }
+androidx-activity-compose = { group = "androidx.activity", name = "activity-compose", version.ref = "activityCompose" }
+androidx-navigation-compose = { group = "androidx.navigation", name = "navigation-compose", version.ref = "navigationCompose" }
+kotlinx-serialization = { group = "org.jetbrains.kotlinx", name = "kotlinx-serialization-json", version.ref = "kotlinSerialization" }
+# Compose dependencies
+androidx-compose-bom = { group = "androidx.compose", name = "compose-bom", version.ref = "composeBom" }
+androidx-ui = { group = "androidx.compose.ui", name = "ui" }
+androidx-ui-tooling-preview = { group = "androidx.compose.ui", name = "ui-tooling-preview" }
+androidx-ui-tooling = { group = "androidx.compose.ui", name = "ui-tooling" }
+androidx-material3 = { group = "androidx.compose.material3", name = "material3", version.ref = "material3" }
+# Testing dependencies
+junit = { group = "junit", name = "junit", version.ref = "junit" }
+androidx-ext-junit = { group = "androidx.test.ext", name = "junit", version.ref = "junitVersion" }
+androidx-espresso-core = { group = "androidx.test.espresso", name = "espresso-core", version.ref = "espressoCore" }
+androidx-ui-test-junit4 = { group = "androidx.compose.ui", name = "ui-test-junit4" }
+androidx-ui-test-manifest = { group = "androidx.compose.ui", name = "ui-test-manifest" }
+mockk = { group = "io.mockk", name = "mockk", version.ref = "mockk" }
+# Networking dependencies
+retrofit = { group = "com.squareup.retrofit2", name = "retrofit", version.ref = "retrofit" }
+retrofit-gson = { group = "com.squareup.retrofit2", name = "converter-gson", version.ref = "retrofit_gson" }
+okhttp = { group = "com.squareup.okhttp3", name = "okhttp", version.ref = "okhttp" }
+okhttp-logging = { group = "com.squareup.okhttp3", name = "logging-interceptor", version.ref = "okhttpLogging" }
+# Dagger and Hilt dependencies
+hilt-android = { group = "com.google.dagger", name = "hilt-android", version.ref = "hilt" }
+hilt-android-compiler = { group = "com.google.dagger", name = "hilt-android-compiler", version.ref = "hilt" }
+hilt-navigation-compose = { group = "androidx.hilt", name = "hilt-navigation-compose", version.ref = "hiltCompose" }
+# Other dependencies
+appcompat = { group = "androidx.appcompat", name = "appcompat", version.ref = "appcompat" }
+viewmodel-lifecycle = { group = "androidx.lifecycle", name = "lifecycle-viewmodel-ktx", version.ref = "viewmodelKtx" }
+# Timber
+timber = { group = "com.jakewharton.timber", name = "timber", version.ref = "timber" }
+# Splash Screen
+splash-screen = { group = "androidx.core", name = "core-splashscreen", version.ref = "splashScreen" }
+# Android Security Crypto
+androidx-security-crypto = { group = "androidx.security", name = "security-crypto-ktx", version.ref = "securityCrypto" }
+# Image Loading library
+coil-compose = { group = "io.coil-kt", name = "coil-compose", version.ref = "coil" }
+# Accompanist Web-View
+accompanist-webView = { group = "com.google.accompanist", name = "accompanist-webview", version.ref = "accompanistWebView" }
+# Gson
+gson = { group = "com.google.code.gson", name = "gson", version.ref = "gson" }
+# AndroidX Browser
+androidx-browser = { group = "androidx.browser", name = "browser", version.ref = "androidXBrowser" }
+
+[plugins]
+android-application = { id = "com.android.application", version.ref = "agp" }
+android-library = { id = "com.android.library", version.ref = "agp" }
+jetbrains-kotlin-android = { id = "org.jetbrains.kotlin.android", version.ref = "kotlin" }
+jetbrains-kotlin-serialization = { id = "org.jetbrains.kotlin.plugin.serialization", version.ref = "kotlin" }
+jetbrains-kotlin-kapt = { id = "org.jetbrains.kotlin.kapt", version.ref = "kotlin" }
+dagger-hilt = { id = "com.google.dagger.hilt.android", version.ref = "dagger" }
+
+
