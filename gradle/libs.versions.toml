@@ -4,7 +4,7 @@ kotlin = "1.9.21"
 dagger = "2.49"
 gradleAnalyzer = "1.32.0"
 
-coreKtx = "1.8.0"
+coreKtx = "1.13.1"
 navigationCompose = "2.8.0-alpha08"
 kotlinSerialization = "1.6.3"
 junit = "4.13.2"
