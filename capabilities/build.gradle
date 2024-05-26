@@ -5,22 +5,11 @@
 
 // Apply necessary plugins for Android library development, Kotlin, Dagger Hilt
 plugins {
-//    // Android application plugin
-//    id 'com.android.library'
-//    // Kotlin Android plugin
-//    id 'org.jetbrains.kotlin.android'
-//    // Kotlin Annotation Processing Tool plugin
-//    id 'kotlin-kapt'
-//    // Dagger Hilt Android plugin
-//    id 'com.google.dagger.hilt.android'
-//    // Kotlin Serialization plugin for navigation compose
-//    id 'kotlinx-serialization'
-
     alias(libs.plugins.android.library)
     alias(libs.plugins.jetbrains.kotlin.android)
-    alias(libs.plugins.jetbrains.kotlin.kapt)
     alias(libs.plugins.dagger.hilt)
     alias(libs.plugins.jetbrains.kotlin.serialization)
+    alias(libs.plugins.jetbrains.kotlin.kapt)
 }
 
 // Android library configuration
@@ -66,13 +55,10 @@ dependencies {
     implementation project(':core')
 
     // Other dependencies
-    implementation libs.androidx.core.ktx
-    implementation libs.appcompat
 
     // UI dependencies
     implementation libs.androidx.ui
     implementation libs.androidx.ui.tooling
-    implementation libs.androidx.ui.tooling.preview
     implementation libs.androidx.material3
 
     // Navigation
@@ -84,11 +70,9 @@ dependencies {
 
     // Testing dependencies
     testImplementation libs.junit
-    androidTestImplementation libs.androidx.ext.junit
 
     // Dagger Hilt for dependency injection
     implementation libs.hilt.android
-    implementation libs.hilt.navigation.compose
     kapt libs.hilt.android.compiler
 
     // Mocking library for testing

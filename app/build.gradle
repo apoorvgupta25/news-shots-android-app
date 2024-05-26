@@ -8,8 +8,8 @@ import java.util.regex.Pattern
 plugins {
     alias(libs.plugins.android.application)
     alias(libs.plugins.jetbrains.kotlin.android)
-    alias(libs.plugins.jetbrains.kotlin.kapt)
     alias(libs.plugins.dagger.hilt)
+    alias(libs.plugins.jetbrains.kotlin.kapt)
 }
 
 // For the Release build, setup Keystore properties here.
@@ -125,9 +125,6 @@ android {
 }
 
 dependencies {
-    // Testing dependencies
-    testImplementation libs.junit
-    androidTestImplementation libs.androidx.ext.junit
 
     // Core, Capabilities, Feature Modules Integration in the main app
     implementation project(':core')
@@ -148,8 +145,6 @@ dependencies {
 
     // Firebase
     implementation libs.splash.screen
-    implementation libs.gson
-    implementation libs.coil.compose
 
     kapt libs.hilt.android.compiler
 }

@@ -50,19 +50,13 @@ android {
 
 // Dependencies configuration
 dependencies {
-    // Security Crypto
-    implementation libs.androidx.security.crypto
-    implementation libs.viewmodel.lifecycle
-
-    // Timber
+   // Timber
     implementation libs.timber
 
     // Testing dependencies
     testImplementation libs.junit
-    androidTestImplementation libs.androidx.ext.junit
 
     // Dagger Hilt for dependency injection
-    implementation libs.hilt.android
     implementation libs.hilt.navigation.compose
     kapt libs.hilt.android.compiler
 }
