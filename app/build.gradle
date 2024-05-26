@@ -6,14 +6,10 @@ import java.util.regex.Pattern
  * All rights reserved.
  */
 plugins {
-    // Android application plugin
-    id 'com.android.application'
-    // Kotlin Android plugin
-    id 'org.jetbrains.kotlin.android'
-    // Kotlin Annotation Processing Tool plugin
-    id 'kotlin-kapt'
-    // Dagger Hilt Android plugin
-    id 'com.google.dagger.hilt.android'
+    alias(libs.plugins.android.application)
+    alias(libs.plugins.jetbrains.kotlin.android)
+    alias(libs.plugins.jetbrains.kotlin.kapt)
+    alias(libs.plugins.dagger.hilt)
 }
 
 // For the Release build, setup Keystore properties here.
@@ -130,8 +126,8 @@ android {
 
 dependencies {
     // Testing dependencies
-    testImplementation Deps.junit
-    androidTestImplementation Deps.test_ext_junit
+    testImplementation libs.junit
+    androidTestImplementation libs.androidx.ext.junit
 
     // Core, Capabilities, Feature Modules Integration in the main app
     implementation project(':core')
@@ -141,26 +137,21 @@ dependencies {
     implementation project(':feature-bookmark')
 
     // Material design dependency
-    implementation Deps.material3
+    implementation libs.androidx.material3
 
     // Navigation
-    implementation Deps.navigation_compose
+    implementation libs.androidx.navigation.compose
 
     // Dagger Hilt
-    implementation Deps.hilt_android
-    implementation Deps.hilt_navigation_compose
+    implementation libs.hilt.android
+    implementation libs.hilt.navigation.compose
 
     // Firebase
-    kapt Deps.hilt_android_compiler
+    implementation libs.splash.screen
+    implementation libs.gson
+    implementation libs.coil.compose
 
-    // Splash Screen
-    implementation Deps.splash_screen
-
-    implementation Deps.gson
-
-    // Image loading
-    implementation Deps.coil_compose
-
+    kapt libs.hilt.android.compiler
 }
 
 def getCurrentFlavor() {

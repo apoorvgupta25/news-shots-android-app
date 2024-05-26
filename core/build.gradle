@@ -5,9 +5,9 @@
 
 // Apply necessary plugins for Android library development, Kotlin
 plugins {
-    id 'com.android.library'
-    id 'org.jetbrains.kotlin.android'
-    id 'kotlin-kapt'
+    alias(libs.plugins.android.library)
+    alias(libs.plugins.jetbrains.kotlin.android)
+    alias(libs.plugins.jetbrains.kotlin.kapt)
 }
 
 // Android library configuration
@@ -51,15 +51,18 @@ android {
 // Dependencies configuration
 dependencies {
     // Security Crypto
-    implementation Deps.security_crypto
-    implementation Deps.viewmodel_lifecycle
+    implementation libs.androidx.security.crypto
+    implementation libs.viewmodel.lifecycle
+
     // Timber
-    implementation(Deps.timber)
+    implementation libs.timber
+
     // Testing dependencies
-    testImplementation Deps.junit
-    androidTestImplementation Deps.test_ext_junit
+    testImplementation libs.junit
+    androidTestImplementation libs.androidx.ext.junit
+
     // Dagger Hilt for dependency injection
-    implementation Deps.hilt_android
-    kapt Deps.hilt_compiler
-    implementation Deps.hilt_navigation_compose
+    implementation libs.hilt.android
+    implementation libs.hilt.navigation.compose
+    kapt libs.hilt.android.compiler
 }
