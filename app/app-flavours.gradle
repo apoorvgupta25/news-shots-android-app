@@ -19,27 +19,23 @@ android {
             applicationId UAT.extension
             versionName UAT.versionName
             resValue "string", "app_name", "${UAT.appName}"
-            resValue "drawable", "ic_app_logo", "@drawable/ic_launcher_foreground"
         }
         production {
             dimension PROD.dimensions
             versionName PROD.versionName
             resValue "string", "app_name", "${PROD.appName}"
-            resValue "drawable", "ic_app_logo", "@drawable/ic_launcher_foreground"
         }
         qa {
             dimension QA.dimensions
             applicationId QA.extension
             versionName QA.versionName
             resValue "string", "app_name", "${QA.appName}"
-            resValue "drawable", "ic_app_logo", "@drawable/ic_launcher_foreground"
         }
         dev {
             dimension DEV.dimensions
             applicationId DEV.extension
             versionName DEV.versionName
             resValue "string", "app_name", "${DEV.appName}"
-            resValue "drawable", "ic_app_logo", "@drawable/ic_launcher_foreground"
         }
     }
 }
