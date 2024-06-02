@@ -9,12 +9,12 @@ import com.apoorvgupta.core.utils.EMPTY_STRING
  * @param message The message describing the error response.
  * @param errorCode The code for the error response.
  */
-data class ErrorResponseModel(
+data class ErrorModel(
     val title: String = EMPTY_STRING,
     val message: String = EMPTY_STRING,
     val errorCode: Int = -1,
 ) {
     companion object {
-        val emptyValue = ErrorResponseModel()
+        val emptyValue = ErrorModel()
     }
 }

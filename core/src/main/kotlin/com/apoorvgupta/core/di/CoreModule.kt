@@ -19,7 +19,7 @@ import dagger.hilt.components.SingletonComponent
  */
 @Module
 @InstallIn(SingletonComponent::class)
-abstract class CoreModule {
+interface CoreModule {
     @Binds
-    abstract fun dispatchersProvider(impl: AppDispatcherProvider): DispatcherProvider
+    fun dispatchersProvider(impl: AppDispatcherProvider): DispatcherProvider
 }

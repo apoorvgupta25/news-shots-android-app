@@ -40,6 +40,13 @@ fun getConnectionType(context: Context): Int {
     return result
 }
 
+/**
+ * Fetch error generic error body
+ *
+ * @param httpErrorCode
+ * @param errorBody
+ * @return
+ */
 fun fetchErrorGenericErrorBody(
     httpErrorCode: Int,
     errorBody: ResponseBody?,
@@ -54,34 +61,12 @@ fun fetchErrorGenericErrorBody(
     }
 }
 
-fun fetchForgotPasswordGenericErrorBody(
-    httpErrorCode: Int,
-    errorBody: ResponseBody?,
-): GenericErrorModel {
-    return if (errorBody != null) {
-        val errorObj = JSONObject(errorBody.string())
-        val bffErrorCode = errorObj.getString("Code").toInt()
-        val bffErrorMessage = errorObj.getString("Message")
-        GenericErrorModel(code = httpErrorCode, errorCode = bffErrorCode, message = bffErrorMessage)
-    } else {
-        GenericErrorModel(code = httpErrorCode)
-    }
-}
-
-fun fetchMainGenericErrorBody(
-    httpErrorCode: Int,
-    errorBody: ResponseBody?,
-): GenericErrorModel {
-    return if (errorBody != null) {
-        val errorObj = JSONObject(errorBody.string())
-        val bffErrorCode = errorObj.getString("Code").toInt()
-        val bffErrorMessage = errorObj.getString("Message")
-        GenericErrorModel(code = httpErrorCode, errorCode = bffErrorCode, message = bffErrorMessage)
-    } else {
-        GenericErrorModel(code = httpErrorCode)
-    }
-}
-
+/**
+ * Get network type
+ *
+ * @param context
+ * @return Network type
+ */
 fun getNetworkType(context: Context): String {
     val connectivityManager = context.getSystemService(CONNECTIVITY_SERVICE) as ConnectivityManager
     val network = connectivityManager.activeNetwork
