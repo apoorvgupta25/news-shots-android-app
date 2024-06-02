@@ -9,6 +9,15 @@ import dagger.hilt.android.qualifiers.ApplicationContext
 import kotlinx.coroutines.flow.Flow
 import javax.inject.Inject
 
+/**
+ * News shots repo impl
+ *
+ * @property context
+ * @property remoteDataSource
+ * @constructor Create empty News shots repo impl
+ *
+ * @author Apoorv Gupta
+ */
 class NewsShotsRepoImpl @Inject constructor(
     @ApplicationContext val context: Context,
     private val remoteDataSource: RemoteDataSource,

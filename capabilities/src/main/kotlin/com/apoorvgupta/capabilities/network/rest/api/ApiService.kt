@@ -6,7 +6,9 @@ import retrofit2.http.GET
 import retrofit2.http.Query
 
 /**
- * This interface represents the api services for main screen.
+ * This interface represents the api services for App
+ *
+ * @author Apoorv Gupta
  */
 interface ApiService {
 

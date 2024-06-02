@@ -46,10 +46,10 @@ private const val CONNECT_TIMEOUT = 60L
 interface NetworkModule {
 
     @Binds
-    abstract fun providesNewsShotsRepo(impl: NewsShotsRepoImpl): NewsShotsRepo
+    fun providesNewsShotsRepo(impl: NewsShotsRepoImpl): NewsShotsRepo
 
     @Binds
-    abstract fun providesRecentNewsShotsUseCase(impl: GetRecentNewsShotsUseCaseImpl): GetRecentNewsShotsUseCase
+    fun providesRecentNewsShotsUseCase(impl: GetRecentNewsShotsUseCaseImpl): GetRecentNewsShotsUseCase
 
     companion object {
 

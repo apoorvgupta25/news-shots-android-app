@@ -18,9 +18,6 @@ import javax.inject.Singleton
  * The Authorization Header value can be set dynamically using the provided `setAuthHeaderValue` function.
  * The class is marked as a singleton to ensure a single instance across the application.
  *
- * @param authorizationHeaderValue The current Authorization Header value.
- * @param anonymousHeaderValue The default or anonymous Authorization Header value.
- *
  * @author Apoorv Gupta
  */
 @Singleton

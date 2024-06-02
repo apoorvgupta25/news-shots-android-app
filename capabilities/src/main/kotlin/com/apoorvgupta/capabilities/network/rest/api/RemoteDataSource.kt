@@ -11,6 +11,8 @@ import javax.inject.Singleton
 
 /**
  * This class handles the api calls related to main screen of app.
+ *
+ * @author Apoorv Gupta
  */
 @Singleton
 class RemoteDataSource @Inject constructor(
