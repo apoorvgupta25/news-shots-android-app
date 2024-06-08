@@ -1,10 +1,7 @@
 package com.apoorvgupta.home.viewmodels
 
 import androidx.lifecycle.viewModelScope
-import com.apoorvgupta.capabilities.network.rest.domain.newsshots.usecase.GetRecentNewsShotsUseCase
-import com.apoorvgupta.capabilities.network.rest.helpers.Resource
 import com.apoorvgupta.core.base.BaseViewModel
-import com.apoorvgupta.core.utils.DataStatus
 import com.apoorvgupta.home.intent.HomeIntent
 import com.apoorvgupta.home.intent.HomeNavEffect
 import com.apoorvgupta.home.intent.HomeViewState

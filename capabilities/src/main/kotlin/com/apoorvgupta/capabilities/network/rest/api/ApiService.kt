@@ -43,7 +43,7 @@ interface ApiService {
      */
     @GET("api/daily/category/{categoryName}")
     suspend fun getPostByCategory(
-        @Path("categoryName") categoryName: String
+        @Path("categoryName") categoryName: String,
     ): Response<List<NewsShots>>
 
     /**
@@ -54,7 +54,6 @@ interface ApiService {
      */
     @GET("api/daily/{postName}")
     suspend fun getIndividualPost(
-        @Path("postName") postName: String
+        @Path("postName") postName: String,
     ): Response<NewsShots>
-
 }

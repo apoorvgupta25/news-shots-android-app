@@ -1,7 +1,6 @@
 package com.apoorvgupta.capabilities.network.rest.domain.categories.usecase
 
 import com.apoorvgupta.capabilities.network.rest.data.categories.Category
-import com.apoorvgupta.capabilities.network.rest.data.newsshots.NewsShots
 import com.apoorvgupta.capabilities.network.rest.helpers.Resource
 import kotlinx.coroutines.flow.Flow
 

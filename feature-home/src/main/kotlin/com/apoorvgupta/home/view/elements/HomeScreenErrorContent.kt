@@ -13,6 +13,6 @@ import com.apoorvgupta.home.intent.HomeViewStates
 fun HomeScreenErrorContent(state: HomeViewStates.LoadedData) {
     Text(
         text = "${state.data.errorModel.errorCode} ${state.data.errorModel.message}",
-        textAlign = TextAlign.Center
+        textAlign = TextAlign.Center,
     )
 }
