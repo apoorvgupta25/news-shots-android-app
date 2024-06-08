@@ -15,4 +15,6 @@ interface NewsShotsRepo {
     fun getRecentNewsShots(limit: Int, sortBy: String): Flow<Resource<List<NewsShots>?>>
 
     fun getNewsShotsByCategory(categoryName: String): Flow<Resource<List<NewsShots>?>>
+
+    fun getIndividualNewsShots(postName: String): Flow<Resource<NewsShots?>>
 }

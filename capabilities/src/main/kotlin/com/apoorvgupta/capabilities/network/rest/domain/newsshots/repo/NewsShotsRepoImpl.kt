@@ -35,4 +35,7 @@ class NewsShotsRepoImpl @Inject constructor(
 
     override fun getNewsShotsByCategory(categoryName: String): Flow<Resource<List<NewsShots>?>> =
         makeSafeApiCall(context) { remoteDataSource.getNewsShotsByCategory(categoryName) }
+
+    override fun getIndividualNewsShots(postName: String): Flow<Resource<NewsShots?>> =
+        makeSafeApiCall(context) { remoteDataSource.getIndividualPost(postName) }
 }

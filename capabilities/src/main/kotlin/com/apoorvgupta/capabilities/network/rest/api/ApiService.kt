@@ -35,9 +35,26 @@ interface ApiService {
     @GET("api/all/categories")
     suspend fun getAllCategories(): Response<List<Category>>
 
+    /**
+     * Get post by category
+     *
+     * @param categoryName
+     * @return
+     */
     @GET("api/daily/category/{categoryName}")
     suspend fun getPostByCategory(
         @Path("categoryName") categoryName: String
     ): Response<List<NewsShots>>
+
+    /**
+     * Get individual post
+     *
+     * @param postName
+     * @return
+     */
+    @GET("api/daily/{postName}")
+    suspend fun getIndividualPost(
+        @Path("postName") postName: String
+    ): Response<NewsShots>
 
 }
