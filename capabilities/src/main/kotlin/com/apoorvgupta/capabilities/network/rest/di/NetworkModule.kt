@@ -8,6 +8,10 @@ package com.apoorvgupta.capabilities.network.rest.di
 import android.content.Context
 import com.apoorvgupta.capabilities.network.rest.api.ApiService
 import com.apoorvgupta.capabilities.network.rest.api.AuthInterceptor
+import com.apoorvgupta.capabilities.network.rest.domain.categories.repo.CategoriesRepo
+import com.apoorvgupta.capabilities.network.rest.domain.categories.repo.CategoriesRepoImpl
+import com.apoorvgupta.capabilities.network.rest.domain.categories.usecase.GetAllCategoriesUseCase
+import com.apoorvgupta.capabilities.network.rest.domain.categories.usecase.GetAllCategoriesUseCaseImpl
 import com.apoorvgupta.capabilities.network.rest.domain.newsshots.repo.NewsShotsRepo
 import com.apoorvgupta.capabilities.network.rest.domain.newsshots.repo.NewsShotsRepoImpl
 import com.apoorvgupta.capabilities.network.rest.domain.newsshots.usecase.GetRecentNewsShotsUseCase
@@ -50,6 +54,12 @@ interface NetworkModule {
 
     @Binds
     fun providesRecentNewsShotsUseCase(impl: GetRecentNewsShotsUseCaseImpl): GetRecentNewsShotsUseCase
+
+    @Binds
+    fun providesCategoriesRepo(impl: CategoriesRepoImpl): CategoriesRepo
+
+    @Binds
+    fun providesCategoriesUseCase(impl: GetAllCategoriesUseCaseImpl): GetAllCategoriesUseCase
 
     companion object {
 

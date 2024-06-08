@@ -1,6 +1,7 @@
 package com.apoorvgupta.capabilities.network.rest.api
 
-import com.apoorvgupta.capabilities.network.rest.data.model.NewsShots
+import com.apoorvgupta.capabilities.network.rest.data.categories.Category
+import com.apoorvgupta.capabilities.network.rest.data.newsshots.NewsShots
 import retrofit2.Response
 import retrofit2.http.GET
 import retrofit2.http.Query
@@ -12,10 +13,25 @@ import retrofit2.http.Query
  */
 interface ApiService {
 
+    /**
+     * Get daily news shots
+     *
+     * @param limit
+     * @param sortBy
+     * @return
+     */
     @GET("api/daily")
     suspend fun getDailyNewsShots(
         @Query("limit") limit: Int,
         @Query("sortBy") sortBy: String,
     ): Response<List<NewsShots>>
+
+    /**
+     * Get all categories
+     *
+     * @return
+     */
+    @GET("api/all/categories")
+    suspend fun getAllCategories(): Response<List<Category>>
 
 }

@@ -11,6 +11,16 @@ import com.apoorvgupta.home.intent.HomeViewStates
 @Composable
 fun HomeScreenLoadedContent(state: HomeViewStates.LoadedData) {
     Text(
+        text = "Categories",
+    )
+
+    state.data.categoriesList.forEach {
+        Text(
+            text = it.name,
+        )
+    }
+
+    Text(
         text = "Home",
     )
 
@@ -20,4 +30,3 @@ fun HomeScreenLoadedContent(state: HomeViewStates.LoadedData) {
         )
     }
 }
-

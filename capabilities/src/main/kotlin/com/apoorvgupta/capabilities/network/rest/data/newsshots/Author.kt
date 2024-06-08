@@ -1,4 +1,4 @@
-package com.apoorvgupta.capabilities.network.rest.data.model
+package com.apoorvgupta.capabilities.network.rest.data.newsshots
 
 import com.google.gson.annotations.SerializedName
 

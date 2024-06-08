@@ -1,8 +1,12 @@
-package com.apoorvgupta.capabilities.network.rest.data.model
+package com.apoorvgupta.capabilities.network.rest.data.newsshots
 
+import com.apoorvgupta.capabilities.network.rest.data.categories.Category
 import com.google.gson.annotations.SerializedName
 
 data class NewsShots(
+    @SerializedName("_id")
+    val id: String,
+
     @SerializedName("author")
     val author: Author,
 

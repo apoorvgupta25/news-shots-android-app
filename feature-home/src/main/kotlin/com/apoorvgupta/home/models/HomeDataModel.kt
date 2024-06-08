@@ -1,6 +1,7 @@
 package com.apoorvgupta.home.models
 
-import com.apoorvgupta.capabilities.network.rest.data.model.NewsShots
+import com.apoorvgupta.capabilities.network.rest.data.categories.Category
+import com.apoorvgupta.capabilities.network.rest.data.newsshots.NewsShots
 import com.apoorvgupta.core.models.ErrorModel
 import com.apoorvgupta.core.utils.DataStatus
 import com.apoorvgupta.core.utils.EMPTY_STRING
@@ -19,6 +20,7 @@ data class HomeDataModel(
     val errorModel: ErrorModel = ErrorModel(),
     val homeContent: HomeContent = HomeContent(),
     val newsShotsList: List<NewsShots> = emptyList(),
+    val categoriesList: List<Category> = emptyList(),
 )
 
 data class HomeContent(

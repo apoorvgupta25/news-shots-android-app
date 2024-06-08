@@ -1,6 +1,8 @@
 package com.apoorvgupta.home.usecase
 
-import com.apoorvgupta.capabilities.network.rest.data.model.NewsShots
+import com.apoorvgupta.capabilities.network.rest.data.categories.Category
+import com.apoorvgupta.capabilities.network.rest.data.newsshots.NewsShots
+import com.apoorvgupta.capabilities.network.rest.domain.categories.usecase.GetAllCategoriesUseCase
 import com.apoorvgupta.capabilities.network.rest.domain.newsshots.usecase.GetRecentNewsShotsUseCase
 import com.apoorvgupta.capabilities.network.rest.helpers.Resource
 import com.apoorvgupta.core.models.ErrorModel
@@ -18,31 +20,32 @@ import javax.inject.Inject
  */
 class HomeScreenUseCaseImpl @Inject constructor(
     private val getRecentNewsShotsUseCase: GetRecentNewsShotsUseCase,
+    private val getAllCategoriesUseCase: GetAllCategoriesUseCase,
 ) : HomeScreenUseCase {
     override fun getHomeScreenContentData(): Flow<HomeDataModel> {
         return getRecentNewsShotsUseCase.getRecentNewsShots()
-            .combineTransform(getRecentNewsShotsUseCase.getRecentNewsShots()) { it, it1 ->
+            .combineTransform(getAllCategoriesUseCase.getAllCategories()) { newsShotsData, categoriesData ->
 
                 when {
-                    it.status == Resource.Status.ERROR -> {
+                    newsShotsData.status == Resource.Status.ERROR -> {
                         emitHomeError(
-                            statusCode = it.error?.code.getValueOrEmpty(),
-                            message = it.error?.message.getValueOrEmpty(),
+                            statusCode = newsShotsData.error?.code.getValueOrEmpty(),
+                            message = newsShotsData.error?.message.getValueOrEmpty(),
                         )
                     }
 
-                    it1.status == Resource.Status.ERROR -> {
+                    categoriesData.status == Resource.Status.ERROR -> {
                         emitHomeError(
-                            statusCode = it1.error?.code.getValueOrEmpty(),
-                            message = it1.error?.message.getValueOrEmpty(),
+                            statusCode = categoriesData.error?.code.getValueOrEmpty(),
+                            message = categoriesData.error?.message.getValueOrEmpty(),
                         )
                     }
 
-                    it.status == Resource.Status.SUCCESS && it1.status == Resource.Status.SUCCESS -> {
+                    newsShotsData.status == Resource.Status.SUCCESS && categoriesData.status == Resource.Status.SUCCESS -> {
                         emitHomeSuccess(
                             getHomeData(
-                                it.data,
-                                it1.data,
+                                newsShotsData.data,
+                                categoriesData.data,
                             ),
                         )
                     }
@@ -55,15 +58,16 @@ class HomeScreenUseCaseImpl @Inject constructor(
     }
 
     private fun getHomeData(
-        data: List<NewsShots>?,
-        data1: List<NewsShots>?,
+        newsShotsList: List<NewsShots>?,
+        categoriesList: List<Category>?,
     ): HomeDataModel {
         return HomeDataModel(
             status = DataStatus.Success,
             homeContent = HomeContent(
                 sendText = "Send",
             ),
-            newsShotsList = data.getValueOrEmpty(),
+            newsShotsList = newsShotsList.getValueOrEmpty(),
+            categoriesList = categoriesList.getValueOrEmpty(),
         )
     }
 
