@@ -32,4 +32,7 @@ class NewsShotsRepoImpl @Inject constructor(
      */
     override fun getRecentNewsShots(limit: Int, sortBy: String): Flow<Resource<List<NewsShots>?>> =
         makeSafeApiCall(context) { remoteDataSource.getDailyNewsShots(limit, sortBy) }
+
+    override fun getNewsShotsByCategory(categoryName: String): Flow<Resource<List<NewsShots>?>> =
+        makeSafeApiCall(context) { remoteDataSource.getNewsShotsByCategory(categoryName) }
 }

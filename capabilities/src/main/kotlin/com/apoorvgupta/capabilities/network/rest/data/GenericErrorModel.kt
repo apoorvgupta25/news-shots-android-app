@@ -18,5 +18,4 @@ data class GenericErrorModel(
     val code: Int = -1,
     val message: String? = null,
     val status: String = "",
-    val errorCode: Int = -1,
 )

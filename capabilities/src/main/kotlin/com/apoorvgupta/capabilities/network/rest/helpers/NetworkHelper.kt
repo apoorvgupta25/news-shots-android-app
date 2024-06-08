@@ -41,7 +41,7 @@ fun <T> makeSafeApiCall(context: Context, api: suspend () -> Resource<T?>) = flo
         emit(
             Resource.error(
                 error = GenericErrorModel(
-                    errorCode = ErrorCode.NETWORK_NOT_AVAILABLE,
+                    code = ErrorCode.NETWORK_NOT_AVAILABLE,
                     message = String.emptyValue(),
                 ),
             ),
@@ -51,7 +51,7 @@ fun <T> makeSafeApiCall(context: Context, api: suspend () -> Resource<T?>) = flo
     emit(
         Resource.error(
             error = GenericErrorModel(
-                errorCode = ErrorCode.NETWORK_CONNECTION_FAILED,
+                code = ErrorCode.NETWORK_CONNECTION_FAILED,
                 message = e.message,
             ),
         ),

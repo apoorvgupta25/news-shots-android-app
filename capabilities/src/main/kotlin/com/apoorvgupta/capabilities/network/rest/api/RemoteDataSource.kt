@@ -52,4 +52,19 @@ class RemoteDataSource @Inject constructor(
             }
         }
     }
+
+    suspend fun getNewsShotsByCategory(categoryName: String): Resource<List<NewsShots>?> {
+        return withContext(dispatcher.io) {
+            val response = apiService.getPostByCategory(categoryName = categoryName)
+
+            if (response.isSuccessful) {
+                Resource.success(response.body())
+            } else {
+                Resource.error(
+                    data = null,
+                    error = fetchErrorGenericErrorBody(response.code(), response.errorBody()),
+                )
+            }
+        }
+    }
 }

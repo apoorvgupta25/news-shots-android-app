@@ -4,6 +4,7 @@ import com.apoorvgupta.capabilities.network.rest.data.categories.Category
 import com.apoorvgupta.capabilities.network.rest.data.newsshots.NewsShots
 import retrofit2.Response
 import retrofit2.http.GET
+import retrofit2.http.Path
 import retrofit2.http.Query
 
 /**
@@ -33,5 +34,10 @@ interface ApiService {
      */
     @GET("api/all/categories")
     suspend fun getAllCategories(): Response<List<Category>>
+
+    @GET("api/daily/category/{categoryName}")
+    suspend fun getPostByCategory(
+        @Path("categoryName") categoryName: String
+    ): Response<List<NewsShots>>
 
 }

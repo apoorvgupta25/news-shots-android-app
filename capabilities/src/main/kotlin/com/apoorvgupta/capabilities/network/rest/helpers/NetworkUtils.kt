@@ -10,6 +10,7 @@ import android.content.Context.CONNECTIVITY_SERVICE
 import android.net.ConnectivityManager
 import android.net.NetworkCapabilities
 import com.apoorvgupta.capabilities.network.rest.data.GenericErrorModel
+import com.apoorvgupta.core.logger.AppLogger
 import okhttp3.ResponseBody
 import org.json.JSONObject
 
@@ -53,9 +54,8 @@ fun fetchErrorGenericErrorBody(
 ): GenericErrorModel {
     return if (errorBody != null) {
         val errorObj = JSONObject(errorBody.string())
-        val bffErrorCode = errorObj.getString("error").toInt()
-        val bffErrorMessage = errorObj.getString("error_description")
-        GenericErrorModel(code = httpErrorCode, message = bffErrorMessage, errorCode = bffErrorCode)
+        val bffErrorMessage = errorObj.getString("error")
+        GenericErrorModel(code = httpErrorCode, message = bffErrorMessage,)
     } else {
         GenericErrorModel(code = httpErrorCode)
     }
