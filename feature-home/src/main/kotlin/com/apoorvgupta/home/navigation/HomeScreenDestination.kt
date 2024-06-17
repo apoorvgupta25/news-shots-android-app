@@ -14,7 +14,7 @@ import com.apoorvgupta.core.interactions.session.FinishActivityChannel
 import com.apoorvgupta.home.intent.HomeIntent
 import com.apoorvgupta.home.intent.HomeNavEffect
 import com.apoorvgupta.home.intent.HomeViewStates
-import com.apoorvgupta.home.view.home.HomeScreen
+import com.apoorvgupta.home.view.HomeScreen
 import com.apoorvgupta.home.viewmodels.HomeViewModel
 import kotlinx.coroutines.flow.Flow
 

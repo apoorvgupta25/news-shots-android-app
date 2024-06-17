@@ -47,3 +47,5 @@ fun String?.getValueOrEmpty() = this ?: EMPTY_STRING
  * Returns 0 Int value if null else return same value.
  */
 fun Int?.getValueOrEmpty() = this ?: 0
+
+fun <T> List<T>?.getValueOrEmpty() = this ?: emptyList()

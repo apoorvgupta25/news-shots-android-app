@@ -1,13 +1,15 @@
 package com.apoorvgupta.home.viewmodels
 
+import androidx.lifecycle.viewModelScope
 import com.apoorvgupta.core.base.BaseViewModel
-import com.apoorvgupta.core.utils.DataStatus
 import com.apoorvgupta.home.intent.HomeIntent
 import com.apoorvgupta.home.intent.HomeNavEffect
 import com.apoorvgupta.home.intent.HomeViewState
 import com.apoorvgupta.home.intent.HomeViewStates
 import com.apoorvgupta.home.models.HomeDataModel
+import com.apoorvgupta.home.usecase.HomeScreenUseCase
 import dagger.hilt.android.lifecycle.HiltViewModel
+import kotlinx.coroutines.launch
 import javax.inject.Inject
 
 /**
@@ -17,7 +19,9 @@ import javax.inject.Inject
  */
 
 @HiltViewModel
-class HomeViewModel @Inject constructor() : BaseViewModel<HomeIntent, HomeViewState, HomeNavEffect>() {
+class HomeViewModel @Inject constructor(
+    private val homeScreenUseCase: HomeScreenUseCase,
+) : BaseViewModel<HomeIntent, HomeViewState, HomeNavEffect>() {
 
     private var homeDataModel: HomeDataModel = HomeDataModel()
 
@@ -28,28 +32,48 @@ class HomeViewModel @Inject constructor() : BaseViewModel<HomeIntent, HomeViewSt
     override fun handleIntent(intent: HomeIntent) {
         when (intent) {
             HomeIntent.LoadHomeScreen -> {
-                homeDataModel = homeDataModel.copy(status = DataStatus.Success)
-                emitRefreshDataContent(homeDataModel)
+                getHomeData()
             }
         }
     }
 
-    private fun emitRefreshDataContent(homeDataModel: HomeDataModel) {
-        when (homeDataModel.status) {
-            DataStatus.Success -> {
-                emitViewState {
-                    copy(
-                        homeViewState = HomeViewStates.LoadedData(
-                            showLoader = false,
-                            data = homeDataModel,
-                        ),
-                    )
-                }
+    private fun getHomeData() {
+        viewModelScope.launch {
+            homeScreenUseCase.getHomeScreenContentData().collect {
+                emitHomeData(it)
             }
+            /*getRecentNewsShotsUseCase.getRecentNewsShots().collect {
+                when (it.status) {
+                    Resource.Status.LOADING -> {
+                        // Loader
+                    }
 
-            else -> {
-                // Do Nothing
-            }
+                    Resource.Status.SUCCESS -> {
+                        homeDataModel = homeDataModel.copy(
+                            newsShotsList = it.data ?: emptyList(),
+                        )
+                        emitHomeData(homeDataModel)
+                    }
+
+                    else -> {
+                        homeDataModel = homeDataModel.copy(
+                            newsShotsList = emptyList(),
+                        )
+                        emitHomeData(homeDataModel)
+                    }
+                }
+            }*/
+        }
+    }
+
+    private fun emitHomeData(homeDataModel: HomeDataModel) {
+        emitViewState {
+            copy(
+                homeViewState = HomeViewStates.LoadedData(
+                    showLoader = false,
+                    data = homeDataModel,
+                ),
+            )
         }
     }
 
