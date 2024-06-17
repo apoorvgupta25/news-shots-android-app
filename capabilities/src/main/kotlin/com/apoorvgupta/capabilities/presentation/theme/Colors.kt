@@ -17,9 +17,9 @@ private val md_theme_light_onPrimary = Color(0xFFFFFFFF)
 private val md_theme_light_secondary = Color(0xFF6F5B40)
 private val md_theme_light_onSecondary = Color(0xFFFFFFFF)
 private val md_theme_light_background = Color(0xFFFFFFFF)
-private val md_theme_light_error = Color(0xFFBA1A1A)
-private val md_theme_light_errorContainer = Color(0xFFFFDAD6)
-private val md_theme_light_primaryButton = Color(0xFFE3E2DF)
+private val md_theme_light_error = Color(0xFFFFFFFF)
+private val md_theme_light_errorContainer = Color(0xFFFFFFFF)
+private val md_theme_light_primaryButton = Color(0xFFFFFFFF)
 
 // Color constants for dark theme
 private val md_theme_dark_primary = Color(0xFFE3E2DF)
@@ -76,7 +76,7 @@ val ColorScheme.primaryButtonColor: Color
     @Composable
     get() = md_theme_light_primaryButton
 
-val ColorScheme.blackTextColor: Color
+val ColorScheme.textColor: Color
     @Composable
     get() = text_black
 

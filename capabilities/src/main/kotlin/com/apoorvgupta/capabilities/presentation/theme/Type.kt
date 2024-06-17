@@ -31,7 +31,10 @@ val Typography =
         displayLarge = Typography().displayLarge.copy(fontFamily = Poppins),
         displayMedium = Typography().displayMedium.copy(fontFamily = Poppins),
         displaySmall = Typography().displaySmall.copy(fontFamily = Poppins),
-        headlineLarge = Typography().headlineLarge.copy(fontFamily = Poppins),
+        headlineLarge = Typography().headlineLarge.copy(
+            fontFamily = Poppins,
+            fontWeight = FontWeight.SemiBold,
+        ),
         headlineMedium = Typography().headlineMedium.copy(fontFamily = Poppins),
         headlineSmall = Typography().headlineSmall.copy(fontFamily = Poppins),
         titleLarge = Typography().titleLarge.copy(fontFamily = Poppins),
@@ -40,7 +43,10 @@ val Typography =
         bodyLarge = Typography().bodyLarge.copy(fontFamily = Poppins),
         bodyMedium = Typography().bodyMedium.copy(fontFamily = Poppins),
         bodySmall = Typography().bodySmall.copy(fontFamily = Poppins),
-        labelLarge = Typography().labelLarge.copy(fontFamily = Poppins),
+        labelLarge = Typography().labelLarge.copy(
+            fontFamily = Poppins,
+            fontWeight = FontWeight.SemiBold,
+        ),
         labelMedium = Typography().labelMedium.copy(fontFamily = Poppins),
         labelSmall = Typography().labelSmall.copy(fontFamily = Poppins),
     )

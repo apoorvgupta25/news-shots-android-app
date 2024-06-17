@@ -35,8 +35,6 @@ fun HomeScreen(
 
     Column(
         modifier = Modifier.fillMaxSize(),
-        verticalArrangement = Arrangement.Center,
-        horizontalAlignment = Alignment.CenterHorizontally,
     ) {
         // Main content of the Home Screen.
         when (state.data.status) {
