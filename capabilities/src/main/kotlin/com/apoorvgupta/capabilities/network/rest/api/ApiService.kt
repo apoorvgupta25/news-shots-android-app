@@ -67,5 +67,4 @@ interface ApiService {
     suspend fun getSearchedPost(
         @Query("search") search: String,
     ): Response<List<NewsShots>>
-
 }
