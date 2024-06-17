@@ -1,9 +1,6 @@
 package com.apoorvgupta.capabilities.network.rest.domain.newsshots.usecase
 
-import com.apoorvgupta.capabilities.network.rest.data.newsshots.NewsShots
 import com.apoorvgupta.capabilities.network.rest.domain.newsshots.repo.NewsShotsRepo
-import com.apoorvgupta.capabilities.network.rest.helpers.Resource
-import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.transform
 import javax.inject.Inject
 
@@ -17,11 +14,11 @@ class GetIndividualNewsShotsUseCaseImpl @Inject constructor(
     /**
      * Get individual news shots
      *
-     * @param postName
+     * @param postLink
      * @return
      */
-    override fun getIndividualNewsShots(postName: String): Flow<Resource<NewsShots?>> =
-        newsShotsRepo.getIndividualNewsShots(postName = postName).transform { response ->
+    override fun getIndividualNewsShots(postLink: String) =
+        newsShotsRepo.getIndividualNewsShots(postLink = postLink).transform { response ->
             emit(response)
         }
 }

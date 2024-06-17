@@ -68,9 +68,24 @@ class RemoteDataSource @Inject constructor(
         }
     }
 
-    suspend fun getIndividualPost(postName: String): Resource<NewsShots?> {
+    suspend fun getIndividualPost(postLink: String): Resource<NewsShots?> {
         return withContext(dispatcher.io) {
-            val response = apiService.getIndividualPost(postName = postName)
+            val response = apiService.getIndividualPost(postLink = postLink)
+
+            if (response.isSuccessful) {
+                Resource.success(response.body())
+            } else {
+                Resource.error(
+                    data = null,
+                    error = fetchErrorGenericErrorBody(response.code(), response.errorBody()),
+                )
+            }
+        }
+    }
+
+    suspend fun getSearchedPost(searchKeyword: String): Resource<List<NewsShots>?> {
+        return withContext(dispatcher.io) {
+            val response = apiService.getSearchedPost(search = searchKeyword)
 
             if (response.isSuccessful) {
                 Resource.success(response.body())

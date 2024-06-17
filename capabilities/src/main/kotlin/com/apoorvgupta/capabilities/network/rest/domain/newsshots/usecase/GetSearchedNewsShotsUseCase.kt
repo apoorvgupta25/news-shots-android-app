@@ -5,9 +5,12 @@ import com.apoorvgupta.capabilities.network.rest.helpers.Resource
 import kotlinx.coroutines.flow.Flow
 
 /**
+ * Get searched news shots use case
+ *
+ * @constructor Create empty Get searched news shots use case
+ *
  * @author Apoorv Gupta
  */
-
-fun interface GetIndividualNewsShotsUseCase {
-    fun getIndividualNewsShots(postLink: String): Flow<Resource<NewsShots?>>
+fun interface GetSearchedNewsShotsUseCase {
+    fun getSearchedNewsShots(searchKeyword: String): Flow<Resource<List<NewsShots>?>>
 }

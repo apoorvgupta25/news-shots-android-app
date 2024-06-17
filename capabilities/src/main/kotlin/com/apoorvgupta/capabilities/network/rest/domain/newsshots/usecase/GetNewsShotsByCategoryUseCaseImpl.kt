@@ -25,7 +25,7 @@ class GetNewsShotsByCategoryUseCaseImpl @Inject constructor(
      * @param categoryName
      * @return
      */
-    override fun getNewsShotsByCategory(categoryName: String): Flow<Resource<List<NewsShots>?>> =
+    override fun getNewsShotsByCategory(categoryName: String) =
         newsShotsRepo.getNewsShotsByCategory(categoryName = categoryName).transform { response ->
             emit(response)
         }

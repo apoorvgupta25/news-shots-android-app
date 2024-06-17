@@ -20,6 +20,8 @@ import com.apoorvgupta.capabilities.network.rest.domain.newsshots.usecase.GetNew
 import com.apoorvgupta.capabilities.network.rest.domain.newsshots.usecase.GetNewsShotsByCategoryUseCaseImpl
 import com.apoorvgupta.capabilities.network.rest.domain.newsshots.usecase.GetRecentNewsShotsUseCase
 import com.apoorvgupta.capabilities.network.rest.domain.newsshots.usecase.GetRecentNewsShotsUseCaseImpl
+import com.apoorvgupta.capabilities.network.rest.domain.newsshots.usecase.GetSearchedNewsShotsUseCase
+import com.apoorvgupta.capabilities.network.rest.domain.newsshots.usecase.GetSearchedNewsShotsUseCaseImpl
 import com.apoorvgupta.capabilities.network.rest.interceptor.CacheInterceptor
 import com.apoorvgupta.core.interactions.buildConfigProvider.BuildConfigContract
 import com.apoorvgupta.core.logger.AppLogger
@@ -64,6 +66,9 @@ interface NetworkModule {
 
     @Binds
     fun providesIndividualNewsShotsUseCase(impl: GetIndividualNewsShotsUseCaseImpl): GetIndividualNewsShotsUseCase
+
+    @Binds
+    fun providesSearchedNewsShotsUseCase(impl: GetSearchedNewsShotsUseCaseImpl): GetSearchedNewsShotsUseCase
 
     @Binds
     fun providesCategoriesRepo(impl: CategoriesRepoImpl): CategoriesRepo

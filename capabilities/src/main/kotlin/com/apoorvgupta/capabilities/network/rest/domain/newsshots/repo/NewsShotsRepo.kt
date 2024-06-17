@@ -16,5 +16,7 @@ interface NewsShotsRepo {
 
     fun getNewsShotsByCategory(categoryName: String): Flow<Resource<List<NewsShots>?>>
 
-    fun getIndividualNewsShots(postName: String): Flow<Resource<NewsShots?>>
+    fun getIndividualNewsShots(postLink: String): Flow<Resource<NewsShots?>>
+
+    fun getSearchedNewsShots(searchKeyword: String): Flow<Resource<List<NewsShots>?>>
 }

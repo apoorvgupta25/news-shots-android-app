@@ -49,11 +49,23 @@ interface ApiService {
     /**
      * Get individual post
      *
-     * @param postName
+     * @param postLink
      * @return
      */
     @GET("api/daily/{postName}")
     suspend fun getIndividualPost(
-        @Path("postName") postName: String,
+        @Path("postName") postLink: String,
     ): Response<NewsShots>
+
+    /**
+     * Get searched post by keyword
+     *
+     * @param search search keyword
+     * @return
+     */
+    @GET("api/find/regex/post")
+    suspend fun getSearchedPost(
+        @Query("search") search: String,
+    ): Response<List<NewsShots>>
+
 }
