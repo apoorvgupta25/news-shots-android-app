@@ -7,7 +7,7 @@ import androidx.compose.runtime.Composable
 import androidx.compose.runtime.LaunchedEffect
 import androidx.compose.ui.text.font.FontWeight
 import androidx.navigation.NavController
-import com.apoorvgupta.capabilities.presentation.navigation.Daily
+import com.apoorvgupta.capabilities.presentation.navigation.NewsShotsListing
 import com.apoorvgupta.capabilities.presentation.navigation.Search
 import com.apoorvgupta.capabilities.presentation.reusableComponents.loader.CircularProgressBarComponent
 import com.apoorvgupta.capabilities.presentation.theme.buttonBackgroundColor
@@ -42,12 +42,16 @@ fun HomeScreenDestination(
     fun handleNavigation(navEvent: HomeNavEffect) {
         when (navEvent) {
             // Need to update
-            is HomeNavEffect.OpenSearchPage -> {
+            HomeNavEffect.OpenSearchPage -> {
                 navController.navigate(Search)
             }
 
-            HomeNavEffect.OpenDailyNewsShotsPage -> {
-                navController.navigate(Daily)
+            is HomeNavEffect.OpenNewsShotsListingPage -> {
+                navController.navigate(
+                    NewsShotsListing(
+                        categoryName = navEvent.categoryName,
+                    ),
+                )
             }
         }
     }

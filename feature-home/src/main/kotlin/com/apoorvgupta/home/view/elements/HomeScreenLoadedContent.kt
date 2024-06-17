@@ -27,8 +27,8 @@ import com.apoorvgupta.capabilities.presentation.theme.s_vertical_spacing
 import com.apoorvgupta.capabilities.presentation.theme.sl_vertical_spacing
 import com.apoorvgupta.capabilities.presentation.theme.textColor
 import com.apoorvgupta.capabilities.presentation.theme.xxs_vertical_spacing
-import com.apoorvgupta.capabilities.presentation.theme.xxxl_vertical_spacing
 import com.apoorvgupta.capabilities.presentation.theme.xxxs_stroke_width
+import com.apoorvgupta.capabilities.util.Constants.DAILY
 import com.apoorvgupta.home.intent.HomeIntent
 import com.apoorvgupta.home.intent.HomeViewStates
 
@@ -59,7 +59,7 @@ fun HomeScreenLoadedContent(
             text = state.data.homeContent.headingText,
             style = MaterialTheme.typography.headlineLarge,
             modifier = Modifier.noRippleClickable {
-                userIntent.invoke(HomeIntent.NavigateToDailyNewsShots)
+                userIntent.invoke(HomeIntent.NavigateToNewsShotsListing(DAILY))
             },
         )
 
@@ -84,6 +84,9 @@ fun HomeScreenLoadedContent(
             state.data.categoriesList.forEach {
                 Text(
                     modifier = Modifier
+                        .noRippleClickable {
+                            userIntent.invoke(HomeIntent.NavigateToNewsShotsListing(it.name))
+                        }
                         .background(
                             color = MaterialTheme.colorScheme.onPrimary,
                             shape = RoundedCornerShape(ll_corner_radius),

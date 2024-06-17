@@ -33,8 +33,8 @@ class HomeViewModel @Inject constructor(
                 getHomeData()
             }
 
-            HomeIntent.NavigateToDailyNewsShots -> {
-                sendNavEffect { HomeNavEffect.OpenDailyNewsShotsPage }
+            is HomeIntent.NavigateToNewsShotsListing -> {
+                sendNavEffect { HomeNavEffect.OpenNewsShotsListingPage(intent.categoryName) }
             }
         }
     }

@@ -14,7 +14,7 @@ import com.apoorvgupta.home.models.HomeDataModel
  */
 sealed class HomeIntent : UserIntent {
     data object LoadHomeScreen : HomeIntent()
-    data object NavigateToDailyNewsShots : HomeIntent()
+    data class NavigateToNewsShotsListing(val categoryName: String) : HomeIntent()
 }
 
 /**
@@ -23,8 +23,8 @@ sealed class HomeIntent : UserIntent {
  * @author Apoorv Gupta
  */
 sealed class HomeNavEffect : NavEffect {
-    data class OpenSearchPage(val userId: String) : HomeNavEffect()
-    data object OpenDailyNewsShotsPage : HomeNavEffect()
+    data object OpenSearchPage : HomeNavEffect()
+    data class OpenNewsShotsListingPage(val categoryName: String) : HomeNavEffect()
 }
 
 /**

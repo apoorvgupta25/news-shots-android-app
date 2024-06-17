@@ -42,9 +42,11 @@ interface ApiService {
      * @param categoryName
      * @return
      */
-    @GET("api/daily/category/{categoryName}")
+    @GET("api/index/category/{categoryName}")
     suspend fun getPostByCategory(
         @Path("categoryName") categoryName: String,
+        @Query("limit") limit: Int,
+        @Query("skip") skip: Int,
     ): Response<List<NewsShots>>
 
     /**

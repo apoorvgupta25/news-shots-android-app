@@ -10,14 +10,15 @@ import androidx.hilt.navigation.compose.hiltViewModel
 import androidx.navigation.NavGraphBuilder
 import androidx.navigation.NavHostController
 import androidx.navigation.compose.composable
+import androidx.navigation.toRoute
 import com.apoorvgupta.bookmark.BookmarkScreen
 import com.apoorvgupta.capabilities.presentation.navigation.Bookmark
-import com.apoorvgupta.capabilities.presentation.navigation.Daily
+import com.apoorvgupta.capabilities.presentation.navigation.NewsShotsListing
 import com.apoorvgupta.capabilities.presentation.navigation.Home
 import com.apoorvgupta.capabilities.presentation.navigation.Search
 import com.apoorvgupta.capabilities.presentation.navigation.Splash
-import com.apoorvgupta.daily.navigation.DailyScreenDestination
-import com.apoorvgupta.daily.viewmodels.DailyViewModel
+import com.apoorvgupta.newsshots.navigation.NewsShotsListingScreenDestination
+import com.apoorvgupta.newsshots.viewmodels.NewsShotsListingViewModel
 import com.apoorvgupta.home.navigation.HomeScreenDestination
 import com.apoorvgupta.home.viewmodels.HomeViewModel
 import com.apoorvgupta.search.SearchScreen
@@ -66,16 +67,18 @@ fun NavGraphBuilder.homeNavigationGraph(
         )
     }
 
-    composable<Daily> {
-        val viewModel: DailyViewModel = hiltViewModel()
+    composable<NewsShotsListing> {
+        val viewModel: NewsShotsListingViewModel = hiltViewModel()
         val viewState by viewModel.viewState.collectAsState()
         val effect = viewModel.effect
 
-        DailyScreenDestination(
-            dailyViewModel = viewModel,
-            dailyViewState = viewState.dailyViewState,
+        val arg = it.toRoute<NewsShotsListing>()
+        NewsShotsListingScreenDestination(
+            newsShotsListingViewModel = viewModel,
+            newsShotsListingViewState = viewState.NewsShotsListingViewState,
             navEffect = effect,
             navController = navController,
+            arg = arg,
         )
     }
 }

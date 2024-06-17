@@ -1,7 +1,7 @@
 package com.apoorvgupta.capabilities.network.rest.domain.newsshots.usecase
 
+import androidx.paging.PagingData
 import com.apoorvgupta.capabilities.network.rest.data.newsshots.NewsShots
-import com.apoorvgupta.capabilities.network.rest.helpers.Resource
 import kotlinx.coroutines.flow.Flow
 
 /**
@@ -12,5 +12,5 @@ import kotlinx.coroutines.flow.Flow
  * @author Apoorv Gupta
  */
 fun interface GetNewsShotsByCategoryUseCase {
-    fun getNewsShotsByCategory(categoryName: String): Flow<Resource<List<NewsShots>?>>
+    fun getNewsShotsByCategory(categoryName: String): Flow<PagingData<NewsShots>>
 }

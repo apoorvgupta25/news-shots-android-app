@@ -15,7 +15,7 @@ import kotlinx.coroutines.flow.Flow
 interface NewsShotsRepo {
     fun getRecentNewsShots(limit: Int, sortBy: String): Flow<Resource<List<NewsShots>?>>
 
-    fun getNewsShotsByCategory(categoryName: String): Flow<Resource<List<NewsShots>?>>
+    fun getNewsShotsByCategory(categoryName: String): Flow<PagingData<NewsShots>>
 
     fun getIndividualNewsShots(postLink: String): Flow<Resource<NewsShots?>>
 
