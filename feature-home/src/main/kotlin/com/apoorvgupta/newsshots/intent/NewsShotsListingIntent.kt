@@ -3,8 +3,6 @@ package com.apoorvgupta.newsshots.intent
 import com.apoorvgupta.core.base.NavEffect
 import com.apoorvgupta.core.base.UserIntent
 import com.apoorvgupta.core.base.ViewState
-import com.apoorvgupta.core.models.ApiErrorModel
-import com.apoorvgupta.core.models.OfflineErrorModel
 import com.apoorvgupta.newsshots.models.NewsShotsListingDataModel
 
 /**
@@ -35,18 +33,6 @@ sealed class NewsShotsListingViewStates {
         val showLoader: Boolean = false,
         val isRefreshing: Boolean = false,
         val data: NewsShotsListingDataModel,
-    ) : NewsShotsListingViewStates()
-
-    data class Offline(
-        val showLoader: Boolean = false,
-        val isRefreshing: Boolean = false,
-        val offlineErrorModel: OfflineErrorModel,
-    ) : NewsShotsListingViewStates()
-
-    data class Error(
-        val showLoader: Boolean = false,
-        val isRefreshing: Boolean = false,
-        val apiErrorContentModel: ApiErrorModel = ApiErrorModel.emptyValue,
     ) : NewsShotsListingViewStates()
 
     data class InitialLoading(

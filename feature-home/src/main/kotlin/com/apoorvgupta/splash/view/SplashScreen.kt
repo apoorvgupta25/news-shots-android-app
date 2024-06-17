@@ -24,12 +24,12 @@ fun SplashScreen(
     Box(
         modifier = Modifier
             .fillMaxSize()
-            .background(MaterialTheme.colorScheme.primary),
+            .background(color = MaterialTheme.colorScheme.primary),
         contentAlignment = Alignment.Center,
     ) {
     }
     LaunchedEffect(Unit) {
-        userIntent.invoke(SplashIntent.ValidateSessionData)
+        userIntent.invoke(SplashIntent.NavigateToHomeScreen)
         // Need to update
         AppLogger.d { "State: ${state.isRefreshing}" }
     }

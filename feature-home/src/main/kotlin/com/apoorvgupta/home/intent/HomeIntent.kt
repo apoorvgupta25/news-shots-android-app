@@ -3,8 +3,6 @@ package com.apoorvgupta.home.intent
 import com.apoorvgupta.core.base.NavEffect
 import com.apoorvgupta.core.base.UserIntent
 import com.apoorvgupta.core.base.ViewState
-import com.apoorvgupta.core.models.ApiErrorModel
-import com.apoorvgupta.core.models.OfflineErrorModel
 import com.apoorvgupta.home.models.HomeDataModel
 
 /**
@@ -37,18 +35,6 @@ sealed class HomeViewStates {
         val showLoader: Boolean = false,
         val isRefreshing: Boolean = false,
         val data: HomeDataModel,
-    ) : HomeViewStates()
-
-    data class Offline(
-        val showLoader: Boolean = false,
-        val isRefreshing: Boolean = false,
-        val offlineErrorModel: OfflineErrorModel,
-    ) : HomeViewStates()
-
-    data class Error(
-        val showLoader: Boolean = false,
-        val isRefreshing: Boolean = false,
-        val apiErrorContentModel: ApiErrorModel = ApiErrorModel.emptyValue,
     ) : HomeViewStates()
 
     data class InitialLoading(
