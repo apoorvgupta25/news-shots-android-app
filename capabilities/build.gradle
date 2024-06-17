@@ -61,6 +61,9 @@ dependencies {
     implementation libs.androidx.ui.tooling
     implementation libs.androidx.material3
 
+    // Pagination
+    implementation libs.androidx.pagination
+
     // Navigation
     implementation libs.androidx.navigation.compose
     implementation libs.kotlinx.serialization
