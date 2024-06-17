@@ -23,8 +23,6 @@ class HomeViewModel @Inject constructor(
     private val homeScreenUseCase: HomeScreenUseCase,
 ) : BaseViewModel<HomeIntent, HomeViewState, HomeNavEffect>() {
 
-    private var homeDataModel: HomeDataModel = HomeDataModel()
-
     override fun createInitialState(): HomeViewState {
         return HomeViewState(HomeViewStates.UnInitialized)
     }
@@ -34,6 +32,10 @@ class HomeViewModel @Inject constructor(
             HomeIntent.LoadHomeScreen -> {
                 getHomeData()
             }
+
+            HomeIntent.NavigateToDailyNewsShots -> {
+                sendNavEffect { HomeNavEffect.OpenDailyNewsShotsPage }
+            }
         }
     }
 
@@ -42,27 +44,6 @@ class HomeViewModel @Inject constructor(
             homeScreenUseCase.getHomeScreenContentData().collect {
                 emitHomeData(it)
             }
-            /*getRecentNewsShotsUseCase.getRecentNewsShots().collect {
-                when (it.status) {
-                    Resource.Status.LOADING -> {
-                        // Loader
-                    }
-
-                    Resource.Status.SUCCESS -> {
-                        homeDataModel = homeDataModel.copy(
-                            newsShotsList = it.data ?: emptyList(),
-                        )
-                        emitHomeData(homeDataModel)
-                    }
-
-                    else -> {
-                        homeDataModel = homeDataModel.copy(
-                            newsShotsList = emptyList(),
-                        )
-                        emitHomeData(homeDataModel)
-                    }
-                }
-            }*/
         }
     }
 

@@ -67,7 +67,7 @@ class HomeScreenUseCaseImpl @Inject constructor(
                 headingText = "NewsShots Daily",
                 subHeadingText = "Get daily news in 3 mins",
                 categoryLabel = "Browse By Category",
-                allArticlesLabel = "All articles",
+                articlesLabel = "Latest articles",
             ),
             newsShotsList = newsShotsList.getValueOrEmpty(),
             categoriesList = categoriesList.getValueOrEmpty(),

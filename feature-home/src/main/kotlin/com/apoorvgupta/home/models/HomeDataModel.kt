@@ -27,5 +27,5 @@ data class HomeContent(
     val headingText: String = EMPTY_STRING,
     val subHeadingText: String = EMPTY_STRING,
     val categoryLabel: String = EMPTY_STRING,
-    val allArticlesLabel: String = EMPTY_STRING,
+    val articlesLabel: String = EMPTY_STRING,
 )

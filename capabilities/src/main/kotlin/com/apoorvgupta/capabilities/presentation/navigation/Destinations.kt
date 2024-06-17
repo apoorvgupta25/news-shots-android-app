@@ -20,6 +20,10 @@ object Splash
 @Serializable
 object Home
 
+// Daily Destination
+@Serializable
+object Daily
+
 // Search Destination
 @Serializable
 object Search

@@ -21,9 +21,10 @@ interface ApiService {
      * @param sortBy
      * @return
      */
-    @GET("api/daily")
+    @GET("api/index/daily")
     suspend fun getDailyNewsShots(
         @Query("limit") limit: Int,
+        @Query("skip") skip: Int,
         @Query("sortBy") sortBy: String,
     ): Response<List<NewsShots>>
 

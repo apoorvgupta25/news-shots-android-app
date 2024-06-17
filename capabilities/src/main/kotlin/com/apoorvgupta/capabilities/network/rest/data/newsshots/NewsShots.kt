@@ -35,5 +35,5 @@ data class NewsShots(
     val updatedAt: String? = null,
 ){
     val formattedDate: String
-        get() = getDateFormatted(updatedAt.getValueOrEmpty())
+        get() = getDateFormatted(createdAt.getValueOrEmpty())
 }

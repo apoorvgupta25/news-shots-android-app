@@ -12,9 +12,12 @@ import androidx.navigation.NavHostController
 import androidx.navigation.compose.composable
 import com.apoorvgupta.bookmark.BookmarkScreen
 import com.apoorvgupta.capabilities.presentation.navigation.Bookmark
+import com.apoorvgupta.capabilities.presentation.navigation.Daily
 import com.apoorvgupta.capabilities.presentation.navigation.Home
 import com.apoorvgupta.capabilities.presentation.navigation.Search
 import com.apoorvgupta.capabilities.presentation.navigation.Splash
+import com.apoorvgupta.daily.navigation.DailyScreenDestination
+import com.apoorvgupta.daily.viewmodels.DailyViewModel
 import com.apoorvgupta.home.navigation.HomeScreenDestination
 import com.apoorvgupta.home.viewmodels.HomeViewModel
 import com.apoorvgupta.search.SearchScreen
@@ -58,6 +61,19 @@ fun NavGraphBuilder.homeNavigationGraph(
         HomeScreenDestination(
             homeViewModel = viewModel,
             homeViewState = viewState.homeViewState,
+            navEffect = effect,
+            navController = navController,
+        )
+    }
+
+    composable<Daily> {
+        val viewModel: DailyViewModel = hiltViewModel()
+        val viewState by viewModel.viewState.collectAsState()
+        val effect = viewModel.effect
+
+        DailyScreenDestination(
+            dailyViewModel = viewModel,
+            dailyViewState = viewState.dailyViewState,
             navEffect = effect,
             navController = navController,
         )

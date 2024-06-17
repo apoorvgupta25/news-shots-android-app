@@ -1,6 +1,5 @@
 package com.apoorvgupta.home.intent
 
-import androidx.compose.ui.unit.Dp
 import com.apoorvgupta.core.base.NavEffect
 import com.apoorvgupta.core.base.UserIntent
 import com.apoorvgupta.core.base.ViewState
@@ -15,15 +14,7 @@ import com.apoorvgupta.home.models.HomeDataModel
  */
 sealed class HomeIntent : UserIntent {
     data object LoadHomeScreen : HomeIntent()
-}
-
-/**
- * Sealed class representing UI intents for the home screen.
- *
- * @author Apoorv Gupta
- */
-sealed class HomeUIIntent {
-    data class ShowMessage(val message: String, val imageUrl: String, val imageSize: Dp) : HomeUIIntent()
+    data object NavigateToDailyNewsShots : HomeIntent()
 }
 
 /**
@@ -33,6 +24,7 @@ sealed class HomeUIIntent {
  */
 sealed class HomeNavEffect : NavEffect {
     data class OpenSearchPage(val userId: String) : HomeNavEffect()
+    data object OpenDailyNewsShotsPage : HomeNavEffect()
 }
 
 /**
@@ -44,7 +36,6 @@ sealed class HomeViewStates {
     data class LoadedData(
         val showLoader: Boolean = false,
         val isRefreshing: Boolean = false,
-        val trackedSections: MutableList<Boolean> = MutableList(1) { false },
         val data: HomeDataModel,
     ) : HomeViewStates()
 

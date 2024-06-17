@@ -1,5 +1,6 @@
 package com.apoorvgupta.capabilities.network.rest.domain.newsshots.repo
 
+import androidx.paging.PagingData
 import com.apoorvgupta.capabilities.network.rest.data.newsshots.NewsShots
 import com.apoorvgupta.capabilities.network.rest.helpers.Resource
 import kotlinx.coroutines.flow.Flow
@@ -19,4 +20,6 @@ interface NewsShotsRepo {
     fun getIndividualNewsShots(postLink: String): Flow<Resource<NewsShots?>>
 
     fun getSearchedNewsShots(searchKeyword: String): Flow<Resource<List<NewsShots>?>>
+
+    fun getAllNewsShots(): Flow<PagingData<NewsShots>>
 }

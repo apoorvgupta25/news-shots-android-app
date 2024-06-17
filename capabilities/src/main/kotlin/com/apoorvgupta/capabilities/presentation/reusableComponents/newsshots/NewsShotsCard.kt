@@ -28,7 +28,6 @@ import com.apoorvgupta.capabilities.presentation.theme.m_vertical_spacing
 import com.apoorvgupta.capabilities.presentation.theme.s_corner_radius
 import com.apoorvgupta.capabilities.presentation.theme.s_vertical_spacing
 import com.apoorvgupta.capabilities.presentation.theme.sl_vertical_spacing
-import com.apoorvgupta.capabilities.util.DateUtils.getDateFormatted
 import com.apoorvgupta.core.utils.EMPTY_STRING
 
 /**
@@ -36,7 +35,7 @@ import com.apoorvgupta.core.utils.EMPTY_STRING
  */
 
 @Composable
-fun NewsShotsCard(newsShots: NewsShots) {
+fun NewsShotsCard(newsShot: NewsShots) {
     Row(
         modifier = Modifier
             .fillMaxWidth()
@@ -52,19 +51,19 @@ fun NewsShotsCard(newsShots: NewsShots) {
             modifier = Modifier.weight(2f),
         ) {
             Text(
-                text = newsShots.title,
+                text = newsShot.title,
                 style = MaterialTheme.typography.titleMedium.copy(fontWeight = FontWeight.Bold),
             )
 
             Text(
-                text = newsShots.description,
+                text = newsShot.description,
                 modifier = Modifier.padding(top = s_vertical_spacing),
                 style = MaterialTheme.typography.bodyMedium,
             )
 
             Text(
                 modifier = Modifier.padding(top = sl_vertical_spacing),
-                text = newsShots.formattedDate,
+                text = newsShot.formattedDate,
                 style = MaterialTheme.typography.bodySmall,
             )
         }
@@ -74,7 +73,7 @@ fun NewsShotsCard(newsShots: NewsShots) {
             horizontalAlignment = Alignment.End,
         ) {
             val imageUrl =
-                "https://news-shots-backend.onrender.com/api/daily/photo/${newsShots.link}"
+                "https://news-shots-backend.onrender.com/api/daily/photo/${newsShot.link}"
 
             AsyncImage(
                 modifier = Modifier
