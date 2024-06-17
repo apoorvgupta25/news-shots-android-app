@@ -33,6 +33,10 @@ fun NewsShotsListingScreenDestination(
         when (navEvent) {
             is NewsShotsListingNavEffect.OpenIndividualNewsShots -> {
             }
+
+            NewsShotsListingNavEffect.OpenPreviousScreen -> {
+                navController.popBackStack()
+            }
         }
     }
 
@@ -65,6 +69,7 @@ fun NewsShotsListingScreenDestination(
         is NewsShotsListingViewStates.LoadedData -> {
             // Display the NewsShots Listing Screen with loaded data.
             NewsShotsListingScreen(
+                state = newsShotsListingViewState,
                 viewModel = newsShotsListingViewModel,
                 userIntent = onUserAction(),
             )

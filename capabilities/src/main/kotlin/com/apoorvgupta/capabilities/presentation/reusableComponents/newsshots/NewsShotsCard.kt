@@ -10,8 +10,6 @@ import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.shape.RoundedCornerShape
-import androidx.compose.material.icons.Icons
-import androidx.compose.material.icons.outlined.FavoriteBorder
 import androidx.compose.material3.Icon
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Text
@@ -19,9 +17,12 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
+import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.text.font.FontWeight
+import androidx.compose.ui.text.style.TextOverflow
 import coil.compose.AsyncImage
 import com.apoorvgupta.capabilities.network.rest.data.newsshots.NewsShots
+import com.apoorvgupta.capabilities.presentation.reusableComponents.noRippleClickable
 import com.apoorvgupta.capabilities.presentation.theme.l_icon_size
 import com.apoorvgupta.capabilities.presentation.theme.m_surrounding_spacing
 import com.apoorvgupta.capabilities.presentation.theme.m_vertical_spacing
@@ -29,15 +30,23 @@ import com.apoorvgupta.capabilities.presentation.theme.s_corner_radius
 import com.apoorvgupta.capabilities.presentation.theme.s_vertical_spacing
 import com.apoorvgupta.capabilities.presentation.theme.sl_vertical_spacing
 import com.apoorvgupta.core.utils.EMPTY_STRING
+import com.apoorvgupta.newsshots.capabilities.R
 
 /**
  * @author Apoorv Gupta
  */
 
 @Composable
-fun NewsShotsCard(newsShot: NewsShots) {
+fun NewsShotsCard(
+    newsShot: NewsShots,
+    onCardClick: () -> Unit,
+    onBookmarkClick: () -> Unit,
+) {
     Row(
         modifier = Modifier
+            .noRippleClickable {
+                onCardClick()
+            }
             .fillMaxWidth()
             .padding(bottom = m_vertical_spacing)
             .background(
@@ -59,6 +68,8 @@ fun NewsShotsCard(newsShot: NewsShots) {
                 text = newsShot.description,
                 modifier = Modifier.padding(top = s_vertical_spacing),
                 style = MaterialTheme.typography.bodyMedium,
+                maxLines = 3,
+                overflow = TextOverflow.Ellipsis,
             )
 
             Text(
@@ -72,22 +83,23 @@ fun NewsShotsCard(newsShot: NewsShots) {
             modifier = Modifier.weight(1f),
             horizontalAlignment = Alignment.End,
         ) {
-            val imageUrl =
-                "https://news-shots-backend.onrender.com/api/daily/photo/${newsShot.link}"
-
             AsyncImage(
                 modifier = Modifier
                     .clip(shape = RoundedCornerShape(s_corner_radius)),
-                model = imageUrl,
+                model = "https://news-shots-backend.onrender.com/api/daily/photo/${newsShot.link}",
                 contentDescription = "NewsShot image",
             )
 
             Spacer(modifier = Modifier.weight(1F))
 
             Icon(
-                imageVector = Icons.Outlined.FavoriteBorder,
+                painter = painterResource(id = R.drawable.ic_bookmark_outlined),
                 contentDescription = EMPTY_STRING,
-                modifier = Modifier.size(l_icon_size),
+                modifier = Modifier
+                    .noRippleClickable {
+                        onBookmarkClick
+                    }
+                    .size(l_icon_size),
             )
         }
     }

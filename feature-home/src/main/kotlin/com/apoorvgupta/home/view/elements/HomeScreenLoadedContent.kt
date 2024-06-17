@@ -17,6 +17,7 @@ import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
+import com.apoorvgupta.capabilities.presentation.reusableComponents.HeadLine
 import com.apoorvgupta.capabilities.presentation.reusableComponents.newsshots.NewsShotsCard
 import com.apoorvgupta.capabilities.presentation.reusableComponents.noRippleClickable
 import com.apoorvgupta.capabilities.presentation.theme.ll_corner_radius
@@ -54,19 +55,12 @@ fun HomeScreenLoadedContent(
         verticalArrangement = Arrangement.Center,
         horizontalAlignment = Alignment.Start,
     ) {
-        // Title
-        Text(
-            text = state.data.homeContent.headingText,
-            style = MaterialTheme.typography.headlineLarge,
-            modifier = Modifier.noRippleClickable {
+        HeadLine(
+            headText = state.data.homeContent.headingText,
+            subHeadingText = state.data.homeContent.subHeadingText,
+            onHeadClick = {
                 userIntent.invoke(HomeIntent.NavigateToNewsShotsListing(DAILY))
             },
-        )
-
-        // SubTitle
-        Text(
-            text = state.data.homeContent.subHeadingText,
-            style = MaterialTheme.typography.bodyMedium,
         )
 
         // Category
@@ -122,7 +116,9 @@ fun HomeScreenLoadedContent(
 
         state.data.newsShotsList.forEach {
             NewsShotsCard(
-                it,
+                newsShot = it,
+                onCardClick = {},
+                onBookmarkClick = {},
             )
         }
     }

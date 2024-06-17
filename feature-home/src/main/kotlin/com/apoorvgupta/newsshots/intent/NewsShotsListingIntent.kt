@@ -12,6 +12,8 @@ import com.apoorvgupta.newsshots.models.NewsShotsListingDataModel
  */
 sealed class NewsShotsListingIntent : UserIntent {
     data class LoadNewsShotsListingScreen(val categoryName: String) : NewsShotsListingIntent()
+    data class NavigateToIndividualNewsShots(val link: String): NewsShotsListingIntent()
+    data object NavigateToPreviousScreen: NewsShotsListingIntent()
 }
 
 /**
@@ -21,6 +23,7 @@ sealed class NewsShotsListingIntent : UserIntent {
  */
 sealed class NewsShotsListingNavEffect : NavEffect {
     data class OpenIndividualNewsShots(val userId: String) : NewsShotsListingNavEffect()
+    data object OpenPreviousScreen : NewsShotsListingNavEffect()
 }
 
 /**

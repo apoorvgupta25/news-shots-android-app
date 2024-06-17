@@ -9,6 +9,6 @@ data class BottomNavItem(
     val title: String,
     val visible: Boolean,
     var badgeCount: Int,
-    val icon: ImageVector,
-    val filledIcon: ImageVector,
+    val icon: Int,
+    val filledIcon: Int,
 )

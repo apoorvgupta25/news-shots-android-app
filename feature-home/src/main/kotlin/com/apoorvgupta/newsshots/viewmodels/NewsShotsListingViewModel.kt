@@ -30,8 +30,6 @@ class NewsShotsListingViewModel @Inject constructor(
     private val getNewsShotsByCategoryUseCase: GetNewsShotsByCategoryUseCase,
 ) : BaseViewModel<NewsShotsListingIntent, NewsShotsListingViewState, NewsShotsListingNavEffect>() {
 
-    private var newsShotsListingDataModel: NewsShotsListingDataModel = NewsShotsListingDataModel()
-
     private val _newsShotsPaginationResults: MutableStateFlow<PagingData<NewsShots>> =
         MutableStateFlow(value = PagingData.empty())
 
@@ -47,6 +45,14 @@ class NewsShotsListingViewModel @Inject constructor(
             is NewsShotsListingIntent.LoadNewsShotsListingScreen -> {
                 getDailyData(intent.categoryName)
             }
+
+            is NewsShotsListingIntent.NavigateToIndividualNewsShots -> {
+                sendNavEffect { NewsShotsListingNavEffect.OpenIndividualNewsShots(intent.link) }
+            }
+
+            NewsShotsListingIntent.NavigateToPreviousScreen -> {
+                sendNavEffect { NewsShotsListingNavEffect.OpenPreviousScreen }
+            }
         }
     }
 
@@ -55,24 +61,26 @@ class NewsShotsListingViewModel @Inject constructor(
             if (categoryName.equals(DAILY, true)) {
                 getAllNewsShotsUseCase.getAllNewsShots().cachedIn(viewModelScope).collect {
                     _newsShotsPaginationResults.value = it
-                    emitDailyData(newsShotsListingDataModel)
+                    emitDailyData(categoryName)
                 }
             } else {
                 getNewsShotsByCategoryUseCase.getNewsShotsByCategory(categoryName = categoryName)
                     .cachedIn(viewModelScope).collect {
                         _newsShotsPaginationResults.value = it
-                        emitDailyData(newsShotsListingDataModel)
+                        emitDailyData(categoryName)
                     }
             }
         }
     }
 
-    private fun emitDailyData(newsShotsListingDataModel: NewsShotsListingDataModel) {
+    private fun emitDailyData(headingText: String) {
         emitViewState {
             copy(
                 NewsShotsListingViewState = NewsShotsListingViewStates.LoadedData(
                     showLoader = false,
-                    data = newsShotsListingDataModel,
+                    data = NewsShotsListingDataModel(
+                        headingText = headingText,
+                    ),
                 ),
             )
         }

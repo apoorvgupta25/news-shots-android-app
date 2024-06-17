@@ -192,3 +192,4 @@ val ll_icon_size = triple_large_internal_spacing
 val xl_icon_size = quadruple_internal_spacing
 val xml_icon_size = quadruple_medium_internal_spacing
 val xxl_icon_size = quintuple_internal_spacing
+val xxxl_icon_size = sextuple_internal_spacing

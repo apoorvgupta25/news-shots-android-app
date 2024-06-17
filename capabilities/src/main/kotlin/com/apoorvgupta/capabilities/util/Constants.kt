@@ -16,5 +16,5 @@ object Constants {
     const val ENABLE_APP_CACHE = "enableAppCache"
 
     const val POST_PER_PAGE = 8
-    const val DAILY = "daily"
+    const val DAILY = "Daily"
 }

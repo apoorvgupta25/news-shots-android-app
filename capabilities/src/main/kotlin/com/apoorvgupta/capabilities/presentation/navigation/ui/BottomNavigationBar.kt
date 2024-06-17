@@ -5,6 +5,7 @@
 
 package com.apoorvgupta.capabilities.presentation.navigation.ui
 
+import androidx.compose.foundation.Image
 import androidx.compose.foundation.border
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
@@ -12,17 +13,9 @@ import androidx.compose.foundation.layout.offset
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.shape.CircleShape
-import androidx.compose.material.icons.Icons
-import androidx.compose.material.icons.filled.Favorite
-import androidx.compose.material.icons.filled.Home
-import androidx.compose.material.icons.filled.Search
-import androidx.compose.material.icons.outlined.FavoriteBorder
-import androidx.compose.material.icons.outlined.Home
-import androidx.compose.material.icons.outlined.Search
 import androidx.compose.material3.Badge
 import androidx.compose.material3.BadgedBox
 import androidx.compose.material3.ExperimentalMaterial3Api
-import androidx.compose.material3.Icon
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.NavigationBar
 import androidx.compose.material3.NavigationBarItem
@@ -37,6 +30,7 @@ import androidx.compose.runtime.setValue
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.shadow
 import androidx.compose.ui.graphics.Color
+import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.unit.Dp
 import androidx.compose.ui.unit.IntOffset
 import androidx.navigation.NavController
@@ -50,9 +44,11 @@ import com.apoorvgupta.capabilities.presentation.theme.s_surrounding_spacing
 import com.apoorvgupta.capabilities.presentation.theme.shadowBackgroundColor
 import com.apoorvgupta.capabilities.presentation.theme.sl_horizontal_spacing
 import com.apoorvgupta.capabilities.presentation.theme.sl_vertical_spacing
+import com.apoorvgupta.capabilities.presentation.theme.textColor
 import com.apoorvgupta.capabilities.presentation.theme.xxxs_stroke_width
 import com.apoorvgupta.core.logger.AppLogger
 import com.apoorvgupta.core.utils.EMPTY_STRING
+import com.apoorvgupta.newsshots.capabilities.R
 import kotlin.math.roundToInt
 
 /**
@@ -89,8 +85,8 @@ fun BottomNavigationBar(
             title = "Home",
             visible = true,
             badgeCount = 0,
-            icon = Icons.Outlined.Home,
-            filledIcon = Icons.Filled.Home,
+            icon = R.drawable.ic_home_outlined,
+            filledIcon = R.drawable.ic_home_filled,
         ),
         BottomNavItem(
             displayBadge = false,
@@ -99,8 +95,8 @@ fun BottomNavigationBar(
             title = "Search",
             visible = true,
             badgeCount = 0,
-            icon = Icons.Outlined.Search,
-            filledIcon = Icons.Filled.Search,
+            icon = R.drawable.ic_search_outlined,
+            filledIcon = R.drawable.ic_search_filled,
         ),
         BottomNavItem(
             displayBadge = false,
@@ -109,8 +105,8 @@ fun BottomNavigationBar(
             title = "Bookmark",
             visible = true,
             badgeCount = 0,
-            icon = Icons.Outlined.FavoriteBorder,
-            filledIcon = Icons.Filled.Favorite,
+            icon = R.drawable.ic_bookmark_outlined,
+            filledIcon = R.drawable.ic_bookmark_filled,
         ),
     )
 
@@ -137,10 +133,11 @@ fun BottomNavigationBar(
             NavigationBarItem(
                 alwaysShowLabel = true,
                 icon = {
-                    Icon(
-                        imageVector = if (isCurrentRouteSelected) item.filledIcon else item.icon,
+                    Image(
+                        painter = painterResource(if (isCurrentRouteSelected) item.filledIcon else item.icon),
                         contentDescription = EMPTY_STRING,
                         modifier = Modifier.size(l_icon_size),
+                        alpha = if (isCurrentRouteSelected) 1F else 0.5F,
                     )
                     if (item.displayBadge) {
                         BadgedBox(
@@ -176,10 +173,10 @@ fun BottomNavigationBar(
                 },
                 selected = isCurrentRouteSelected,
                 colors = NavigationBarItemDefaults.colors(
-                    selectedIconColor = Color.Black,
-                    unselectedIconColor = MaterialTheme.colorScheme.primary,
-                    selectedTextColor = Color.Black,
-                    unselectedTextColor = MaterialTheme.colorScheme.primary,
+                    selectedIconColor = MaterialTheme.colorScheme.textColor,
+                    unselectedIconColor = MaterialTheme.colorScheme.textColor,
+                    selectedTextColor = MaterialTheme.colorScheme.textColor,
+                    unselectedTextColor = MaterialTheme.colorScheme.textColor,
                     indicatorColor = Color.White,
                 ),
                 onClick = {

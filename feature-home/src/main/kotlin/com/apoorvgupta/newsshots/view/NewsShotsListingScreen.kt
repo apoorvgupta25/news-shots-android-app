@@ -2,7 +2,9 @@ package com.apoorvgupta.newsshots.view
 
 import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Arrangement
+import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.fillMaxSize
+import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.material3.MaterialTheme
@@ -13,11 +15,16 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.text.style.TextAlign
 import androidx.paging.LoadState
 import androidx.paging.compose.collectAsLazyPagingItems
+import com.apoorvgupta.capabilities.presentation.reusableComponents.BackArrowNavigation
+import com.apoorvgupta.capabilities.presentation.reusableComponents.HeadLine
 import com.apoorvgupta.capabilities.presentation.reusableComponents.newsshots.NewsShotsCard
 import com.apoorvgupta.capabilities.presentation.theme.m_horizontal_spacing
+import com.apoorvgupta.capabilities.presentation.theme.m_vertical_spacing
+import com.apoorvgupta.capabilities.presentation.theme.s_vertical_spacing
 import com.apoorvgupta.core.logger.AppLogger
 import com.apoorvgupta.core.utils.getValueOrEmpty
 import com.apoorvgupta.newsshots.intent.NewsShotsListingIntent
+import com.apoorvgupta.newsshots.intent.NewsShotsListingViewStates
 import com.apoorvgupta.newsshots.viewmodels.NewsShotsListingViewModel
 
 /**
@@ -25,6 +32,7 @@ import com.apoorvgupta.newsshots.viewmodels.NewsShotsListingViewModel
  */
 @Composable
 fun NewsShotsListingScreen(
+    state: NewsShotsListingViewStates.LoadedData,
     viewModel: NewsShotsListingViewModel,
     userIntent: (NewsShotsListingIntent) -> Unit,
 ) {
@@ -35,15 +43,33 @@ fun NewsShotsListingScreen(
             .fillMaxSize()
             .background(color = MaterialTheme.colorScheme.primary)
             .padding(horizontal = m_horizontal_spacing),
-        verticalArrangement = Arrangement.Center,
-        horizontalAlignment = Alignment.CenterHorizontally,
+        verticalArrangement = Arrangement.Top,
+        horizontalAlignment = Alignment.Start,
     ) {
+        item {
+            Spacer(modifier = Modifier.height(m_vertical_spacing))
+
+            BackArrowNavigation(
+                onBackClick = {
+                    userIntent.invoke(NewsShotsListingIntent.NavigateToPreviousScreen)
+                },
+            )
+
+            Spacer(modifier = Modifier.height(s_vertical_spacing))
+
+            HeadLine(
+                headText = state.data.headingText,
+            )
+        }
+
         items(
             count = newsShotsResults.itemCount,
         ) { index ->
             newsShotsResults.get(index = index)?.let { newsShot ->
                 NewsShotsCard(
                     newsShot = newsShot,
+                    onCardClick = {},
+                    onBookmarkClick = {},
                 )
             }
         }
