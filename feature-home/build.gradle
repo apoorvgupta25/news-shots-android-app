@@ -64,6 +64,9 @@ dependencies {
     implementation libs.androidx.material3
     implementation libs.androidx.activity.compose
 
+    // Pagination
+    implementation libs.androidx.pagination
+
     // Navigation
     implementation libs.androidx.navigation.compose
 
