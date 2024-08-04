@@ -13,14 +13,14 @@ import androidx.navigation.compose.composable
 import androidx.navigation.toRoute
 import com.apoorvgupta.bookmark.BookmarkScreen
 import com.apoorvgupta.capabilities.presentation.navigation.Bookmark
-import com.apoorvgupta.capabilities.presentation.navigation.NewsShotsListing
 import com.apoorvgupta.capabilities.presentation.navigation.Home
+import com.apoorvgupta.capabilities.presentation.navigation.NewsShotsListing
 import com.apoorvgupta.capabilities.presentation.navigation.Search
 import com.apoorvgupta.capabilities.presentation.navigation.Splash
-import com.apoorvgupta.newsshots.navigation.NewsShotsListingScreenDestination
-import com.apoorvgupta.newsshots.viewmodels.NewsShotsListingViewModel
 import com.apoorvgupta.home.navigation.HomeScreenDestination
 import com.apoorvgupta.home.viewmodels.HomeViewModel
+import com.apoorvgupta.newsshots.navigation.NewsShotsListingScreenDestination
+import com.apoorvgupta.newsshots.viewmodels.NewsShotsListingViewModel
 import com.apoorvgupta.search.SearchScreen
 import com.apoorvgupta.splash.navigation.SplashScreenDestination
 import com.apoorvgupta.splash.viewmodel.SplashViewModel
@@ -75,7 +75,7 @@ fun NavGraphBuilder.homeNavigationGraph(
         val arg = it.toRoute<NewsShotsListing>()
         NewsShotsListingScreenDestination(
             newsShotsListingViewModel = viewModel,
-            newsShotsListingViewState = viewState.NewsShotsListingViewState,
+            newsShotsListingViewState = viewState.newsShotsListingViewState,
             navEffect = effect,
             navController = navController,
             arg = arg,

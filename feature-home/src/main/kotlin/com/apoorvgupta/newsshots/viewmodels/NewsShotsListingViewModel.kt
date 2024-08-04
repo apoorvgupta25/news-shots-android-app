@@ -76,7 +76,7 @@ class NewsShotsListingViewModel @Inject constructor(
     private fun emitDailyData(headingText: String) {
         emitViewState {
             copy(
-                NewsShotsListingViewState = NewsShotsListingViewStates.LoadedData(
+                newsShotsListingViewState = NewsShotsListingViewStates.LoadedData(
                     showLoader = false,
                     data = NewsShotsListingDataModel(
                         headingText = headingText,
@@ -92,7 +92,7 @@ class NewsShotsListingViewModel @Inject constructor(
     fun emitLoading() {
         emitViewState {
             copy(
-                NewsShotsListingViewState = NewsShotsListingViewStates.InitialLoading(
+                newsShotsListingViewState = NewsShotsListingViewStates.InitialLoading(
                     showLoader = true,
                     data = NewsShotsListingDataModel(),
                 ),

@@ -12,8 +12,8 @@ import com.apoorvgupta.newsshots.models.NewsShotsListingDataModel
  */
 sealed class NewsShotsListingIntent : UserIntent {
     data class LoadNewsShotsListingScreen(val categoryName: String) : NewsShotsListingIntent()
-    data class NavigateToIndividualNewsShots(val link: String): NewsShotsListingIntent()
-    data object NavigateToPreviousScreen: NewsShotsListingIntent()
+    data class NavigateToIndividualNewsShots(val link: String) : NewsShotsListingIntent()
+    data object NavigateToPreviousScreen : NewsShotsListingIntent()
 }
 
 /**
@@ -50,8 +50,8 @@ sealed class NewsShotsListingViewStates {
 /**
  * Data class representing the overall view state for the NewsShots Listing.
  *
- * @param NewsShotsListingViewState The specific NewsShots Listing view state.
+ * @param newsShotsListingViewState The specific NewsShots Listing view state.
  */
 data class NewsShotsListingViewState(
-    var NewsShotsListingViewState: NewsShotsListingViewStates,
+    var newsShotsListingViewState: NewsShotsListingViewStates,
 ) : ViewState

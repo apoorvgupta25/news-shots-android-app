@@ -15,11 +15,11 @@ import androidx.compose.runtime.mutableStateOf
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.text.style.TextAlign
-import com.apoorvgupta.capabilities.presentation.theme.textColor
 import com.apoorvgupta.capabilities.presentation.theme.buttonTextStyle
 import com.apoorvgupta.capabilities.presentation.theme.disabledBackgroundColor
 import com.apoorvgupta.capabilities.presentation.theme.disabledTextColor
 import com.apoorvgupta.capabilities.presentation.theme.sl_corner_radius
+import com.apoorvgupta.capabilities.presentation.theme.textColor
 import com.apoorvgupta.capabilities.presentation.theme.xs_horizontal_spacing
 import com.apoorvgupta.capabilities.presentation.theme.xxxs_stroke_width
 
