@@ -7,8 +7,9 @@ updates:
   - package-ecosystem: "gradle"
     directory: "/"
     schedule:
-      interval: "monthly"
+      interval: "weekly"
       time: "16:00"
+    target-branch: "deps-and-versions"
     registries:
       - google
       - jitpack
@@ -18,8 +19,9 @@ updates:
   - package-ecosystem: "github-actions"
     directory: "/"
     schedule:
-      interval: "monthly"
+      interval: "weekly"
       time: "16:00"
+    target-branch: "deps-and-versions"
     open-pull-requests-limit: 10
     groups:
       github-actions:
