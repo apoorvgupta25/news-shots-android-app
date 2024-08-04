@@ -1,15 +1,12 @@
 package com.apoorvgupta.home.navigation
 
 import androidx.activity.compose.BackHandler
-import androidx.compose.material3.MaterialTheme
-import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.LaunchedEffect
-import androidx.compose.ui.text.font.FontWeight
 import androidx.navigation.NavController
+import com.apoorvgupta.capabilities.presentation.navigation.NewsShotsListing
 import com.apoorvgupta.capabilities.presentation.navigation.Search
 import com.apoorvgupta.capabilities.presentation.reusableComponents.loader.CircularProgressBarComponent
-import com.apoorvgupta.capabilities.presentation.theme.buttonBackgroundColor
 import com.apoorvgupta.core.interactions.session.FinishActivityChannel
 import com.apoorvgupta.home.intent.HomeIntent
 import com.apoorvgupta.home.intent.HomeNavEffect
@@ -41,8 +38,16 @@ fun HomeScreenDestination(
     fun handleNavigation(navEvent: HomeNavEffect) {
         when (navEvent) {
             // Need to update
-            is HomeNavEffect.OpenSearchPage -> {
+            HomeNavEffect.OpenSearchPage -> {
                 navController.navigate(Search)
+            }
+
+            is HomeNavEffect.OpenNewsShotsListingPage -> {
+                navController.navigate(
+                    NewsShotsListing(
+                        categoryName = navEvent.categoryName,
+                    ),
+                )
             }
         }
     }
@@ -73,38 +78,14 @@ fun HomeScreenDestination(
     when (homeViewState) {
         is HomeViewStates.LoadedData -> {
             // Display the Home Screen with loaded data.
-//            CircularProgressBarComponent(homeViewState.showLoader)
             HomeScreen(
                 state = homeViewState,
                 userIntent = onUserAction(),
             )
         }
 
-        is HomeViewStates.Error -> {
-            CircularProgressBarComponent(homeViewState.showLoader)
-            // Display content for the error state.
-            Text(
-                text = homeViewState.apiErrorContentModel.title,
-                style = MaterialTheme.typography.headlineMedium,
-                color = MaterialTheme.colorScheme.buttonBackgroundColor,
-                fontWeight = FontWeight.Bold,
-            )
-            Text(
-                text = homeViewState.apiErrorContentModel.subTitle,
-                style = MaterialTheme.typography.bodyLarge,
-                color = MaterialTheme.colorScheme.buttonBackgroundColor,
-                fontWeight = FontWeight.Bold,
-            )
-        }
-
         is HomeViewStates.InitialLoading -> {
             CircularProgressBarComponent(homeViewState.showLoader)
-        }
-
-        is HomeViewStates.Offline -> {
-            CircularProgressBarComponent(homeViewState.showLoader)
-            // Display content for the offline state.
-            Text("Offline")
         }
 
         is HomeViewStates.UnInitialized -> {

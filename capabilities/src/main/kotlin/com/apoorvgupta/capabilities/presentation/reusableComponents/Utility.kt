@@ -1,7 +1,12 @@
 package com.apoorvgupta.capabilities.presentation.reusableComponents
 
 import android.app.Activity
+import androidx.compose.foundation.clickable
+import androidx.compose.foundation.interaction.MutableInteractionSource
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.remember
+import androidx.compose.ui.Modifier
+import androidx.compose.ui.composed
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.graphics.toArgb
 import androidx.compose.ui.platform.LocalContext
@@ -21,5 +26,16 @@ fun SetStatusBarColor(color: Color) {
             isAppearanceLightNavigationBars = true
         }
         statusBarColor = color.toArgb()
+    }
+}
+
+fun Modifier.noRippleClickable(
+    onClick: () -> Unit,
+): Modifier = composed {
+    clickable(
+        indication = null,
+        interactionSource = remember { MutableInteractionSource() },
+    ) {
+        onClick()
     }
 }

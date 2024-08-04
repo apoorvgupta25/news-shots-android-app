@@ -1,4 +1,4 @@
-package com.apoorvgupta.home.di
+package com.apoorvgupta.di
 
 import com.apoorvgupta.home.usecase.HomeScreenUseCase
 import com.apoorvgupta.home.usecase.HomeScreenUseCaseImpl

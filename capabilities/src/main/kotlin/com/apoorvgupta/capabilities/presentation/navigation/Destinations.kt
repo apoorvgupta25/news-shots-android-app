@@ -20,6 +20,12 @@ object Splash
 @Serializable
 object Home
 
+// NewsShotsListing Destination
+@Serializable
+data class NewsShotsListing(
+    val categoryName: String,
+)
+
 // Search Destination
 @Serializable
 object Search

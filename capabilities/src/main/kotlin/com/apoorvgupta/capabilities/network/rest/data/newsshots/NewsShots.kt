@@ -1,6 +1,8 @@
 package com.apoorvgupta.capabilities.network.rest.data.newsshots
 
 import com.apoorvgupta.capabilities.network.rest.data.categories.Category
+import com.apoorvgupta.capabilities.util.DateUtils.getDateFormatted
+import com.apoorvgupta.core.utils.getValueOrEmpty
 import com.google.gson.annotations.SerializedName
 
 data class NewsShots(
@@ -29,5 +31,8 @@ data class NewsShots(
     val title: String,
 
     @SerializedName("updatedAt")
-    val updatedAt: String,
-)
+    val updatedAt: String? = null,
+) {
+    val formattedDate: String
+        get() = getDateFormatted(createdAt.getValueOrEmpty())
+}

@@ -20,10 +20,15 @@ class RemoteDataSource @Inject constructor(
     private val dispatcher: DispatcherProvider,
 ) {
 
-    suspend fun getDailyNewsShots(limit: Int, sortBy: String): Resource<List<NewsShots>?> {
+    suspend fun getDailyNewsShots(
+        limit: Int,
+        sortBy: String,
+        skip: Int = 0,
+    ): Resource<List<NewsShots>?> {
         return withContext(dispatcher.io) {
             val response = apiService.getDailyNewsShots(
                 limit = limit,
+                skip = skip,
                 sortBy = sortBy,
             )
 
@@ -53,9 +58,9 @@ class RemoteDataSource @Inject constructor(
         }
     }
 
-    suspend fun getNewsShotsByCategory(categoryName: String): Resource<List<NewsShots>?> {
+    suspend fun getNewsShotsByCategory(categoryName: String, limit: Int, skip: Int): Resource<List<NewsShots>?> {
         return withContext(dispatcher.io) {
-            val response = apiService.getPostByCategory(categoryName = categoryName)
+            val response = apiService.getPostByCategory(categoryName = categoryName, limit = limit, skip = skip)
 
             if (response.isSuccessful) {
                 Resource.success(response.body())

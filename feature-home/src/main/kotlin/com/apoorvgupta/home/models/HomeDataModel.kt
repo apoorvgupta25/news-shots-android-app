@@ -24,5 +24,8 @@ data class HomeDataModel(
 )
 
 data class HomeContent(
-    val sendText: String = EMPTY_STRING,
+    val headingText: String = EMPTY_STRING,
+    val subHeadingText: String = EMPTY_STRING,
+    val categoryLabel: String = EMPTY_STRING,
+    val articlesLabel: String = EMPTY_STRING,
 )

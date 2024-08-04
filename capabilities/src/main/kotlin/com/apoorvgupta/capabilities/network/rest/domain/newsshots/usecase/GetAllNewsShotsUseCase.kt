@@ -5,12 +5,12 @@ import com.apoorvgupta.capabilities.network.rest.data.newsshots.NewsShots
 import kotlinx.coroutines.flow.Flow
 
 /**
- * Get news shots by category use case
+ * Get all news shots use case
  *
- * @constructor Create empty Get news shots by category use case
+ * @constructor Create empty Get all news shots use case
  *
  * @author Apoorv Gupta
  */
-fun interface GetNewsShotsByCategoryUseCase {
-    fun getNewsShotsByCategory(categoryName: String): Flow<PagingData<NewsShots>>
+fun interface GetAllNewsShotsUseCase {
+    fun getAllNewsShots(): Flow<PagingData<NewsShots>>
 }

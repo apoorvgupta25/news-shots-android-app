@@ -21,9 +21,10 @@ interface ApiService {
      * @param sortBy
      * @return
      */
-    @GET("api/daily")
+    @GET("api/index/daily")
     suspend fun getDailyNewsShots(
         @Query("limit") limit: Int,
+        @Query("skip") skip: Int,
         @Query("sortBy") sortBy: String,
     ): Response<List<NewsShots>>
 
@@ -41,9 +42,11 @@ interface ApiService {
      * @param categoryName
      * @return
      */
-    @GET("api/daily/category/{categoryName}")
+    @GET("api/index/category/{categoryName}")
     suspend fun getPostByCategory(
         @Path("categoryName") categoryName: String,
+        @Query("limit") limit: Int,
+        @Query("skip") skip: Int,
     ): Response<List<NewsShots>>
 
     /**
