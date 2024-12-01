@@ -5,7 +5,7 @@ dagger = "2.52"
 gradleAnalyzer = "2.5.0"
 
 coreKtx = "1.13.1"
-navigationCompose = "2.9.0-alpha03"
+navigationCompose = "2.8.0-beta06"
 kotlinSerialization = "1.7.3"
 junit = "4.13.2"
 junitVersion = "1.2.1"
@@ -88,6 +88,7 @@ android-library = { id = "com.android.library", version.ref = "agp" }
 jetbrains-kotlin-android = { id = "org.jetbrains.kotlin.android", version.ref = "kotlin" }
 jetbrains-kotlin-serialization = { id = "org.jetbrains.kotlin.plugin.serialization", version.ref = "kotlin" }
 jetbrains-kotlin-kapt = { id = "org.jetbrains.kotlin.kapt", version.ref = "kotlin" }
+compose-compiler = { id = "org.jetbrains.kotlin.plugin.compose", version.ref = "kotlin" }
 dagger-hilt = { id = "com.google.dagger.hilt.android", version.ref = "dagger" }
 gradle-analyze = { id = "com.autonomousapps.dependency-analysis", version.ref = "gradleAnalyzer" }
 
