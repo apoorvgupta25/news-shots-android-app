@@ -5,7 +5,7 @@ dagger = "2.52"
 gradleAnalyzer = "2.5.0"
 
 coreKtx = "1.15.0"
-navigationCompose = "2.8.4"
+navigationCompose = "2.8.5"
 kotlinSerialization = "1.7.3"
 junit = "4.13.2"
 junitVersion = "1.2.1"
