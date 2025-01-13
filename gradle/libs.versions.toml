@@ -6,7 +6,7 @@ gradleAnalyzer = "2.6.1"
 
 coreKtx = "1.15.0"
 navigationCompose = "2.8.5"
-kotlinSerialization = "1.7.3"
+kotlinSerialization = "1.8.0"
 junit = "4.13.2"
 junitVersion = "1.2.1"
 espressoCore = "3.6.1"
