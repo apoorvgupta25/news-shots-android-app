@@ -2,7 +2,7 @@
 agp = "8.7.3"
 kotlin = "2.1.0"
 dagger = "2.54"
-gradleAnalyzer = "2.6.1"
+gradleAnalyzer = "2.7.0"
 
 coreKtx = "1.15.0"
 navigationCompose = "2.8.5"
