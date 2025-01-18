@@ -29,6 +29,7 @@ import com.apoorvgupta.capabilities.presentation.theme.m_vertical_spacing
 import com.apoorvgupta.capabilities.presentation.theme.s_corner_radius
 import com.apoorvgupta.capabilities.presentation.theme.s_vertical_spacing
 import com.apoorvgupta.capabilities.presentation.theme.sl_vertical_spacing
+import com.apoorvgupta.capabilities.presentation.theme.xxs_horizontal_spacing
 import com.apoorvgupta.core.utils.EMPTY_STRING
 import com.apoorvgupta.newsshots.capabilities.R
 
@@ -50,14 +51,16 @@ fun NewsShotsCard(
             .fillMaxWidth()
             .padding(bottom = m_vertical_spacing)
             .background(
-                color = MaterialTheme.colorScheme.onPrimary,
+                color = MaterialTheme.colorScheme.background,
                 shape = RoundedCornerShape(s_corner_radius),
             )
             .padding(all = m_surrounding_spacing)
             .height(intrinsicSize = IntrinsicSize.Max),
     ) {
         Column(
-            modifier = Modifier.weight(2f),
+            modifier = Modifier
+                .weight(2f)
+                .padding(end = xxs_horizontal_spacing),
         ) {
             Text(
                 text = newsShot.title,

@@ -8,7 +8,7 @@ import com.apoorvgupta.capabilities.network.rest.api.RemoteDataSource
 import com.apoorvgupta.capabilities.network.rest.data.newsshots.NewsShots
 import com.apoorvgupta.capabilities.network.rest.domain.newsshots.NewsShotsPagingSource
 import com.apoorvgupta.capabilities.network.rest.helpers.makeSafeApiCall
-import com.apoorvgupta.capabilities.util.Constants.POST_PER_PAGE
+import com.apoorvgupta.capabilities.util.Constants
 import dagger.hilt.android.qualifiers.ApplicationContext
 import kotlinx.coroutines.flow.Flow
 import javax.inject.Inject
@@ -43,7 +43,7 @@ class NewsShotsRepoImpl @Inject constructor(
      * @param categoryName
      */
     override fun getNewsShotsByCategory(categoryName: String): Flow<PagingData<NewsShots>> {
-        val perPageLimit = POST_PER_PAGE
+        val perPageLimit = Constants.POST_PER_PAGE
         return Pager(
             config = PagingConfig(pageSize = perPageLimit),
             pagingSourceFactory = { NewsShotsPagingSource(remoteDataSource, perPageLimit, categoryName) },
@@ -72,7 +72,7 @@ class NewsShotsRepoImpl @Inject constructor(
      * @return
      */
     override fun getAllNewsShots(): Flow<PagingData<NewsShots>> {
-        val perPageLimit = POST_PER_PAGE
+        val perPageLimit = Constants.POST_PER_PAGE
         return Pager(
             config = PagingConfig(pageSize = perPageLimit),
             pagingSourceFactory = { NewsShotsPagingSource(remoteDataSource, perPageLimit) },

@@ -10,8 +10,8 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
 import androidx.compose.ui.res.painterResource
-import com.apoorvgupta.capabilities.presentation.theme.s_surrounding_spacing
-import com.apoorvgupta.capabilities.presentation.theme.xxxl_icon_size
+import com.apoorvgupta.capabilities.presentation.theme.sm_surrounding_spacing
+import com.apoorvgupta.capabilities.presentation.theme.xxl_icon_size
 import com.apoorvgupta.newsshots.capabilities.R
 
 /**
@@ -27,10 +27,10 @@ fun BackArrowNavigation(onBackClick: () -> Unit) {
             .noRippleClickable {
                 onBackClick()
             }
-            .size(xxxl_icon_size)
+            .size(xxl_icon_size)
             .clip(CircleShape)
-            .background(MaterialTheme.colorScheme.onPrimary, CircleShape)
-            .padding(s_surrounding_spacing),
+            .background(MaterialTheme.colorScheme.background, CircleShape)
+            .padding(sm_surrounding_spacing),
 
     )
 }
