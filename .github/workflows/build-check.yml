@@ -5,6 +5,7 @@
    pull_request:
      branches:
        - main
+       - deps-and-versions
 
  jobs:
    build:
