@@ -5,6 +5,7 @@ import androidx.paging.PagingState
 import com.apoorvgupta.capabilities.network.rest.api.RemoteDataSource
 import com.apoorvgupta.capabilities.network.rest.data.newsshots.NewsShots
 import com.apoorvgupta.capabilities.network.rest.helpers.Resource
+import com.apoorvgupta.capabilities.util.Constants
 import com.apoorvgupta.core.utils.EMPTY_STRING
 import com.apoorvgupta.core.utils.getValueOrEmpty
 import javax.inject.Inject
@@ -28,7 +29,11 @@ class NewsShotsPagingSource @Inject constructor(
         val page = params.key ?: 0
 
         val response = if (categoryName.isEmpty()) {
-            remoteDataSource.getDailyNewsShots(perPageLimit, "createdAt", page)
+            remoteDataSource.getDailyNewsShots(
+                limit = perPageLimit,
+                sortBy = Constants.DAILY_POST_SORT_BY_CREATED,
+                skip = page
+            )
         } else {
             remoteDataSource.getNewsShotsByCategory(categoryName, perPageLimit, page)
         }
