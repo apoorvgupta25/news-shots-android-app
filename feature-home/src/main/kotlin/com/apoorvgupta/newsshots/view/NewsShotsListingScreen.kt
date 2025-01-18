@@ -41,7 +41,7 @@ fun NewsShotsListingScreen(
     LazyColumn(
         modifier = Modifier
             .fillMaxSize()
-            .background(color = MaterialTheme.colorScheme.primary)
+            .background(color = MaterialTheme.colorScheme.surface)
             .padding(horizontal = m_horizontal_spacing),
         verticalArrangement = Arrangement.Top,
         horizontalAlignment = Alignment.Start,

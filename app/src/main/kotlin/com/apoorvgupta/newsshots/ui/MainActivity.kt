@@ -9,7 +9,7 @@ import android.os.Bundle
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
 import androidx.activity.viewModels
-import androidx.compose.ui.graphics.Color
+import androidx.compose.material3.MaterialTheme
 import androidx.core.splashscreen.SplashScreen.Companion.installSplashScreen
 import androidx.lifecycle.lifecycleScope
 import com.apoorvgupta.capabilities.network.rest.helpers.ConnectivityChannel
@@ -53,7 +53,7 @@ class MainActivity : ComponentActivity() {
             installSplashScreen()
         }
         setContent {
-            SetStatusBarColor(Color.White)
+            SetStatusBarColor(MaterialTheme.colorScheme.background)
             // need to update start destination if authenticated navController.graph.setStartDestination(startDestinationRoute.value)
             /*val startDestination = remember {
                 mutableStateOf(Destinations.SplashDestination.route)

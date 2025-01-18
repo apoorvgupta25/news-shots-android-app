@@ -26,7 +26,6 @@ import com.apoorvgupta.capabilities.presentation.theme.m_vertical_spacing
 import com.apoorvgupta.capabilities.presentation.theme.s_horizontal_spacing
 import com.apoorvgupta.capabilities.presentation.theme.s_vertical_spacing
 import com.apoorvgupta.capabilities.presentation.theme.sl_vertical_spacing
-import com.apoorvgupta.capabilities.presentation.theme.textColor
 import com.apoorvgupta.capabilities.presentation.theme.xxs_vertical_spacing
 import com.apoorvgupta.capabilities.presentation.theme.xxxs_stroke_width
 import com.apoorvgupta.capabilities.util.Constants
@@ -46,7 +45,7 @@ fun HomeScreenLoadedContent(
     LazyColumn(
         modifier = Modifier
             .fillMaxSize()
-            .background(color = MaterialTheme.colorScheme.primary)
+            .background(color = MaterialTheme.colorScheme.surface)
             .padding(
                 start = m_horizontal_spacing,
                 end = m_horizontal_spacing,
@@ -69,6 +68,7 @@ fun HomeScreenLoadedContent(
                 text = state.data.homeContent.categoryLabel,
                 modifier = Modifier.padding(top = m_vertical_spacing, bottom = sl_vertical_spacing),
                 style = MaterialTheme.typography.labelLarge,
+                color = MaterialTheme.colorScheme.onSurface
             )
 
             // Category Chips
@@ -89,7 +89,7 @@ fun HomeScreenLoadedContent(
                             .border(
                                 border = BorderStroke(
                                     width = xxxs_stroke_width,
-                                    color = MaterialTheme.colorScheme.textColor,
+                                    color = MaterialTheme.colorScheme.outline,
                                 ),
                                 shape = RoundedCornerShape(ll_corner_radius),
                             )
@@ -100,6 +100,7 @@ fun HomeScreenLoadedContent(
 
                         text = it.name,
                         style = MaterialTheme.typography.bodyLarge,
+                        color = MaterialTheme.colorScheme.onBackground,
                     )
                 }
             }
@@ -113,6 +114,7 @@ fun HomeScreenLoadedContent(
                 text = state.data.homeContent.articlesLabel,
                 modifier = Modifier.padding(top = m_vertical_spacing, bottom = sl_vertical_spacing),
                 style = MaterialTheme.typography.labelLarge,
+                color = MaterialTheme.colorScheme.onSurface,
             )
         }
 

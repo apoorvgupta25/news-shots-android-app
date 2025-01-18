@@ -19,7 +19,6 @@ import com.apoorvgupta.capabilities.presentation.theme.buttonTextStyle
 import com.apoorvgupta.capabilities.presentation.theme.disabledBackgroundColor
 import com.apoorvgupta.capabilities.presentation.theme.disabledTextColor
 import com.apoorvgupta.capabilities.presentation.theme.sl_corner_radius
-import com.apoorvgupta.capabilities.presentation.theme.textColor
 import com.apoorvgupta.capabilities.presentation.theme.xs_horizontal_spacing
 import com.apoorvgupta.capabilities.presentation.theme.xxxs_stroke_width
 
@@ -40,7 +39,7 @@ fun AppButton(
     buttonTitle: String,
     isButtonFilled: Boolean = true,
     fillColor: Color = MaterialTheme.colorScheme.primary,
-    textColor: Color = MaterialTheme.colorScheme.textColor,
+    textColor: Color = MaterialTheme.colorScheme.onPrimary,
     isEnabled: MutableState<Boolean> = mutableStateOf(true),
     onClickListener: () -> Unit,
 ) {

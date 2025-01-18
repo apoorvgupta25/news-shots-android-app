@@ -15,7 +15,6 @@ import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.shape.CircleShape
 import androidx.compose.material3.Badge
 import androidx.compose.material3.BadgedBox
-import androidx.compose.material3.ExperimentalMaterial3Api
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.NavigationBar
 import androidx.compose.material3.NavigationBarItem
@@ -44,7 +43,6 @@ import com.apoorvgupta.capabilities.presentation.theme.s_surrounding_spacing
 import com.apoorvgupta.capabilities.presentation.theme.shadowBackgroundColor
 import com.apoorvgupta.capabilities.presentation.theme.sl_horizontal_spacing
 import com.apoorvgupta.capabilities.presentation.theme.sl_vertical_spacing
-import com.apoorvgupta.capabilities.presentation.theme.textColor
 import com.apoorvgupta.capabilities.presentation.theme.xxxs_stroke_width
 import com.apoorvgupta.core.logger.AppLogger
 import com.apoorvgupta.core.utils.EMPTY_STRING
@@ -60,7 +58,6 @@ import kotlin.math.roundToInt
  *
  * @author Apoorv Gupta
  */
-@OptIn(ExperimentalMaterial3Api::class)
 @Composable
 fun BottomNavigationBar(
     navController: NavController,
@@ -112,7 +109,7 @@ fun BottomNavigationBar(
 
     // Build the Bottom Navigation Bar using Jetpack Compose.
     NavigationBar(
-        containerColor = Color.White,
+        containerColor = MaterialTheme.colorScheme.background,
         modifier = Modifier
             .fillMaxWidth()
             .height(bottomBarHeight)
@@ -150,12 +147,12 @@ fun BottomNavigationBar(
                                 ),
                             badge = {
                                 Badge(
-                                    containerColor = if (isCurrentRouteSelected) MaterialTheme.colorScheme.primary else Color.Black,
-                                    contentColor = Color.White,
+                                    containerColor = if (isCurrentRouteSelected) MaterialTheme.colorScheme.primary else Color.Red,
+                                    contentColor = MaterialTheme.colorScheme.background,
                                     modifier = Modifier.border(
                                         width = xxxs_stroke_width,
                                         shape = CircleShape,
-                                        color = Color.White,
+                                        color = MaterialTheme.colorScheme.background,
                                     ),
                                 ) {
                                     Text(text = item.badgeCount.toString())
@@ -173,11 +170,11 @@ fun BottomNavigationBar(
                 },
                 selected = isCurrentRouteSelected,
                 colors = NavigationBarItemDefaults.colors(
-                    selectedIconColor = MaterialTheme.colorScheme.textColor,
-                    unselectedIconColor = MaterialTheme.colorScheme.textColor,
-                    selectedTextColor = MaterialTheme.colorScheme.textColor,
-                    unselectedTextColor = MaterialTheme.colorScheme.textColor,
-                    indicatorColor = Color.White,
+                    selectedIconColor = MaterialTheme.colorScheme.onBackground,
+                    unselectedIconColor = MaterialTheme.colorScheme.onBackground,
+                    selectedTextColor = MaterialTheme.colorScheme.onBackground,
+                    unselectedTextColor = MaterialTheme.colorScheme.onBackground,
+                    indicatorColor = MaterialTheme.colorScheme.background,
                 ),
                 onClick = {
                     navController.navigate(item.navigationRoute)
