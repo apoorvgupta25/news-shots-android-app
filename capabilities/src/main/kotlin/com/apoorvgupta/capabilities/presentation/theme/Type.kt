@@ -42,7 +42,7 @@ val Typography =
         titleLarge = Typography().titleLarge.copy(fontFamily = Poppins),
         titleMedium = Typography().titleMedium.copy(
             fontFamily = Poppins,
-            fontWeight = FontWeight.Medium
+            fontWeight = FontWeight.Medium,
         ),
         titleSmall = Typography().titleSmall.copy(fontFamily = Poppins),
         bodyLarge = Typography().bodyLarge.copy(fontFamily = Poppins),

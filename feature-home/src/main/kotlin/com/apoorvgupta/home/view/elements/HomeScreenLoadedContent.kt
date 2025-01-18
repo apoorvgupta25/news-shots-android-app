@@ -68,7 +68,7 @@ fun HomeScreenLoadedContent(
                 text = state.data.homeContent.categoryLabel,
                 modifier = Modifier.padding(top = m_vertical_spacing, bottom = sl_vertical_spacing),
                 style = MaterialTheme.typography.labelLarge,
-                color = MaterialTheme.colorScheme.onSurface
+                color = MaterialTheme.colorScheme.onSurface,
             )
 
             // Category Chips

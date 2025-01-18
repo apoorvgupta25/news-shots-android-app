@@ -23,13 +23,13 @@ fun HeadLine(
         modifier = Modifier.noRippleClickable {
             onHeadClick()
         },
-        color = MaterialTheme.colorScheme.onBackground
+        color = MaterialTheme.colorScheme.onBackground,
     )
 
     // SubTitle
     Text(
         text = subHeadingText,
         style = MaterialTheme.typography.bodyMedium,
-        color = MaterialTheme.colorScheme.onSurface
+        color = MaterialTheme.colorScheme.onSurface,
     )
 }
