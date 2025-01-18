@@ -25,7 +25,7 @@ class GetRecentNewsShotsUseCaseImpl @Inject constructor(
     override fun getRecentNewsShots() =
         newsShotsRepo.getRecentNewsShots(
             limit = Constants.DAILY_POST_LIMIT,
-            sortBy = Constants.DAILY_POST_SORT_BY_CREATED
+            sortBy = Constants.DAILY_POST_SORT_BY_CREATED,
         ).transform { response ->
             emit(response)
         }

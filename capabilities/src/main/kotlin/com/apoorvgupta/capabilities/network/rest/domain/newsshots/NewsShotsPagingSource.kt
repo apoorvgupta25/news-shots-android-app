@@ -32,7 +32,7 @@ class NewsShotsPagingSource @Inject constructor(
             remoteDataSource.getDailyNewsShots(
                 limit = perPageLimit,
                 sortBy = Constants.DAILY_POST_SORT_BY_CREATED,
-                skip = page
+                skip = page,
             )
         } else {
             remoteDataSource.getNewsShotsByCategory(categoryName, perPageLimit, page)
