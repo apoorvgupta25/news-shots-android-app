@@ -59,7 +59,7 @@ fun HomeScreenLoadedContent(
                 isRefreshing = state.showLoader,
                 containerColor = MaterialTheme.colorScheme.background,
                 color = MaterialTheme.colorScheme.onBackground,
-                state = pullToRefreshState
+                state = pullToRefreshState,
             )
         },
     ) {
@@ -89,7 +89,7 @@ fun HomeScreenLoadedContent(
                     text = state.data.homeContent.categoryLabel,
                     modifier = Modifier.padding(
                         top = m_vertical_spacing,
-                        bottom = sl_vertical_spacing
+                        bottom = sl_vertical_spacing,
                     ),
                     style = MaterialTheme.typography.labelLarge,
                     color = MaterialTheme.colorScheme.onSurface,
@@ -138,7 +138,7 @@ fun HomeScreenLoadedContent(
                     text = state.data.homeContent.articlesLabel,
                     modifier = Modifier.padding(
                         top = m_vertical_spacing,
-                        bottom = sl_vertical_spacing
+                        bottom = sl_vertical_spacing,
                     ),
                     style = MaterialTheme.typography.labelLarge,
                     color = MaterialTheme.colorScheme.onSurface,
