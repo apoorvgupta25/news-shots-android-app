@@ -82,7 +82,7 @@ android {
 
     buildTypes {
         release {
-            debuggable true
+            debuggable false
             // Enable Progaurd/R8 for release variants
             minifyEnabled true
             // Shrink Resources for release variants

@@ -33,13 +33,11 @@ sealed class HomeNavEffect : NavEffect {
 sealed class HomeViewStates {
     data class LoadedData(
         val showLoader: Boolean = false,
-        val isRefreshing: Boolean = false,
         val data: HomeDataModel,
     ) : HomeViewStates()
 
     data class InitialLoading(
         val showLoader: Boolean = false,
-        val isRefreshing: Boolean = false,
         val data: HomeDataModel,
     ) : HomeViewStates()
 
