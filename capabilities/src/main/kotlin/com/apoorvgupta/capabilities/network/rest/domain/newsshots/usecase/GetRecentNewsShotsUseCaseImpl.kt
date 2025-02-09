@@ -1,6 +1,7 @@
 package com.apoorvgupta.capabilities.network.rest.domain.newsshots.usecase
 
 import com.apoorvgupta.capabilities.network.rest.domain.newsshots.repo.NewsShotsRepo
+import com.apoorvgupta.capabilities.util.Constants
 import kotlinx.coroutines.flow.transform
 import javax.inject.Inject
 
@@ -22,7 +23,10 @@ class GetRecentNewsShotsUseCaseImpl @Inject constructor(
      * @return
      */
     override fun getRecentNewsShots() =
-        newsShotsRepo.getRecentNewsShots(3, "createdAt").transform { response ->
+        newsShotsRepo.getRecentNewsShots(
+            limit = Constants.DAILY_POST_LIMIT,
+            sortBy = Constants.DAILY_POST_SORT_BY_CREATED,
+        ).transform { response ->
             emit(response)
         }
 }

@@ -25,7 +25,6 @@ class HomeScreenUseCaseImpl @Inject constructor(
     override fun getHomeScreenContentData(): Flow<HomeDataModel> {
         return getRecentNewsShotsUseCase.getRecentNewsShots()
             .combineTransform(getAllCategoriesUseCase.getAllCategories()) { newsShotsData, categoriesData ->
-
                 when {
                     newsShotsData.status == Resource.Status.ERROR -> {
                         emitHomeError(

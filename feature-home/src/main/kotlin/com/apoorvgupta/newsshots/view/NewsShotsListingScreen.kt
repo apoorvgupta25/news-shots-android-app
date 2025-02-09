@@ -17,6 +17,7 @@ import androidx.paging.LoadState
 import androidx.paging.compose.collectAsLazyPagingItems
 import com.apoorvgupta.capabilities.presentation.reusableComponents.BackArrowNavigation
 import com.apoorvgupta.capabilities.presentation.reusableComponents.HeadLine
+import com.apoorvgupta.capabilities.presentation.reusableComponents.loader.CircularProgressBarComponent
 import com.apoorvgupta.capabilities.presentation.reusableComponents.newsshots.NewsShotsCard
 import com.apoorvgupta.capabilities.presentation.theme.m_horizontal_spacing
 import com.apoorvgupta.capabilities.presentation.theme.m_vertical_spacing
@@ -41,7 +42,7 @@ fun NewsShotsListingScreen(
     LazyColumn(
         modifier = Modifier
             .fillMaxSize()
-            .background(color = MaterialTheme.colorScheme.primary)
+            .background(color = MaterialTheme.colorScheme.surface)
             .padding(horizontal = m_horizontal_spacing),
         verticalArrangement = Arrangement.Top,
         horizontalAlignment = Alignment.Start,
@@ -81,7 +82,13 @@ fun NewsShotsListingScreen(
                 }
             }
 
-            LoadState.Loading -> AppLogger.d { "newsShotsResults.loadState.refresh.Loading" }
+            LoadState.Loading -> {
+                item {
+                    CircularProgressBarComponent(true)
+                }
+                AppLogger.d { "newsShotsResults.loadState.refresh.Loading" }
+            }
+
             is LoadState.NotLoading -> AppLogger.d { "newsShotsResults.loadState.refresh.NotLoading" }
         }
 

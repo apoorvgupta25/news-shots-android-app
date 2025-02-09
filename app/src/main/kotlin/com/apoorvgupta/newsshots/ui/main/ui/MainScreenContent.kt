@@ -16,7 +16,6 @@ import androidx.navigation.NavHostController
 import com.apoorvgupta.capabilities.presentation.navigation.showNavigationBottomBar
 import com.apoorvgupta.capabilities.presentation.navigation.ui.BottomNavigationBar
 import com.apoorvgupta.capabilities.presentation.reusableComponents.alertdialog.NoInternetDialog
-import com.apoorvgupta.capabilities.presentation.reusableComponents.loader.RoundedCircularProgressBarComponent
 import com.apoorvgupta.capabilities.presentation.theme.xl6_horizontal_spacing
 import com.apoorvgupta.core.logger.AppLogger
 import com.apoorvgupta.newsshots.ui.main.intents.MainIntent
@@ -78,8 +77,6 @@ fun MainScreenContent(
             paddingTop = it.calculateTopPadding(),
         )
     }
-
-    RoundedCircularProgressBarComponent(visibility = viewModel.circularBarVisibility.value)
 
     if (viewModel.showNoInternet.value) {
         NoInternetDialog(visibility = true) {

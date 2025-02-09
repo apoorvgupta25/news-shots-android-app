@@ -40,6 +40,7 @@ class HomeViewModel @Inject constructor(
     }
 
     private fun getHomeData() {
+        emitLoading()
         viewModelScope.launch {
             homeScreenUseCase.getHomeScreenContentData().collect {
                 emitHomeData(it)

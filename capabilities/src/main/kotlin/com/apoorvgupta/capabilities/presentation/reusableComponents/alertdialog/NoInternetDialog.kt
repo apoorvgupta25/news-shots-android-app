@@ -18,7 +18,6 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.res.stringResource
-import androidx.compose.ui.semantics.contentDescription
 import androidx.compose.ui.window.Dialog
 import androidx.compose.ui.window.DialogProperties
 import com.apoorvgupta.capabilities.presentation.reusableComponents.button.AppButton
@@ -26,7 +25,6 @@ import com.apoorvgupta.capabilities.presentation.theme.m_corner_radius
 import com.apoorvgupta.capabilities.presentation.theme.m_surrounding_spacing
 import com.apoorvgupta.capabilities.presentation.theme.m_vertical_spacing
 import com.apoorvgupta.capabilities.presentation.theme.s_vertical_spacing
-import com.apoorvgupta.capabilities.presentation.theme.whiteColor
 import com.apoorvgupta.capabilities.presentation.theme.xl_vertical_spacing
 import com.apoorvgupta.capabilities.presentation.theme.xs_vertical_spacing
 import com.apoorvgupta.newsshots.capabilities.R
@@ -57,7 +55,7 @@ fun NoInternetDialog(
                         .wrapContentWidth()
                         .wrapContentHeight()
                         .background(
-                            color = MaterialTheme.colorScheme.whiteColor,
+                            color = MaterialTheme.colorScheme.background,
                             shape = RoundedCornerShape(size = m_corner_radius),
                         )
                         .padding(m_surrounding_spacing),

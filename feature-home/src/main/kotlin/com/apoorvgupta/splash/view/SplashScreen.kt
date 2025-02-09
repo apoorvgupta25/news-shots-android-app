@@ -24,7 +24,7 @@ fun SplashScreen(
     Box(
         modifier = Modifier
             .fillMaxSize()
-            .background(color = MaterialTheme.colorScheme.primary),
+            .background(color = MaterialTheme.colorScheme.surface),
         contentAlignment = Alignment.Center,
     ) {
     }
