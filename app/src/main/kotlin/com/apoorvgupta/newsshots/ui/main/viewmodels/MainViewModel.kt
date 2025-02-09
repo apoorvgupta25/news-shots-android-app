@@ -1,6 +1,5 @@
 package com.apoorvgupta.newsshots.ui.main.viewmodels
 
-import androidx.compose.runtime.MutableState
 import androidx.compose.runtime.mutableStateOf
 import com.apoorvgupta.core.base.BaseViewModel
 import com.apoorvgupta.core.interactions.buildConfigProvider.BuildConfigContract
@@ -16,9 +15,6 @@ import javax.inject.Inject
 class MainViewModel @Inject constructor(
     private val buildConfigContract: BuildConfigContract,
 ) : BaseViewModel<MainIntent, MainViewState, MainNavEffect>() {
-
-    private val _circularBarVisibility = mutableStateOf(false)
-    val circularBarVisibility: MutableState<Boolean> = _circularBarVisibility
 
     val showNoInternet = mutableStateOf(false)
 

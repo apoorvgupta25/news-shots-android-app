@@ -1,13 +1,15 @@
 package com.apoorvgupta.home.viewmodels
 
+import androidx.lifecycle.viewModelScope
 import com.apoorvgupta.core.base.BaseViewModel
-import com.apoorvgupta.core.utils.DataStatus
 import com.apoorvgupta.home.intent.HomeIntent
 import com.apoorvgupta.home.intent.HomeNavEffect
 import com.apoorvgupta.home.intent.HomeViewState
 import com.apoorvgupta.home.intent.HomeViewStates
 import com.apoorvgupta.home.models.HomeDataModel
+import com.apoorvgupta.home.usecase.HomeScreenUseCase
 import dagger.hilt.android.lifecycle.HiltViewModel
+import kotlinx.coroutines.launch
 import javax.inject.Inject
 
 /**
@@ -17,9 +19,9 @@ import javax.inject.Inject
  */
 
 @HiltViewModel
-class HomeViewModel @Inject constructor() : BaseViewModel<HomeIntent, HomeViewState, HomeNavEffect>() {
-
-    private var homeDataModel: HomeDataModel = HomeDataModel()
+class HomeViewModel @Inject constructor(
+    private val homeScreenUseCase: HomeScreenUseCase,
+) : BaseViewModel<HomeIntent, HomeViewState, HomeNavEffect>() {
 
     override fun createInitialState(): HomeViewState {
         return HomeViewState(HomeViewStates.UnInitialized)
@@ -28,28 +30,32 @@ class HomeViewModel @Inject constructor() : BaseViewModel<HomeIntent, HomeViewSt
     override fun handleIntent(intent: HomeIntent) {
         when (intent) {
             HomeIntent.LoadHomeScreen -> {
-                homeDataModel = homeDataModel.copy(status = DataStatus.Success)
-                emitRefreshDataContent(homeDataModel)
+                getHomeData()
+            }
+
+            is HomeIntent.NavigateToNewsShotsListing -> {
+                sendNavEffect { HomeNavEffect.OpenNewsShotsListingPage(intent.categoryName) }
             }
         }
     }
 
-    private fun emitRefreshDataContent(homeDataModel: HomeDataModel) {
-        when (homeDataModel.status) {
-            DataStatus.Success -> {
-                emitViewState {
-                    copy(
-                        homeViewState = HomeViewStates.LoadedData(
-                            showLoader = false,
-                            data = homeDataModel,
-                        ),
-                    )
-                }
+    private fun getHomeData() {
+        emitLoading()
+        viewModelScope.launch {
+            homeScreenUseCase.getHomeScreenContentData().collect {
+                emitHomeData(it)
             }
+        }
+    }
 
-            else -> {
-                // Do Nothing
-            }
+    private fun emitHomeData(homeDataModel: HomeDataModel) {
+        emitViewState {
+            copy(
+                homeViewState = HomeViewStates.LoadedData(
+                    showLoader = false,
+                    data = homeDataModel,
+                ),
+            )
         }
     }
 

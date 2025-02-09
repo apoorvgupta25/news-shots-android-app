@@ -29,7 +29,7 @@ class SplashViewModel @Inject constructor() : BaseViewModel<SplashIntent, Splash
      */
     override fun handleIntent(intent: SplashIntent) {
         when (intent) {
-            is SplashIntent.ValidateSessionData -> {
+            is SplashIntent.NavigateToHomeScreen -> {
                 sendNavEffect { SplashNavEffect.OpenHomeScreen }
             }
 

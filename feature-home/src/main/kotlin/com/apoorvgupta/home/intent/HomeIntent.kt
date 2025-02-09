@@ -1,11 +1,8 @@
 package com.apoorvgupta.home.intent
 
-import androidx.compose.ui.unit.Dp
 import com.apoorvgupta.core.base.NavEffect
 import com.apoorvgupta.core.base.UserIntent
 import com.apoorvgupta.core.base.ViewState
-import com.apoorvgupta.core.models.ApiErrorModel
-import com.apoorvgupta.core.models.OfflineErrorModel
 import com.apoorvgupta.home.models.HomeDataModel
 
 /**
@@ -15,15 +12,7 @@ import com.apoorvgupta.home.models.HomeDataModel
  */
 sealed class HomeIntent : UserIntent {
     data object LoadHomeScreen : HomeIntent()
-}
-
-/**
- * Sealed class representing UI intents for the home screen.
- *
- * @author Apoorv Gupta
- */
-sealed class HomeUIIntent {
-    data class ShowMessage(val message: String, val imageUrl: String, val imageSize: Dp) : HomeUIIntent()
+    data class NavigateToNewsShotsListing(val categoryName: String) : HomeIntent()
 }
 
 /**
@@ -32,7 +21,8 @@ sealed class HomeUIIntent {
  * @author Apoorv Gupta
  */
 sealed class HomeNavEffect : NavEffect {
-    data class OpenSearchPage(val userId: String) : HomeNavEffect()
+    data object OpenSearchPage : HomeNavEffect()
+    data class OpenNewsShotsListingPage(val categoryName: String) : HomeNavEffect()
 }
 
 /**
@@ -43,26 +33,11 @@ sealed class HomeNavEffect : NavEffect {
 sealed class HomeViewStates {
     data class LoadedData(
         val showLoader: Boolean = false,
-        val isRefreshing: Boolean = false,
-        val trackedSections: MutableList<Boolean> = MutableList(1) { false },
         val data: HomeDataModel,
-    ) : HomeViewStates()
-
-    data class Offline(
-        val showLoader: Boolean = false,
-        val isRefreshing: Boolean = false,
-        val offlineErrorModel: OfflineErrorModel,
-    ) : HomeViewStates()
-
-    data class Error(
-        val showLoader: Boolean = false,
-        val isRefreshing: Boolean = false,
-        val apiErrorContentModel: ApiErrorModel = ApiErrorModel.emptyValue,
     ) : HomeViewStates()
 
     data class InitialLoading(
         val showLoader: Boolean = false,
-        val isRefreshing: Boolean = false,
         val data: HomeDataModel,
     ) : HomeViewStates()
 

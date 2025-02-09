@@ -3,8 +3,6 @@ package com.apoorvgupta.splash.intents
 import com.apoorvgupta.core.base.NavEffect
 import com.apoorvgupta.core.base.UserIntent
 import com.apoorvgupta.core.base.ViewState
-import com.apoorvgupta.core.models.ApiErrorModel
-import com.apoorvgupta.core.models.OfflineErrorModel
 
 /**
  * Sealed class representing user intents for the splash screen.
@@ -12,7 +10,6 @@ import com.apoorvgupta.core.models.OfflineErrorModel
  * @author Apoorv Gupta
  */
 sealed class SplashIntent : UserIntent {
-    data object ValidateSessionData : SplashIntent()
     data object NavigateToHomeScreen : SplashIntent()
 }
 
@@ -34,18 +31,6 @@ sealed class SplashViewStates {
     data class LoadedData(
         val showLoader: Boolean = false,
         val isRefreshing: Boolean = false,
-    ) : SplashViewStates()
-
-    data class Offline(
-        val showLoader: Boolean = false,
-        val isRefreshing: Boolean = false,
-        var offlineErrorModel: OfflineErrorModel,
-    ) : SplashViewStates()
-
-    data class Error(
-        val showLoader: Boolean = false,
-        val isRefreshing: Boolean = false,
-        var apiErrorContentModel: ApiErrorModel = ApiErrorModel.emptyValue,
     ) : SplashViewStates()
 
     data class InitialLoading(

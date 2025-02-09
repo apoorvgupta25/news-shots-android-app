@@ -4,6 +4,7 @@
  */
 package com.apoorvgupta.capabilities.network.rest.api
 
+import com.apoorvgupta.core.utils.emptyValue
 import okhttp3.Interceptor
 import okhttp3.Response
 import java.io.IOException
@@ -17,9 +18,6 @@ import javax.inject.Singleton
  * The Authorization Header value can be set dynamically using the provided `setAuthHeaderValue` function.
  * The class is marked as a singleton to ensure a single instance across the application.
  *
- * @param authorizationHeaderValue The current Authorization Header value.
- * @param anonymousHeaderValue The default or anonymous Authorization Header value.
- *
  * @author Apoorv Gupta
  */
 @Singleton
@@ -29,7 +27,7 @@ class AuthInterceptor @Inject constructor() : Interceptor {
     var authorizationHeaderValue: String? = null
 
     @Volatile
-    var anonymousHeaderValue = ""
+    var anonymousHeaderValue = String.emptyValue()
 
     // Initialize with a default anonymous token value
     init {

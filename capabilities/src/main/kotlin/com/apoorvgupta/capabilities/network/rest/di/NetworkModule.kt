@@ -6,14 +6,30 @@
 package com.apoorvgupta.capabilities.network.rest.di
 
 import android.content.Context
+import com.apoorvgupta.capabilities.network.rest.api.ApiService
 import com.apoorvgupta.capabilities.network.rest.api.AuthInterceptor
-import com.apoorvgupta.capabilities.network.rest.api.MainApiService
+import com.apoorvgupta.capabilities.network.rest.domain.categories.repo.CategoriesRepo
+import com.apoorvgupta.capabilities.network.rest.domain.categories.repo.CategoriesRepoImpl
+import com.apoorvgupta.capabilities.network.rest.domain.categories.usecase.GetAllCategoriesUseCase
+import com.apoorvgupta.capabilities.network.rest.domain.categories.usecase.GetAllCategoriesUseCaseImpl
+import com.apoorvgupta.capabilities.network.rest.domain.newsshots.repo.NewsShotsRepo
+import com.apoorvgupta.capabilities.network.rest.domain.newsshots.repo.NewsShotsRepoImpl
+import com.apoorvgupta.capabilities.network.rest.domain.newsshots.usecase.GetAllNewsShotsUseCase
+import com.apoorvgupta.capabilities.network.rest.domain.newsshots.usecase.GetAllNewsShotsUseCaseImpl
+import com.apoorvgupta.capabilities.network.rest.domain.newsshots.usecase.GetIndividualNewsShotsUseCase
+import com.apoorvgupta.capabilities.network.rest.domain.newsshots.usecase.GetIndividualNewsShotsUseCaseImpl
+import com.apoorvgupta.capabilities.network.rest.domain.newsshots.usecase.GetNewsShotsByCategoryUseCase
+import com.apoorvgupta.capabilities.network.rest.domain.newsshots.usecase.GetNewsShotsByCategoryUseCaseImpl
+import com.apoorvgupta.capabilities.network.rest.domain.newsshots.usecase.GetRecentNewsShotsUseCase
+import com.apoorvgupta.capabilities.network.rest.domain.newsshots.usecase.GetRecentNewsShotsUseCaseImpl
+import com.apoorvgupta.capabilities.network.rest.domain.newsshots.usecase.GetSearchedNewsShotsUseCase
+import com.apoorvgupta.capabilities.network.rest.domain.newsshots.usecase.GetSearchedNewsShotsUseCaseImpl
 import com.apoorvgupta.capabilities.network.rest.interceptor.CacheInterceptor
-import com.apoorvgupta.capabilities.util.Constants.NETWORK_NAMED_ARGUMENTS
 import com.apoorvgupta.core.interactions.buildConfigProvider.BuildConfigContract
 import com.apoorvgupta.core.logger.AppLogger
 import com.google.gson.Gson
 import com.google.gson.GsonBuilder
+import dagger.Binds
 import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn
@@ -26,12 +42,11 @@ import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
 import java.io.File
 import java.util.concurrent.TimeUnit
-import javax.inject.Named
 import javax.inject.Singleton
 
 // Constants
-private const val READ_TIMEOUT = 40L
-private const val CONNECT_TIMEOUT = 40L
+private const val READ_TIMEOUT = 60L
+private const val CONNECT_TIMEOUT = 60L
 
 /**
  * Dagger Hilt module for providing network-related dependencies.
@@ -40,80 +55,97 @@ private const val CONNECT_TIMEOUT = 40L
  */
 @Module
 @InstallIn(SingletonComponent::class)
-object NetworkModule {
+interface NetworkModule {
 
-    @Provides
-    @Singleton
-    @Named(NETWORK_NAMED_ARGUMENTS)
-    fun providesCachingInterceptor(): CacheInterceptor = CacheInterceptor()
+    @Binds
+    fun providesNewsShotsRepo(impl: NewsShotsRepoImpl): NewsShotsRepo
 
-    @Provides
-    @Named(NETWORK_NAMED_ARGUMENTS)
-    fun provideCache(
-        @ApplicationContext context: Context,
-    ) = Cache(File(context.cacheDir, "somos_cache_file"), (10 * 1024 * 1024).toLong())
+    @Binds
+    fun providesRecentNewsShotsUseCase(impl: GetRecentNewsShotsUseCaseImpl): GetRecentNewsShotsUseCase
 
-    /**
-     * Provides the [OkHttpClient] for creating a Retrofit instance.
-     */
-    @Singleton
-    @Provides
-    @Named(NETWORK_NAMED_ARGUMENTS)
-    fun provideOkHttp(
-        @Named(NETWORK_NAMED_ARGUMENTS) authInterceptor: AuthInterceptor,
-        @Named(NETWORK_NAMED_ARGUMENTS) cache: Cache,
-        @Named(NETWORK_NAMED_ARGUMENTS) cacheInterceptor: CacheInterceptor,
-    ): OkHttpClient {
-        val loggingInterceptor =
-            HttpLoggingInterceptor { message ->
-                AppLogger.d("OkHttp", message)
-            }
-        loggingInterceptor.setLevel(HttpLoggingInterceptor.Level.BODY)
+    @Binds
+    fun providesNewsShotsByCategoryUseCase(impl: GetNewsShotsByCategoryUseCaseImpl): GetNewsShotsByCategoryUseCase
 
-        return OkHttpClient.Builder()
-            .cache(cache)
-            .addInterceptor(loggingInterceptor)
-            .addInterceptor(authInterceptor)
-            .addNetworkInterceptor(cacheInterceptor)
-            .readTimeout(READ_TIMEOUT, TimeUnit.SECONDS)
-            .connectTimeout(CONNECT_TIMEOUT, TimeUnit.SECONDS)
-            .build()
+    @Binds
+    fun providesIndividualNewsShotsUseCase(impl: GetIndividualNewsShotsUseCaseImpl): GetIndividualNewsShotsUseCase
+
+    @Binds
+    fun providesSearchedNewsShotsUseCase(impl: GetSearchedNewsShotsUseCaseImpl): GetSearchedNewsShotsUseCase
+
+    @Binds
+    fun providesAllNewsShotsUseCase(impl: GetAllNewsShotsUseCaseImpl): GetAllNewsShotsUseCase
+
+    @Binds
+    fun providesCategoriesRepo(impl: CategoriesRepoImpl): CategoriesRepo
+
+    @Binds
+    fun providesCategoriesUseCase(impl: GetAllCategoriesUseCaseImpl): GetAllCategoriesUseCase
+
+    companion object {
+
+        @Provides
+        @Singleton
+        fun providesCachingInterceptor(): CacheInterceptor = CacheInterceptor()
+
+        @Provides
+        fun provideCache(
+            @ApplicationContext context: Context,
+        ) = Cache(File(context.cacheDir, "somos_cache_file"), (10 * 1024 * 1024).toLong())
+
+        /**
+         * Provides the [OkHttpClient] for creating a Retrofit instance.
+         */
+        @Singleton
+        @Provides
+        fun provideOkHttp(
+            authInterceptor: AuthInterceptor,
+        ): OkHttpClient {
+            val loggingInterceptor =
+                HttpLoggingInterceptor { message ->
+                    AppLogger.d("OkHttp", message)
+                }
+            loggingInterceptor.setLevel(HttpLoggingInterceptor.Level.BODY)
+
+            return OkHttpClient.Builder()
+                .addInterceptor(loggingInterceptor)
+                .readTimeout(READ_TIMEOUT, TimeUnit.SECONDS)
+                .connectTimeout(CONNECT_TIMEOUT, TimeUnit.SECONDS)
+                .build()
+        }
+
+        /**
+         * Provides the [Gson] object for creating a Retrofit instance.
+         */
+        @Singleton
+        @Provides
+        fun providesGson(): Gson = GsonBuilder().setLenient().create()
+
+        /**
+         * Provides the [Retrofit] object based on [OkHttpClient] and [Gson] configuration.
+         */
+        @Singleton
+        @Provides
+        fun providesRetrofit(
+            buildConfigContract: BuildConfigContract,
+            okHttpClient: OkHttpClient,
+            gson: Gson,
+        ): Retrofit =
+            Retrofit.Builder()
+                .addConverterFactory(GsonConverterFactory.create(gson))
+                .baseUrl(buildConfigContract.getBaseUrl())
+                .client(okHttpClient)
+                .build()
+
+        /**
+         * Dagger Provider method for creating a singleton instance of [ApiService].
+         *
+         * @param retrofit The Retrofit instance configured with necessary network settings.
+         * @return An instance of [ApiService] for making API calls related to main screen functionality.
+         */
+        @Singleton
+        @Provides
+        fun provideRetrofitApiService(
+            retrofit: Retrofit,
+        ): ApiService = retrofit.create(ApiService::class.java)
     }
-
-    /**
-     * Provides the [Gson] object for creating a Retrofit instance.
-     */
-    @Singleton
-    @Provides
-    @Named(NETWORK_NAMED_ARGUMENTS)
-    fun providesGson(): Gson = GsonBuilder().setLenient().create()
-
-    /**
-     * Provides the [Retrofit] object based on [OkHttpClient] and [Gson] configuration.
-     */
-    @Singleton
-    @Provides
-    @Named(NETWORK_NAMED_ARGUMENTS)
-    fun provideRetrofit(
-        buildConfigContract: BuildConfigContract,
-        @Named(NETWORK_NAMED_ARGUMENTS) okHttpClient: OkHttpClient,
-        @Named(NETWORK_NAMED_ARGUMENTS) gson: Gson,
-    ): Retrofit =
-        Retrofit.Builder()
-            .addConverterFactory(GsonConverterFactory.create(gson))
-            .baseUrl(buildConfigContract.getBaseUrl())
-            .client(okHttpClient)
-            .build()
-
-    /**
-     * Dagger Provider method for creating a singleton instance of [MainApiService].
-     *
-     * @param retrofit The Retrofit instance configured with necessary network settings.
-     * @return An instance of [MainApiService] for making API calls related to main screen functionality.
-     */
-    @Singleton
-    @Provides
-    fun provideMainRetrofitApi(
-        @Named(NETWORK_NAMED_ARGUMENTS) retrofit: Retrofit,
-    ): MainApiService = retrofit.create(MainApiService::class.java)
 }

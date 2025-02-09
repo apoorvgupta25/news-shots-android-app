@@ -26,7 +26,6 @@ import androidx.compose.foundation.layout.width
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.automirrored.filled.ArrowBack
-import androidx.compose.material.icons.filled.ArrowBack
 import androidx.compose.material3.CircularProgressIndicator
 import androidx.compose.material3.Icon
 import androidx.compose.material3.IconButton
@@ -46,7 +45,6 @@ import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.dp
 import com.apoorvgupta.capabilities.presentation.theme.m_surrounding_spacing
-import com.apoorvgupta.capabilities.presentation.theme.whiteColor
 import com.apoorvgupta.capabilities.presentation.theme.xl_surrounding_spacing
 import com.apoorvgupta.core.utils.EMPTY_STRING
 import com.google.accompanist.web.AccompanistWebChromeClient
@@ -84,7 +82,7 @@ fun NativeWebView(
     Box(
         Modifier
             .fillMaxSize()
-            .background(Color.White),
+            .background(MaterialTheme.colorScheme.background),
     ) {
         Column {
             WebTopAppBar(text = pageTitle) {
@@ -151,7 +149,7 @@ fun NativeWebView(
                     horizontalAlignment = Alignment.CenterHorizontally,
                 ) {
                     CircularProgressIndicator(
-                        color = Color.White,
+                        color = MaterialTheme.colorScheme.background,
                     )
                 }
             }
@@ -188,7 +186,7 @@ private fun WebTopAppBar(
 @Composable
 fun BackButton(
     modifier: Modifier = Modifier,
-    backgroundColor: Color = MaterialTheme.colorScheme.whiteColor,
+    backgroundColor: Color = MaterialTheme.colorScheme.background,
     onClickListener: () -> Unit,
 ) {
     IconButton(

@@ -37,7 +37,6 @@ class GenericErrorModelTest {
         assertEquals(-1, genericErrorModel.code)
         assertEquals(null, genericErrorModel.message)
         assertEquals("", genericErrorModel.status)
-        assertEquals(-1, genericErrorModel.errorCode)
     }
 
     /**
@@ -49,16 +48,14 @@ class GenericErrorModelTest {
         val code = 404
         val message = "Not Found"
         val status = "error"
-        val errorCode = 123
 
         // When
-        val genericErrorModel = GenericErrorModel(code, message, status, errorCode)
+        val genericErrorModel = GenericErrorModel(code, message, status)
 
         // Then
         assertEquals(code, genericErrorModel.code)
         assertEquals(message, genericErrorModel.message)
         assertEquals(status, genericErrorModel.status)
-        assertEquals(errorCode, genericErrorModel.errorCode)
     }
 
     /**
@@ -69,15 +66,13 @@ class GenericErrorModelTest {
         // Given
         val code = 500
         val status = "error"
-        val errorCode = 500
 
         // When
-        val genericErrorModel = GenericErrorModel(code = code, status = status, errorCode = errorCode)
+        val genericErrorModel = GenericErrorModel(code = code, status = status)
 
         // Then
         assertEquals(code, genericErrorModel.code)
         assertEquals(null, genericErrorModel.message)
         assertEquals(status, genericErrorModel.status)
-        assertEquals(errorCode, genericErrorModel.errorCode)
     }
 }

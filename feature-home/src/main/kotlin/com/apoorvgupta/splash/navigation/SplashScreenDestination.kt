@@ -1,14 +1,10 @@
 package com.apoorvgupta.splash.navigation
 
-import androidx.compose.material3.MaterialTheme
-import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.LaunchedEffect
-import androidx.compose.ui.text.font.FontWeight
 import androidx.navigation.NavController
 import com.apoorvgupta.capabilities.presentation.navigation.Home
 import com.apoorvgupta.capabilities.presentation.reusableComponents.loader.CircularProgressBarComponent
-import com.apoorvgupta.capabilities.presentation.theme.buttonBackgroundColor
 import com.apoorvgupta.splash.intents.SplashIntent
 import com.apoorvgupta.splash.intents.SplashNavEffect
 import com.apoorvgupta.splash.intents.SplashViewStates
@@ -69,31 +65,8 @@ fun SplashScreenDestination(
             )
         }
 
-        is SplashViewStates.Error -> {
-            CircularProgressBarComponent(splashViewState.showLoader)
-            // Display content for the error state.
-            Text(
-                text = splashViewState.apiErrorContentModel.title,
-                style = MaterialTheme.typography.headlineMedium,
-                color = MaterialTheme.colorScheme.buttonBackgroundColor,
-                fontWeight = FontWeight.Bold,
-            )
-            Text(
-                text = splashViewState.apiErrorContentModel.subTitle,
-                style = MaterialTheme.typography.bodyLarge,
-                color = MaterialTheme.colorScheme.buttonBackgroundColor,
-                fontWeight = FontWeight.Bold,
-            )
-        }
-
         is SplashViewStates.InitialLoading -> {
             CircularProgressBarComponent(splashViewState.showLoader)
-        }
-
-        is SplashViewStates.Offline -> {
-            CircularProgressBarComponent(splashViewState.showLoader)
-            // Display content for the offline state.
-            Text("Offline")
         }
 
         is SplashViewStates.UnInitialized -> {

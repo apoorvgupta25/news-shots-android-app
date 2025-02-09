@@ -10,6 +10,7 @@ plugins {
     alias(libs.plugins.jetbrains.kotlin.android)
     alias(libs.plugins.dagger.hilt)
     alias(libs.plugins.jetbrains.kotlin.kapt)
+    alias(libs.plugins.compose.compiler)
 }
 
 // For the Release build, setup Keystore properties here.
@@ -81,7 +82,7 @@ android {
 
     buildTypes {
         release {
-            debuggable true
+            debuggable false
             // Enable Progaurd/R8 for release variants
             minifyEnabled true
             // Shrink Resources for release variants

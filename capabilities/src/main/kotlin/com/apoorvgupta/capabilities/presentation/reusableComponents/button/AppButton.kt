@@ -15,7 +15,6 @@ import androidx.compose.runtime.mutableStateOf
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.text.style.TextAlign
-import com.apoorvgupta.capabilities.presentation.theme.blackTextColor
 import com.apoorvgupta.capabilities.presentation.theme.buttonTextStyle
 import com.apoorvgupta.capabilities.presentation.theme.disabledBackgroundColor
 import com.apoorvgupta.capabilities.presentation.theme.disabledTextColor
@@ -40,7 +39,7 @@ fun AppButton(
     buttonTitle: String,
     isButtonFilled: Boolean = true,
     fillColor: Color = MaterialTheme.colorScheme.primary,
-    textColor: Color = MaterialTheme.colorScheme.blackTextColor,
+    textColor: Color = MaterialTheme.colorScheme.onPrimary,
     isEnabled: MutableState<Boolean> = mutableStateOf(true),
     onClickListener: () -> Unit,
 ) {

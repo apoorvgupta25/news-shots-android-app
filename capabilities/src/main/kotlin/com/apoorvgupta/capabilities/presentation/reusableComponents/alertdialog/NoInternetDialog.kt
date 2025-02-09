@@ -18,18 +18,13 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.res.stringResource
-import androidx.compose.ui.semantics.contentDescription
-import androidx.compose.ui.semantics.semantics
-import androidx.compose.ui.semantics.testTag
 import androidx.compose.ui.window.Dialog
 import androidx.compose.ui.window.DialogProperties
-import com.apoorvgupta.capabilities.presentation.ContentTag
 import com.apoorvgupta.capabilities.presentation.reusableComponents.button.AppButton
 import com.apoorvgupta.capabilities.presentation.theme.m_corner_radius
 import com.apoorvgupta.capabilities.presentation.theme.m_surrounding_spacing
 import com.apoorvgupta.capabilities.presentation.theme.m_vertical_spacing
 import com.apoorvgupta.capabilities.presentation.theme.s_vertical_spacing
-import com.apoorvgupta.capabilities.presentation.theme.whiteColor
 import com.apoorvgupta.capabilities.presentation.theme.xl_vertical_spacing
 import com.apoorvgupta.capabilities.presentation.theme.xs_vertical_spacing
 import com.apoorvgupta.newsshots.capabilities.R
@@ -60,7 +55,7 @@ fun NoInternetDialog(
                         .wrapContentWidth()
                         .wrapContentHeight()
                         .background(
-                            color = MaterialTheme.colorScheme.whiteColor,
+                            color = MaterialTheme.colorScheme.background,
                             shape = RoundedCornerShape(size = m_corner_radius),
                         )
                         .padding(m_surrounding_spacing),
@@ -69,25 +64,17 @@ fun NoInternetDialog(
                     Spacer(modifier = Modifier.height(m_vertical_spacing))
                     Image(
                         imageVector = Icons.Default.Close,
-                        contentDescription = "${ContentTag.DESC_TAG_NO_INTERNET} Icon",
+                        contentDescription = "Icon",
                     )
                     Spacer(modifier = Modifier.height(s_vertical_spacing))
                     Text(
                         text = stringResource(id = R.string.noInternetErrorTitle),
                         style = MaterialTheme.typography.titleLarge,
-                        modifier = Modifier.semantics {
-                            contentDescription = "${ContentTag.DESC_TAG_NO_INTERNET} Title"
-                            testTag = "${ContentTag.DESC_TAG_NO_INTERNET} Title"
-                        },
                     )
                     Spacer(modifier = Modifier.height(xs_vertical_spacing))
                     Text(
                         text = stringResource(id = R.string.noInternetErrorMessage),
                         style = MaterialTheme.typography.bodyLarge,
-                        modifier = Modifier.semantics {
-                            contentDescription = "${ContentTag.DESC_TAG_NO_INTERNET} Title"
-                            testTag = "${ContentTag.DESC_TAG_NO_INTERNET} Title"
-                        },
                     )
                     Spacer(modifier = Modifier.height(xl_vertical_spacing))
                     AppButton(

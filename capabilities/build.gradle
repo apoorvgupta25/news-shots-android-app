@@ -10,6 +10,7 @@ plugins {
     alias(libs.plugins.dagger.hilt)
     alias(libs.plugins.jetbrains.kotlin.serialization)
     alias(libs.plugins.jetbrains.kotlin.kapt)
+    alias(libs.plugins.compose.compiler)
 }
 
 // Android library configuration
@@ -60,6 +61,9 @@ dependencies {
     implementation libs.androidx.ui
     implementation libs.androidx.ui.tooling
     implementation libs.androidx.material3
+
+    // Pagination
+    implementation libs.androidx.pagination
 
     // Navigation
     implementation libs.androidx.navigation.compose

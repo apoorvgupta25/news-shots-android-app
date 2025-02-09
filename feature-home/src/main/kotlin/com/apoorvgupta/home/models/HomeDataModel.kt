@@ -1,5 +1,8 @@
 package com.apoorvgupta.home.models
 
+import com.apoorvgupta.capabilities.network.rest.data.categories.Category
+import com.apoorvgupta.capabilities.network.rest.data.newsshots.NewsShots
+import com.apoorvgupta.core.models.ErrorModel
 import com.apoorvgupta.core.utils.DataStatus
 import com.apoorvgupta.core.utils.EMPTY_STRING
 
@@ -14,15 +17,15 @@ import com.apoorvgupta.core.utils.EMPTY_STRING
  */
 data class HomeDataModel(
     val status: DataStatus = DataStatus.Empty,
+    val errorModel: ErrorModel = ErrorModel(),
     val homeContent: HomeContent = HomeContent(),
-    val label: String = EMPTY_STRING,
-    val currency: String = EMPTY_STRING,
-    val showBottomSheet: Boolean = false,
-    val isNotificationVisible: Boolean = false,
-    val isBannerLoading: Boolean = true,
+    val newsShotsList: List<NewsShots> = emptyList(),
+    val categoriesList: List<Category> = emptyList(),
 )
 
 data class HomeContent(
-    val sendText: String = EMPTY_STRING,
-    val errorText: String = EMPTY_STRING,
+    val headingText: String = EMPTY_STRING,
+    val subHeadingText: String = EMPTY_STRING,
+    val categoryLabel: String = EMPTY_STRING,
+    val articlesLabel: String = EMPTY_STRING,
 )
