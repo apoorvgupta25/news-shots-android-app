@@ -20,11 +20,11 @@ dependencies {
 }
 
 // To check the project's style compliance, run this action.
-task ktlintCheck(type: JavaExec, group: "verification") {
+tasks.register('ktlintCheck', JavaExec) {
     description = "Check Kotlin code style."
     classpath = configurations.ktlint
     mainClass.set("com.pinterest.ktlint.Main")
-    args "src/**/*.kt","--reporter=checkstyle,output=${buildDir}/ktlint.xml","--reporter=plain,output=/dev/stderr"
+    args "src/**/*.kt", "--reporter=checkstyle,output=${buildDir}/ktlint.xml", "--reporter=plain,output=/dev/stderr"
     // To generate report in checkstyle format prepend the following args:
     // "--reporter=plain", "--reporter=checkstyle,output=${buildDir}/ktlint.xml"
     // To add a baseline to check against, prepend the following arg:
@@ -33,7 +33,7 @@ task ktlintCheck(type: JavaExec, group: "verification") {
 }
 
 // To apply all the automatic, suggested style fixes, run this action.
-task ktlintFormat(type: JavaExec, group: "formatting") {
+tasks.register('ktlintFormat', JavaExec) {
     description = "Fix Kotlin code style deviations."
     classpath = configurations.ktlint
     mainClass.set("com.pinterest.ktlint.Main")
