@@ -30,6 +30,10 @@
        - name: Lint Checks
          run: ./gradlew ktlintCheck
 
+       # Run checks for unused dependencies
+       - name: Dependency Checks
+         run: ./gradlew buildHealth
+
        # Attempt to build the project.
        - name: Build Project
          run: ./gradlew assembleDebug
