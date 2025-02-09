@@ -5,6 +5,7 @@ dagger = "2.55"
 gradleAnalyzer = "2.8.0"
 
 coreKtx = "1.15.0"
+ktlintCli = "1.0.1"
 navigationCompose = "2.8.6"
 kotlinSerialization = "1.8.0"
 junit = "4.13.2"
@@ -54,6 +55,7 @@ androidx-ext-junit = { group = "androidx.test.ext", name = "junit", version.ref 
 androidx-espresso-core = { group = "androidx.test.espresso", name = "espresso-core", version.ref = "espressoCore" }
 androidx-ui-test-junit4 = { group = "androidx.compose.ui", name = "ui-test-junit4" }
 androidx-ui-test-manifest = { group = "androidx.compose.ui", name = "ui-test-manifest" }
+ktlint-cli = { module = "com.pinterest.ktlint:ktlint-cli", version.ref = "ktlintCli" }
 mockk = { group = "io.mockk", name = "mockk", version.ref = "mockk" }
 # Networking dependencies
 retrofit = { group = "com.squareup.retrofit2", name = "retrofit", version.ref = "retrofit" }
