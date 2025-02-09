@@ -9,6 +9,7 @@ import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
+import androidx.compose.foundation.layout.heightIn
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.shape.RoundedCornerShape
@@ -30,6 +31,7 @@ import com.apoorvgupta.capabilities.presentation.theme.m_vertical_spacing
 import com.apoorvgupta.capabilities.presentation.theme.s_corner_radius
 import com.apoorvgupta.capabilities.presentation.theme.s_vertical_spacing
 import com.apoorvgupta.capabilities.presentation.theme.sl_vertical_spacing
+import com.apoorvgupta.capabilities.presentation.theme.xl4_vertical_spacing
 import com.apoorvgupta.capabilities.presentation.theme.xxs_horizontal_spacing
 import com.apoorvgupta.capabilities.presentation.theme.xxxs_stroke_width
 import com.apoorvgupta.core.utils.EMPTY_STRING
@@ -97,7 +99,8 @@ fun NewsShotsCard(
         ) {
             AsyncImage(
                 modifier = Modifier
-                    .clip(shape = RoundedCornerShape(s_corner_radius)),
+                    .clip(shape = RoundedCornerShape(s_corner_radius))
+                    .heightIn(max = xl4_vertical_spacing),
                 model = "https://news-shots-backend.onrender.com/api/daily/photo/${newsShot.link}",
                 contentDescription = "NewsShot image",
             )
@@ -109,7 +112,7 @@ fun NewsShotsCard(
                 contentDescription = EMPTY_STRING,
                 modifier = Modifier
                     .noRippleClickable {
-                        onBookmarkClick
+                        onBookmarkClick.invoke()
                     }
                     .size(l_icon_size),
             )

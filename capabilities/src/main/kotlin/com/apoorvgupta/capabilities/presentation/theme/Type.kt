@@ -28,37 +28,47 @@ private val Poppins =
         Font(R.font.poppins_italic),
     )
 
+private val Graphik =
+    FontFamily(
+        Font(R.font.graphik_medium, weight = FontWeight.Medium),
+        Font(R.font.graphik_regular, weight = FontWeight.Normal),
+    )
+
+private val AppFontFamily =
+//    Poppins
+    Graphik
+
 val Typography =
     Typography(
-        displayLarge = Typography().displayLarge.copy(fontFamily = Poppins),
-        displayMedium = Typography().displayMedium.copy(fontFamily = Poppins),
-        displaySmall = Typography().displaySmall.copy(fontFamily = Poppins),
+        displayLarge = Typography().displayLarge.copy(fontFamily = AppFontFamily),
+        displayMedium = Typography().displayMedium.copy(fontFamily = AppFontFamily),
+        displaySmall = Typography().displaySmall.copy(fontFamily = AppFontFamily),
         headlineLarge = Typography().headlineLarge.copy(
-            fontFamily = Poppins,
+            fontFamily = AppFontFamily,
             fontWeight = FontWeight.Medium,
         ),
-        headlineMedium = Typography().headlineMedium.copy(fontFamily = Poppins),
-        headlineSmall = Typography().headlineSmall.copy(fontFamily = Poppins),
-        titleLarge = Typography().titleLarge.copy(fontFamily = Poppins),
+        headlineMedium = Typography().headlineMedium.copy(fontFamily = AppFontFamily),
+        headlineSmall = Typography().headlineSmall.copy(fontFamily = AppFontFamily),
+        titleLarge = Typography().titleLarge.copy(fontFamily = AppFontFamily),
         titleMedium = Typography().titleMedium.copy(
-            fontFamily = Poppins,
+            fontFamily = AppFontFamily,
             fontWeight = FontWeight.Medium,
         ),
-        titleSmall = Typography().titleSmall.copy(fontFamily = Poppins),
-        bodyLarge = Typography().bodyLarge.copy(fontFamily = Poppins),
-        bodyMedium = Typography().bodyMedium.copy(fontFamily = Poppins),
-        bodySmall = Typography().bodySmall.copy(fontFamily = Poppins),
+        titleSmall = Typography().titleSmall.copy(fontFamily = AppFontFamily),
+        bodyLarge = Typography().bodyLarge.copy(fontFamily = AppFontFamily),
+        bodyMedium = Typography().bodyMedium.copy(fontFamily = AppFontFamily),
+        bodySmall = Typography().bodySmall.copy(fontFamily = AppFontFamily),
         labelLarge = Typography().labelLarge.copy(
-            fontFamily = Poppins,
+            fontFamily = AppFontFamily,
             fontWeight = FontWeight.Medium,
         ),
-        labelMedium = Typography().labelMedium.copy(fontFamily = Poppins),
-        labelSmall = Typography().labelSmall.copy(fontFamily = Poppins),
+        labelMedium = Typography().labelMedium.copy(fontFamily = AppFontFamily),
+        labelSmall = Typography().labelSmall.copy(fontFamily = AppFontFamily),
     )
 
 val Typography.buttonTextStyle: TextStyle
     @Composable
     get() = Typography.bodyMedium.copy(
-        fontFamily = Poppins,
+        fontFamily = AppFontFamily,
         fontWeight = FontWeight.Bold,
     )
