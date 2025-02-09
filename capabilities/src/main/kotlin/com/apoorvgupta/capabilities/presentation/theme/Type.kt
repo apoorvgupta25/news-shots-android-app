@@ -34,7 +34,6 @@ private val Graphik =
         Font(R.font.graphik_regular, weight = FontWeight.Normal),
     )
 
-
 private val AppFontFamily =
 //    Poppins
     Graphik
