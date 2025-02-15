@@ -24,7 +24,5 @@ class AppModule {
      */
     @Provides
     @Singleton
-    fun provideBuildConfigContract(): BuildConfigContract {
-        return BuildConfigContractImpl()
-    }
+    fun provideBuildConfigContract(): BuildConfigContract = BuildConfigContractImpl()
 }

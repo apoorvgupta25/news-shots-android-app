@@ -57,11 +57,10 @@ fun NewsShotsListingScreenDestination(
      *
      * @return A function that takes [NewsShotsListingIntent] as a parameter.
      */
-    fun onUserAction(): (NewsShotsListingIntent) -> Unit =
-        {
-            // Perform the specified user action using the ViewModel.
-            newsShotsListingViewModel.performAction(it)
-        }
+    fun onUserAction(): (NewsShotsListingIntent) -> Unit = {
+        // Perform the specified user action using the ViewModel.
+        newsShotsListingViewModel.performAction(it)
+    }
 
     // Main content of the NewsShots Listing Screen Destination.
     // Choose the appropriate content based on the current state of the NewsShots Listing Screen.

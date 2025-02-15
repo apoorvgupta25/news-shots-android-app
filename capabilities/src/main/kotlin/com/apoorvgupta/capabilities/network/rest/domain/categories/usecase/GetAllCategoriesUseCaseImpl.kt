@@ -19,8 +19,7 @@ class GetAllCategoriesUseCaseImpl @Inject constructor(
      *
      * @return the flow
      */
-    override fun getAllCategories(): Flow<Resource<List<Category>?>> =
-        categoriesRepo.getCategories().transform { response ->
-            emit(response)
-        }
+    override fun getAllCategories(): Flow<Resource<List<Category>?>> = categoriesRepo.getCategories().transform { response ->
+        emit(response)
+    }
 }

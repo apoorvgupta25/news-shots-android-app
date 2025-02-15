@@ -129,12 +129,11 @@ interface NetworkModule {
             buildConfigContract: BuildConfigContract,
             okHttpClient: OkHttpClient,
             gson: Gson,
-        ): Retrofit =
-            Retrofit.Builder()
-                .addConverterFactory(GsonConverterFactory.create(gson))
-                .baseUrl(buildConfigContract.getBaseUrl())
-                .client(okHttpClient)
-                .build()
+        ): Retrofit = Retrofit.Builder()
+            .addConverterFactory(GsonConverterFactory.create(gson))
+            .baseUrl(buildConfigContract.getBaseUrl())
+            .client(okHttpClient)
+            .build()
 
         /**
          * Dagger Provider method for creating a singleton instance of [ApiService].

@@ -36,9 +36,7 @@ class NewsShotsListingViewModel @Inject constructor(
     val newsShotsPaginationResults: StateFlow<PagingData<NewsShots>> =
         _newsShotsPaginationResults.asStateFlow()
 
-    override fun createInitialState(): NewsShotsListingViewState {
-        return NewsShotsListingViewState(NewsShotsListingViewStates.UnInitialized)
-    }
+    override fun createInitialState(): NewsShotsListingViewState = NewsShotsListingViewState(NewsShotsListingViewStates.UnInitialized)
 
     override fun handleIntent(intent: NewsShotsListingIntent) {
         when (intent) {

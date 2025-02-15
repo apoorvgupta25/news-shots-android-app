@@ -24,82 +24,72 @@ class RemoteDataSource @Inject constructor(
         limit: Int,
         sortBy: String,
         skip: Int = 0,
-    ): Resource<List<NewsShots>?> {
-        return withContext(dispatcher.io) {
-            val response = apiService.getDailyNewsShots(
-                limit = limit,
-                skip = skip,
-                sortBy = sortBy,
+    ): Resource<List<NewsShots>?> = withContext(dispatcher.io) {
+        val response = apiService.getDailyNewsShots(
+            limit = limit,
+            skip = skip,
+            sortBy = sortBy,
+        )
+
+        if (response.isSuccessful) {
+            Resource.success(response.body())
+        } else {
+            Resource.error(
+                data = null,
+                error = fetchErrorGenericErrorBody(response.code(), response.errorBody()),
             )
-
-            if (response.isSuccessful) {
-                Resource.success(response.body())
-            } else {
-                Resource.error(
-                    data = null,
-                    error = fetchErrorGenericErrorBody(response.code(), response.errorBody()),
-                )
-            }
         }
     }
 
-    suspend fun getAllCategories(): Resource<List<Category>?> {
-        return withContext(dispatcher.io) {
-            val response = apiService.getAllCategories()
+    suspend fun getAllCategories(): Resource<List<Category>?> = withContext(dispatcher.io) {
+        val response = apiService.getAllCategories()
 
-            if (response.isSuccessful) {
-                Resource.success(response.body())
-            } else {
-                Resource.error(
-                    data = null,
-                    error = fetchErrorGenericErrorBody(response.code(), response.errorBody()),
-                )
-            }
+        if (response.isSuccessful) {
+            Resource.success(response.body())
+        } else {
+            Resource.error(
+                data = null,
+                error = fetchErrorGenericErrorBody(response.code(), response.errorBody()),
+            )
         }
     }
 
-    suspend fun getNewsShotsByCategory(categoryName: String, limit: Int, skip: Int): Resource<List<NewsShots>?> {
-        return withContext(dispatcher.io) {
-            val response = apiService.getPostByCategory(categoryName = categoryName, limit = limit, skip = skip)
+    suspend fun getNewsShotsByCategory(categoryName: String, limit: Int, skip: Int): Resource<List<NewsShots>?> = withContext(dispatcher.io) {
+        val response = apiService.getPostByCategory(categoryName = categoryName, limit = limit, skip = skip)
 
-            if (response.isSuccessful) {
-                Resource.success(response.body())
-            } else {
-                Resource.error(
-                    data = null,
-                    error = fetchErrorGenericErrorBody(response.code(), response.errorBody()),
-                )
-            }
+        if (response.isSuccessful) {
+            Resource.success(response.body())
+        } else {
+            Resource.error(
+                data = null,
+                error = fetchErrorGenericErrorBody(response.code(), response.errorBody()),
+            )
         }
     }
 
-    suspend fun getIndividualPost(postLink: String): Resource<NewsShots?> {
-        return withContext(dispatcher.io) {
-            val response = apiService.getIndividualPost(postLink = postLink)
+    suspend fun getIndividualPost(postLink: String): Resource<NewsShots?> = withContext(dispatcher.io) {
+        val response = apiService.getIndividualPost(postLink = postLink)
 
-            if (response.isSuccessful) {
-                Resource.success(response.body())
-            } else {
-                Resource.error(
-                    data = null,
-                    error = fetchErrorGenericErrorBody(response.code(), response.errorBody()),
-                )
-            }
+        if (response.isSuccessful) {
+            Resource.success(response.body())
+        } else {
+            Resource.error(
+                data = null,
+                error = fetchErrorGenericErrorBody(response.code(), response.errorBody()),
+            )
         }
     }
 
-    suspend fun getSearchedPost(searchKeyword: String): Resource<List<NewsShots>?> {
-        return withContext(dispatcher.io) {
-            val response = apiService.getSearchedPost(search = searchKeyword)
+    suspend fun getSearchedPost(searchKeyword: String): Resource<List<NewsShots>?> = withContext(dispatcher.io) {
+        val response = apiService.getSearchedPost(search = searchKeyword)
 
-            if (response.isSuccessful) {
-                Resource.success(response.body())
-            } else {
-                Resource.error(
-                    data = null,
-                    error = fetchErrorGenericErrorBody(response.code(), response.errorBody()),
-                )
-            }
+        if (response.isSuccessful) {
+            Resource.success(response.body())
+        } else {
+            Resource.error(
+                data = null,
+                error = fetchErrorGenericErrorBody(response.code(), response.errorBody()),
+            )
         }
     }
 }
