@@ -60,11 +60,10 @@ fun MainDestination(
      *
      * @return A function that takes [MainIntent] as a parameter.
      */
-    fun onUserAction(): (MainIntent) -> Unit =
-        {
-            // Perform the specified user action using the ViewModel.
-            viewModel.performAction(it)
-        }
+    fun onUserAction(): (MainIntent) -> Unit = {
+        // Perform the specified user action using the ViewModel.
+        viewModel.performAction(it)
+    }
 
     // Main content of the Splash Screen Destination.
     // Choose the appropriate content based on the current state of the Splash Screen.

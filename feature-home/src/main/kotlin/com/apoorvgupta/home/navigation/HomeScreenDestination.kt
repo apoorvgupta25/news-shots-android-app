@@ -66,11 +66,10 @@ fun HomeScreenDestination(
      *
      * @return A function that takes [HomeIntent] as a parameter.
      */
-    fun onUserAction(): (HomeIntent) -> Unit =
-        {
-            // Perform the specified user action using the ViewModel.
-            homeViewModel.performAction(it)
-        }
+    fun onUserAction(): (HomeIntent) -> Unit = {
+        // Perform the specified user action using the ViewModel.
+        homeViewModel.performAction(it)
+    }
 
     // Main content of the Home Screen Destination.
     // Choose the appropriate content based on the current state of the Home Screen.

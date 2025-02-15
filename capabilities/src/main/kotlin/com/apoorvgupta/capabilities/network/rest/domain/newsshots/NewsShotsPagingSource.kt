@@ -19,11 +19,10 @@ class NewsShotsPagingSource @Inject constructor(
     private val categoryName: String = EMPTY_STRING,
 ) : PagingSource<Int, NewsShots>() {
 
-    override fun getRefreshKey(state: PagingState<Int, NewsShots>) =
-        state.anchorPosition?.let { anchorPosition ->
-            state.closestPageToPosition(anchorPosition)?.prevKey?.plus(8)
-                ?: state.closestPageToPosition(anchorPosition)?.nextKey?.minus(8)
-        }
+    override fun getRefreshKey(state: PagingState<Int, NewsShots>) = state.anchorPosition?.let { anchorPosition ->
+        state.closestPageToPosition(anchorPosition)?.prevKey?.plus(8)
+            ?: state.closestPageToPosition(anchorPosition)?.nextKey?.minus(8)
+    }
 
     override suspend fun load(params: LoadParams<Int>): LoadResult<Int, NewsShots> {
         val page = params.key ?: 0
