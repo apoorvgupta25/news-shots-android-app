@@ -22,11 +22,10 @@ class GetRecentNewsShotsUseCaseImpl @Inject constructor(
      *
      * @return
      */
-    override fun getRecentNewsShots() =
-        newsShotsRepo.getRecentNewsShots(
-            limit = Constants.DAILY_POST_LIMIT,
-            sortBy = Constants.DAILY_POST_SORT_BY_CREATED,
-        ).transform { response ->
-            emit(response)
-        }
+    override fun getRecentNewsShots() = newsShotsRepo.getRecentNewsShots(
+        limit = Constants.DAILY_POST_LIMIT,
+        sortBy = Constants.DAILY_POST_SORT_BY_CREATED,
+    ).transform { response ->
+        emit(response)
+    }
 }

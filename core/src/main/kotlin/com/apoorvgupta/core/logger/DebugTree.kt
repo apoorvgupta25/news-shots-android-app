@@ -24,7 +24,5 @@ internal class DebugTree : Timber.DebugTree() {
      * @param element The stack trace element for which the tag is generated.
      * @return The custom tag for the log message.
      */
-    override fun createStackElementTag(element: StackTraceElement): String {
-        return AppLogger.getTagFromElement(element)
-    }
+    override fun createStackElementTag(element: StackTraceElement): String = AppLogger.getTagFromElement(element)
 }

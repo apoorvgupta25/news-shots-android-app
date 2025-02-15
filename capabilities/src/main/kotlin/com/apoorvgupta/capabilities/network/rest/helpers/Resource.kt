@@ -15,31 +15,28 @@ import com.apoorvgupta.capabilities.network.rest.data.GenericErrorModel
 data class Resource<out T>(val status: Status, val data: T?, val error: GenericErrorModel?) {
     companion object {
         // Handles success
-        fun <T> success(data: T): Resource<T> =
-            Resource(
-                status = Status.SUCCESS,
-                data = data,
-                error = null,
-            )
+        fun <T> success(data: T): Resource<T> = Resource(
+            status = Status.SUCCESS,
+            data = data,
+            error = null,
+        )
 
         // Handles Loading
-        fun <T> loading(data: T? = null): Resource<T> =
-            Resource(
-                status = Status.LOADING,
-                data = data,
-                error = null,
-            )
+        fun <T> loading(data: T? = null): Resource<T> = Resource(
+            status = Status.LOADING,
+            data = data,
+            error = null,
+        )
 
         // Handles Error
         fun <T> error(
             data: T? = null,
             error: GenericErrorModel? = null,
-        ): Resource<T> =
-            Resource(
-                status = Status.ERROR,
-                data = data,
-                error = error,
-            )
+        ): Resource<T> = Resource(
+            status = Status.ERROR,
+            data = data,
+            error = error,
+        )
 
         // Handles Idle/No Action
         fun <T> idle(data: T? = null) = Resource(status = Status.NONE, data = data, error = null)

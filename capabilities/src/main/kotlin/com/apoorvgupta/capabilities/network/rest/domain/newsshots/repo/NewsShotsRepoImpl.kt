@@ -34,8 +34,7 @@ class NewsShotsRepoImpl @Inject constructor(
      * @param sortBy
      * @return
      */
-    override fun getRecentNewsShots(limit: Int, sortBy: String) =
-        makeSafeApiCall(context) { remoteDataSource.getDailyNewsShots(limit, sortBy) }
+    override fun getRecentNewsShots(limit: Int, sortBy: String) = makeSafeApiCall(context) { remoteDataSource.getDailyNewsShots(limit, sortBy) }
 
     /**
      * Get news shots by category
@@ -55,16 +54,14 @@ class NewsShotsRepoImpl @Inject constructor(
      *
      * @param postLink
      */
-    override fun getIndividualNewsShots(postLink: String) =
-        makeSafeApiCall(context) { remoteDataSource.getIndividualPost(postLink) }
+    override fun getIndividualNewsShots(postLink: String) = makeSafeApiCall(context) { remoteDataSource.getIndividualPost(postLink) }
 
     /**
      * Get searched news shots
      *
      * @param searchKeyword
      */
-    override fun getSearchedNewsShots(searchKeyword: String) =
-        makeSafeApiCall(context) { remoteDataSource.getSearchedPost(searchKeyword) }
+    override fun getSearchedNewsShots(searchKeyword: String) = makeSafeApiCall(context) { remoteDataSource.getSearchedPost(searchKeyword) }
 
     /**
      * Get all news shots
