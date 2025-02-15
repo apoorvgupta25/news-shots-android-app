@@ -31,7 +31,7 @@ import com.apoorvgupta.capabilities.presentation.theme.m_vertical_spacing
 import com.apoorvgupta.capabilities.presentation.theme.s_corner_radius
 import com.apoorvgupta.capabilities.presentation.theme.s_vertical_spacing
 import com.apoorvgupta.capabilities.presentation.theme.sl_vertical_spacing
-import com.apoorvgupta.capabilities.presentation.theme.xl4_vertical_spacing
+import com.apoorvgupta.capabilities.presentation.theme.xl14_vertical_spacing
 import com.apoorvgupta.capabilities.presentation.theme.xxs_horizontal_spacing
 import com.apoorvgupta.capabilities.presentation.theme.xxxs_stroke_width
 import com.apoorvgupta.core.utils.EMPTY_STRING
@@ -66,6 +66,7 @@ fun NewsShotsCard(
                 shape = RoundedCornerShape(s_corner_radius),
             )
             .padding(all = m_surrounding_spacing)
+            .heightIn(min = xl14_vertical_spacing)
             .height(intrinsicSize = IntrinsicSize.Max),
     ) {
         Column(
@@ -86,6 +87,8 @@ fun NewsShotsCard(
                 overflow = TextOverflow.Ellipsis,
             )
 
+            Spacer(modifier = Modifier.weight(1F))
+
             Text(
                 modifier = Modifier.padding(top = sl_vertical_spacing),
                 text = newsShot.formattedDate,
@@ -99,8 +102,7 @@ fun NewsShotsCard(
         ) {
             AsyncImage(
                 modifier = Modifier
-                    .clip(shape = RoundedCornerShape(s_corner_radius))
-                    .heightIn(max = xl4_vertical_spacing),
+                    .clip(shape = RoundedCornerShape(s_corner_radius)),
                 model = "https://news-shots-backend.onrender.com/api/daily/photo/${newsShot.link}",
                 contentDescription = "NewsShot image",
             )

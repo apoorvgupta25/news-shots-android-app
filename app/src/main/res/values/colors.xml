@@ -2,5 +2,5 @@
 <resources>
     <color name="icon_background">#FFFFFF</color>
     <color name="splash_icon_background">#FFFFFF</color>
-    <color name="app_primary_color">#E3E2DF</color>
+    <color name="app_primary_color">#F8F6F7</color>
 </resources>
