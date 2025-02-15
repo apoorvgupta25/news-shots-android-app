@@ -13,9 +13,7 @@ object ConnectivityChannel {
     private val connectionLost: MutableStateFlow<Boolean> = MutableStateFlow(false)
     private val isConnectionLost: StateFlow<Boolean> get() = connectionLost
 
-    fun observer(): StateFlow<Boolean> {
-        return isConnectionLost
-    }
+    fun observer(): StateFlow<Boolean> = isConnectionLost
 
     fun publish(
         connectionLoss: Boolean,

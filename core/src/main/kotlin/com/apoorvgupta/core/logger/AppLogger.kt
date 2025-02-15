@@ -72,18 +72,16 @@ object AppLogger {
      * @param className to check
      * @return true if both are different false otherwise
      */
-    private fun isNotLoggerClass(className: String): Boolean {
-        return when {
-            className.length == loggerClassName.length -> {
-                className != loggerClassName
-            }
-
-            className.length >= loggerClassName.length -> {
-                className.subSequence(loggerClassName.indices) != loggerClassName
-            }
-
-            else -> true
+    private fun isNotLoggerClass(className: String): Boolean = when {
+        className.length == loggerClassName.length -> {
+            className != loggerClassName
         }
+
+        className.length >= loggerClassName.length -> {
+            className.subSequence(loggerClassName.indices) != loggerClassName
+        }
+
+        else -> true
     }
 
     /**

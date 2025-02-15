@@ -17,8 +17,7 @@ class GetIndividualNewsShotsUseCaseImpl @Inject constructor(
      * @param postLink
      * @return
      */
-    override fun getIndividualNewsShots(postLink: String) =
-        newsShotsRepo.getIndividualNewsShots(postLink = postLink).transform { response ->
-            emit(response)
-        }
+    override fun getIndividualNewsShots(postLink: String) = newsShotsRepo.getIndividualNewsShots(postLink = postLink).transform { response ->
+        emit(response)
+    }
 }

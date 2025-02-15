@@ -48,11 +48,10 @@ fun SplashScreenDestination(
      *
      * @return A function that takes [SplashIntent] as a parameter.
      */
-    fun onUserAction(): (SplashIntent) -> Unit =
-        {
-            // Perform the specified user action using the ViewModel.
-            splashViewModel.performAction(it)
-        }
+    fun onUserAction(): (SplashIntent) -> Unit = {
+        // Perform the specified user action using the ViewModel.
+        splashViewModel.performAction(it)
+    }
 
     // Main content of the Splash Screen Destination.
     // Choose the appropriate content based on the current state of the Splash Screen.

@@ -18,9 +18,7 @@ class MainViewModel @Inject constructor(
 
     val showNoInternet = mutableStateOf(false)
 
-    override fun createInitialState(): MainViewState {
-        return MainViewState(MainViewStates.LoadedData(data = MainScreenDataModel.defaultValue))
-    }
+    override fun createInitialState(): MainViewState = MainViewState(MainViewStates.LoadedData(data = MainScreenDataModel.defaultValue))
 
     override fun handleIntent(intent: MainIntent) {
         // Need to update

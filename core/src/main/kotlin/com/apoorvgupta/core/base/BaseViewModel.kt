@@ -38,8 +38,7 @@ interface NavEffect
  *
  * @author Apoorv Gupta
  */
-abstract class BaseViewModel<Intent : UserIntent, State : ViewState, Effect : NavEffect> :
-    ViewModel() {
+abstract class BaseViewModel<Intent : UserIntent, State : ViewState, Effect : NavEffect> : ViewModel() {
     // Create the initial state of the view.
     private val initialState: State by lazy { createInitialState() }
 

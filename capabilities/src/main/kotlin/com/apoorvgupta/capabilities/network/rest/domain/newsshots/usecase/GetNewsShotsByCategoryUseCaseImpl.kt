@@ -22,8 +22,7 @@ class GetNewsShotsByCategoryUseCaseImpl @Inject constructor(
      * @param categoryName
      * @return
      */
-    override fun getNewsShotsByCategory(categoryName: String) =
-        newsShotsRepo.getNewsShotsByCategory(categoryName = categoryName).transform { response ->
-            emit(response)
-        }
+    override fun getNewsShotsByCategory(categoryName: String) = newsShotsRepo.getNewsShotsByCategory(categoryName = categoryName).transform { response ->
+        emit(response)
+    }
 }

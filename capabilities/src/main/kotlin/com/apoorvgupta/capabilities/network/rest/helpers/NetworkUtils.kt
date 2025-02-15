@@ -50,14 +50,12 @@ fun getConnectionType(context: Context): Int {
 fun fetchErrorGenericErrorBody(
     httpErrorCode: Int,
     errorBody: ResponseBody?,
-): GenericErrorModel {
-    return if (errorBody != null) {
-        val errorObj = JSONObject(errorBody.string())
-        val bffErrorMessage = errorObj.getString("error")
-        GenericErrorModel(code = httpErrorCode, message = bffErrorMessage)
-    } else {
-        GenericErrorModel(code = httpErrorCode)
-    }
+): GenericErrorModel = if (errorBody != null) {
+    val errorObj = JSONObject(errorBody.string())
+    val bffErrorMessage = errorObj.getString("error")
+    GenericErrorModel(code = httpErrorCode, message = bffErrorMessage)
+} else {
+    GenericErrorModel(code = httpErrorCode)
 }
 
 /**
