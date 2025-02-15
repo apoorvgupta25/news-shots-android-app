@@ -67,8 +67,7 @@ fun NewsShotsCard(
             )
             .padding(all = m_surrounding_spacing)
             .heightIn(min = xl14_vertical_spacing)
-            .height(intrinsicSize = IntrinsicSize.Max)
-        ,
+            .height(intrinsicSize = IntrinsicSize.Max),
     ) {
         Column(
             modifier = Modifier
