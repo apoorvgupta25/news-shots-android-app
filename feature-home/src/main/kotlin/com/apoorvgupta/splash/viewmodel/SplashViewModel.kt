@@ -18,9 +18,7 @@ class SplashViewModel @Inject constructor() : BaseViewModel<SplashIntent, Splash
     /**
      * Initial state of the Login Screen.
      */
-    override fun createInitialState(): SplashViewState {
-        return SplashViewState(SplashViewStates.UnInitialized)
-    }
+    override fun createInitialState(): SplashViewState = SplashViewState(SplashViewStates.UnInitialized)
 
     /**
      * Handle user intents for the Login Screen.

@@ -22,6 +22,5 @@ class CategoriesRepoImpl @Inject constructor(
      *
      * @return
      */
-    override fun getCategories(): Flow<Resource<List<Category>?>> =
-        makeSafeApiCall(context) { remoteDataSource.getAllCategories() }
+    override fun getCategories(): Flow<Resource<List<Category>?>> = makeSafeApiCall(context) { remoteDataSource.getAllCategories() }
 }

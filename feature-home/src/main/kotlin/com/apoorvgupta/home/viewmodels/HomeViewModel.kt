@@ -23,9 +23,7 @@ class HomeViewModel @Inject constructor(
     private val homeScreenUseCase: HomeScreenUseCase,
 ) : BaseViewModel<HomeIntent, HomeViewState, HomeNavEffect>() {
 
-    override fun createInitialState(): HomeViewState {
-        return HomeViewState(HomeViewStates.UnInitialized)
-    }
+    override fun createInitialState(): HomeViewState = HomeViewState(HomeViewStates.UnInitialized)
 
     override fun handleIntent(intent: HomeIntent) {
         when (intent) {

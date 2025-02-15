@@ -22,9 +22,8 @@ class GetSearchedNewsShotsUseCaseImpl @Inject constructor(
      * @param searchKeyword
      * @return
      */
-    override fun getSearchedNewsShots(searchKeyword: String) =
-        newsShotsRepo.getSearchedNewsShots(searchKeyword = searchKeyword)
-            .transform { response ->
-                emit(response)
-            }
+    override fun getSearchedNewsShots(searchKeyword: String) = newsShotsRepo.getSearchedNewsShots(searchKeyword = searchKeyword)
+        .transform { response ->
+            emit(response)
+        }
 }

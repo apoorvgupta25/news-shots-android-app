@@ -8,9 +8,7 @@ object FinishActivityChannel {
     private val finishActivityWhenTrue: MutableStateFlow<Boolean> = MutableStateFlow(false)
     private val finishActivityWithTrue: StateFlow<Boolean> get() = finishActivityWhenTrue
 
-    fun observer(): StateFlow<Boolean> {
-        return finishActivityWithTrue
-    }
+    fun observer(): StateFlow<Boolean> = finishActivityWithTrue
 
     fun publish(finishActivity: Boolean) {
         finishActivityWhenTrue.value = finishActivity
