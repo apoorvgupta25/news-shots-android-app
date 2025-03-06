@@ -53,6 +53,7 @@ val Typography =
         titleMedium = Typography().titleMedium.copy(
             fontFamily = AppFontFamily,
             fontWeight = FontWeight.Medium,
+            fontSize = text_size_title_medium,
         ),
         titleSmall = Typography().titleSmall.copy(fontFamily = AppFontFamily),
         bodyLarge = Typography().bodyLarge.copy(fontFamily = AppFontFamily),

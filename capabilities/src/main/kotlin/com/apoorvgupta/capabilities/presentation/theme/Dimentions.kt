@@ -151,7 +151,7 @@ val xl15_surrounding_spacing = octodecuple_internal_spacing
 val xl16_surrounding_spacing = novemdecuple_internal_spacing
 
 // Text size
-val text_size_body = 14.sp
+val text_size_title_medium = 18.sp
 
 val line_height_body = 20.sp
 
