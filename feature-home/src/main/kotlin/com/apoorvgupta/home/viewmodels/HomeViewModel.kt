@@ -34,6 +34,10 @@ class HomeViewModel @Inject constructor(
             is HomeIntent.NavigateToNewsShotsListing -> {
                 sendNavEffect { HomeNavEffect.OpenNewsShotsListingPage(intent.categoryName) }
             }
+
+            is HomeIntent.NavigateToIndividualNewsShots -> {
+                sendNavEffect { HomeNavEffect.OpenIndividualNewsShots(intent.postLink) }
+            }
         }
     }
 

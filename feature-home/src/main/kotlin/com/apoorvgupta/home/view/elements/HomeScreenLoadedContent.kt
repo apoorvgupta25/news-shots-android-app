@@ -148,7 +148,9 @@ fun HomeScreenLoadedContent(
             items(state.data.newsShotsList) {
                 NewsShotsCard(
                     newsShot = it,
-                    onCardClick = {},
+                    onCardClick = {
+                        userIntent.invoke(HomeIntent.NavigateToIndividualNewsShots(it.link))
+                    },
                     onBookmarkClick = {},
                 )
             }

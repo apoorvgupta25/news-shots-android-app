@@ -48,7 +48,10 @@ val Typography =
             fontWeight = FontWeight.Medium,
         ),
         headlineMedium = Typography().headlineMedium.copy(fontFamily = AppFontFamily),
-        headlineSmall = Typography().headlineSmall.copy(fontFamily = AppFontFamily),
+        headlineSmall = Typography().headlineSmall.copy(
+            fontFamily = AppFontFamily,
+            fontWeight = FontWeight.Bold
+        ),
         titleLarge = Typography().titleLarge.copy(fontFamily = AppFontFamily),
         titleMedium = Typography().titleMedium.copy(
             fontFamily = AppFontFamily,

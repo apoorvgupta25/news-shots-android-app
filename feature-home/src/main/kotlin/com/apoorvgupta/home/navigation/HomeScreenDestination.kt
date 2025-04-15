@@ -4,6 +4,7 @@ import androidx.activity.compose.BackHandler
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.LaunchedEffect
 import androidx.navigation.NavController
+import com.apoorvgupta.capabilities.presentation.navigation.NewsDetails
 import com.apoorvgupta.capabilities.presentation.navigation.NewsShotsListing
 import com.apoorvgupta.capabilities.presentation.navigation.Search
 import com.apoorvgupta.capabilities.presentation.reusableComponents.loader.CircularProgressBarComponent
@@ -47,6 +48,12 @@ fun HomeScreenDestination(
                     NewsShotsListing(
                         categoryName = navEvent.categoryName,
                     ),
+                )
+            }
+
+            is HomeNavEffect.OpenIndividualNewsShots -> {
+                navController.navigate(
+                    NewsDetails(postLink = navEvent.postLink),
                 )
             }
         }

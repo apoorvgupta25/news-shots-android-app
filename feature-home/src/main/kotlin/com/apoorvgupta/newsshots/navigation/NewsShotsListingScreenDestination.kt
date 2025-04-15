@@ -3,6 +3,7 @@ package com.apoorvgupta.newsshots.navigation
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.LaunchedEffect
 import androidx.navigation.NavController
+import com.apoorvgupta.capabilities.presentation.navigation.NewsDetails
 import com.apoorvgupta.capabilities.presentation.navigation.NewsShotsListing
 import com.apoorvgupta.capabilities.presentation.reusableComponents.loader.CircularProgressBarComponent
 import com.apoorvgupta.newsshots.intent.NewsShotsListingIntent
@@ -32,6 +33,9 @@ fun NewsShotsListingScreenDestination(
     fun handleNavigation(navEvent: NewsShotsListingNavEffect) {
         when (navEvent) {
             is NewsShotsListingNavEffect.OpenIndividualNewsShots -> {
+                navController.navigate(
+                    NewsDetails(postLink = navEvent.postLink),
+                )
             }
 
             NewsShotsListingNavEffect.OpenPreviousScreen -> {
