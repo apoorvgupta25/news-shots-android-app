@@ -6,7 +6,7 @@ gradleAnalyzer = "2.16.0"
 
 coreKtx = "1.16.0"
 ktlintCli = "1.5.0"
-navigationCompose = "2.8.9"
+navigationCompose = "2.9.0"
 kotlinSerialization = "1.8.1"
 junit = "4.13.2"
 junitVersion = "1.2.1"
