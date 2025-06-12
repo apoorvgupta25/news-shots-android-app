@@ -74,7 +74,7 @@ fun NewsDetailScreenLoadedContent(
                 style = MaterialTheme.typography.bodyLarge,
             )
 
-            Spacer(modifier = Modifier.weight(1F))
+            Spacer(modifier = Modifier.weight(Constants.FULL_WEIGHT))
 
             Text(
                 text = state.data.newsShot.formattedDate,

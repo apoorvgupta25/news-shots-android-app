@@ -88,7 +88,7 @@ fun NewsShotsCard(
                 overflow = TextOverflow.Ellipsis,
             )
 
-            Spacer(modifier = Modifier.weight(1F))
+            Spacer(modifier = Modifier.weight(Constants.FULL_WEIGHT))
 
             Text(
                 modifier = Modifier.padding(top = sl_vertical_spacing),
@@ -98,7 +98,7 @@ fun NewsShotsCard(
         }
 
         Column(
-            modifier = Modifier.weight(1f),
+            modifier = Modifier.weight(Constants.FULL_WEIGHT),
             horizontalAlignment = Alignment.End,
         ) {
             AsyncImage(
@@ -108,7 +108,7 @@ fun NewsShotsCard(
                 contentDescription = "NewsShot image",
             )
 
-            Spacer(modifier = Modifier.weight(1F))
+            Spacer(modifier = Modifier.weight(Constants.FULL_WEIGHT))
 
             Icon(
                 painter = painterResource(id = R.drawable.ic_bookmark_outlined),

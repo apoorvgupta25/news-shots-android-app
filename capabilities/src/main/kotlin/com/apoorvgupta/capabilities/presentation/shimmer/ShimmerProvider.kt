@@ -20,6 +20,8 @@ import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.graphics.RectangleShape
 import androidx.compose.ui.graphics.Shape
 import androidx.compose.ui.unit.dp
+import com.apoorvgupta.capabilities.util.Constants
+import com.apoorvgupta.core.utils.EMPTY_STRING
 
 /**
  * A provider for generating shimmer effects in Jetpack Compose.
@@ -30,9 +32,9 @@ object ShimmerProvider {
     const val ANIM_DURATION = 1200
     private val colorShimmer = Color(0xFFE1E0E0)
     private val shimmerColorShade = listOf(
-        colorShimmer.copy(0.9f),
-        colorShimmer.copy(0.2f),
-        colorShimmer.copy(0.9f),
+        colorShimmer.copy(Constants.FLOAT_0_9),
+        colorShimmer.copy(Constants.FLOAT_0_2),
+        colorShimmer.copy(Constants.FLOAT_0_9),
     )
 
     /**
@@ -92,10 +94,10 @@ fun RenderShimmer(
     colors: List<Color>,
     repeatMode: RepeatMode = RepeatMode.Reverse,
 ) {
-    val transition = rememberInfiniteTransition(label = "")
+    val transition = rememberInfiniteTransition(label = EMPTY_STRING)
     val translateAnim by transition.animateFloat(
-        initialValue = 0f,
-        targetValue = 1f, // Adjust the target value to cover the entire width or height of the Box
+        initialValue = Constants.ZERO_WEIGHT,
+        targetValue = Constants.FULL_WEIGHT, // Adjust the target value to cover the entire width or height of the Box
         animationSpec = infiniteRepeatable(
             tween(durationMillis = ShimmerProvider.ANIM_DURATION, easing = FastOutSlowInEasing),
             repeatMode,
@@ -105,8 +107,8 @@ fun RenderShimmer(
 
     val brush = Brush.linearGradient(
         colors = colors,
-        start = Offset(10f, 10f),
-        end = Offset(translateAnim * 1000f, translateAnim * 1000f), // Use *1000 or any value that suits your design
+        start = Offset(Constants.FLOAT_10, Constants.FLOAT_10),
+        end = Offset(translateAnim * Constants.FLOAT_1000, translateAnim * Constants.FLOAT_1000), // Use *1000 or any value that suits your design
     )
     Box(
         modifier = modifier
