@@ -12,6 +12,8 @@ package com.apoorvgupta.capabilities.util
  */
 object Constants {
     // Constant for named arguments in Hilt to avoid the conflict with different provider.
+
+    const val IMAGE_BASE_URL = "https://news-shots-backend.onrender.com/api/daily/photo/"
     const val POST_PER_PAGE = 8
     const val DAILY = "Daily"
     const val DAILY_POST_LIMIT = 3

@@ -34,6 +34,7 @@ import com.apoorvgupta.capabilities.presentation.theme.sl_vertical_spacing
 import com.apoorvgupta.capabilities.presentation.theme.xl14_vertical_spacing
 import com.apoorvgupta.capabilities.presentation.theme.xxs_horizontal_spacing
 import com.apoorvgupta.capabilities.presentation.theme.xxxs_stroke_width
+import com.apoorvgupta.capabilities.util.Constants
 import com.apoorvgupta.core.utils.EMPTY_STRING
 import com.apoorvgupta.newsshots.capabilities.R
 
@@ -103,7 +104,7 @@ fun NewsShotsCard(
             AsyncImage(
                 modifier = Modifier
                     .clip(shape = RoundedCornerShape(s_corner_radius)),
-                model = "https://news-shots-backend.onrender.com/api/daily/photo/${newsShot.link}",
+                model = "${Constants.IMAGE_BASE_URL}${newsShot.link}",
                 contentDescription = "NewsShot image",
             )
 
