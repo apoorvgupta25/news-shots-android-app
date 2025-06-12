@@ -24,7 +24,6 @@ import com.apoorvgupta.capabilities.network.rest.domain.newsshots.usecase.GetRec
 import com.apoorvgupta.capabilities.network.rest.domain.newsshots.usecase.GetRecentNewsShotsUseCaseImpl
 import com.apoorvgupta.capabilities.network.rest.domain.newsshots.usecase.GetSearchedNewsShotsUseCase
 import com.apoorvgupta.capabilities.network.rest.domain.newsshots.usecase.GetSearchedNewsShotsUseCaseImpl
-import com.apoorvgupta.capabilities.network.rest.interceptor.CacheInterceptor
 import com.apoorvgupta.core.interactions.buildConfigProvider.BuildConfigContract
 import com.apoorvgupta.core.logger.AppLogger
 import com.google.gson.Gson
@@ -82,10 +81,6 @@ interface NetworkModule {
     fun providesCategoriesUseCase(impl: GetAllCategoriesUseCaseImpl): GetAllCategoriesUseCase
 
     companion object {
-
-        @Provides
-        @Singleton
-        fun providesCachingInterceptor(): CacheInterceptor = CacheInterceptor()
 
         @Provides
         fun provideCache(
