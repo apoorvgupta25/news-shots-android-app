@@ -34,6 +34,7 @@ import com.apoorvgupta.capabilities.presentation.theme.sl_vertical_spacing
 import com.apoorvgupta.capabilities.presentation.theme.xl14_vertical_spacing
 import com.apoorvgupta.capabilities.presentation.theme.xxs_horizontal_spacing
 import com.apoorvgupta.capabilities.presentation.theme.xxxs_stroke_width
+import com.apoorvgupta.capabilities.util.Constants
 import com.apoorvgupta.core.utils.EMPTY_STRING
 import com.apoorvgupta.newsshots.capabilities.R
 
@@ -87,7 +88,7 @@ fun NewsShotsCard(
                 overflow = TextOverflow.Ellipsis,
             )
 
-            Spacer(modifier = Modifier.weight(1F))
+            Spacer(modifier = Modifier.weight(Constants.FULL_WEIGHT))
 
             Text(
                 modifier = Modifier.padding(top = sl_vertical_spacing),
@@ -97,17 +98,17 @@ fun NewsShotsCard(
         }
 
         Column(
-            modifier = Modifier.weight(1f),
+            modifier = Modifier.weight(Constants.FULL_WEIGHT),
             horizontalAlignment = Alignment.End,
         ) {
             AsyncImage(
                 modifier = Modifier
                     .clip(shape = RoundedCornerShape(s_corner_radius)),
-                model = "https://news-shots-backend.onrender.com/api/daily/photo/${newsShot.link}",
+                model = "${Constants.IMAGE_BASE_URL}${newsShot.link}",
                 contentDescription = "NewsShot image",
             )
 
-            Spacer(modifier = Modifier.weight(1F))
+            Spacer(modifier = Modifier.weight(Constants.FULL_WEIGHT))
 
             Icon(
                 painter = painterResource(id = R.drawable.ic_bookmark_outlined),

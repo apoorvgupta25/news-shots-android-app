@@ -44,6 +44,7 @@ import com.apoorvgupta.capabilities.presentation.theme.shadowBackgroundColor
 import com.apoorvgupta.capabilities.presentation.theme.sl_horizontal_spacing
 import com.apoorvgupta.capabilities.presentation.theme.sl_vertical_spacing
 import com.apoorvgupta.capabilities.presentation.theme.xxxs_stroke_width
+import com.apoorvgupta.capabilities.util.Constants
 import com.apoorvgupta.core.logger.AppLogger
 import com.apoorvgupta.core.utils.EMPTY_STRING
 import com.apoorvgupta.newsshots.capabilities.R
@@ -134,7 +135,7 @@ fun BottomNavigationBar(
                         painter = painterResource(if (isCurrentRouteSelected) item.filledIcon else item.icon),
                         contentDescription = EMPTY_STRING,
                         modifier = Modifier.size(l_icon_size),
-                        alpha = if (isCurrentRouteSelected) 1F else 0.5F,
+                        alpha = if (isCurrentRouteSelected) Constants.FULL_WEIGHT else Constants.HALF_WEIGHT,
                     )
                     if (item.displayBadge) {
                         BadgedBox(

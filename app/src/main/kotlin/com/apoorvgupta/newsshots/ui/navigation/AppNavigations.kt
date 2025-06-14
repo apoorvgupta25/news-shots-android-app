@@ -14,11 +14,14 @@ import androidx.navigation.toRoute
 import com.apoorvgupta.bookmark.BookmarkScreen
 import com.apoorvgupta.capabilities.presentation.navigation.Bookmark
 import com.apoorvgupta.capabilities.presentation.navigation.Home
+import com.apoorvgupta.capabilities.presentation.navigation.NewsDetails
 import com.apoorvgupta.capabilities.presentation.navigation.NewsShotsListing
 import com.apoorvgupta.capabilities.presentation.navigation.Search
 import com.apoorvgupta.capabilities.presentation.navigation.Splash
 import com.apoorvgupta.home.navigation.HomeScreenDestination
 import com.apoorvgupta.home.viewmodels.HomeViewModel
+import com.apoorvgupta.newsdetails.navigation.NewsDetailsScreenDestination
+import com.apoorvgupta.newsdetails.viewmodels.NewsDetailsViewModel
 import com.apoorvgupta.newsshots.navigation.NewsShotsListingScreenDestination
 import com.apoorvgupta.newsshots.viewmodels.NewsShotsListingViewModel
 import com.apoorvgupta.search.SearchScreen
@@ -76,6 +79,22 @@ fun NavGraphBuilder.homeNavigationGraph(
         NewsShotsListingScreenDestination(
             newsShotsListingViewModel = viewModel,
             newsShotsListingViewState = viewState.newsShotsListingViewState,
+            navEffect = effect,
+            navController = navController,
+            arg = arg,
+        )
+    }
+
+    composable<NewsDetails> {
+        val viewModel: NewsDetailsViewModel = hiltViewModel()
+        val viewState by viewModel.viewState.collectAsState()
+        val effect = viewModel.effect
+
+        val arg = it.toRoute<NewsDetails>()
+
+        NewsDetailsScreenDestination(
+            newsDetailsViewModel = viewModel,
+            newsDetailsViewState = viewState.newsDetailsViewState,
             navEffect = effect,
             navController = navController,
             arg = arg,

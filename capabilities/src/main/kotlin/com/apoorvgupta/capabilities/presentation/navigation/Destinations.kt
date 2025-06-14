@@ -26,6 +26,12 @@ data class NewsShotsListing(
     val categoryName: String,
 )
 
+// NewsShotsDetails Destination
+@Serializable
+data class NewsDetails(
+    val postLink: String,
+)
+
 // Search Destination
 @Serializable
 object Search

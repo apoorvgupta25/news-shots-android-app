@@ -1,5 +1,6 @@
 package com.apoorvgupta.capabilities.network.rest.data.categories
 
+import com.apoorvgupta.core.utils.EMPTY_STRING
 import com.google.gson.annotations.SerializedName
 
 data class Category(
@@ -14,4 +15,14 @@ data class Category(
 
     @SerializedName("updatedAt")
     val updatedAt: String,
-)
+) {
+    companion object {
+        val emptyValue: Category
+            get() = Category(
+                id = EMPTY_STRING,
+                createdAt = EMPTY_STRING,
+                name = EMPTY_STRING,
+                updatedAt = EMPTY_STRING,
+            )
+    }
+}
