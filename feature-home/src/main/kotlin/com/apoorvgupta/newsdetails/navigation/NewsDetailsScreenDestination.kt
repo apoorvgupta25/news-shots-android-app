@@ -32,7 +32,6 @@ fun NewsDetailsScreenDestination(
         when (navEvent) {
             // Need to update
             is NewsDetailsNavEffect.OpenChromeCustomTab -> {
-
             }
 
             is NewsDetailsNavEffect.OpenIndividualNewsShots -> {

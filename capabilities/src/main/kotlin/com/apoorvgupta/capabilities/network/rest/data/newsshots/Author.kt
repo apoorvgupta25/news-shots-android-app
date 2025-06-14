@@ -10,7 +10,7 @@ data class Author(
     companion object {
         val emptyValue: Author
             get() = Author(
-                name = EMPTY_STRING
+                name = EMPTY_STRING,
             )
     }
 }

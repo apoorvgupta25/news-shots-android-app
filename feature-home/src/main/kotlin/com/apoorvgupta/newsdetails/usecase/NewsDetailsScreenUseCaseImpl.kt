@@ -16,34 +16,31 @@ import javax.inject.Inject
  * @author Apoorv Gupta
  */
 class NewsDetailsScreenUseCaseImpl @Inject constructor(
-    private val getIndividualNewsShotsUseCase: GetIndividualNewsShotsUseCase
+    private val getIndividualNewsShotsUseCase: GetIndividualNewsShotsUseCase,
 ) : NewsDetailsScreenUseCase {
 
-    override fun getNewsDetailsContentData(postLink: String) =
-        getIndividualNewsShotsUseCase.getIndividualNewsShots(postLink).transform {
-            when (it.status) {
-                Resource.Status.NONE, Resource.Status.ERROR -> {
-                    emitNewsDetailError(
-                        statusCode = it.error?.code.getValueOrEmpty(),
-                        message = it.error?.message.getValueOrEmpty(),
-                    )
-                }
+    override fun getNewsDetailsContentData(postLink: String) = getIndividualNewsShotsUseCase.getIndividualNewsShots(postLink).transform {
+        when (it.status) {
+            Resource.Status.NONE, Resource.Status.ERROR -> {
+                emitNewsDetailError(
+                    statusCode = it.error?.code.getValueOrEmpty(),
+                    message = it.error?.message.getValueOrEmpty(),
+                )
+            }
 
-                Resource.Status.SUCCESS -> {
-                    emit(
-                        getNewsDetailsData(
-                            it.data ?: NewsShots.emptyValue
-                        )
-                    )
-                }
+            Resource.Status.SUCCESS -> {
+                emit(
+                    getNewsDetailsData(
+                        it.data ?: NewsShots.emptyValue,
+                    ),
+                )
+            }
 
-                else -> {
-                    // Do Nothing.
-                }
-
+            else -> {
+                // Do Nothing.
             }
         }
-
+    }
 
     private fun getNewsDetailsData(
         newsShot: NewsShots,
@@ -73,4 +70,3 @@ class NewsDetailsScreenUseCaseImpl @Inject constructor(
         )
     }
 }
-

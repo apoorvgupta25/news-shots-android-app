@@ -7,6 +7,5 @@ import com.apoorvgupta.newsdetails.intent.NewsDetailsViewStates
  * @author Apoorv Gupta
  */
 @Composable
-fun NewsDetailScreenErrorContent(state: NewsDetailsViewStates.LoadedData,) {
-
+fun NewsDetailScreenErrorContent(state: NewsDetailsViewStates.LoadedData) {
 }

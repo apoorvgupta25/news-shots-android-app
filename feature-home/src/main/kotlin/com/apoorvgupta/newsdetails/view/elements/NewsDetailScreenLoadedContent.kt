@@ -31,18 +31,15 @@ fun NewsDetailScreenLoadedContent(
     state: NewsDetailsViewStates.LoadedData,
     userIntent: (NewsDetailsIntent) -> Unit,
 ) {
-
-
     Column(
         modifier = Modifier
             .fillMaxSize()
-            .verticalScroll(rememberScrollState())
+            .verticalScroll(rememberScrollState()),
     ) {
-
         // Image
         Box(
             modifier = Modifier
-                .fillMaxSize()
+                .fillMaxSize(),
         ) {
             AsyncImage(
                 modifier = Modifier.fillMaxSize(),
@@ -52,7 +49,7 @@ fun NewsDetailScreenLoadedContent(
             )
 
             Column(
-                modifier = Modifier.padding(all = m_surrounding_spacing)
+                modifier = Modifier.padding(all = m_surrounding_spacing),
             ) {
                 BackArrowNavigation(
                     onBackClick = {
@@ -60,14 +57,13 @@ fun NewsDetailScreenLoadedContent(
                     },
                 )
             }
-
         }
 
         // Desc
         Row(
             modifier = Modifier
                 .padding(vertical = m_vertical_spacing, horizontal = m_horizontal_spacing)
-                .fillMaxWidth()
+                .fillMaxWidth(),
         ) {
             Text(
                 text = state.data.newsShot.category.name,
@@ -86,7 +82,7 @@ fun NewsDetailScreenLoadedContent(
             modifier = Modifier.padding(
                 start = m_horizontal_spacing,
                 end = m_horizontal_spacing,
-                bottom = m_vertical_spacing
+                bottom = m_vertical_spacing,
             ),
             text = state.data.newsShot.title,
             style = MaterialTheme.typography.headlineSmall,
@@ -98,6 +94,5 @@ fun NewsDetailScreenLoadedContent(
             text = state.data.newsShot.content,
             style = MaterialTheme.typography.bodyMedium,
         )
-
     }
 }

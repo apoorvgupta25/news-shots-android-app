@@ -22,7 +22,7 @@ import javax.inject.Inject
  */
 @HiltViewModel
 class NewsDetailsViewModel @Inject constructor(
-    private val newsDetailsScreenUseCase: NewsDetailsScreenUseCase
+    private val newsDetailsScreenUseCase: NewsDetailsScreenUseCase,
 ) : BaseViewModel<NewsDetailsIntent, NewsDetailsViewState, NewsDetailsNavEffect>() {
 
     private val _newsShotsPaginationResults: MutableStateFlow<PagingData<NewsShots>> =
@@ -31,17 +31,15 @@ class NewsDetailsViewModel @Inject constructor(
     val newsShotsPaginationResults: StateFlow<PagingData<NewsShots>> =
         _newsShotsPaginationResults.asStateFlow()
 
-    override fun createInitialState(): NewsDetailsViewState = NewsDetailsViewState(
-        NewsDetailsViewStates.UnInitialized)
+    override fun createInitialState(): NewsDetailsViewState = NewsDetailsViewState(NewsDetailsViewStates.UnInitialized)
 
     override fun handleIntent(intent: NewsDetailsIntent) {
         when (intent) {
             is NewsDetailsIntent.LoadNewsDetailsScreen -> {
                 getNewsDetails(intent.postLink)
             }
-            
+
             is NewsDetailsIntent.ToggleBookMark -> {
-                
             }
 
             is NewsDetailsIntent.NavigateToChromeCustomTab -> {
@@ -55,7 +53,6 @@ class NewsDetailsViewModel @Inject constructor(
             NewsDetailsIntent.NavigateToPreviousScreen -> {
                 sendNavEffect { NewsDetailsNavEffect.OpenPreviousScreen }
             }
-
         }
     }
 
