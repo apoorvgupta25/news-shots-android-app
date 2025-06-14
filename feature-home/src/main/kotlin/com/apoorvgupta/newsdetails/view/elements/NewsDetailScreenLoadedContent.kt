@@ -97,7 +97,7 @@ fun NewsDetailScreenLoadedContent(
             DraftJSView(
                 modifier = Modifier,
                 draftJSContent = state.data.newsShot.draftJSContent,
-                linkTextColor = MaterialTheme.colorScheme.linkTextColor
+                linkTextColor = MaterialTheme.colorScheme.linkTextColor,
             )
         }
     }
