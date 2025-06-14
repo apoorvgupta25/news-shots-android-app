@@ -1,6 +1,7 @@
 plugins {
     alias(libs.plugins.android.library)
     alias(libs.plugins.jetbrains.kotlin.android)
+    alias(libs.plugins.compose.compiler)
     `maven-publish`
 }
 
@@ -14,6 +15,17 @@ android {
 
         testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
     }
+
+    buildFeatures {
+        // Enable Jetpack Compose features
+        compose = true
+    }
+
+    composeOptions {
+        // Set the Kotlin compiler extension version for Jetpack Compose
+        kotlinCompilerExtensionVersion = BuildConfig.kotlinCompilerExtensionVersion
+    }
+
 
     buildTypes {
         release {
