@@ -16,10 +16,12 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.layout.ContentScale
 import coil.compose.AsyncImage
 import com.apoorvgupta.capabilities.presentation.reusableComponents.BackArrowNavigation
+import com.apoorvgupta.capabilities.presentation.theme.linkTextColor
 import com.apoorvgupta.capabilities.presentation.theme.m_horizontal_spacing
 import com.apoorvgupta.capabilities.presentation.theme.m_surrounding_spacing
 import com.apoorvgupta.capabilities.presentation.theme.m_vertical_spacing
 import com.apoorvgupta.capabilities.util.Constants
+import com.apoorvgupta.draftjscompose.view.DraftJSView
 import com.apoorvgupta.newsdetails.intent.NewsDetailsIntent
 import com.apoorvgupta.newsdetails.intent.NewsDetailsViewStates
 
@@ -89,10 +91,14 @@ fun NewsDetailScreenLoadedContent(
         )
 
         // Main Content
-        Text(
+        Box(
             modifier = Modifier.padding(horizontal = m_horizontal_spacing),
-            text = state.data.newsShot.content,
-            style = MaterialTheme.typography.bodyMedium,
-        )
+        ) {
+            DraftJSView(
+                modifier = Modifier,
+                draftJSContent = state.data.newsShot.draftJSContent,
+                linkTextColor = MaterialTheme.colorScheme.linkTextColor
+            )
+        }
     }
 }
