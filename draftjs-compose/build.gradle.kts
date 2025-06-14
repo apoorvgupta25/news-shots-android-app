@@ -1,6 +1,7 @@
 plugins {
     alias(libs.plugins.android.library)
     alias(libs.plugins.jetbrains.kotlin.android)
+    `maven-publish`
 }
 
 android {
@@ -38,4 +39,19 @@ dependencies {
     implementation(libs.retrofit.gson)
 
     implementation(libs.junit)
+}
+
+afterEvaluate {
+    publishing {
+        publications {
+            create<MavenPublication>("release") {
+                from(components["release"])
+
+                groupId = "com.github.apoorvgupta"
+                artifactId = "draftjs-compose"
+                version = "1.0.0"
+            }
+
+        }
+    }
 }
