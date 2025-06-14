@@ -22,7 +22,7 @@ sealed class NewsShotsListingIntent : UserIntent {
  * @author Apoorv Gupta
  */
 sealed class NewsShotsListingNavEffect : NavEffect {
-    data class OpenIndividualNewsShots(val userId: String) : NewsShotsListingNavEffect()
+    data class OpenIndividualNewsShots(val postLink: String) : NewsShotsListingNavEffect()
     data object OpenPreviousScreen : NewsShotsListingNavEffect()
 }
 

@@ -12,8 +12,17 @@ package com.apoorvgupta.capabilities.util
  */
 object Constants {
     // Constant for named arguments in Hilt to avoid the conflict with different provider.
-    const val NETWORK_NAMED_ARGUMENTS = "network_args"
-    const val ENABLE_APP_CACHE = "enableAppCache"
+
+    const val IMAGE_BASE_URL = "https://news-shots-backend.onrender.com/api/daily/photo/"
+
+    const val ZERO_WEIGHT = 0F
+    const val HALF_WEIGHT = 0.5F
+    const val FULL_WEIGHT = 1F
+
+    const val FLOAT_0_9 = 0.9F
+    const val FLOAT_0_2 = 0.9F
+    const val FLOAT_10 = 0.9F
+    const val FLOAT_1000 = 0.9F
 
     const val POST_PER_PAGE = 8
     const val DAILY = "Daily"

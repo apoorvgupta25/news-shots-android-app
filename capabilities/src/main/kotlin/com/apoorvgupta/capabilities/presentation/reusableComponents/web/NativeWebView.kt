@@ -46,6 +46,7 @@ import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.dp
 import com.apoorvgupta.capabilities.presentation.theme.m_surrounding_spacing
 import com.apoorvgupta.capabilities.presentation.theme.xl_surrounding_spacing
+import com.apoorvgupta.capabilities.util.Constants
 import com.apoorvgupta.core.utils.EMPTY_STRING
 import com.google.accompanist.web.AccompanistWebChromeClient
 import com.google.accompanist.web.AccompanistWebViewClient
@@ -100,7 +101,7 @@ fun NativeWebView(
             }
             val context = LocalContext.current
             WebView(
-                modifier = Modifier.weight(1f),
+                modifier = Modifier.weight(Constants.FULL_WEIGHT),
                 state = state,
                 client = object : AccompanistWebViewClient() {
                     override fun shouldOverrideUrlLoading(

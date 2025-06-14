@@ -69,7 +69,9 @@ fun NewsShotsListingScreen(
             newsShotsResults.get(index = index)?.let { newsShot ->
                 NewsShotsCard(
                     newsShot = newsShot,
-                    onCardClick = {},
+                    onCardClick = {
+                        userIntent.invoke(NewsShotsListingIntent.NavigateToIndividualNewsShots(newsShot.link))
+                    },
                     onBookmarkClick = {},
                 )
             }
