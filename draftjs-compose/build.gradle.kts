@@ -4,7 +4,7 @@ plugins {
 }
 
 android {
-    namespace = "com.apoorvgupta.draftjs_compose"
+    namespace = "com.apoorvgupta.draftjscompose"
 
     compileSdk = BuildConfig.compileSdk
 

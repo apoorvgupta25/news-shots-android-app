@@ -1,6 +1,6 @@
-package com.apoorvgupta.draftjs_compose.data
+package com.apoorvgupta.draftjscompose.data
 
-import com.apoorvgupta.draftjs_compose.utils.DraftJsUtils.emptyValue
+import com.apoorvgupta.draftjscompose.utils.DraftJsUtils.emptyValue
 import com.google.gson.annotations.SerializedName
 
 data class DraftJS(

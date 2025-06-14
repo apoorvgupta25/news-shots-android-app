@@ -1,4 +1,4 @@
-package com.apoorvgupta.draftjs_compose
+package com.apoorvgupta.draftjscompose
 
 import org.junit.Assert.assertEquals
 import org.junit.Test

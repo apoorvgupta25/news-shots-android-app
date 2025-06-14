@@ -1,8 +1,8 @@
-package com.apoorvgupta.draftjs_compose.utils
+package com.apoorvgupta.draftjscompose.utils
 
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.text.AnnotatedString
-import com.apoorvgupta.draftjs_compose.data.DraftJS
+import com.apoorvgupta.draftjscompose.data.DraftJS
 
 /**
  * @author Apoorv Gupta
