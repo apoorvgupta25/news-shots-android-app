@@ -31,4 +31,3 @@ include ':feature-search' // Feature module for Search
 include ':feature-bookmark' // Feature module for Bookmark
 include ':capabilities' // Capabilities module
 include ':core' // Core module
-// Draftjs compose module
