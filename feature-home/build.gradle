@@ -83,4 +83,6 @@ dependencies {
 
     // Image Loading library
     implementation libs.coil.compose
+
+    implementation libs.draftjscompose
 }
