@@ -1,4 +1,4 @@
-package com.apoorvgupta.capabilities.draftjs.utils
+package com.apoorvgupta.draftjs_compose.utils
 
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.text.LinkAnnotation

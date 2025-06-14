@@ -1,12 +1,12 @@
-package com.apoorvgupta.capabilities.draftjs.view
+package com.apoorvgupta.draftjs_compose.view
 
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.remember
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
-import com.apoorvgupta.capabilities.draftjs.data.DraftJS
-import com.apoorvgupta.capabilities.draftjs.utils.parseDraftJsContent
+import com.apoorvgupta.draftjs_compose.data.DraftJS
+import com.apoorvgupta.draftjs_compose.utils.DraftJsUtils
 
 /**
  * @author Apoorv Gupta
@@ -19,7 +19,7 @@ fun DraftJSView(
     linkTextColor: Color = Color.Unspecified,
 ) {
     val content = remember(draftJSContent) {
-        parseDraftJsContent(draftJSContent, linkTextColor = linkTextColor)
+        DraftJsUtils.parseDraftJsContent(draftJSContent, linkTextColor = linkTextColor)
     }
 
     Text(

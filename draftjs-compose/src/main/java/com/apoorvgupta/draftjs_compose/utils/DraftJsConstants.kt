@@ -1,4 +1,4 @@
-package com.apoorvgupta.capabilities.draftjs.utils
+package com.apoorvgupta.draftjs_compose.utils
 
 /**
  * @author Apoorv Gupta
