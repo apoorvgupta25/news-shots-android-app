@@ -177,5 +177,4 @@ object DraftJsUtils {
 
         return builder.toAnnotatedString()
     }
-
 }
