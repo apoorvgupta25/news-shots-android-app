@@ -27,8 +27,8 @@ fun parseDraftJsContent(draftJSContent: DraftJS, linkTextColor: Color): Annotate
                 Triple(
                     first = start until (end + 1),
                     second = style,
-                    third = String.emptyValue()
-                )
+                    third = String.emptyValue(),
+                ),
             )
         }
 
@@ -42,12 +42,11 @@ fun parseDraftJsContent(draftJSContent: DraftJS, linkTextColor: Color): Annotate
                     Triple(
                         first = start until (end + 1),
                         second = entity.type,
-                        third = entity.data.url
-                    )
+                        third = entity.data.url,
+                    ),
                 )
             }
         }
-
 
         builder.append(buildAnnotatedSegment(text, styleSpans, linkTextColor))
         builder.append("\n")
@@ -61,7 +60,6 @@ fun buildAnnotatedSegment(
     styles: List<Triple<IntRange, String, String>>,
     linkTextColor: Color,
 ): AnnotatedString {
-
     val builder = AnnotatedString.Builder(text)
     styles.forEach { (range, style, url) ->
         AppLogger.d { "buildAnnotatedSegment: $range - $style - $url" }
@@ -166,7 +164,7 @@ fun buildAnnotatedSegment(
                             end = range.last
                         )
                     }
-                    */
+                     */
                 }
             }
         }

@@ -16,7 +16,7 @@ import com.apoorvgupta.capabilities.draftjs.utils.parseDraftJsContent
 fun DraftJSView(
     modifier: Modifier = Modifier,
     draftJSContent: DraftJS,
-    linkTextColor: Color = Color.Unspecified
+    linkTextColor: Color = Color.Unspecified,
 ) {
     val content = remember(draftJSContent) {
         parseDraftJsContent(draftJSContent, linkTextColor = linkTextColor)
@@ -24,6 +24,6 @@ fun DraftJSView(
 
     Text(
         modifier = modifier,
-        text = content
+        text = content,
     )
 }

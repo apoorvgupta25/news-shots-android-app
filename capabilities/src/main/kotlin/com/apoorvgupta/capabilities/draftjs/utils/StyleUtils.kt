@@ -36,30 +36,27 @@ object StyleUtils {
         SpanStyle(baselineShift = BaselineShift.Subscript)
 
     val monospaceStyle: SpanStyle = SpanStyle(
-        fontFamily = FontFamily.Monospace
+        fontFamily = FontFamily.Monospace,
     )
 
-    fun getLinkAnnotation(url: String, linkTextColor: Color): LinkAnnotation.Url =
-        LinkAnnotation.Url(
-            url = url,
-            styles = TextLinkStyles(style = SpanStyle(color = linkTextColor)),
-        )
+    fun getLinkAnnotation(url: String, linkTextColor: Color): LinkAnnotation.Url = LinkAnnotation.Url(
+        url = url,
+        styles = TextLinkStyles(style = SpanStyle(color = linkTextColor)),
+    )
 
-    fun getEmbeddedLinkAnnotation(url: String, linkTextColor: Color): LinkAnnotation.Url =
-        LinkAnnotation.Url(
-            url = url,
-            styles = TextLinkStyles(
-                style = SpanStyle(
-                    color = linkTextColor,
-                    textDecoration = TextDecoration.Underline
-                )
+    fun getEmbeddedLinkAnnotation(url: String, linkTextColor: Color): LinkAnnotation.Url = LinkAnnotation.Url(
+        url = url,
+        styles = TextLinkStyles(
+            style = SpanStyle(
+                color = linkTextColor,
+                textDecoration = TextDecoration.Underline,
             ),
-        )
+        ),
+    )
 
-    fun getFontSizeStyle(style: String) =
-        SpanStyle(
-            fontSize = extractFontSize(style)?.sp ?: TextUnit.Unspecified
-        )
+    fun getFontSizeStyle(style: String) = SpanStyle(
+        fontSize = extractFontSize(style)?.sp ?: TextUnit.Unspecified,
+    )
 
     fun getFontColorStyle(style: String): SpanStyle {
         val rgb = extractRgb(style) ?: return SpanStyle()
@@ -86,7 +83,7 @@ object StyleUtils {
                 DraftJsConstants.FONT_FAMILY_GEORGIA -> FontFamily.Serif
                 DraftJsConstants.FONT_FAMILY_INHERIT -> FontFamily.Cursive
                 else -> FontFamily.Default
-            }
+            },
 
         )
     }
