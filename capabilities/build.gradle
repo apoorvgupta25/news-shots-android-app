@@ -93,4 +93,7 @@ dependencies {
 
     // AndroidX Browser
     implementation libs.androidx.browser
+
+    // DraftJS Content
+    implementation libs.draftjscompose
 }
