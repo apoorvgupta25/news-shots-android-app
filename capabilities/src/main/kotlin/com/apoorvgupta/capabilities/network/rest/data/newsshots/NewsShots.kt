@@ -4,6 +4,8 @@ import com.apoorvgupta.capabilities.network.rest.data.categories.Category
 import com.apoorvgupta.capabilities.util.DateUtils.getDateFormatted
 import com.apoorvgupta.core.utils.EMPTY_STRING
 import com.apoorvgupta.core.utils.getValueOrEmpty
+import com.apoorvgupta.draftjscompose.data.DraftJS
+import com.google.gson.Gson
 import com.google.gson.annotations.SerializedName
 
 data class NewsShots(
@@ -36,6 +38,9 @@ data class NewsShots(
 ) {
     val formattedDate: String
         get() = getDateFormatted(createdAt.getValueOrEmpty())
+
+    val draftJSContent: DraftJS
+        get() = Gson().fromJson(content, DraftJS::class.java)
 
     companion object {
         val emptyValue: NewsShots
