@@ -18,7 +18,7 @@ dependencyResolutionManagement {
     repositories {
         google() // Google Maven repository
         mavenCentral() // Maven Central repository
-        maven { url 'https://jitpack.io' }
+        maven(url = "https://jitpack.io")
     }
 }
 
@@ -26,9 +26,9 @@ dependencyResolutionManagement {
 rootProject.name = "newsshots"
 
 // Project inclusion configuration
-include ':app' // Main application module
-include ':feature-home' // Feature module for Home
-include ':feature-search' // Feature module for Search
-include ':feature-bookmark' // Feature module for Bookmark
-include ':capabilities' // Capabilities module
-include ':core' // Core module
+include(":app") // Main application module
+include(":feature-home") // Feature module for Home
+include(":feature-search") // Feature module for Search
+include(":feature-bookmark") // Feature module for Bookmark
+include(":capabilities") // Capabilities module
+include(":core") // Core module
