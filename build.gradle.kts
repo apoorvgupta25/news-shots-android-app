@@ -17,5 +17,5 @@ plugins {
 
 // Apply ktlint to the entire project.
 allprojects {
-    apply from: "$rootDir/ktlint.gradle"
+    apply(from = "$rootDir/ktlint.gradle")
 }

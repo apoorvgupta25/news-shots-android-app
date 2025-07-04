@@ -9,7 +9,6 @@ import com.apoorvgupta.capabilities.network.rest.data.newsshots.NewsShots
 import com.apoorvgupta.capabilities.network.rest.domain.newsshots.NewsShotsPagingSource
 import com.apoorvgupta.capabilities.network.rest.helpers.makeSafeApiCall
 import com.apoorvgupta.capabilities.util.Constants
-import dagger.hilt.android.qualifiers.ApplicationContext
 import kotlinx.coroutines.flow.Flow
 import javax.inject.Inject
 
@@ -23,7 +22,7 @@ import javax.inject.Inject
  * @author Apoorv Gupta
  */
 class NewsShotsRepoImpl @Inject constructor(
-    @ApplicationContext val context: Context,
+    val context: Context,
     private val remoteDataSource: RemoteDataSource,
 ) : NewsShotsRepo {
 
