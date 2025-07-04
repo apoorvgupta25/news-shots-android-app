@@ -8,6 +8,7 @@ package com.apoorvgupta.capabilities.network.rest.di
 import android.content.Context
 import com.apoorvgupta.capabilities.network.rest.api.ApiService
 import com.apoorvgupta.capabilities.network.rest.api.AuthInterceptor
+import com.apoorvgupta.capabilities.network.rest.api.RemoteDataSource
 import com.apoorvgupta.capabilities.network.rest.domain.categories.repo.CategoriesRepo
 import com.apoorvgupta.capabilities.network.rest.domain.categories.repo.CategoriesRepoImpl
 import com.apoorvgupta.capabilities.network.rest.domain.categories.usecase.GetAllCategoriesUseCase
@@ -57,9 +58,6 @@ private const val CONNECT_TIMEOUT = 30L
 interface NetworkModule {
 
     @Binds
-    fun providesNewsShotsRepo(impl: NewsShotsRepoImpl): NewsShotsRepo
-
-    @Binds
     fun providesRecentNewsShotsUseCase(impl: GetRecentNewsShotsUseCaseImpl): GetRecentNewsShotsUseCase
 
     @Binds
@@ -73,9 +71,6 @@ interface NetworkModule {
 
     @Binds
     fun providesAllNewsShotsUseCase(impl: GetAllNewsShotsUseCaseImpl): GetAllNewsShotsUseCase
-
-    @Binds
-    fun providesCategoriesRepo(impl: CategoriesRepoImpl): CategoriesRepo
 
     @Binds
     fun providesCategoriesUseCase(impl: GetAllCategoriesUseCaseImpl): GetAllCategoriesUseCase
@@ -113,7 +108,7 @@ interface NetworkModule {
          */
         @Singleton
         @Provides
-        fun providesGson(): Gson = GsonBuilder().setLenient().create()
+        fun providesGson(): Gson = GsonBuilder().create()
 
         /**
          * Provides the [Retrofit] object based on [OkHttpClient] and [Gson] configuration.
@@ -141,5 +136,25 @@ interface NetworkModule {
         fun provideRetrofitApiService(
             retrofit: Retrofit,
         ): ApiService = retrofit.create(ApiService::class.java)
+
+        @Singleton
+        @Provides
+        fun providesCategoriesRepo(
+            @ApplicationContext appContext: Context,
+            remoteDataSource: RemoteDataSource
+        ): CategoriesRepo = CategoriesRepoImpl(
+            context = appContext,
+            remoteDataSource = remoteDataSource
+        )
+
+        @Singleton
+        @Provides
+        fun providesNewsShotsRepo(
+            @ApplicationContext appContext: Context,
+            remoteDataSource: RemoteDataSource
+        ): NewsShotsRepo = NewsShotsRepoImpl(
+            context = appContext,
+            remoteDataSource = remoteDataSource
+        )
     }
 }
