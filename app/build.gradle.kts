@@ -1,7 +1,6 @@
-import java.util.Properties
 import java.io.FileInputStream
+import java.util.Properties
 import java.util.regex.Pattern
-import kotlin.text.lowercase
 
 /**
  * Copyright (c) 2024 Apoorv Gupta
@@ -54,27 +53,16 @@ android {
             // set default value to avoid compilation issue of UnresolvedReference HEAP_ENV_ID, etc.
         }
         println("Current Flavour $currentBuildFlavour") // Changed to string template
-        when { // Used when for cleaner conditional logic
-            currentBuildFlavour.contains("uat") -> {
-                getProps("./src/configuration/uat.props").forEach { (key, value) -> // Destructured entry
-                    buildConfigField("String", key.toString(), "\"${value.toString()}\"")
-                }
-            }
-            currentBuildFlavour.contains("qa") -> {
-                getProps("./src/configuration/qa.props").forEach { (key, value) ->
-                    buildConfigField("String", key.toString(), "\"${value.toString()}\"")
-                }
-            }
-            currentBuildFlavour.contains("prod") -> {
-                getProps("./src/configuration/prod.props").forEach { (key, value) ->
-                    buildConfigField("String", key.toString(), "\"${value.toString()}\"")
-                }
-            }
-            currentBuildFlavour.contains("dev") -> {
-                getProps("./src/configuration/dev.props").forEach { (key, value) ->
-                    buildConfigField("String", key.toString(), "\"${value.toString()}\"")
-                }
-            }
+        val props = when {
+            currentBuildFlavour.contains("uat") -> getProps("./src/configuration/uat.props")
+            currentBuildFlavour.contains("qa") -> getProps("./src/configuration/qa.props")
+            currentBuildFlavour.contains("prod") -> getProps("./src/configuration/prod.props")
+            currentBuildFlavour.contains("dev") -> getProps("./src/configuration/dev.props")
+            else -> emptyMap()
+        }
+
+        for ((key, value) in props) {
+            buildConfigField("String", key, "\"$value\"")
         }
     }
 
@@ -189,11 +177,12 @@ fun getCurrentFlavor(): String {
     }
 }
 
-fun getProps(path: String): Properties {
+fun getProps(path: String): Map<String, String> {
     val props = Properties()
-    // In Kotlin DSL, 'file(path)' typically becomes 'project.file(path)'
-    FileInputStream(project.file(path)).use { fis -> // Use 'use' for autoclosable
+    FileInputStream(project.file(path)).use { fis ->
         props.load(fis)
     }
-    return props
+    return props.entries.associate {
+        it.key.toString() to it.value.toString()
+    }
 }
