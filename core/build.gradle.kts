@@ -18,7 +18,14 @@ android {
     // Default configuration for the Android library
     defaultConfig {
         minSdk = BuildConfig.minSdk
-        targetSdk = BuildConfig.targetSdk
+    }
+
+    lint {
+        targetSdk = BuildConfig.targetSdk  // Optional: for lint checks
+    }
+
+    testOptions {
+        targetSdk = BuildConfig.targetSdk  // Optional: for instrumented tests
     }
 
     // Configuration for different build types (e.g., release)
