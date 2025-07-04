@@ -141,20 +141,20 @@ interface NetworkModule {
         @Provides
         fun providesCategoriesRepo(
             @ApplicationContext appContext: Context,
-            remoteDataSource: RemoteDataSource
+            remoteDataSource: RemoteDataSource,
         ): CategoriesRepo = CategoriesRepoImpl(
             context = appContext,
-            remoteDataSource = remoteDataSource
+            remoteDataSource = remoteDataSource,
         )
 
         @Singleton
         @Provides
         fun providesNewsShotsRepo(
             @ApplicationContext appContext: Context,
-            remoteDataSource: RemoteDataSource
+            remoteDataSource: RemoteDataSource,
         ): NewsShotsRepo = NewsShotsRepoImpl(
             context = appContext,
-            remoteDataSource = remoteDataSource
+            remoteDataSource = remoteDataSource,
         )
     }
 }
