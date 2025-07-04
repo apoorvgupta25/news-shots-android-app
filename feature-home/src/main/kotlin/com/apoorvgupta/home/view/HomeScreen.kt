@@ -25,7 +25,7 @@ fun HomeScreen(
     ) {
         // Main content of the Home Screen.
         when (state.data.status) {
-            DataStatus.Error -> HomeScreenErrorContent(state)
+            DataStatus.Error -> HomeScreenErrorContent(state = state, userIntent = userIntent)
             DataStatus.Success -> HomeScreenLoadedContent(state = state, userIntent = userIntent)
             else -> {
                 // Do Nothing.
