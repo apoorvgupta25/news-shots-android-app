@@ -108,11 +108,11 @@ android {
         targetCompatibility = JavaVersion.VERSION_17
     }
 
-    kotlinOptions {
-        // Set JVM target version
-        jvmTarget = BuildConfig.jvmTarget // Assuming BuildConfig.jvmTarget is a String
+    kotlin {
+        compilerOptions {
+            jvmTarget.set(org.jetbrains.kotlin.gradle.dsl.JvmTarget.JVM_17)
+        }
     }
-
     buildFeatures {
         // Enable Compose support
         compose = true
@@ -125,10 +125,9 @@ android {
         kotlinCompilerExtensionVersion = BuildConfig.kotlinCompilerExtensionVersion
     }
 
-    packagingOptions {
+    packaging {
         resources {
-            // Exclude specific resources from packaging
-            excludes += "/META-INF/{AL2.0,LGPL2.1}" // Remains largely the same
+            excludes += "/META-INF/{AL2.0,LGPL2.1}"
         }
     }
 }
