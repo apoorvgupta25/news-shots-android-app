@@ -44,8 +44,8 @@ import java.util.concurrent.TimeUnit
 import javax.inject.Singleton
 
 // Constants
-private const val READ_TIMEOUT = 60L
-private const val CONNECT_TIMEOUT = 60L
+private const val READ_TIMEOUT = 30L
+private const val CONNECT_TIMEOUT = 30L
 
 /**
  * Dagger Hilt module for providing network-related dependencies.
