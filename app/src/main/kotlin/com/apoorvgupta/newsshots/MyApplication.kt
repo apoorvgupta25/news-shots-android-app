@@ -1,5 +1,5 @@
 /**
- * Copyright (c) 2024 Apoorv Gupta
+ * Copyright (c) 2025 Apoorv Gupta
  * All rights reserved.
  */
 package com.apoorvgupta.newsshots

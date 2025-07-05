@@ -15,10 +15,10 @@ object DateUtils {
     /**
      * Get date formatted
      *
-     * @param date in format of "2024-03-23T00:00:00"
+     * @param date in format of "2025-03-23T00:00:00"
      * @param inputFormat Input Date Format
      * @param outputFormat Output Date Format
-     * @return date in format of Mar 30, 2024
+     * @return date in format of Mar 30, 2025
      */
     fun getDateFormatted(
         date: String,
