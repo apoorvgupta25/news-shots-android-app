@@ -1,12 +1,12 @@
 /**
- * Copyright (c) 2024 Apoorv Gupta
+ * Copyright (c) 2025 Apoorv Gupta
  * All rights reserved.
  */
 
 package com.apoorvgupta.core.utils
 
 // Constants
-const val EMPTY_STRING = ""
+private const val EMPTY_STRING = ""
 
 /**
  * Returns an empty string value.

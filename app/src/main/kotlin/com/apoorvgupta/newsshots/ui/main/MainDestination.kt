@@ -1,10 +1,9 @@
 /**
- * Copyright (c) 2024 Apoorv Gupta
+ * Copyright (c) 2025 Apoorv Gupta
  * All rights reserved.
  */
 package com.apoorvgupta.newsshots.ui.main
 
-import android.annotation.SuppressLint
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.LaunchedEffect
 import androidx.compose.runtime.collectAsState
@@ -24,7 +23,6 @@ import com.apoorvgupta.newsshots.ui.main.viewmodels.MainViewModel
  *
  * @author Apoorv Gupta
  */
-@SuppressLint("UnusedMaterial3ScaffoldPaddingParameter")
 @Composable
 fun MainDestination(
     viewModel: MainViewModel,

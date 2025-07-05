@@ -1,5 +1,5 @@
 /**
- * Copyright (c) 2024 Apoorv Gupta
+ * Copyright (c) 2025 Apoorv Gupta
  * All rights reserved.
  */
 
@@ -46,7 +46,7 @@ import com.apoorvgupta.capabilities.presentation.theme.sl_vertical_spacing
 import com.apoorvgupta.capabilities.presentation.theme.xxxs_stroke_width
 import com.apoorvgupta.capabilities.util.Constants
 import com.apoorvgupta.core.logger.AppLogger
-import com.apoorvgupta.core.utils.EMPTY_STRING
+import com.apoorvgupta.core.utils.emptyValue
 import com.apoorvgupta.newsshots.capabilities.R
 import kotlin.math.roundToInt
 
@@ -133,7 +133,7 @@ fun BottomNavigationBar(
                 icon = {
                     Image(
                         painter = painterResource(if (isCurrentRouteSelected) item.filledIcon else item.icon),
-                        contentDescription = EMPTY_STRING,
+                        contentDescription = String.emptyValue(),
                         modifier = Modifier.size(l_icon_size),
                         alpha = if (isCurrentRouteSelected) Constants.FULL_WEIGHT else Constants.HALF_WEIGHT,
                     )

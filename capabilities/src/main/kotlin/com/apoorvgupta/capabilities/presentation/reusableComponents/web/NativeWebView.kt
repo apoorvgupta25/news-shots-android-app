@@ -47,7 +47,7 @@ import androidx.compose.ui.unit.dp
 import com.apoorvgupta.capabilities.presentation.theme.m_surrounding_spacing
 import com.apoorvgupta.capabilities.presentation.theme.xl_surrounding_spacing
 import com.apoorvgupta.capabilities.util.Constants
-import com.apoorvgupta.core.utils.EMPTY_STRING
+import com.apoorvgupta.core.utils.emptyValue
 import com.google.accompanist.web.AccompanistWebChromeClient
 import com.google.accompanist.web.AccompanistWebViewClient
 import com.google.accompanist.web.LoadingState
@@ -62,7 +62,7 @@ fun NativeWebView(
 ) {
     var webUrl = url
     var pageTitle by remember {
-        mutableStateOf(EMPTY_STRING)
+        mutableStateOf(String.emptyValue())
     }
     var webViewInitialLoadingIndicator by remember {
         mutableStateOf(true)

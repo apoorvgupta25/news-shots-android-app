@@ -1,10 +1,9 @@
 package com.apoorvgupta.newsshots.ui.main.ui
 
-import android.annotation.SuppressLint
 import androidx.compose.material3.Scaffold
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.LaunchedEffect
-import androidx.compose.runtime.mutableStateOf
+import androidx.compose.runtime.mutableFloatStateOf
 import androidx.compose.runtime.remember
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.geometry.Offset
@@ -23,7 +22,6 @@ import com.apoorvgupta.newsshots.ui.main.intents.MainViewStates
 import com.apoorvgupta.newsshots.ui.main.viewmodels.MainViewModel
 import com.apoorvgupta.newsshots.ui.navigation.NavigationHost
 
-@SuppressLint("UnusedMaterial3ScaffoldPaddingParameter")
 @Composable
 fun MainScreenContent(
     navController: NavHostController,
@@ -33,7 +31,7 @@ fun MainScreenContent(
 ) {
     val bottomBarHeight = xl8_vertical_spacing
     val bottomBarHeightPx = with(LocalDensity.current) { bottomBarHeight.roundToPx().toFloat() }
-    val bottomBarOffsetHeightPx = remember { mutableStateOf(0f) }
+    val bottomBarOffsetHeightPx = remember { mutableFloatStateOf(0f) }
 
     LaunchedEffect(key1 = true) {
         // Need to update
@@ -47,8 +45,8 @@ fun MainScreenContent(
         object : NestedScrollConnection {
             override fun onPreScroll(available: Offset, source: NestedScrollSource): Offset {
                 val delta = available.y
-                val newOffset = bottomBarOffsetHeightPx.value + delta
-                bottomBarOffsetHeightPx.value = newOffset.coerceIn(-bottomBarHeightPx, 0f)
+                val newOffset = bottomBarOffsetHeightPx.floatValue + delta
+                bottomBarOffsetHeightPx.floatValue = newOffset.coerceIn(-bottomBarHeightPx, 0f)
 
                 return Offset.Zero
             }

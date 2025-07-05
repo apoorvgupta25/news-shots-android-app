@@ -2,7 +2,7 @@ package com.apoorvgupta.capabilities.network.rest.data.newsshots
 
 import com.apoorvgupta.capabilities.network.rest.data.categories.Category
 import com.apoorvgupta.capabilities.util.DateUtils.getDateFormatted
-import com.apoorvgupta.core.utils.EMPTY_STRING
+import com.apoorvgupta.core.utils.emptyValue
 import com.apoorvgupta.core.utils.getValueOrEmpty
 import com.apoorvgupta.draftjscompose.data.DraftJS
 import com.google.gson.Gson
@@ -45,14 +45,14 @@ data class NewsShots(
     companion object {
         val emptyValue: NewsShots
             get() = NewsShots(
-                id = EMPTY_STRING,
+                id = String.emptyValue(),
                 author = Author.emptyValue,
                 category = Category.emptyValue,
-                content = EMPTY_STRING,
-                createdAt = EMPTY_STRING,
-                description = EMPTY_STRING,
-                title = EMPTY_STRING,
-                link = EMPTY_STRING,
+                content = String.emptyValue(),
+                createdAt = String.emptyValue(),
+                description = String.emptyValue(),
+                title = String.emptyValue(),
+                link = String.emptyValue(),
             )
     }
 }

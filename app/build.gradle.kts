@@ -3,7 +3,7 @@ import java.util.Properties
 import java.util.regex.Pattern
 
 /**
- * Copyright (c) 2024 Apoorv Gupta
+ * Copyright (c) 2025 Apoorv Gupta
  * All rights reserved.
  */
 plugins {

@@ -1,10 +1,10 @@
 package com.apoorvgupta.newsshots.models
 
-import com.apoorvgupta.core.utils.EMPTY_STRING
+import com.apoorvgupta.core.utils.emptyValue
 
 /**
  * @author Apoorv Gupta
  */
 data class NewsShotsListingDataModel(
-    val headingText: String = EMPTY_STRING,
+    val headingText: String = String.emptyValue(),
 )
