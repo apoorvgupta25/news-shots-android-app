@@ -2,6 +2,7 @@ package com.apoorvgupta.home.viewmodels
 
 import androidx.lifecycle.viewModelScope
 import com.apoorvgupta.core.base.BaseViewModel
+import com.apoorvgupta.core.utils.DataStatus
 import com.apoorvgupta.home.intent.HomeIntent
 import com.apoorvgupta.home.intent.HomeNavEffect
 import com.apoorvgupta.home.intent.HomeViewState
@@ -42,7 +43,6 @@ class HomeViewModel @Inject constructor(
     }
 
     private fun getHomeData() {
-        emitLoading()
         viewModelScope.launch {
             homeScreenUseCase.getHomeScreenContentData().collect {
                 emitHomeData(it)
@@ -51,27 +51,32 @@ class HomeViewModel @Inject constructor(
     }
 
     private fun emitHomeData(homeDataModel: HomeDataModel) {
-        emitViewState {
-            copy(
-                homeViewState = HomeViewStates.LoadedData(
+        val homeViewState = when (homeDataModel.status) {
+            DataStatus.Success -> {
+                HomeViewStates.LoadedData(
                     showLoader = false,
                     data = homeDataModel,
-                ),
-            )
-        }
-    }
+                )
+            }
 
-    /**
-     * Emits a loading state to update the UI when initial loading is in progress.
-     */
-    fun emitLoading() {
-        emitViewState {
-            copy(
-                homeViewState = HomeViewStates.InitialLoading(
+            DataStatus.Loading -> {
+                HomeViewStates.Loading(
                     showLoader = true,
                     data = HomeDataModel(),
-                ),
-            )
+                )
+            }
+
+            DataStatus.Error,
+            DataStatus.Offline,
+            DataStatus.Empty,
+            -> {
+                HomeViewStates.ErrorData(
+                    showLoader = false,
+                    data = homeDataModel,
+                )
+            }
         }
+
+        emitViewState { copy(homeViewState = homeViewState) }
     }
 }

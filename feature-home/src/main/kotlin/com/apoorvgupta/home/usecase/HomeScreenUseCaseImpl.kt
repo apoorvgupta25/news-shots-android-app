@@ -49,7 +49,11 @@ class HomeScreenUseCaseImpl @Inject constructor(
                 }
 
                 else -> {
-                    // Do nothing.
+                    emit(
+                        HomeDataModel(
+                            status = DataStatus.Loading,
+                        ),
+                    )
                 }
             }
         }

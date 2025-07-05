@@ -36,7 +36,11 @@ class NewsDetailsScreenUseCaseImpl @Inject constructor(
             }
 
             else -> {
-                // Do Nothing.
+                emit(
+                    NewsDetailsDataModel(
+                        status = DataStatus.Loading,
+                    ),
+                )
             }
         }
     }
