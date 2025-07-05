@@ -21,7 +21,7 @@ import androidx.compose.ui.graphics.RectangleShape
 import androidx.compose.ui.graphics.Shape
 import androidx.compose.ui.unit.dp
 import com.apoorvgupta.capabilities.util.Constants
-import com.apoorvgupta.core.utils.EMPTY_STRING
+import com.apoorvgupta.core.utils.emptyValue
 
 /**
  * A provider for generating shimmer effects in Jetpack Compose.
@@ -94,7 +94,7 @@ fun RenderShimmer(
     colors: List<Color>,
     repeatMode: RepeatMode = RepeatMode.Reverse,
 ) {
-    val transition = rememberInfiniteTransition(label = EMPTY_STRING)
+    val transition = rememberInfiniteTransition(label = String.emptyValue())
     val translateAnim by transition.animateFloat(
         initialValue = Constants.ZERO_WEIGHT,
         targetValue = Constants.FULL_WEIGHT, // Adjust the target value to cover the entire width or height of the Box

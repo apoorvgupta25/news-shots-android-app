@@ -35,7 +35,7 @@ import com.apoorvgupta.capabilities.presentation.theme.xl14_vertical_spacing
 import com.apoorvgupta.capabilities.presentation.theme.xxs_horizontal_spacing
 import com.apoorvgupta.capabilities.presentation.theme.xxxs_stroke_width
 import com.apoorvgupta.capabilities.util.Constants
-import com.apoorvgupta.core.utils.EMPTY_STRING
+import com.apoorvgupta.core.utils.emptyValue
 import com.apoorvgupta.newsshots.capabilities.R
 
 /**
@@ -112,7 +112,7 @@ fun NewsShotsCard(
 
             Icon(
                 painter = painterResource(id = R.drawable.ic_bookmark_outlined),
-                contentDescription = EMPTY_STRING,
+                contentDescription = String.emptyValue(),
                 modifier = Modifier
                     .noRippleClickable {
                         onBookmarkClick.invoke()

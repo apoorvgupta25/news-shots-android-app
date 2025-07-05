@@ -6,7 +6,7 @@ import com.apoorvgupta.capabilities.network.rest.api.RemoteDataSource
 import com.apoorvgupta.capabilities.network.rest.data.newsshots.NewsShots
 import com.apoorvgupta.capabilities.network.rest.helpers.Resource
 import com.apoorvgupta.capabilities.util.Constants
-import com.apoorvgupta.core.utils.EMPTY_STRING
+import com.apoorvgupta.core.utils.emptyValue
 import com.apoorvgupta.core.utils.getValueOrEmpty
 import javax.inject.Inject
 
@@ -16,7 +16,7 @@ import javax.inject.Inject
 class NewsShotsPagingSource @Inject constructor(
     private val remoteDataSource: RemoteDataSource,
     private val perPageLimit: Int,
-    private val categoryName: String = EMPTY_STRING,
+    private val categoryName: String = String.emptyValue(),
 ) : PagingSource<Int, NewsShots>() {
 
     override fun getRefreshKey(state: PagingState<Int, NewsShots>) = state.anchorPosition?.let { anchorPosition ->

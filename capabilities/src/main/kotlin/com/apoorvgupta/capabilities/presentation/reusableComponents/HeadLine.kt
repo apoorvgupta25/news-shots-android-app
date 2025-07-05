@@ -4,7 +4,7 @@ import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
-import com.apoorvgupta.core.utils.EMPTY_STRING
+import com.apoorvgupta.core.utils.emptyValue
 
 /**
  * @author Apoorv Gupta
@@ -12,8 +12,8 @@ import com.apoorvgupta.core.utils.EMPTY_STRING
 
 @Composable
 fun HeadLine(
-    headText: String = EMPTY_STRING,
-    subHeadingText: String = EMPTY_STRING,
+    headText: String = String.emptyValue(),
+    subHeadingText: String = String.emptyValue(),
     onHeadClick: () -> Unit = {},
 ) {
     // Title

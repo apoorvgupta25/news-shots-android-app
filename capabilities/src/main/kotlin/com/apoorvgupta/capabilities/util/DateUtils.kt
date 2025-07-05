@@ -1,6 +1,6 @@
 package com.apoorvgupta.capabilities.util
 
-import com.apoorvgupta.core.utils.EMPTY_STRING
+import com.apoorvgupta.core.utils.emptyValue
 import java.text.SimpleDateFormat
 import java.time.LocalTime
 import java.time.format.DateTimeFormatter
@@ -31,10 +31,10 @@ object DateUtils {
             if (newDate != null) {
                 SimpleDateFormat(outputFormat, Locale.getDefault()).format(newDate)
             } else {
-                EMPTY_STRING
+                String.emptyValue()
             }
         } catch (e: Exception) {
-            EMPTY_STRING
+            String.emptyValue()
         }
     }
 
@@ -56,7 +56,7 @@ object DateUtils {
             val formattedDate = LocalTime.parse(timeString, dateFormatter)
             formattedDate.format(DateTimeFormatter.ofPattern(outputFormat)).uppercase()
         } catch (e: Exception) {
-            EMPTY_STRING
+            String.emptyValue()
         }
     }
 }

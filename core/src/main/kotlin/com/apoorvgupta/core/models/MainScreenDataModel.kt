@@ -1,7 +1,7 @@
 package com.apoorvgupta.core.models
 
 import com.apoorvgupta.core.utils.DataStatus
-import com.apoorvgupta.core.utils.EMPTY_STRING
+import com.apoorvgupta.core.utils.emptyValue
 
 /**
  * Data class representing the model used to render data on the main app screen.
@@ -15,10 +15,10 @@ import com.apoorvgupta.core.utils.EMPTY_STRING
  */
 data class MainScreenDataModel(
     val status: DataStatus = DataStatus.Empty,
-    var profileLabel: String = EMPTY_STRING,
-    var clearSessionLabel: String = EMPTY_STRING,
-    var versionInfoLabel: String = EMPTY_STRING,
-    var versionName: String = EMPTY_STRING,
+    var profileLabel: String = String.emptyValue(),
+    var clearSessionLabel: String = String.emptyValue(),
+    var versionInfoLabel: String = String.emptyValue(),
+    var versionName: String = String.emptyValue(),
 ) {
     companion object {
         val defaultValue = MainScreenDataModel()

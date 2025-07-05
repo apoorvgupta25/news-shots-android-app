@@ -6,7 +6,7 @@
 package com.apoorvgupta.core.utils
 
 // Constants
-const val EMPTY_STRING = ""
+private const val EMPTY_STRING = ""
 
 /**
  * Returns an empty string value.
