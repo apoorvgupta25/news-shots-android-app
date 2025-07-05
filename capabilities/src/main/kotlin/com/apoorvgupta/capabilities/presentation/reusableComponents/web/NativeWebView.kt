@@ -44,8 +44,7 @@ import androidx.compose.ui.input.pointer.pointerInput
 import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.dp
-import com.apoorvgupta.capabilities.presentation.theme.m_surrounding_spacing
-import com.apoorvgupta.capabilities.presentation.theme.xl_surrounding_spacing
+import com.apoorvgupta.capabilities.presentation.theme.Dimensions
 import com.apoorvgupta.capabilities.util.Constants
 import com.apoorvgupta.core.utils.emptyValue
 import com.google.accompanist.web.AccompanistWebChromeClient
@@ -194,19 +193,19 @@ fun BackButton(
         onClick = {
             onClickListener.invoke()
         },
-        modifier = Modifier.size(xl_surrounding_spacing),
+        modifier = Modifier.size(Dimensions.SurroundingDimensions.xl_surrounding_spacing),
     ) {
         Box(
             modifier = modifier
                 .background(color = backgroundColor)
-                .size(xl_surrounding_spacing)
-                .clip(RoundedCornerShape(m_surrounding_spacing)),
+                .size(Dimensions.SurroundingDimensions.xl_surrounding_spacing)
+                .clip(RoundedCornerShape(Dimensions.SurroundingDimensions.m_surrounding_spacing)),
         ) {
         }
         Icon(
             imageVector = Icons.AutoMirrored.Default.ArrowBack,
             contentDescription = null,
-            modifier = Modifier.size(m_surrounding_spacing),
+            modifier = Modifier.size(Dimensions.SurroundingDimensions.m_surrounding_spacing),
         )
     }
 }

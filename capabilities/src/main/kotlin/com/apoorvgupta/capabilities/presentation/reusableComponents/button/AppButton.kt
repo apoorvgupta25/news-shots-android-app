@@ -15,12 +15,10 @@ import androidx.compose.runtime.mutableStateOf
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.text.style.TextAlign
+import com.apoorvgupta.capabilities.presentation.theme.Dimensions
 import com.apoorvgupta.capabilities.presentation.theme.buttonTextStyle
 import com.apoorvgupta.capabilities.presentation.theme.disabledBackgroundColor
 import com.apoorvgupta.capabilities.presentation.theme.disabledTextColor
-import com.apoorvgupta.capabilities.presentation.theme.sl_corner_radius
-import com.apoorvgupta.capabilities.presentation.theme.xs_horizontal_spacing
-import com.apoorvgupta.capabilities.presentation.theme.xxxs_stroke_width
 
 /**
  * Composable function to handle the Buttons through out the application
@@ -45,10 +43,10 @@ fun AppButton(
 ) {
     Button(
         modifier = modifier,
-        shape = RoundedCornerShape(sl_corner_radius),
+        shape = RoundedCornerShape(Dimensions.CornerRadius.sl_corner_radius),
         border =
         BorderStroke(
-            xxxs_stroke_width,
+            Dimensions.StrokeWidth.xxxs_stroke_width,
             if (isEnabled.value) fillColor else MaterialTheme.colorScheme.disabledBackgroundColor,
         ),
         elevation = null,
@@ -66,9 +64,9 @@ fun AppButton(
         },
         onClick = onClickListener,
     ) {
-        Spacer(Modifier.size(xxxs_stroke_width))
+        Spacer(Modifier.size(Dimensions.StrokeWidth.xxxs_stroke_width))
         Text(
-            modifier = Modifier.padding(horizontal = xs_horizontal_spacing),
+            modifier = Modifier.padding(horizontal = Dimensions.HorizonalDimensions.xs_horizontal_spacing),
             text = buttonTitle,
             textAlign = TextAlign.Center,
             style = MaterialTheme.typography.buttonTextStyle.copy(color = textColor),

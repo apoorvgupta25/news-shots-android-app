@@ -25,15 +25,7 @@ import androidx.compose.ui.text.style.TextOverflow
 import coil.compose.AsyncImage
 import com.apoorvgupta.capabilities.network.rest.data.newsshots.NewsShots
 import com.apoorvgupta.capabilities.presentation.reusableComponents.noRippleClickable
-import com.apoorvgupta.capabilities.presentation.theme.l_icon_size
-import com.apoorvgupta.capabilities.presentation.theme.m_surrounding_spacing
-import com.apoorvgupta.capabilities.presentation.theme.m_vertical_spacing
-import com.apoorvgupta.capabilities.presentation.theme.s_corner_radius
-import com.apoorvgupta.capabilities.presentation.theme.s_vertical_spacing
-import com.apoorvgupta.capabilities.presentation.theme.sl_vertical_spacing
-import com.apoorvgupta.capabilities.presentation.theme.xl14_vertical_spacing
-import com.apoorvgupta.capabilities.presentation.theme.xxs_horizontal_spacing
-import com.apoorvgupta.capabilities.presentation.theme.xxxs_stroke_width
+import com.apoorvgupta.capabilities.presentation.theme.Dimensions
 import com.apoorvgupta.capabilities.util.Constants
 import com.apoorvgupta.core.utils.emptyValue
 import com.apoorvgupta.newsshots.capabilities.R
@@ -54,26 +46,26 @@ fun NewsShotsCard(
                 onCardClick()
             }
             .fillMaxWidth()
-            .padding(bottom = m_vertical_spacing)
+            .padding(bottom = Dimensions.VerticalDimensions.m_vertical_spacing)
             .background(
                 color = MaterialTheme.colorScheme.background,
-                shape = RoundedCornerShape(s_corner_radius),
+                shape = RoundedCornerShape(Dimensions.CornerRadius.s_corner_radius),
             )
             .border(
                 border = BorderStroke(
-                    width = xxxs_stroke_width,
+                    width = Dimensions.StrokeWidth.xxxs_stroke_width,
                     color = MaterialTheme.colorScheme.outline,
                 ),
-                shape = RoundedCornerShape(s_corner_radius),
+                shape = RoundedCornerShape(Dimensions.CornerRadius.s_corner_radius),
             )
-            .padding(all = m_surrounding_spacing)
-            .heightIn(min = xl14_vertical_spacing)
+            .padding(all = Dimensions.SurroundingDimensions.m_surrounding_spacing)
+            .heightIn(min = Dimensions.VerticalDimensions.xl14_vertical_spacing)
             .height(intrinsicSize = IntrinsicSize.Max),
     ) {
         Column(
             modifier = Modifier
                 .weight(2f)
-                .padding(end = xxs_horizontal_spacing),
+                .padding(end = Dimensions.HorizonalDimensions.xxs_horizontal_spacing),
         ) {
             Text(
                 text = newsShot.title,
@@ -82,7 +74,7 @@ fun NewsShotsCard(
 
             Text(
                 text = newsShot.description,
-                modifier = Modifier.padding(top = s_vertical_spacing),
+                modifier = Modifier.padding(top = Dimensions.VerticalDimensions.s_vertical_spacing),
                 style = MaterialTheme.typography.bodyMedium,
                 maxLines = 3,
                 overflow = TextOverflow.Ellipsis,
@@ -91,7 +83,7 @@ fun NewsShotsCard(
             Spacer(modifier = Modifier.weight(Constants.FULL_WEIGHT))
 
             Text(
-                modifier = Modifier.padding(top = sl_vertical_spacing),
+                modifier = Modifier.padding(top = Dimensions.VerticalDimensions.sl_vertical_spacing),
                 text = newsShot.formattedDate,
                 style = MaterialTheme.typography.bodySmall,
             )
@@ -103,7 +95,7 @@ fun NewsShotsCard(
         ) {
             AsyncImage(
                 modifier = Modifier
-                    .clip(shape = RoundedCornerShape(s_corner_radius)),
+                    .clip(shape = RoundedCornerShape(Dimensions.CornerRadius.s_corner_radius)),
                 model = "${Constants.IMAGE_BASE_URL}${newsShot.link}",
                 contentDescription = "NewsShot image",
             )
@@ -117,7 +109,7 @@ fun NewsShotsCard(
                     .noRippleClickable {
                         onBookmarkClick.invoke()
                     }
-                    .size(l_icon_size),
+                    .size(Dimensions.IconSize.l_icon_size),
             )
         }
     }
