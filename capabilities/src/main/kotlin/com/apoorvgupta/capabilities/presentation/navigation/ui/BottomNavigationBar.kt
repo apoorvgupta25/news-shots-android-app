@@ -130,7 +130,7 @@ fun BottomNavigationBar(
                         painter = painterResource(if (isCurrentRouteSelected) item.selectedIcon else item.unselectedIcon),
                         contentDescription = String.emptyValue(),
                         modifier = Modifier.size(Dimensions.IconSize.l_icon_size),
-                        colorFilter = ColorFilter.tint(color = if (isCurrentRouteSelected) MaterialTheme.colorScheme.onBackground else MaterialTheme.colorScheme.onSurface)
+                        colorFilter = ColorFilter.tint(color = if (isCurrentRouteSelected) MaterialTheme.colorScheme.onBackground else MaterialTheme.colorScheme.onSurface),
                     )
                     if (item.displayBadge) {
                         BadgedBox(

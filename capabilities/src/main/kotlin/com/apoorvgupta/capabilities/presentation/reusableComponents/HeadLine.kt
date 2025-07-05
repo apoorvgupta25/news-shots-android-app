@@ -36,7 +36,7 @@ fun HeadLine(
         modifier = Modifier
             .fillMaxSize(),
         horizontalArrangement = Arrangement.Start,
-        verticalAlignment = Alignment.CenterVertically
+        verticalAlignment = Alignment.CenterVertically,
     ) {
         if (onBackClick != null) {
             BackArrowNavigation(

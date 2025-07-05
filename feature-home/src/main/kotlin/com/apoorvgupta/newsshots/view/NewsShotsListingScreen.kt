@@ -49,7 +49,7 @@ fun NewsShotsListingScreen(
                 headText = state.data.headingText,
                 onBackClick = {
                     userIntent.invoke(NewsShotsListingIntent.NavigateToPreviousScreen)
-                }
+                },
             )
 
             Spacer(modifier = Modifier.height(Dimensions.VerticalDimensions.s_vertical_spacing))
