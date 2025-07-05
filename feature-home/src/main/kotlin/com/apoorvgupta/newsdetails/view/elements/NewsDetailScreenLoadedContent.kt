@@ -68,6 +68,7 @@ fun NewsDetailScreenLoadedContent(
             Text(
                 text = state.data.newsShot.category.name,
                 style = MaterialTheme.typography.bodyLarge,
+                color = MaterialTheme.colorScheme.onSurface,
             )
 
             Spacer(modifier = Modifier.weight(Constants.FULL_WEIGHT))
@@ -75,6 +76,7 @@ fun NewsDetailScreenLoadedContent(
             Text(
                 text = state.data.newsShot.formattedDate,
                 style = MaterialTheme.typography.bodyLarge,
+                color = MaterialTheme.colorScheme.onSurface,
             )
         }
 

@@ -1,8 +1,6 @@
 package com.apoorvgupta.capabilities.presentation.reusableComponents.newsshots
 
-import androidx.compose.foundation.BorderStroke
 import androidx.compose.foundation.background
-import androidx.compose.foundation.border
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.IntrinsicSize
 import androidx.compose.foundation.layout.Row
@@ -46,26 +44,18 @@ fun NewsShotsCard(
                 onCardClick()
             }
             .fillMaxWidth()
-            .padding(bottom = Dimensions.VerticalDimensions.m_vertical_spacing)
             .background(
                 color = MaterialTheme.colorScheme.background,
                 shape = RoundedCornerShape(Dimensions.CornerRadius.s_corner_radius),
             )
-            .border(
-                border = BorderStroke(
-                    width = Dimensions.StrokeWidth.xxxs_stroke_width,
-                    color = MaterialTheme.colorScheme.outline,
-                ),
-                shape = RoundedCornerShape(Dimensions.CornerRadius.s_corner_radius),
-            )
-            .padding(all = Dimensions.SurroundingDimensions.m_surrounding_spacing)
+            .padding(all = Dimensions.SurroundingDimensions.s_surrounding_spacing)
             .heightIn(min = Dimensions.VerticalDimensions.xl14_vertical_spacing)
             .height(intrinsicSize = IntrinsicSize.Max),
     ) {
         Column(
             modifier = Modifier
                 .weight(2f)
-                .padding(end = Dimensions.HorizonalDimensions.xxs_horizontal_spacing),
+                .padding(end = Dimensions.HorizonalDimensions.s_horizontal_spacing),
         ) {
             Text(
                 text = newsShot.title,
@@ -86,6 +76,7 @@ fun NewsShotsCard(
                 modifier = Modifier.padding(top = Dimensions.VerticalDimensions.sl_vertical_spacing),
                 text = newsShot.formattedDate,
                 style = MaterialTheme.typography.bodySmall,
+                color = MaterialTheme.colorScheme.onSurface,
             )
         }
 
@@ -95,7 +86,8 @@ fun NewsShotsCard(
         ) {
             AsyncImage(
                 modifier = Modifier
-                    .clip(shape = RoundedCornerShape(Dimensions.CornerRadius.s_corner_radius)),
+                    .clip(shape = RoundedCornerShape(Dimensions.CornerRadius.s_corner_radius))
+                    .heightIn(max = Dimensions.VerticalDimensions.xl11_vertical_spacing),
                 model = "${Constants.IMAGE_BASE_URL}${newsShot.link}",
                 contentDescription = "NewsShot image",
             )

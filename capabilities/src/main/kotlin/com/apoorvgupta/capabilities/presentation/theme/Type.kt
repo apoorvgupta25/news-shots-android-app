@@ -10,6 +10,7 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.text.TextStyle
 import androidx.compose.ui.text.font.Font
 import androidx.compose.ui.text.font.FontFamily
+import androidx.compose.ui.text.font.FontStyle
 import androidx.compose.ui.text.font.FontWeight
 import com.apoorvgupta.newsshots.capabilities.R
 
@@ -34,9 +35,19 @@ private val Graphik =
         Font(R.font.graphik_regular, weight = FontWeight.Normal),
     )
 
+private val NewsReader60 =
+    FontFamily(
+        Font(R.font.newsreader_medium, weight = FontWeight.Medium),
+        Font(R.font.newsreader_semi_bold, weight = FontWeight.SemiBold),
+        Font(R.font.newsreader_bold, weight = FontWeight.Bold),
+        Font(R.font.newsreader_regular, weight = FontWeight.Normal),
+        Font(R.font.newsreader_italic, style = FontStyle.Italic),
+    )
+
 private val AppFontFamily =
 //    Poppins
-    Graphik
+//    Graphik
+    NewsReader60
 
 val Typography =
     Typography(
@@ -55,10 +66,14 @@ val Typography =
         titleLarge = Typography().titleLarge.copy(fontFamily = AppFontFamily),
         titleMedium = Typography().titleMedium.copy(
             fontFamily = AppFontFamily,
-            fontWeight = FontWeight.Medium,
+            fontWeight = FontWeight.Bold,
             fontSize = Dimensions.TextSize.text_size_title_medium,
         ),
-        titleSmall = Typography().titleSmall.copy(fontFamily = AppFontFamily),
+        titleSmall = Typography().titleSmall.copy(
+            fontFamily = AppFontFamily,
+            fontWeight = FontWeight.Medium,
+            fontSize = Dimensions.TextSize.text_size_title_small,
+        ),
         bodyLarge = Typography().bodyLarge.copy(fontFamily = AppFontFamily),
         bodyMedium = Typography().bodyMedium.copy(fontFamily = AppFontFamily),
         bodySmall = Typography().bodySmall.copy(fontFamily = AppFontFamily),

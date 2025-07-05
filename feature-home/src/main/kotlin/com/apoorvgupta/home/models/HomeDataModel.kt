@@ -26,6 +26,5 @@ data class HomeDataModel(
 data class HomeContent(
     val headingText: String = String.emptyValue(),
     val subHeadingText: String = String.emptyValue(),
-    val categoryLabel: String = String.emptyValue(),
     val articlesLabel: String = String.emptyValue(),
 )
