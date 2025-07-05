@@ -95,7 +95,7 @@ fun NewsShotsCard(
             Spacer(modifier = Modifier.weight(Constants.FULL_WEIGHT))
 
             Icon(
-                painter = painterResource(id = R.drawable.ic_bookmark_outlined),
+                painter = painterResource(id = R.drawable.ic_bookmark_unselected),
                 contentDescription = String.emptyValue(),
                 modifier = Modifier
                     .noRippleClickable {

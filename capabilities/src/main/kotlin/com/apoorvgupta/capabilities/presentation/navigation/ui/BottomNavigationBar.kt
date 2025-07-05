@@ -39,7 +39,6 @@ import com.apoorvgupta.capabilities.presentation.navigation.Home
 import com.apoorvgupta.capabilities.presentation.navigation.Search
 import com.apoorvgupta.capabilities.presentation.theme.Dimensions
 import com.apoorvgupta.capabilities.presentation.theme.shadowBackgroundColor
-import com.apoorvgupta.capabilities.util.Constants
 import com.apoorvgupta.core.logger.AppLogger
 import com.apoorvgupta.core.utils.emptyValue
 import com.apoorvgupta.newsshots.capabilities.R
@@ -78,8 +77,8 @@ fun BottomNavigationBar(
             title = "Home",
             visible = true,
             badgeCount = 0,
-            icon = R.drawable.ic_home_outlined,
-            filledIcon = R.drawable.ic_home_filled,
+            unselectedIcon = R.drawable.ic_home_unselected,
+            selectedIcon = R.drawable.ic_home_selected,
         ),
         BottomNavItem(
             displayBadge = false,
@@ -88,8 +87,8 @@ fun BottomNavigationBar(
             title = "Search",
             visible = true,
             badgeCount = 0,
-            icon = R.drawable.ic_search_outlined,
-            filledIcon = R.drawable.ic_search_filled,
+            unselectedIcon = R.drawable.ic_search_unselected,
+            selectedIcon = R.drawable.ic_search_selected,
         ),
         BottomNavItem(
             displayBadge = false,
@@ -98,8 +97,8 @@ fun BottomNavigationBar(
             title = "Bookmark",
             visible = true,
             badgeCount = 0,
-            icon = R.drawable.ic_bookmark_outlined,
-            filledIcon = R.drawable.ic_bookmark_filled,
+            unselectedIcon = R.drawable.ic_bookmark_unselected,
+            selectedIcon = R.drawable.ic_bookmark_selected,
         ),
     )
 
@@ -127,10 +126,9 @@ fun BottomNavigationBar(
                 alwaysShowLabel = true,
                 icon = {
                     Image(
-                        painter = painterResource(if (isCurrentRouteSelected) item.filledIcon else item.icon),
+                        painter = painterResource(if (isCurrentRouteSelected) item.selectedIcon else item.unselectedIcon),
                         contentDescription = String.emptyValue(),
                         modifier = Modifier.size(Dimensions.IconSize.l_icon_size),
-                        alpha = if (isCurrentRouteSelected) Constants.FULL_WEIGHT else Constants.HALF_WEIGHT,
                     )
                     if (item.displayBadge) {
                         BadgedBox(
@@ -162,6 +160,7 @@ fun BottomNavigationBar(
                     Text(
                         text = item.title,
                         style = MaterialTheme.typography.bodySmall,
+                        color = if (isCurrentRouteSelected) MaterialTheme.colorScheme.onBackground else MaterialTheme.colorScheme.onSurface,
                     )
                 },
                 selected = isCurrentRouteSelected,
