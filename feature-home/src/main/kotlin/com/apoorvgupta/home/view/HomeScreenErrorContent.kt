@@ -1,4 +1,4 @@
-package com.apoorvgupta.home.view.elements
+package com.apoorvgupta.home.view
 
 import androidx.compose.runtime.Composable
 import com.apoorvgupta.capabilities.presentation.reusableComponents.errorscreen.AppErrorScreen
@@ -11,7 +11,7 @@ import com.apoorvgupta.home.intent.HomeViewStates
 
 @Composable
 fun HomeScreenErrorContent(
-    state: HomeViewStates.LoadedData,
+    state: HomeViewStates.ErrorData,
     userIntent: (HomeIntent) -> Unit,
 ) {
     AppErrorScreen(

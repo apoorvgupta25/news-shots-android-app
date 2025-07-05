@@ -38,7 +38,12 @@ sealed class HomeViewStates {
         val data: HomeDataModel,
     ) : HomeViewStates()
 
-    data class InitialLoading(
+    data class Loading(
+        val showLoader: Boolean = false,
+        val data: HomeDataModel,
+    ) : HomeViewStates()
+
+    data class ErrorData(
         val showLoader: Boolean = false,
         val data: HomeDataModel,
     ) : HomeViewStates()

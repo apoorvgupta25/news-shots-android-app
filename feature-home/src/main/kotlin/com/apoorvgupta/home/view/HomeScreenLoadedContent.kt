@@ -1,4 +1,4 @@
-package com.apoorvgupta.home.view.elements
+package com.apoorvgupta.home.view
 
 import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Arrangement

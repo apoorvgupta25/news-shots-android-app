@@ -49,6 +49,7 @@ class HomeScreenUseCaseImpl @Inject constructor(
                 }
 
                 else -> {
+                    emitHomeLoading()
                     // Do nothing.
                 }
             }
@@ -84,4 +85,10 @@ class HomeScreenUseCaseImpl @Inject constructor(
             ),
         )
     }
+
+    private suspend fun FlowCollector<HomeDataModel>.emitHomeLoading() = emit(
+        HomeDataModel(
+            status = DataStatus.Loading,
+        ),
+    )
 }
