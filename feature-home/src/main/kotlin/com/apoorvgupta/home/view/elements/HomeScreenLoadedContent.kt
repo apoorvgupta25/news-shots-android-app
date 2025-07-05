@@ -74,8 +74,7 @@ fun HomeScreenLoadedContent(
                         userIntent.invoke(HomeIntent.NavigateToNewsShotsListing(Constants.DAILY))
                     },
                     onModeIconClick = {
-
-                    }
+                    },
                 )
 
                 // Category Chips
