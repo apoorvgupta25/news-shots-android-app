@@ -1,17 +1,13 @@
 package com.apoorvgupta.home.view.elements
 
-import androidx.compose.foundation.BorderStroke
 import androidx.compose.foundation.background
-import androidx.compose.foundation.border
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.ExperimentalLayoutApi
 import androidx.compose.foundation.layout.FlowRow
 import androidx.compose.foundation.layout.fillMaxSize
-import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
-import androidx.compose.foundation.layout.wrapContentHeight
 import androidx.compose.foundation.lazy.LazyColumn
-import androidx.compose.foundation.lazy.items
+import androidx.compose.foundation.lazy.itemsIndexed
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material3.ExperimentalMaterial3Api
 import androidx.compose.material3.HorizontalDivider
@@ -62,7 +58,6 @@ fun HomeScreenLoadedContent(
         LazyColumn(
             modifier = Modifier
                 .fillMaxSize()
-                .background(color = MaterialTheme.colorScheme.surface)
                 .padding(
                     start = Dimensions.HorizonalDimensions.m_horizontal_spacing,
                     end = Dimensions.HorizonalDimensions.m_horizontal_spacing,
@@ -78,6 +73,9 @@ fun HomeScreenLoadedContent(
                     onHeadClick = {
                         userIntent.invoke(HomeIntent.NavigateToNewsShotsListing(Constants.DAILY))
                     },
+                    onModeIconClick = {
+
+                    }
                 )
 
                 // Category Chips
@@ -86,34 +84,26 @@ fun HomeScreenLoadedContent(
                         top = Dimensions.VerticalDimensions.m_vertical_spacing,
                     ),
                     horizontalArrangement = Arrangement.spacedBy(Dimensions.HorizonalDimensions.s_horizontal_spacing),
-                    verticalArrangement = Arrangement.spacedBy(Dimensions.VerticalDimensions.s_vertical_spacing),
+                    verticalArrangement = Arrangement.spacedBy(Dimensions.VerticalDimensions.sl_vertical_spacing),
                 ) {
                     state.data.categoriesList.forEach {
                         Text(
                             modifier = Modifier
-                                .height(Dimensions.VerticalDimensions.xl_vertical_spacing)
-                                .wrapContentHeight(align = Alignment.CenterVertically)
                                 .noRippleClickable {
                                     userIntent.invoke(HomeIntent.NavigateToNewsShotsListing(it.name))
                                 }
                                 .background(
-                                    color = MaterialTheme.colorScheme.background,
-                                    shape = RoundedCornerShape(Dimensions.CornerRadius.ll_corner_radius),
-                                )
-                                .border(
-                                    border = BorderStroke(
-                                        width = Dimensions.StrokeWidth.xxxs_stroke_width,
-                                        color = MaterialTheme.colorScheme.outline,
-                                    ),
+                                    color = MaterialTheme.colorScheme.surface,
                                     shape = RoundedCornerShape(Dimensions.CornerRadius.ll_corner_radius),
                                 )
                                 .padding(
-                                    horizontal = Dimensions.HorizonalDimensions.s_horizontal_spacing,
-                                    vertical = Dimensions.VerticalDimensions.xxs_vertical_spacing,
+                                    start = Dimensions.HorizonalDimensions.sl_horizontal_spacing,
+                                    end = Dimensions.HorizonalDimensions.sl_horizontal_spacing,
+                                    top = Dimensions.VerticalDimensions.s_vertical_spacing,
+                                    bottom = Dimensions.VerticalDimensions.xs_vertical_spacing,
                                 ),
-
                             text = it.name,
-                            style = MaterialTheme.typography.bodyLarge,
+                            style = MaterialTheme.typography.titleSmall,
                             color = MaterialTheme.colorScheme.onBackground,
                             textAlign = TextAlign.Center,
                         )
@@ -136,7 +126,7 @@ fun HomeScreenLoadedContent(
                 )
             }
 
-            items(state.data.newsShotsList) {
+            itemsIndexed(state.data.newsShotsList) { index, it ->
                 NewsShotsCard(
                     newsShot = it,
                     onCardClick = {
@@ -144,6 +134,12 @@ fun HomeScreenLoadedContent(
                     },
                     onBookmarkClick = {},
                 )
+
+                if (state.data.newsShotsList.size - 1 != index) {
+                    HorizontalDivider(
+                        modifier = Modifier.padding(all = Dimensions.SurroundingDimensions.s_surrounding_spacing),
+                    )
+                }
             }
         }
     }

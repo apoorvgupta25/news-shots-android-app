@@ -47,7 +47,7 @@ private val NewsReader60 =
 private val AppFontFamily =
 //    Poppins
 //    Graphik
-      NewsReader60
+    NewsReader60
 
 val Typography =
     Typography(
@@ -66,10 +66,14 @@ val Typography =
         titleLarge = Typography().titleLarge.copy(fontFamily = AppFontFamily),
         titleMedium = Typography().titleMedium.copy(
             fontFamily = AppFontFamily,
-            fontWeight = FontWeight.Medium,
+            fontWeight = FontWeight.Bold,
             fontSize = Dimensions.TextSize.text_size_title_medium,
         ),
-        titleSmall = Typography().titleSmall.copy(fontFamily = AppFontFamily),
+        titleSmall = Typography().titleSmall.copy(
+            fontFamily = AppFontFamily,
+            fontWeight = FontWeight.Medium,
+            fontSize = Dimensions.TextSize.text_size_title_small,
+        ),
         bodyLarge = Typography().bodyLarge.copy(fontFamily = AppFontFamily),
         bodyMedium = Typography().bodyMedium.copy(fontFamily = AppFontFamily),
         bodySmall = Typography().bodySmall.copy(fontFamily = AppFontFamily),

@@ -23,6 +23,7 @@ fun HeadLine(
     headText: String = String.emptyValue(),
     subHeadingText: String = String.emptyValue(),
     onHeadClick: () -> Unit = {},
+    onModeIconClick: (() -> Unit)? = null,
 ) {
     Row(
         modifier = Modifier.fillMaxWidth(),
@@ -38,11 +39,17 @@ fun HeadLine(
             color = MaterialTheme.colorScheme.onBackground,
         )
 
-        Image(
-            painter = painterResource(R.drawable.ic_light_mode),
-            contentDescription = String.emptyValue(),
-            modifier = Modifier.size(Dimensions.IconSize.xml_icon_size),
-        )
+        if (onModeIconClick != null) {
+            Image(
+                painter = painterResource(R.drawable.ic_light_mode),
+                contentDescription = String.emptyValue(),
+                modifier = Modifier
+                    .size(Dimensions.IconSize.xml_icon_size)
+                    .noRippleClickable {
+                        onModeIconClick.invoke()
+                    },
+            )
+        }
     }
 
     // SubTitle

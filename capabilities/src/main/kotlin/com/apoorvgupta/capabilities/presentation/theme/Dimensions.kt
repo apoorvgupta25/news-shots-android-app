@@ -159,6 +159,7 @@ object Dimensions {
     // Text size
     object TextSize {
         val text_size_title_medium = 18.sp
+        val text_size_title_small = 16.sp
     }
 
     object LineHeight {
