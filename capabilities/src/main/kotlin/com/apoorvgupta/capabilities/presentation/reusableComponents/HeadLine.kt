@@ -1,6 +1,7 @@
 package com.apoorvgupta.capabilities.presentation.reusableComponents
 
 import androidx.compose.foundation.Image
+import androidx.compose.foundation.isSystemInDarkTheme
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.Spacer
@@ -61,7 +62,7 @@ fun HeadLine(
 
         if (onModeIconClick != null) {
             Image(
-                painter = painterResource(R.drawable.ic_light_mode),
+                painter = painterResource(if (isSystemInDarkTheme()) R.drawable.ic_dark_mode else R.drawable.ic_light_mode),
                 contentDescription = String.emptyValue(),
                 modifier = Modifier
                     .size(Dimensions.IconSize.xml_icon_size)

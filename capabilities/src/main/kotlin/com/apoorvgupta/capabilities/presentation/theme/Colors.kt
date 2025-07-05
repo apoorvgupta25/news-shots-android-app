@@ -33,6 +33,8 @@ private val md_theme_dark_onSecondary = Color(0xFF3E2D16)
 private val md_theme_dark_background = Color(0xFF000000)
 private val md_theme_dark_error = Color(0xFFFFB4AB)
 private val md_theme_dark_errorContainer = Color(0xFF93000A)
+private val md_theme_dark_onSurface = Color(0xFF9EABB8)
+private val md_theme_dark_surface = Color(0xFF0D0D0A)
 private val md_theme_dark_primaryButton = Color(0xFFE3E2DF)
 
 // App Colors
@@ -70,7 +72,8 @@ val DarkColorScheme =
         background = md_theme_dark_background,
         error = md_theme_dark_error,
         errorContainer = md_theme_dark_errorContainer,
-        surface = md_theme_dark_background,
+        onSurface = md_theme_dark_onSurface,
+        surface = md_theme_dark_surface,
         surfaceTint = md_theme_dark_background,
     )
 

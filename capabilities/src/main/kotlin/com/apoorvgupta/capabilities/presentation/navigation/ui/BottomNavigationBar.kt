@@ -29,6 +29,7 @@ import androidx.compose.runtime.setValue
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.shadow
 import androidx.compose.ui.graphics.Color
+import androidx.compose.ui.graphics.ColorFilter
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.unit.Dp
 import androidx.compose.ui.unit.IntOffset
@@ -129,6 +130,7 @@ fun BottomNavigationBar(
                         painter = painterResource(if (isCurrentRouteSelected) item.selectedIcon else item.unselectedIcon),
                         contentDescription = String.emptyValue(),
                         modifier = Modifier.size(Dimensions.IconSize.l_icon_size),
+                        colorFilter = ColorFilter.tint(color = if (isCurrentRouteSelected) MaterialTheme.colorScheme.onBackground else MaterialTheme.colorScheme.onSurface)
                     )
                     if (item.displayBadge) {
                         BadgedBox(
