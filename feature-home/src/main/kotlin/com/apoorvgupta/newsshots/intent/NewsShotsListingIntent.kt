@@ -12,6 +12,7 @@ import com.apoorvgupta.newsshots.models.NewsShotsListingDataModel
  */
 sealed class NewsShotsListingIntent : UserIntent {
     data class LoadNewsShotsListingScreen(val categoryName: String) : NewsShotsListingIntent()
+    data object RefreshNewsShotsListingScreen : NewsShotsListingIntent()
     data class NavigateToIndividualNewsShots(val link: String) : NewsShotsListingIntent()
     data object NavigateToPreviousScreen : NewsShotsListingIntent()
 }

@@ -1,9 +1,8 @@
 package com.apoorvgupta.newsdetails.viewmodels
 
 import androidx.lifecycle.viewModelScope
-import androidx.paging.PagingData
-import com.apoorvgupta.capabilities.network.rest.data.newsshots.NewsShots
 import com.apoorvgupta.core.base.BaseViewModel
+import com.apoorvgupta.core.utils.emptyValue
 import com.apoorvgupta.newsdetails.intent.NewsDetailsIntent
 import com.apoorvgupta.newsdetails.intent.NewsDetailsNavEffect
 import com.apoorvgupta.newsdetails.intent.NewsDetailsViewState
@@ -11,9 +10,6 @@ import com.apoorvgupta.newsdetails.intent.NewsDetailsViewStates
 import com.apoorvgupta.newsdetails.models.NewsDetailsDataModel
 import com.apoorvgupta.newsdetails.usecase.NewsDetailsScreenUseCase
 import dagger.hilt.android.lifecycle.HiltViewModel
-import kotlinx.coroutines.flow.MutableStateFlow
-import kotlinx.coroutines.flow.StateFlow
-import kotlinx.coroutines.flow.asStateFlow
 import kotlinx.coroutines.launch
 import javax.inject.Inject
 
@@ -25,17 +21,14 @@ class NewsDetailsViewModel @Inject constructor(
     private val newsDetailsScreenUseCase: NewsDetailsScreenUseCase,
 ) : BaseViewModel<NewsDetailsIntent, NewsDetailsViewState, NewsDetailsNavEffect>() {
 
-    private val _newsShotsPaginationResults: MutableStateFlow<PagingData<NewsShots>> =
-        MutableStateFlow(value = PagingData.empty())
-
-    val newsShotsPaginationResults: StateFlow<PagingData<NewsShots>> =
-        _newsShotsPaginationResults.asStateFlow()
+    private var postLink: String = String.emptyValue()
 
     override fun createInitialState(): NewsDetailsViewState = NewsDetailsViewState(NewsDetailsViewStates.UnInitialized)
 
     override fun handleIntent(intent: NewsDetailsIntent) {
         when (intent) {
             is NewsDetailsIntent.LoadNewsDetailsScreen -> {
+                postLink = intent.postLink
                 getNewsDetails(intent.postLink)
             }
 
@@ -52,6 +45,10 @@ class NewsDetailsViewModel @Inject constructor(
 
             NewsDetailsIntent.NavigateToPreviousScreen -> {
                 sendNavEffect { NewsDetailsNavEffect.OpenPreviousScreen }
+            }
+
+            NewsDetailsIntent.RefreshNewsDetailsScreen -> {
+                getNewsDetails(postLink)
             }
         }
     }
