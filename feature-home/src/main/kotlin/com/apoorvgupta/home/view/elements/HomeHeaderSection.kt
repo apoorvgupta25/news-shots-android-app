@@ -44,7 +44,7 @@ fun HomeHeaderSection(
 
         // Articles
         ArticlesLabel(
-            state = state
+            state = state,
         )
     }
 }
