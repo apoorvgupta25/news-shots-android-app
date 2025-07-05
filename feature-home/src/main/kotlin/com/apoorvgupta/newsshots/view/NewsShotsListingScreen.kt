@@ -14,7 +14,6 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.text.style.TextAlign
 import androidx.paging.LoadState
 import androidx.paging.compose.collectAsLazyPagingItems
-import com.apoorvgupta.capabilities.presentation.reusableComponents.BackArrowNavigation
 import com.apoorvgupta.capabilities.presentation.reusableComponents.HeadLine
 import com.apoorvgupta.capabilities.presentation.reusableComponents.loader.CircularProgressBarComponent
 import com.apoorvgupta.capabilities.presentation.reusableComponents.newsshots.NewsShotsCard
@@ -44,19 +43,16 @@ fun NewsShotsListingScreen(
         horizontalAlignment = Alignment.Start,
     ) {
         item {
-            Spacer(modifier = Modifier.height(Dimensions.VerticalDimensions.m_vertical_spacing))
+            Spacer(modifier = Modifier.height(Dimensions.VerticalDimensions.s_vertical_spacing))
 
-            BackArrowNavigation(
+            HeadLine(
+                headText = state.data.headingText,
                 onBackClick = {
                     userIntent.invoke(NewsShotsListingIntent.NavigateToPreviousScreen)
                 },
             )
 
             Spacer(modifier = Modifier.height(Dimensions.VerticalDimensions.s_vertical_spacing))
-
-            HeadLine(
-                headText = state.data.headingText,
-            )
         }
 
         items(
