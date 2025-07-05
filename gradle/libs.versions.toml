@@ -6,7 +6,7 @@ gradleAnalyzer = "2.19.0"
 
 coreKtx = "1.16.0"
 ktlintCli = "1.6.0"
-navigationCompose = "2.9.0"
+navigationCompose = "2.9.1"
 kotlinSerialization = "1.9.0"
 junit = "4.13.2"
 junitVersion = "1.2.1"
@@ -36,28 +36,20 @@ draftjscompose = "1.0.0"
 
 [libraries]
 
-# Core dependencies
-androidx-core-ktx = { group = "androidx.core", name = "core-ktx", version.ref = "coreKtx" }
-androidx-lifecycle-runtime-ktx = { group = "androidx.lifecycle", name = "lifecycle-runtime-ktx", version.ref = "lifecycleRuntimeKtx" }
+# Compose dependencies
 androidx-activity-compose = { group = "androidx.activity", name = "activity-compose", version.ref = "activityCompose" }
 androidx-navigation-compose = { group = "androidx.navigation", name = "navigation-compose", version.ref = "navigationCompose" }
 kotlinx-serialization = { group = "org.jetbrains.kotlinx", name = "kotlinx-serialization-json", version.ref = "kotlinSerialization" }
-# Compose dependencies
-androidx-compose-bom = { group = "androidx.compose", name = "compose-bom", version.ref = "composeBom" }
 androidx-ui = { group = "androidx.compose.ui", name = "ui" }
-androidx-ui-tooling-preview = { group = "androidx.compose.ui", name = "ui-tooling-preview" }
 androidx-ui-tooling = { group = "androidx.compose.ui", name = "ui-tooling" }
 androidx-material3 = { group = "androidx.compose.material3", name = "material3", version.ref = "material3" }
 # Pagination
 androidx-pagination = { group = "androidx.paging", name = "paging-compose", version.ref = "pagination" }
 # Testing dependencies
 junit = { group = "junit", name = "junit", version.ref = "junit" }
-androidx-ext-junit = { group = "androidx.test.ext", name = "junit", version.ref = "junitVersion" }
-androidx-espresso-core = { group = "androidx.test.espresso", name = "espresso-core", version.ref = "espressoCore" }
-androidx-ui-test-junit4 = { group = "androidx.compose.ui", name = "ui-test-junit4" }
-androidx-ui-test-manifest = { group = "androidx.compose.ui", name = "ui-test-manifest" }
-ktlint-cli = { module = "com.pinterest.ktlint:ktlint-cli", version.ref = "ktlintCli" }
 mockk = { group = "io.mockk", name = "mockk", version.ref = "mockk" }
+# Ktlint
+ktlint-cli = { module = "com.pinterest.ktlint:ktlint-cli", version.ref = "ktlintCli" }
 # Networking dependencies
 retrofit = { group = "com.squareup.retrofit2", name = "retrofit", version.ref = "retrofit" }
 retrofit-gson = { group = "com.squareup.retrofit2", name = "converter-gson", version.ref = "retrofitGson" }
@@ -67,15 +59,10 @@ okhttp-logging = { group = "com.squareup.okhttp3", name = "logging-interceptor",
 hilt-android = { group = "com.google.dagger", name = "hilt-android", version.ref = "hilt" }
 hilt-android-compiler = { group = "com.google.dagger", name = "hilt-android-compiler", version.ref = "hilt" }
 hilt-navigation-compose = { group = "androidx.hilt", name = "hilt-navigation-compose", version.ref = "hiltCompose" }
-# Other dependencies
-appcompat = { group = "androidx.appcompat", name = "appcompat", version.ref = "appcompat" }
-viewmodel-lifecycle = { group = "androidx.lifecycle", name = "lifecycle-viewmodel-ktx", version.ref = "viewmodelKtx" }
 # Timber
 timber = { group = "com.jakewharton.timber", name = "timber", version.ref = "timber" }
 # Splash Screen
 splash-screen = { group = "androidx.core", name = "core-splashscreen", version.ref = "splashScreen" }
-# Android Security Crypto
-androidx-security-crypto = { group = "androidx.security", name = "security-crypto-ktx", version.ref = "securityCrypto" }
 # Image Loading library
 coil-compose = { group = "io.coil-kt", name = "coil-compose", version.ref = "coil" }
 # Accompanist Web-View
@@ -85,6 +72,24 @@ gson = { group = "com.google.code.gson", name = "gson", version.ref = "gson" }
 # AndroidX Browser
 androidx-browser = { group = "androidx.browser", name = "browser", version.ref = "androidXBrowser" }
 draftjscompose = { module = "com.github.apoorvgupta25:DraftjsCompose", version.ref = "draftjscompose" }
+
+# Unused
+# Core dependencies
+androidx-core-ktx = { group = "androidx.core", name = "core-ktx", version.ref = "coreKtx" }
+androidx-lifecycle-runtime-ktx = { group = "androidx.lifecycle", name = "lifecycle-runtime-ktx", version.ref = "lifecycleRuntimeKtx" }
+# Android Security Crypto
+androidx-security-crypto = { group = "androidx.security", name = "security-crypto-ktx", version.ref = "securityCrypto" }
+# Other dependencies
+appcompat = { group = "androidx.appcompat", name = "appcompat", version.ref = "appcompat" }
+viewmodel-lifecycle = { group = "androidx.lifecycle", name = "lifecycle-viewmodel-ktx", version.ref = "viewmodelKtx" }
+# Testing dependencies
+androidx-ext-junit = { group = "androidx.test.ext", name = "junit", version.ref = "junitVersion" }
+androidx-espresso-core = { group = "androidx.test.espresso", name = "espresso-core", version.ref = "espressoCore" }
+androidx-ui-test-junit4 = { group = "androidx.compose.ui", name = "ui-test-junit4" }
+androidx-ui-test-manifest = { group = "androidx.compose.ui", name = "ui-test-manifest" }
+# Compose
+androidx-compose-bom = { group = "androidx.compose", name = "compose-bom", version.ref = "composeBom" }
+androidx-ui-tooling-preview = { group = "androidx.compose.ui", name = "ui-tooling-preview" }
 
 [plugins]
 android-application = { id = "com.android.application", version.ref = "agp" }
