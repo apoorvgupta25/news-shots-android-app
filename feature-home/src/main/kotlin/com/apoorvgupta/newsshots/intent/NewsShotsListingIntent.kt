@@ -35,13 +35,11 @@ sealed class NewsShotsListingNavEffect : NavEffect {
 sealed class NewsShotsListingViewStates {
     data class LoadedData(
         val showLoader: Boolean = false,
-        val isRefreshing: Boolean = false,
         val data: NewsShotsListingDataModel,
     ) : NewsShotsListingViewStates()
 
     data class InitialLoading(
         val showLoader: Boolean = false,
-        val isRefreshing: Boolean = false,
         val data: NewsShotsListingDataModel,
     ) : NewsShotsListingViewStates()
 

@@ -46,7 +46,6 @@ sealed class MainViewStates {
      */
     data class LoadedData(
         val showLoader: Boolean = false,
-        val isRefreshing: Boolean = false,
         val data: MainScreenDataModel,
     ) : MainViewStates()
 }

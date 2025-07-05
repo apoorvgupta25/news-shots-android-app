@@ -12,7 +12,7 @@ fun NewsShotsListingErrorContent(
     error: String,
 ) {
     AppErrorScreen(
-        isRefreshing = state.isRefreshing,
+        isRefreshing = state.showLoader,
         onRefresh = { userIntent.invoke(NewsShotsListingIntent.RefreshNewsShotsListingScreen) },
         errorMessage = error,
     )
