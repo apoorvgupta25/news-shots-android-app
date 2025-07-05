@@ -7,7 +7,9 @@ import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.ExperimentalLayoutApi
 import androidx.compose.foundation.layout.FlowRow
 import androidx.compose.foundation.layout.fillMaxSize
+import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
+import androidx.compose.foundation.layout.wrapContentHeight
 import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.foundation.lazy.items
 import androidx.compose.foundation.shape.RoundedCornerShape
@@ -21,6 +23,7 @@ import androidx.compose.material3.pulltorefresh.rememberPullToRefreshState
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.text.style.TextAlign
 import com.apoorvgupta.capabilities.presentation.reusableComponents.HeadLine
 import com.apoorvgupta.capabilities.presentation.reusableComponents.newsshots.NewsShotsCard
 import com.apoorvgupta.capabilities.presentation.reusableComponents.noRippleClickable
@@ -30,6 +33,7 @@ import com.apoorvgupta.capabilities.presentation.theme.m_vertical_spacing
 import com.apoorvgupta.capabilities.presentation.theme.s_horizontal_spacing
 import com.apoorvgupta.capabilities.presentation.theme.s_vertical_spacing
 import com.apoorvgupta.capabilities.presentation.theme.sl_vertical_spacing
+import com.apoorvgupta.capabilities.presentation.theme.xl_vertical_spacing
 import com.apoorvgupta.capabilities.presentation.theme.xxs_vertical_spacing
 import com.apoorvgupta.capabilities.presentation.theme.xxxs_stroke_width
 import com.apoorvgupta.capabilities.util.Constants
@@ -72,7 +76,7 @@ fun HomeScreenLoadedContent(
                     end = m_horizontal_spacing,
                     top = m_vertical_spacing,
                 ),
-            verticalArrangement = Arrangement.Center,
+            verticalArrangement = Arrangement.Top,
             horizontalAlignment = Alignment.Start,
         ) {
             item {
@@ -84,25 +88,19 @@ fun HomeScreenLoadedContent(
                     },
                 )
 
-                // Category
-                Text(
-                    text = state.data.homeContent.categoryLabel,
-                    modifier = Modifier.padding(
-                        top = m_vertical_spacing,
-                        bottom = sl_vertical_spacing,
-                    ),
-                    style = MaterialTheme.typography.labelLarge,
-                    color = MaterialTheme.colorScheme.onSurface,
-                )
-
                 // Category Chips
                 FlowRow(
+                    modifier = Modifier.padding(
+                        top = m_vertical_spacing,
+                    ),
                     horizontalArrangement = Arrangement.spacedBy(s_horizontal_spacing),
                     verticalArrangement = Arrangement.spacedBy(s_vertical_spacing),
                 ) {
                     state.data.categoriesList.forEach {
                         Text(
                             modifier = Modifier
+                                .height(xl_vertical_spacing)
+                                .wrapContentHeight(align = Alignment.CenterVertically)
                                 .noRippleClickable {
                                     userIntent.invoke(HomeIntent.NavigateToNewsShotsListing(it.name))
                                 }
@@ -125,6 +123,7 @@ fun HomeScreenLoadedContent(
                             text = it.name,
                             style = MaterialTheme.typography.bodyLarge,
                             color = MaterialTheme.colorScheme.onBackground,
+                            textAlign = TextAlign.Center,
                         )
                     }
                 }
