@@ -38,12 +38,12 @@ sealed class HomeViewStates {
         val data: HomeDataModel,
     ) : HomeViewStates()
 
-    data class Loading(
+    data class ErrorData(
         val showLoader: Boolean = false,
         val data: HomeDataModel,
     ) : HomeViewStates()
 
-    data class ErrorData(
+    data class Loading(
         val showLoader: Boolean = false,
         val data: HomeDataModel,
     ) : HomeViewStates()

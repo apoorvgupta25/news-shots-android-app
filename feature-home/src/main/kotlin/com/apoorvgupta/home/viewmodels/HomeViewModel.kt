@@ -52,16 +52,6 @@ class HomeViewModel @Inject constructor(
 
     private fun emitHomeData(homeDataModel: HomeDataModel) {
         val homeViewState = when (homeDataModel.status) {
-
-            DataStatus.Error,
-            DataStatus.Offline,
-            DataStatus.Empty -> {
-                HomeViewStates.ErrorData(
-                    showLoader = false,
-                    data = homeDataModel,
-                )
-            }
-
             DataStatus.Success -> {
                 HomeViewStates.LoadedData(
                     showLoader = false,
@@ -73,6 +63,15 @@ class HomeViewModel @Inject constructor(
                 HomeViewStates.Loading(
                     showLoader = true,
                     data = HomeDataModel(),
+                )
+            }
+
+            DataStatus.Error,
+            DataStatus.Offline,
+            DataStatus.Empty -> {
+                HomeViewStates.ErrorData(
+                    showLoader = false,
+                    data = homeDataModel,
                 )
             }
         }

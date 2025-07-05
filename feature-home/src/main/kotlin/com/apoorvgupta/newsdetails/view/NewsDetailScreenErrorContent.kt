@@ -1,4 +1,4 @@
-package com.apoorvgupta.newsdetails.view.elements
+package com.apoorvgupta.newsdetails.view
 
 import androidx.compose.runtime.Composable
 import com.apoorvgupta.capabilities.presentation.reusableComponents.errorscreen.AppErrorScreen
@@ -10,7 +10,7 @@ import com.apoorvgupta.newsdetails.intent.NewsDetailsViewStates
  */
 @Composable
 fun NewsDetailScreenErrorContent(
-    state: NewsDetailsViewStates.LoadedData,
+    state: NewsDetailsViewStates.ErrorData,
     userIntent: (NewsDetailsIntent) -> Unit,
 ) {
     AppErrorScreen(

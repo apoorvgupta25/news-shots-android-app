@@ -41,7 +41,13 @@ sealed class NewsDetailsViewStates {
         val data: NewsDetailsDataModel,
     ) : NewsDetailsViewStates()
 
-    data class InitialLoading(
+    data class ErrorData(
+        val showLoader: Boolean = false,
+        val data: NewsDetailsDataModel,
+    ) : NewsDetailsViewStates()
+
+
+    data class Loading(
         val showLoader: Boolean = false,
         val data: NewsDetailsDataModel,
     ) : NewsDetailsViewStates()
