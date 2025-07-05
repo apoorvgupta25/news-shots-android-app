@@ -27,15 +27,7 @@ import androidx.compose.ui.text.style.TextAlign
 import com.apoorvgupta.capabilities.presentation.reusableComponents.HeadLine
 import com.apoorvgupta.capabilities.presentation.reusableComponents.newsshots.NewsShotsCard
 import com.apoorvgupta.capabilities.presentation.reusableComponents.noRippleClickable
-import com.apoorvgupta.capabilities.presentation.theme.ll_corner_radius
-import com.apoorvgupta.capabilities.presentation.theme.m_horizontal_spacing
-import com.apoorvgupta.capabilities.presentation.theme.m_vertical_spacing
-import com.apoorvgupta.capabilities.presentation.theme.s_horizontal_spacing
-import com.apoorvgupta.capabilities.presentation.theme.s_vertical_spacing
-import com.apoorvgupta.capabilities.presentation.theme.sl_vertical_spacing
-import com.apoorvgupta.capabilities.presentation.theme.xl_vertical_spacing
-import com.apoorvgupta.capabilities.presentation.theme.xxs_vertical_spacing
-import com.apoorvgupta.capabilities.presentation.theme.xxxs_stroke_width
+import com.apoorvgupta.capabilities.presentation.theme.Dimensions
 import com.apoorvgupta.capabilities.util.Constants
 import com.apoorvgupta.home.intent.HomeIntent
 import com.apoorvgupta.home.intent.HomeViewStates
@@ -72,9 +64,9 @@ fun HomeScreenLoadedContent(
                 .fillMaxSize()
                 .background(color = MaterialTheme.colorScheme.surface)
                 .padding(
-                    start = m_horizontal_spacing,
-                    end = m_horizontal_spacing,
-                    top = m_vertical_spacing,
+                    start = Dimensions.HorizonalDimensions.m_horizontal_spacing,
+                    end = Dimensions.HorizonalDimensions.m_horizontal_spacing,
+                    top = Dimensions.VerticalDimensions.m_vertical_spacing,
                 ),
             verticalArrangement = Arrangement.Top,
             horizontalAlignment = Alignment.Start,
@@ -91,33 +83,33 @@ fun HomeScreenLoadedContent(
                 // Category Chips
                 FlowRow(
                     modifier = Modifier.padding(
-                        top = m_vertical_spacing,
+                        top = Dimensions.VerticalDimensions.m_vertical_spacing,
                     ),
-                    horizontalArrangement = Arrangement.spacedBy(s_horizontal_spacing),
-                    verticalArrangement = Arrangement.spacedBy(s_vertical_spacing),
+                    horizontalArrangement = Arrangement.spacedBy(Dimensions.HorizonalDimensions.s_horizontal_spacing),
+                    verticalArrangement = Arrangement.spacedBy(Dimensions.VerticalDimensions.s_vertical_spacing),
                 ) {
                     state.data.categoriesList.forEach {
                         Text(
                             modifier = Modifier
-                                .height(xl_vertical_spacing)
+                                .height(Dimensions.VerticalDimensions.xl_vertical_spacing)
                                 .wrapContentHeight(align = Alignment.CenterVertically)
                                 .noRippleClickable {
                                     userIntent.invoke(HomeIntent.NavigateToNewsShotsListing(it.name))
                                 }
                                 .background(
                                     color = MaterialTheme.colorScheme.background,
-                                    shape = RoundedCornerShape(ll_corner_radius),
+                                    shape = RoundedCornerShape(Dimensions.CornerRadius.ll_corner_radius),
                                 )
                                 .border(
                                     border = BorderStroke(
-                                        width = xxxs_stroke_width,
+                                        width = Dimensions.StrokeWidth.xxxs_stroke_width,
                                         color = MaterialTheme.colorScheme.outline,
                                     ),
-                                    shape = RoundedCornerShape(ll_corner_radius),
+                                    shape = RoundedCornerShape(Dimensions.CornerRadius.ll_corner_radius),
                                 )
                                 .padding(
-                                    horizontal = s_horizontal_spacing,
-                                    vertical = xxs_vertical_spacing,
+                                    horizontal = Dimensions.HorizonalDimensions.s_horizontal_spacing,
+                                    vertical = Dimensions.VerticalDimensions.xxs_vertical_spacing,
                                 ),
 
                             text = it.name,
@@ -129,15 +121,15 @@ fun HomeScreenLoadedContent(
                 }
 
                 HorizontalDivider(
-                    modifier = Modifier.padding(top = m_vertical_spacing),
+                    modifier = Modifier.padding(top = Dimensions.VerticalDimensions.m_vertical_spacing),
                 )
 
                 // Articles
                 Text(
                     text = state.data.homeContent.articlesLabel,
                     modifier = Modifier.padding(
-                        top = m_vertical_spacing,
-                        bottom = sl_vertical_spacing,
+                        top = Dimensions.VerticalDimensions.m_vertical_spacing,
+                        bottom = Dimensions.VerticalDimensions.sl_vertical_spacing,
                     ),
                     style = MaterialTheme.typography.labelLarge,
                     color = MaterialTheme.colorScheme.onSurface,

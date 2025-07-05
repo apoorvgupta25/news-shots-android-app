@@ -15,7 +15,7 @@ import androidx.navigation.NavHostController
 import com.apoorvgupta.capabilities.presentation.navigation.showNavigationBottomBar
 import com.apoorvgupta.capabilities.presentation.navigation.ui.BottomNavigationBar
 import com.apoorvgupta.capabilities.presentation.reusableComponents.alertdialog.NoInternetDialog
-import com.apoorvgupta.capabilities.presentation.theme.xl8_vertical_spacing
+import com.apoorvgupta.capabilities.presentation.theme.Dimensions
 import com.apoorvgupta.core.logger.AppLogger
 import com.apoorvgupta.newsshots.ui.main.intents.MainIntent
 import com.apoorvgupta.newsshots.ui.main.intents.MainViewStates
@@ -29,7 +29,7 @@ fun MainScreenContent(
     viewState: MainViewStates.LoadedData,
     mainIntent: (MainIntent) -> Unit,
 ) {
-    val bottomBarHeight = xl8_vertical_spacing
+    val bottomBarHeight = remember { Dimensions.VerticalDimensions.xl8_vertical_spacing }
     val bottomBarHeightPx = with(LocalDensity.current) { bottomBarHeight.roundToPx().toFloat() }
     val bottomBarOffsetHeightPx = remember { mutableFloatStateOf(0f) }
 

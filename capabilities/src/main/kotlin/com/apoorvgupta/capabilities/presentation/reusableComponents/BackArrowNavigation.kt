@@ -11,9 +11,7 @@ import androidx.compose.material3.MaterialTheme
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.res.painterResource
-import com.apoorvgupta.capabilities.presentation.theme.sm_surrounding_spacing
-import com.apoorvgupta.capabilities.presentation.theme.xxl_icon_size
-import com.apoorvgupta.capabilities.presentation.theme.xxxs_stroke_width
+import com.apoorvgupta.capabilities.presentation.theme.Dimensions
 import com.apoorvgupta.newsshots.capabilities.R
 
 /**
@@ -29,16 +27,16 @@ fun BackArrowNavigation(onBackClick: () -> Unit) {
             .noRippleClickable {
                 onBackClick()
             }
-            .size(xxl_icon_size)
+            .size(Dimensions.IconSize.xxl_icon_size)
             .background(color = MaterialTheme.colorScheme.background, shape = CircleShape)
             .border(
                 border = BorderStroke(
-                    width = xxxs_stroke_width,
+                    width = Dimensions.StrokeWidth.xxxs_stroke_width,
                     color = MaterialTheme.colorScheme.outline,
                 ),
                 shape = CircleShape,
             )
-            .padding(sm_surrounding_spacing),
+            .padding(Dimensions.SurroundingDimensions.sm_surrounding_spacing),
 
     )
 }

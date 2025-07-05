@@ -21,12 +21,7 @@ import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.window.Dialog
 import androidx.compose.ui.window.DialogProperties
 import com.apoorvgupta.capabilities.presentation.reusableComponents.button.AppButton
-import com.apoorvgupta.capabilities.presentation.theme.m_corner_radius
-import com.apoorvgupta.capabilities.presentation.theme.m_surrounding_spacing
-import com.apoorvgupta.capabilities.presentation.theme.m_vertical_spacing
-import com.apoorvgupta.capabilities.presentation.theme.s_vertical_spacing
-import com.apoorvgupta.capabilities.presentation.theme.xl_vertical_spacing
-import com.apoorvgupta.capabilities.presentation.theme.xs_vertical_spacing
+import com.apoorvgupta.capabilities.presentation.theme.Dimensions
 import com.apoorvgupta.newsshots.capabilities.R
 
 /**
@@ -56,27 +51,27 @@ fun NoInternetDialog(
                         .wrapContentHeight()
                         .background(
                             color = MaterialTheme.colorScheme.background,
-                            shape = RoundedCornerShape(size = m_corner_radius),
+                            shape = RoundedCornerShape(size = Dimensions.CornerRadius.m_corner_radius),
                         )
-                        .padding(m_surrounding_spacing),
+                        .padding(Dimensions.SurroundingDimensions.m_surrounding_spacing),
                     horizontalAlignment = Alignment.CenterHorizontally,
                 ) {
-                    Spacer(modifier = Modifier.height(m_vertical_spacing))
+                    Spacer(modifier = Modifier.height(Dimensions.VerticalDimensions.m_vertical_spacing))
                     Image(
                         imageVector = Icons.Default.Close,
                         contentDescription = "Icon",
                     )
-                    Spacer(modifier = Modifier.height(s_vertical_spacing))
+                    Spacer(modifier = Modifier.height(Dimensions.VerticalDimensions.s_vertical_spacing))
                     Text(
                         text = stringResource(id = R.string.noInternetErrorTitle),
                         style = MaterialTheme.typography.titleLarge,
                     )
-                    Spacer(modifier = Modifier.height(xs_vertical_spacing))
+                    Spacer(modifier = Modifier.height(Dimensions.VerticalDimensions.xs_vertical_spacing))
                     Text(
                         text = stringResource(id = R.string.noInternetErrorMessage),
                         style = MaterialTheme.typography.bodyLarge,
                     )
-                    Spacer(modifier = Modifier.height(xl_vertical_spacing))
+                    Spacer(modifier = Modifier.height(Dimensions.VerticalDimensions.xl_vertical_spacing))
                     AppButton(
                         buttonTitle = stringResource(id = R.string.noInternetErrorCtaLabel),
                         onClickListener = {
