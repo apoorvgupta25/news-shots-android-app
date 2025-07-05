@@ -36,19 +36,6 @@ class NewsShotsRepoImpl @Inject constructor(
     override fun getRecentNewsShots(limit: Int, sortBy: String) = makeSafeApiCall(context) { remoteDataSource.getDailyNewsShots(limit, sortBy) }
 
     /**
-     * Get news shots by category
-     *
-     * @param categoryName
-     */
-    override fun getNewsShotsByCategory(categoryName: String): Flow<PagingData<NewsShots>> {
-        val perPageLimit = Constants.POST_PER_PAGE
-        return Pager(
-            config = PagingConfig(pageSize = perPageLimit),
-            pagingSourceFactory = { NewsShotsPagingSource(remoteDataSource, perPageLimit, categoryName) },
-        ).flow
-    }
-
-    /**
      * Get individual news shots
      *
      * @param postLink
@@ -72,6 +59,19 @@ class NewsShotsRepoImpl @Inject constructor(
         return Pager(
             config = PagingConfig(pageSize = perPageLimit),
             pagingSourceFactory = { NewsShotsPagingSource(remoteDataSource, perPageLimit) },
+        ).flow
+    }
+
+    /**
+     * Get news shots by category
+     *
+     * @param categoryName
+     */
+    override fun getNewsShotsByCategory(categoryName: String): Flow<PagingData<NewsShots>> {
+        val perPageLimit = Constants.POST_PER_PAGE
+        return Pager(
+            config = PagingConfig(pageSize = perPageLimit),
+            pagingSourceFactory = { NewsShotsPagingSource(remoteDataSource, perPageLimit, categoryName) },
         ).flow
     }
 }

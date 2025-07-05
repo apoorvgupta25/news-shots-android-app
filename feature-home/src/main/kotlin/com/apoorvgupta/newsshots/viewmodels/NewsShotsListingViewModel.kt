@@ -8,6 +8,7 @@ import com.apoorvgupta.capabilities.network.rest.domain.newsshots.usecase.GetAll
 import com.apoorvgupta.capabilities.network.rest.domain.newsshots.usecase.GetNewsShotsByCategoryUseCase
 import com.apoorvgupta.capabilities.util.Constants.DAILY
 import com.apoorvgupta.core.base.BaseViewModel
+import com.apoorvgupta.core.utils.emptyValue
 import com.apoorvgupta.newsshots.intent.NewsShotsListingIntent
 import com.apoorvgupta.newsshots.intent.NewsShotsListingNavEffect
 import com.apoorvgupta.newsshots.intent.NewsShotsListingViewState
@@ -36,11 +37,14 @@ class NewsShotsListingViewModel @Inject constructor(
     val newsShotsPaginationResults: StateFlow<PagingData<NewsShots>> =
         _newsShotsPaginationResults.asStateFlow()
 
+    private var _categoryName: String = String.emptyValue()
+
     override fun createInitialState(): NewsShotsListingViewState = NewsShotsListingViewState(NewsShotsListingViewStates.UnInitialized)
 
     override fun handleIntent(intent: NewsShotsListingIntent) {
         when (intent) {
             is NewsShotsListingIntent.LoadNewsShotsListingScreen -> {
+                _categoryName = intent.categoryName
                 getDailyData(intent.categoryName)
             }
 
@@ -50,6 +54,10 @@ class NewsShotsListingViewModel @Inject constructor(
 
             NewsShotsListingIntent.NavigateToPreviousScreen -> {
                 sendNavEffect { NewsShotsListingNavEffect.OpenPreviousScreen }
+            }
+
+            NewsShotsListingIntent.RefreshNewsShotsListingScreen -> {
+                getDailyData(_categoryName)
             }
         }
     }

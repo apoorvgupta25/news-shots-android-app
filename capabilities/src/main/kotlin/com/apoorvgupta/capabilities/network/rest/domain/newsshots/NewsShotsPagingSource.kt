@@ -27,17 +27,18 @@ class NewsShotsPagingSource @Inject constructor(
     override suspend fun load(params: LoadParams<Int>): LoadResult<Int, NewsShots> {
         val page = params.key ?: 0
 
-        val response = if (categoryName.isEmpty()) {
-            remoteDataSource.getDailyNewsShots(
-                limit = perPageLimit,
-                sortBy = Constants.DAILY_POST_SORT_BY_CREATED,
-                skip = page,
-            )
-        } else {
-            remoteDataSource.getNewsShotsByCategory(categoryName, perPageLimit, page)
-        }
-
         return try {
+
+            val response = if (categoryName.isEmpty()) {
+                remoteDataSource.getDailyNewsShots(
+                    limit = perPageLimit,
+                    sortBy = Constants.DAILY_POST_SORT_BY_CREATED,
+                    skip = page,
+                )
+            } else {
+                remoteDataSource.getNewsShotsByCategory(categoryName, perPageLimit, page)
+            }
+
             if (response.status != Resource.Status.SUCCESS) {
                 return LoadResult.Error(
                     Exception(
