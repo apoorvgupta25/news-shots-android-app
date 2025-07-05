@@ -23,7 +23,7 @@ fun NewsDetailsScreen(
     ) {
         // Main content of the Home Screen.
         when (state.data.status) {
-            DataStatus.Error -> NewsDetailScreenErrorContent(state)
+            DataStatus.Error -> NewsDetailScreenErrorContent(state = state, userIntent = userIntent)
             DataStatus.Success -> NewsDetailScreenLoadedContent(state = state, userIntent = userIntent)
             else -> {
                 // Do Nothing.

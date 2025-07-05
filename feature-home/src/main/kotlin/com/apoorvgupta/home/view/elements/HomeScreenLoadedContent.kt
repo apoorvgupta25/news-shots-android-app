@@ -9,13 +9,9 @@ import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.foundation.lazy.itemsIndexed
 import androidx.compose.foundation.shape.RoundedCornerShape
-import androidx.compose.material3.ExperimentalMaterial3Api
 import androidx.compose.material3.HorizontalDivider
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Text
-import androidx.compose.material3.pulltorefresh.PullToRefreshBox
-import androidx.compose.material3.pulltorefresh.PullToRefreshDefaults.Indicator
-import androidx.compose.material3.pulltorefresh.rememberPullToRefreshState
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
@@ -23,6 +19,7 @@ import androidx.compose.ui.text.style.TextAlign
 import com.apoorvgupta.capabilities.presentation.reusableComponents.HeadLine
 import com.apoorvgupta.capabilities.presentation.reusableComponents.newsshots.NewsShotsCard
 import com.apoorvgupta.capabilities.presentation.reusableComponents.noRippleClickable
+import com.apoorvgupta.capabilities.presentation.reusableComponents.pulltorefresh.AppPullToRefresh
 import com.apoorvgupta.capabilities.presentation.theme.Dimensions
 import com.apoorvgupta.capabilities.util.Constants
 import com.apoorvgupta.home.intent.HomeIntent
@@ -32,28 +29,15 @@ import com.apoorvgupta.home.intent.HomeViewStates
  * @author Apoorv Gupta
  */
 
-@OptIn(ExperimentalLayoutApi::class, ExperimentalMaterial3Api::class)
+@OptIn(ExperimentalLayoutApi::class)
 @Composable
 fun HomeScreenLoadedContent(
     state: HomeViewStates.LoadedData,
     userIntent: (HomeIntent) -> Unit,
 ) {
-    val pullToRefreshState = rememberPullToRefreshState()
-    PullToRefreshBox(
+    AppPullToRefresh(
         isRefreshing = state.showLoader,
-        onRefresh = {
-            userIntent.invoke(HomeIntent.LoadHomeScreen)
-        },
-        state = pullToRefreshState,
-        indicator = {
-            Indicator(
-                modifier = Modifier.align(Alignment.TopCenter),
-                isRefreshing = state.showLoader,
-                containerColor = MaterialTheme.colorScheme.background,
-                color = MaterialTheme.colorScheme.onBackground,
-                state = pullToRefreshState,
-            )
-        },
+        onRefresh = { userIntent.invoke(HomeIntent.LoadHomeScreen) }
     ) {
         LazyColumn(
             modifier = Modifier

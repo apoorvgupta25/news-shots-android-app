@@ -6,7 +6,6 @@ import com.apoorvgupta.capabilities.network.rest.helpers.Resource
 import com.apoorvgupta.core.models.ErrorModel
 import com.apoorvgupta.core.utils.DataStatus
 import com.apoorvgupta.core.utils.getValueOrEmpty
-import com.apoorvgupta.newsdetails.models.NewsDetailsContent
 import com.apoorvgupta.newsdetails.models.NewsDetailsDataModel
 import kotlinx.coroutines.flow.FlowCollector
 import kotlinx.coroutines.flow.transform
@@ -31,7 +30,7 @@ class NewsDetailsScreenUseCaseImpl @Inject constructor(
             Resource.Status.SUCCESS -> {
                 emit(
                     getNewsDetailsData(
-                        it.data ?: NewsShots.emptyValue,
+                        newsShot = it.data ?: NewsShots.emptyValue,
                     ),
                 )
             }
@@ -46,12 +45,6 @@ class NewsDetailsScreenUseCaseImpl @Inject constructor(
         newsShot: NewsShots,
     ): NewsDetailsDataModel = NewsDetailsDataModel(
         status = DataStatus.Success,
-        newsShotDetailsContent = NewsDetailsContent(
-            headingText = "NewsShots Daily",
-            subHeadingText = "Get daily news in 3 mins",
-            categoryLabel = "Browse By Category",
-            articlesLabel = "Latest articles",
-        ),
         newsShot = newsShot,
     )
 
