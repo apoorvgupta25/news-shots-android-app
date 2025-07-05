@@ -17,7 +17,6 @@ import androidx.compose.ui.Modifier
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
 fun AppPullToRefreshIndicator(isRefreshing: Boolean, pullToRefreshState: PullToRefreshState) {
-
     Box(modifier = Modifier.fillMaxSize()) {
         Indicator(
             modifier = Modifier.align(Alignment.TopCenter),

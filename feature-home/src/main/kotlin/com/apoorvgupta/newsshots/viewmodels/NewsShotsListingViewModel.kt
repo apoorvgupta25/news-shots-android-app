@@ -37,14 +37,14 @@ class NewsShotsListingViewModel @Inject constructor(
     val newsShotsPaginationResults: StateFlow<PagingData<NewsShots>> =
         _newsShotsPaginationResults.asStateFlow()
 
-    private var _categoryName: String = String.emptyValue()
+    private var categoryName: String = String.emptyValue()
 
     override fun createInitialState(): NewsShotsListingViewState = NewsShotsListingViewState(NewsShotsListingViewStates.UnInitialized)
 
     override fun handleIntent(intent: NewsShotsListingIntent) {
         when (intent) {
             is NewsShotsListingIntent.LoadNewsShotsListingScreen -> {
-                _categoryName = intent.categoryName
+                categoryName = intent.categoryName
                 getDailyData(intent.categoryName)
             }
 
@@ -57,7 +57,7 @@ class NewsShotsListingViewModel @Inject constructor(
             }
 
             NewsShotsListingIntent.RefreshNewsShotsListingScreen -> {
-                getDailyData(_categoryName)
+                getDailyData(categoryName)
             }
         }
     }

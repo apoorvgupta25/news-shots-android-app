@@ -9,7 +9,7 @@ import com.apoorvgupta.newsshots.intent.NewsShotsListingViewStates
 fun NewsShotsListingErrorContent(
     state: NewsShotsListingViewStates.LoadedData,
     userIntent: (NewsShotsListingIntent) -> Unit,
-    error: String
+    error: String,
 ) {
     AppErrorScreen(
         isRefreshing = state.isRefreshing,

@@ -21,14 +21,14 @@ class NewsDetailsViewModel @Inject constructor(
     private val newsDetailsScreenUseCase: NewsDetailsScreenUseCase,
 ) : BaseViewModel<NewsDetailsIntent, NewsDetailsViewState, NewsDetailsNavEffect>() {
 
-    private var _postLink: String = String.emptyValue()
+    private var postLink: String = String.emptyValue()
 
     override fun createInitialState(): NewsDetailsViewState = NewsDetailsViewState(NewsDetailsViewStates.UnInitialized)
 
     override fun handleIntent(intent: NewsDetailsIntent) {
         when (intent) {
             is NewsDetailsIntent.LoadNewsDetailsScreen -> {
-                _postLink = intent.postLink
+                postLink = intent.postLink
                 getNewsDetails(intent.postLink)
             }
 
@@ -48,7 +48,7 @@ class NewsDetailsViewModel @Inject constructor(
             }
 
             NewsDetailsIntent.RefreshNewsDetailsScreen -> {
-                getNewsDetails(_postLink)
+                getNewsDetails(postLink)
             }
         }
     }

@@ -27,7 +27,7 @@ fun NewsShotsListingScreen(
     NewsShotsListingLoadedContent(
         state = state,
         userIntent = userIntent,
-        newsShotsResults = newsShotsResults
+        newsShotsResults = newsShotsResults,
     )
 
     // Error and Loading State
@@ -36,7 +36,7 @@ fun NewsShotsListingScreen(
             NewsShotsListingErrorContent(
                 state = state,
                 userIntent = userIntent,
-                error = (newsShotsResults.loadState.refresh as LoadState.Error).error.message.getValueOrEmpty()
+                error = (newsShotsResults.loadState.refresh as LoadState.Error).error.message.getValueOrEmpty(),
             )
         }
 
@@ -53,7 +53,7 @@ fun NewsShotsListingScreen(
             NewsShotsListingErrorContent(
                 state = state,
                 userIntent = userIntent,
-                error = (newsShotsResults.loadState.append as LoadState.Error).error.message.getValueOrEmpty()
+                error = (newsShotsResults.loadState.append as LoadState.Error).error.message.getValueOrEmpty(),
             )
         }
 

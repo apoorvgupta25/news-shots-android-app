@@ -28,7 +28,6 @@ class NewsShotsPagingSource @Inject constructor(
         val page = params.key ?: 0
 
         return try {
-
             val response = if (categoryName.isEmpty()) {
                 remoteDataSource.getDailyNewsShots(
                     limit = perPageLimit,

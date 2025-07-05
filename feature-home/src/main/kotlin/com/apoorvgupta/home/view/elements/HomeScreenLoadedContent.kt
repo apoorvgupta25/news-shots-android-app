@@ -37,7 +37,7 @@ fun HomeScreenLoadedContent(
 ) {
     AppPullToRefresh(
         isRefreshing = state.showLoader,
-        onRefresh = { userIntent.invoke(HomeIntent.LoadHomeScreen) }
+        onRefresh = { userIntent.invoke(HomeIntent.LoadHomeScreen) },
     ) {
         LazyColumn(
             modifier = Modifier

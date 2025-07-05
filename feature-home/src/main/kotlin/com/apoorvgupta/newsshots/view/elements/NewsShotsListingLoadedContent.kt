@@ -26,9 +26,8 @@ import com.apoorvgupta.newsshots.intent.NewsShotsListingViewStates
 fun NewsShotsListingLoadedContent(
     state: NewsShotsListingViewStates.LoadedData,
     userIntent: (NewsShotsListingIntent) -> Unit,
-    newsShotsResults: LazyPagingItems<NewsShots>
+    newsShotsResults: LazyPagingItems<NewsShots>,
 ) {
-
     LazyColumn(
         modifier = Modifier
             .fillMaxSize()
@@ -58,8 +57,8 @@ fun NewsShotsListingLoadedContent(
                     onCardClick = {
                         userIntent.invoke(
                             NewsShotsListingIntent.NavigateToIndividualNewsShots(
-                                newsShot.link
-                            )
+                                newsShot.link,
+                            ),
                         )
                     },
                     onBookmarkClick = {},
