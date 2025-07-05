@@ -1,31 +1,28 @@
 package com.apoorvgupta.capabilities.presentation.reusableComponents
 
-import android.app.Activity
+import androidx.activity.compose.LocalActivity
 import androidx.compose.foundation.clickable
 import androidx.compose.foundation.interaction.MutableInteractionSource
+import androidx.compose.foundation.isSystemInDarkTheme
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.remember
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.composed
-import androidx.compose.ui.graphics.Color
-import androidx.compose.ui.graphics.toArgb
-import androidx.compose.ui.platform.LocalContext
 import androidx.core.view.WindowInsetsControllerCompat
 
 /**
  * Sets the status bar color and text appearance for the current activity.
  *
- * @param color The color to set as the status bar color.
+ * @param darkIcon invert the Status icons color based on theme
  */
 @Composable
-fun SetStatusBarColor(color: Color) {
-    val window = (LocalContext.current as? Activity)?.window
+fun SetStatusBarColor(darkIcon: Boolean = !isSystemInDarkTheme()) {
+    val window = LocalActivity.current?.window
     window?.apply {
         WindowInsetsControllerCompat(window, decorView).apply {
-            isAppearanceLightStatusBars = true
-            isAppearanceLightNavigationBars = true
+            isAppearanceLightStatusBars = darkIcon
+            isAppearanceLightNavigationBars = darkIcon
         }
-        statusBarColor = color.toArgb()
     }
 }
 
