@@ -68,7 +68,8 @@ class HomeViewModel @Inject constructor(
 
             DataStatus.Error,
             DataStatus.Offline,
-            DataStatus.Empty -> {
+            DataStatus.Empty,
+            -> {
                 HomeViewStates.ErrorData(
                     showLoader = false,
                     data = homeDataModel,

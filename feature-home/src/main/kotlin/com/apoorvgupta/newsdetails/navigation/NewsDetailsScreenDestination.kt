@@ -90,7 +90,6 @@ fun NewsDetailsScreenDestination(
             CircularProgressBarComponent(newsDetailsViewState.showLoader)
         }
 
-
         is NewsDetailsViewStates.UnInitialized -> {
             // Do Nothing.
         }

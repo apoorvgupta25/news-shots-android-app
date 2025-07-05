@@ -24,8 +24,7 @@ class NewsDetailsViewModel @Inject constructor(
 
     private var postLink: String = String.emptyValue()
 
-    override fun createInitialState(): NewsDetailsViewState =
-        NewsDetailsViewState(NewsDetailsViewStates.UnInitialized)
+    override fun createInitialState(): NewsDetailsViewState = NewsDetailsViewState(NewsDetailsViewStates.UnInitialized)
 
     override fun handleIntent(intent: NewsDetailsIntent) {
         when (intent) {
@@ -82,14 +81,14 @@ class NewsDetailsViewModel @Inject constructor(
 
             DataStatus.Error,
             DataStatus.Offline,
-            DataStatus.Empty -> {
+            DataStatus.Empty,
+            -> {
                 NewsDetailsViewStates.ErrorData(
                     showLoader = false,
                     data = newsDetailsDataModel,
                 )
             }
         }
-
 
         emitViewState { copy(newsDetailsViewState = newsDetailsViewState) }
     }
