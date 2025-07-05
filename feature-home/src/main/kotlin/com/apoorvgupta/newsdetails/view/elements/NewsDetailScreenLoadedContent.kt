@@ -16,10 +16,8 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.layout.ContentScale
 import coil.compose.AsyncImage
 import com.apoorvgupta.capabilities.presentation.reusableComponents.BackArrowNavigation
+import com.apoorvgupta.capabilities.presentation.theme.Dimensions
 import com.apoorvgupta.capabilities.presentation.theme.linkTextColor
-import com.apoorvgupta.capabilities.presentation.theme.m_horizontal_spacing
-import com.apoorvgupta.capabilities.presentation.theme.m_surrounding_spacing
-import com.apoorvgupta.capabilities.presentation.theme.m_vertical_spacing
 import com.apoorvgupta.capabilities.util.Constants
 import com.apoorvgupta.draftjscompose.view.DraftJSView
 import com.apoorvgupta.newsdetails.intent.NewsDetailsIntent
@@ -51,7 +49,7 @@ fun NewsDetailScreenLoadedContent(
             )
 
             Column(
-                modifier = Modifier.padding(all = m_surrounding_spacing),
+                modifier = Modifier.padding(all = Dimensions.SurroundingDimensions.m_surrounding_spacing),
             ) {
                 BackArrowNavigation(
                     onBackClick = {
@@ -64,7 +62,7 @@ fun NewsDetailScreenLoadedContent(
         // Desc
         Row(
             modifier = Modifier
-                .padding(vertical = m_vertical_spacing, horizontal = m_horizontal_spacing)
+                .padding(vertical = Dimensions.VerticalDimensions.m_vertical_spacing, horizontal = Dimensions.HorizonalDimensions.m_horizontal_spacing)
                 .fillMaxWidth(),
         ) {
             Text(
@@ -82,9 +80,9 @@ fun NewsDetailScreenLoadedContent(
 
         Text(
             modifier = Modifier.padding(
-                start = m_horizontal_spacing,
-                end = m_horizontal_spacing,
-                bottom = m_vertical_spacing,
+                start = Dimensions.HorizonalDimensions.m_horizontal_spacing,
+                end = Dimensions.HorizonalDimensions.m_horizontal_spacing,
+                bottom = Dimensions.VerticalDimensions.m_vertical_spacing,
             ),
             text = state.data.newsShot.title,
             style = MaterialTheme.typography.headlineSmall,
@@ -92,7 +90,7 @@ fun NewsDetailScreenLoadedContent(
 
         // Main Content
         Box(
-            modifier = Modifier.padding(horizontal = m_horizontal_spacing),
+            modifier = Modifier.padding(horizontal = Dimensions.HorizonalDimensions.m_horizontal_spacing),
         ) {
             DraftJSView(
                 modifier = Modifier,

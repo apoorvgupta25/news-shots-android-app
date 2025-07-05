@@ -7,7 +7,6 @@ package com.apoorvgupta.capabilities.presentation.theme
 
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material3.Shapes
-import androidx.compose.ui.unit.dp
 
 /**
  * Shapes for defining corner shapes
@@ -18,9 +17,9 @@ import androidx.compose.ui.unit.dp
 val Shapes =
     Shapes(
         // Small rounded corner shape with 4.dp radius
-        small = RoundedCornerShape(4.dp),
+        small = RoundedCornerShape(Dimensions.CornerRadius.xs_corner_radius),
         // Medium rounded corner shape with 4.dp radius
-        medium = RoundedCornerShape(4.dp),
+        medium = RoundedCornerShape(Dimensions.CornerRadius.xs_corner_radius),
         // Large rounded corner shape with 0.dp radius (no rounding)
-        large = RoundedCornerShape(0.dp),
+        large = RoundedCornerShape(Dimensions.CornerRadius.zero_corner_radius),
     )

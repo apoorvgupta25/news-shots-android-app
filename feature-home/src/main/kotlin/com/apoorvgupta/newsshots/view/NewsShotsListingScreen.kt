@@ -19,9 +19,7 @@ import com.apoorvgupta.capabilities.presentation.reusableComponents.BackArrowNav
 import com.apoorvgupta.capabilities.presentation.reusableComponents.HeadLine
 import com.apoorvgupta.capabilities.presentation.reusableComponents.loader.CircularProgressBarComponent
 import com.apoorvgupta.capabilities.presentation.reusableComponents.newsshots.NewsShotsCard
-import com.apoorvgupta.capabilities.presentation.theme.m_horizontal_spacing
-import com.apoorvgupta.capabilities.presentation.theme.m_vertical_spacing
-import com.apoorvgupta.capabilities.presentation.theme.s_vertical_spacing
+import com.apoorvgupta.capabilities.presentation.theme.Dimensions
 import com.apoorvgupta.core.logger.AppLogger
 import com.apoorvgupta.core.utils.getValueOrEmpty
 import com.apoorvgupta.newsshots.intent.NewsShotsListingIntent
@@ -43,12 +41,12 @@ fun NewsShotsListingScreen(
         modifier = Modifier
             .fillMaxSize()
             .background(color = MaterialTheme.colorScheme.surface)
-            .padding(horizontal = m_horizontal_spacing),
+            .padding(horizontal = Dimensions.HorizonalDimensions.m_horizontal_spacing),
         verticalArrangement = Arrangement.Top,
         horizontalAlignment = Alignment.Start,
     ) {
         item {
-            Spacer(modifier = Modifier.height(m_vertical_spacing))
+            Spacer(modifier = Modifier.height(Dimensions.VerticalDimensions.m_vertical_spacing))
 
             BackArrowNavigation(
                 onBackClick = {
@@ -56,7 +54,7 @@ fun NewsShotsListingScreen(
                 },
             )
 
-            Spacer(modifier = Modifier.height(s_vertical_spacing))
+            Spacer(modifier = Modifier.height(Dimensions.VerticalDimensions.s_vertical_spacing))
 
             HeadLine(
                 headText = state.data.headingText,

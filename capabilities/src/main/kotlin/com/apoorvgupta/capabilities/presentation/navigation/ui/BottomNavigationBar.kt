@@ -37,13 +37,8 @@ import androidx.navigation.compose.currentBackStackEntryAsState
 import com.apoorvgupta.capabilities.presentation.navigation.Bookmark
 import com.apoorvgupta.capabilities.presentation.navigation.Home
 import com.apoorvgupta.capabilities.presentation.navigation.Search
-import com.apoorvgupta.capabilities.presentation.theme.l_icon_size
-import com.apoorvgupta.capabilities.presentation.theme.m_horizontal_spacing
-import com.apoorvgupta.capabilities.presentation.theme.s_surrounding_spacing
+import com.apoorvgupta.capabilities.presentation.theme.Dimensions
 import com.apoorvgupta.capabilities.presentation.theme.shadowBackgroundColor
-import com.apoorvgupta.capabilities.presentation.theme.sl_horizontal_spacing
-import com.apoorvgupta.capabilities.presentation.theme.sl_vertical_spacing
-import com.apoorvgupta.capabilities.presentation.theme.xxxs_stroke_width
 import com.apoorvgupta.capabilities.util.Constants
 import com.apoorvgupta.core.logger.AppLogger
 import com.apoorvgupta.core.utils.emptyValue
@@ -121,7 +116,7 @@ fun BottomNavigationBar(
                 )
             }
             .shadow(
-                elevation = s_surrounding_spacing,
+                elevation = Dimensions.SurroundingDimensions.s_surrounding_spacing,
                 spotColor = MaterialTheme.colorScheme.shadowBackgroundColor,
             ),
     ) {
@@ -134,24 +129,24 @@ fun BottomNavigationBar(
                     Image(
                         painter = painterResource(if (isCurrentRouteSelected) item.filledIcon else item.icon),
                         contentDescription = String.emptyValue(),
-                        modifier = Modifier.size(l_icon_size),
+                        modifier = Modifier.size(Dimensions.IconSize.l_icon_size),
                         alpha = if (isCurrentRouteSelected) Constants.FULL_WEIGHT else Constants.HALF_WEIGHT,
                     )
                     if (item.displayBadge) {
                         BadgedBox(
                             modifier = Modifier
                                 .padding(
-                                    top = sl_vertical_spacing,
-                                    start = m_horizontal_spacing,
-                                    end = sl_horizontal_spacing,
-                                    bottom = sl_vertical_spacing,
+                                    top = Dimensions.VerticalDimensions.sl_vertical_spacing,
+                                    start = Dimensions.HorizonalDimensions.m_horizontal_spacing,
+                                    end = Dimensions.HorizonalDimensions.sl_horizontal_spacing,
+                                    bottom = Dimensions.VerticalDimensions.sl_vertical_spacing,
                                 ),
                             badge = {
                                 Badge(
                                     containerColor = if (isCurrentRouteSelected) MaterialTheme.colorScheme.primary else Color.Red,
                                     contentColor = MaterialTheme.colorScheme.background,
                                     modifier = Modifier.border(
-                                        width = xxxs_stroke_width,
+                                        width = Dimensions.StrokeWidth.xxxs_stroke_width,
                                         shape = CircleShape,
                                         color = MaterialTheme.colorScheme.background,
                                     ),
