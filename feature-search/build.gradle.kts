@@ -64,12 +64,14 @@ android {
     }
 }
 
-dependencies {    // Core, Capabilities Integration in Feature Modules
+dependencies {
+    // Core, Capabilities Integration in Feature Modules
     implementation(project(":core"))
     implementation(project(":capabilities"))
 
     // UI dependencies
     implementation(libs.androidx.ui)
+    implementation(platform(libs.androidx.compose.bom))
     implementation(libs.androidx.material3)
     implementation(libs.androidx.activity.compose)
 

@@ -4,15 +4,10 @@ kotlin = "2.2.0"
 dagger = "2.56.2"
 gradleAnalyzer = "2.19.0"
 
-coreKtx = "1.16.0"
 ktlintCli = "1.6.0"
 navigationCompose = "2.9.1"
 kotlinSerialization = "1.9.0"
 junit = "4.13.2"
-junitVersion = "1.2.1"
-espressoCore = "3.6.1"
-mockk = "1.14.4"
-lifecycleRuntimeKtx = "2.9.1"
 activityCompose = "1.10.1"
 composeBom = "2025.06.01"
 retrofit = "3.0.0"
@@ -21,16 +16,12 @@ okhttp = "4.12.0"
 okhttpLogging = "4.12.0"
 hilt = "2.56.2"
 hiltCompose = "1.2.0"
-appcompat = "1.7.1"
-viewmodelKtx = "2.9.1"
 timber = "5.0.1"
 splashScreen = "1.0.1"
-securityCrypto = "1.1.0-beta01"
 coil = "2.7.0"
 gson = "2.13.1"
 androidXBrowser = "1.8.0"
 accompanistWebView = "0.30.1"
-material3 = "1.3.2"
 pagination = "3.3.6"
 draftjscompose = "1.0.0"
 
@@ -40,14 +31,14 @@ draftjscompose = "1.0.0"
 androidx-activity-compose = { group = "androidx.activity", name = "activity-compose", version.ref = "activityCompose" }
 androidx-navigation-compose = { group = "androidx.navigation", name = "navigation-compose", version.ref = "navigationCompose" }
 kotlinx-serialization = { group = "org.jetbrains.kotlinx", name = "kotlinx-serialization-json", version.ref = "kotlinSerialization" }
+androidx-compose-bom = { group = "androidx.compose", name = "compose-bom", version.ref = "composeBom" }
 androidx-ui = { group = "androidx.compose.ui", name = "ui" }
 androidx-ui-tooling = { group = "androidx.compose.ui", name = "ui-tooling" }
-androidx-material3 = { group = "androidx.compose.material3", name = "material3", version.ref = "material3" }
+androidx-material3 = { group = "androidx.compose.material3", name = "material3" }
 # Pagination
 androidx-pagination = { group = "androidx.paging", name = "paging-compose", version.ref = "pagination" }
 # Testing dependencies
 junit = { group = "junit", name = "junit", version.ref = "junit" }
-mockk = { group = "io.mockk", name = "mockk", version.ref = "mockk" }
 # Ktlint
 ktlint-cli = { module = "com.pinterest.ktlint:ktlint-cli", version.ref = "ktlintCli" }
 # Networking dependencies
@@ -72,24 +63,6 @@ gson = { group = "com.google.code.gson", name = "gson", version.ref = "gson" }
 # AndroidX Browser
 androidx-browser = { group = "androidx.browser", name = "browser", version.ref = "androidXBrowser" }
 draftjscompose = { module = "com.github.apoorvgupta25:DraftjsCompose", version.ref = "draftjscompose" }
-
-# Unused
-# Core dependencies
-androidx-core-ktx = { group = "androidx.core", name = "core-ktx", version.ref = "coreKtx" }
-androidx-lifecycle-runtime-ktx = { group = "androidx.lifecycle", name = "lifecycle-runtime-ktx", version.ref = "lifecycleRuntimeKtx" }
-# Android Security Crypto
-androidx-security-crypto = { group = "androidx.security", name = "security-crypto-ktx", version.ref = "securityCrypto" }
-# Other dependencies
-appcompat = { group = "androidx.appcompat", name = "appcompat", version.ref = "appcompat" }
-viewmodel-lifecycle = { group = "androidx.lifecycle", name = "lifecycle-viewmodel-ktx", version.ref = "viewmodelKtx" }
-# Testing dependencies
-androidx-ext-junit = { group = "androidx.test.ext", name = "junit", version.ref = "junitVersion" }
-androidx-espresso-core = { group = "androidx.test.espresso", name = "espresso-core", version.ref = "espressoCore" }
-androidx-ui-test-junit4 = { group = "androidx.compose.ui", name = "ui-test-junit4" }
-androidx-ui-test-manifest = { group = "androidx.compose.ui", name = "ui-test-manifest" }
-# Compose
-androidx-compose-bom = { group = "androidx.compose", name = "compose-bom", version.ref = "composeBom" }
-androidx-ui-tooling-preview = { group = "androidx.compose.ui", name = "ui-tooling-preview" }
 
 [plugins]
 android-application = { id = "com.android.application", version.ref = "agp" }

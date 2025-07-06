@@ -66,9 +66,8 @@ dependencies {
     // Core Module Integration in capabilities
     implementation(project(":core"))
 
-    // Other dependencies
-
     // UI dependencies
+    implementation(platform(libs.androidx.compose.bom))
     implementation(libs.androidx.ui)
     implementation(libs.androidx.ui.tooling)
     implementation(libs.androidx.material3)
@@ -89,9 +88,6 @@ dependencies {
     // Dagger Hilt for dependency injection
     implementation(libs.hilt.android)
     kapt(libs.hilt.android.compiler)
-
-    // Mocking library for testing
-    testImplementation(libs.mockk)
 
     // Retrofit for networking
     implementation(libs.retrofit)
