@@ -86,6 +86,9 @@ dependencies {
     // Testing dependencies
     testImplementation(libs.junit)
 
+    // Mocking library for testing
+    testImplementation(libs.mockk)
+
     // Dagger Hilt for dependency injection
     implementation(libs.hilt.android)
     kapt(libs.hilt.android.compiler)
