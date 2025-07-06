@@ -20,4 +20,4 @@
 # hide the original source file name.
 #-renamesourcefileattribute SourceFile
 -keep class com.apoorvgupta.core.** {*;}
--dontwarn com.apoorvgupta.core.**
+-dontwarn java.lang.invoke.StringConcatFactory
