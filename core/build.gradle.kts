@@ -30,8 +30,9 @@ android {
 
     // Configuration for different build types (e.g., release)
     buildTypes {
-        getByName("release") {
-            isMinifyEnabled = false
+        release {
+            // Enable Progaurd/R8 for release variants
+            isMinifyEnabled = true
             proguardFiles(
                     getDefaultProguardFile("proguard-android-optimize.txt"),
                     "proguard-rules.pro"

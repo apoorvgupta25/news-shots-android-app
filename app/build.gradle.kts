@@ -77,7 +77,7 @@ android {
     }
 
     buildTypes {
-        getByName("release") {
+        release {
             isDebuggable = false // is prefix for boolean
             // Enable Progaurd/R8 for release variants
             isMinifyEnabled = true
