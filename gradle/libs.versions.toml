@@ -2,7 +2,6 @@
 agp = "8.11.0"
 kotlin = "2.2.0"
 dagger = "2.56.2"
-gradleAnalyzer = "2.19.0"
 
 ktlintCli = "1.6.0"
 navigationCompose = "2.9.1"
@@ -72,6 +71,5 @@ jetbrains-kotlin-serialization = { id = "org.jetbrains.kotlin.plugin.serializati
 jetbrains-kotlin-kapt = { id = "org.jetbrains.kotlin.kapt", version.ref = "kotlin" }
 compose-compiler = { id = "org.jetbrains.kotlin.plugin.compose", version.ref = "kotlin" }
 dagger-hilt = { id = "com.google.dagger.hilt.android", version.ref = "dagger" }
-gradle-analyze = { id = "com.autonomousapps.dependency-analysis", version.ref = "gradleAnalyzer" }
 
 
