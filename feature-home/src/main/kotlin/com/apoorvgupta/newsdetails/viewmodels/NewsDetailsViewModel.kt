@@ -2,6 +2,7 @@ package com.apoorvgupta.newsdetails.viewmodels
 
 import androidx.lifecycle.viewModelScope
 import com.apoorvgupta.core.base.BaseViewModel
+import com.apoorvgupta.core.utils.DataStatus
 import com.apoorvgupta.core.utils.emptyValue
 import com.apoorvgupta.newsdetails.intent.NewsDetailsIntent
 import com.apoorvgupta.newsdetails.intent.NewsDetailsNavEffect
@@ -54,7 +55,6 @@ class NewsDetailsViewModel @Inject constructor(
     }
 
     private fun getNewsDetails(postLink: String) {
-        emitLoading()
         viewModelScope.launch {
             newsDetailsScreenUseCase.getNewsDetailsContentData(postLink = postLink)
                 .collect {
@@ -64,14 +64,33 @@ class NewsDetailsViewModel @Inject constructor(
     }
 
     private fun emitDetailsData(newsDetailsDataModel: NewsDetailsDataModel) {
-        emitViewState {
-            copy(
-                newsDetailsViewState = NewsDetailsViewStates.LoadedData(
+        val newsDetailsViewState = when (newsDetailsDataModel.status) {
+            DataStatus.Success -> {
+                NewsDetailsViewStates.LoadedData(
                     showLoader = false,
                     data = newsDetailsDataModel,
-                ),
-            )
+                )
+            }
+
+            DataStatus.Loading -> {
+                NewsDetailsViewStates.Loading(
+                    showLoader = true,
+                    data = NewsDetailsDataModel(),
+                )
+            }
+
+            DataStatus.Error,
+            DataStatus.Offline,
+            DataStatus.Empty,
+            -> {
+                NewsDetailsViewStates.ErrorData(
+                    showLoader = false,
+                    data = newsDetailsDataModel,
+                )
+            }
         }
+
+        emitViewState { copy(newsDetailsViewState = newsDetailsViewState) }
     }
 
     /**
@@ -80,7 +99,7 @@ class NewsDetailsViewModel @Inject constructor(
     fun emitLoading() {
         emitViewState {
             copy(
-                newsDetailsViewState = NewsDetailsViewStates.InitialLoading(
+                newsDetailsViewState = NewsDetailsViewStates.Loading(
                     showLoader = true,
                     data = NewsDetailsDataModel(),
                 ),
