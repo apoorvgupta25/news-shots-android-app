@@ -8,7 +8,9 @@ updates:
     directory: "/"
     schedule:
       interval: "weekly"
+      days: ["monday", "thursday"]
       time: "16:00"
+      timezone: "Asia/Kolkata"
     target-branch: "deps-and-versions"
     registries:
       - google
@@ -20,7 +22,9 @@ updates:
     directory: "/"
     schedule:
       interval: "weekly"
+      days: ["monday", "thursday"]
       time: "16:00"
+      timezone: "Asia/Kolkata"
     target-branch: "deps-and-versions"
     open-pull-requests-limit: 10
     groups:
@@ -31,10 +35,10 @@ updates:
 registries:
   google:
     type: maven-repository
-    url: "https://maven.google.com/"
+    url: "https://maven.google.com"
   jitpack:
     type: maven-repository
-    url: "https://jitpack.io/"
+    url: "https://jitpack.io"
   maven-central:
     type: maven-repository
     url: "https://repo.maven.apache.org/maven2"

@@ -43,7 +43,8 @@ android {
     }
 
     buildTypes {
-        getByName("release") {
+        release {
+            // Enable Progaurd/R8 for release variants
             isMinifyEnabled = false
             proguardFiles(
                 getDefaultProguardFile("proguard-android-optimize.txt"),
@@ -71,6 +72,7 @@ dependencies {
     implementation(project(":capabilities"))
 
     // UI dependencies
+    implementation(platform(libs.androidx.compose.bom))
     implementation(libs.androidx.ui)
     implementation(libs.androidx.material3)
     implementation(libs.androidx.activity.compose)

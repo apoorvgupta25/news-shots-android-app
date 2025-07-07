@@ -40,8 +40,9 @@ android {
     }
 
     buildTypes {
-        getByName("release") {
-            isMinifyEnabled = false
+        release {
+            // Enable Progaurd/R8 for release variants
+            isMinifyEnabled = true
             proguardFiles(
                 getDefaultProguardFile("proguard-android-optimize.txt"),
                 "proguard-rules.pro"
@@ -66,9 +67,8 @@ dependencies {
     // Core Module Integration in capabilities
     implementation(project(":core"))
 
-    // Other dependencies
-
     // UI dependencies
+    implementation(platform(libs.androidx.compose.bom))
     implementation(libs.androidx.ui)
     implementation(libs.androidx.ui.tooling)
     implementation(libs.androidx.material3)
@@ -86,12 +86,12 @@ dependencies {
     // Testing dependencies
     testImplementation(libs.junit)
 
+    // Mocking library for testing
+    testImplementation(libs.mockk)
+
     // Dagger Hilt for dependency injection
     implementation(libs.hilt.android)
     kapt(libs.hilt.android.compiler)
-
-    // Mocking library for testing
-    testImplementation(libs.mockk)
 
     // Retrofit for networking
     implementation(libs.retrofit)

@@ -77,7 +77,7 @@ android {
     }
 
     buildTypes {
-        getByName("release") {
+        release {
             isDebuggable = false // is prefix for boolean
             // Enable Progaurd/R8 for release variants
             isMinifyEnabled = true
@@ -130,6 +130,7 @@ dependencies {
     implementation(project(":feature-bookmark"))
 
     // Material design dependency
+    implementation(platform(libs.androidx.compose.bom))
     implementation(libs.androidx.material3)
 
     // Navigation
