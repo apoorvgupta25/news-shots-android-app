@@ -7,9 +7,8 @@ updates:
   - package-ecosystem: "gradle"
     directory: "/"
     schedule:
-      interval: "weekly"
-      days: ["monday", "thursday"]
-      time: "16:00"
+      interval: "daily"
+      time: "01:00"
       timezone: "Asia/Kolkata"
     target-branch: "deps-and-versions"
     registries:
@@ -21,9 +20,8 @@ updates:
   - package-ecosystem: "github-actions"
     directory: "/"
     schedule:
-      interval: "weekly"
-      days: ["monday", "thursday"]
-      time: "16:00"
+      interval: "daily"
+      time: "01:00"
       timezone: "Asia/Kolkata"
     target-branch: "deps-and-versions"
     open-pull-requests-limit: 10
