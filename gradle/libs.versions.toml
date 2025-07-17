@@ -1,7 +1,7 @@
 [versions]
 agp = "8.11.0"
 kotlin = "2.2.0"
-dagger = "2.56.2"
+dagger = "2.57"
 
 ktlintCli = "1.6.0"
 navigationCompose = "2.9.1"
