@@ -1,20 +1,19 @@
 [versions]
-agp = "8.11.0"
+agp = "8.11.1"
 kotlin = "2.2.0"
-dagger = "2.56.2"
+daggerHilt = "2.57"
 
-ktlintCli = "1.6.0"
-navigationCompose = "2.9.1"
+ktlintCli = "1.7.0"
+navigationCompose = "2.9.2"
 kotlinSerialization = "1.9.0"
 junit = "4.13.2"
-mockk = "1.14.4"
+mockk = "1.14.5"
 activityCompose = "1.10.1"
-composeBom = "2025.06.01"
+composeBom = "2025.07.00"
 retrofit = "3.0.0"
 retrofitGson = "3.0.0"
-okhttp = "4.12.0"
-okhttpLogging = "4.12.0"
-hilt = "2.56.2"
+okhttp = "5.1.0"
+okhttpLogging = "5.1.0"
 hiltCompose = "1.2.0"
 timber = "5.0.1"
 splashScreen = "1.0.1"
@@ -23,7 +22,7 @@ gson = "2.13.1"
 androidXBrowser = "1.8.0"
 accompanistWebView = "0.30.1"
 pagination = "3.3.6"
-draftjscompose = "1.0.0"
+draftjscompose = "1.1.0"
 
 [libraries]
 
@@ -48,8 +47,8 @@ retrofit-gson = { group = "com.squareup.retrofit2", name = "converter-gson", ver
 okhttp = { group = "com.squareup.okhttp3", name = "okhttp", version.ref = "okhttp" }
 okhttp-logging = { group = "com.squareup.okhttp3", name = "logging-interceptor", version.ref = "okhttpLogging" }
 # Dagger and Hilt dependencies
-hilt-android = { group = "com.google.dagger", name = "hilt-android", version.ref = "hilt" }
-hilt-android-compiler = { group = "com.google.dagger", name = "hilt-android-compiler", version.ref = "hilt" }
+hilt-android = { group = "com.google.dagger", name = "hilt-android", version.ref = "daggerHilt" }
+hilt-android-compiler = { group = "com.google.dagger", name = "hilt-android-compiler", version.ref = "daggerHilt" }
 hilt-navigation-compose = { group = "androidx.hilt", name = "hilt-navigation-compose", version.ref = "hiltCompose" }
 # Timber
 timber = { group = "com.jakewharton.timber", name = "timber", version.ref = "timber" }
@@ -72,6 +71,6 @@ jetbrains-kotlin-android = { id = "org.jetbrains.kotlin.android", version.ref = 
 jetbrains-kotlin-serialization = { id = "org.jetbrains.kotlin.plugin.serialization", version.ref = "kotlin" }
 jetbrains-kotlin-kapt = { id = "org.jetbrains.kotlin.kapt", version.ref = "kotlin" }
 compose-compiler = { id = "org.jetbrains.kotlin.plugin.compose", version.ref = "kotlin" }
-dagger-hilt = { id = "com.google.dagger.hilt.android", version.ref = "dagger" }
+dagger-hilt = { id = "com.google.dagger.hilt.android", version.ref = "daggerHilt" }
 
 
