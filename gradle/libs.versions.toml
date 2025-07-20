@@ -3,7 +3,7 @@ agp = "8.11.1"
 kotlin = "2.2.0"
 dagger = "2.57"
 
-ktlintCli = "1.6.0"
+ktlintCli = "1.7.0"
 navigationCompose = "2.9.1"
 kotlinSerialization = "1.9.0"
 junit = "4.13.2"
