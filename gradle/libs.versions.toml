@@ -1,7 +1,7 @@
 [versions]
 agp = "8.11.0"
 kotlin = "2.2.0"
-dagger = "2.56.2"
+dagger = "2.57"
 
 ktlintCli = "1.6.0"
 navigationCompose = "2.9.1"
@@ -14,7 +14,7 @@ retrofit = "3.0.0"
 retrofitGson = "3.0.0"
 okhttp = "5.1.0"
 okhttpLogging = "5.1.0"
-hilt = "2.56.2"
+hilt = "2.57"
 hiltCompose = "1.2.0"
 timber = "5.0.1"
 splashScreen = "1.0.1"
