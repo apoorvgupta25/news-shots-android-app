@@ -12,6 +12,7 @@ plugins {
     alias(libs.plugins.jetbrains.kotlin.serialization)
     alias(libs.plugins.dagger.hilt) apply false
     alias(libs.plugins.compose.compiler) apply false
+    alias(libs.plugins.google.services) apply false
 }
 
 // Apply ktlint to the entire project.
