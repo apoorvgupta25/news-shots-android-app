@@ -12,6 +12,7 @@ plugins {
     alias(libs.plugins.dagger.hilt)
     alias(libs.plugins.jetbrains.kotlin.kapt)
     alias(libs.plugins.compose.compiler)
+    alias(libs.plugins.google.services)
 }
 
 // For the Release build, setup Keystore properties here.
@@ -141,6 +142,7 @@ dependencies {
     implementation(libs.hilt.navigation.compose)
 
     // Firebase
+    implementation(platform(libs.firebase.bom))
     implementation(libs.splash.screen)
 
     kapt(libs.hilt.android.compiler)
