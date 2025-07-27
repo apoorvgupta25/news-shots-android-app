@@ -30,6 +30,10 @@ jobs:
       - name: Clean Gradle
         run: ./gradlew clean --no-daemon
 
+      - name: Create and write google-services.json
+        run: |
+          echo "${{ secrets.GOOGLE_SERVICES_JSON }}" | base64 --decode > app/google-services.json
+
       - name: Build Project All countries UAT
         run: ./gradlew assembleUatRelease --no-daemon -Dorg.gradle.jvmargs="-Xmx3g -Dorg.gradle.workers.max=2" --info
 
