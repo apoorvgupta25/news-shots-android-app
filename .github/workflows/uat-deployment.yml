@@ -50,7 +50,7 @@ jobs:
           EOF
 
       - name: Decode keystore and create jks
-        run: echo "${{ secrets.KEYSTORE_JKS_BASE64 }}" | base64 --decode > android.keystore
+        run: echo "${{ secrets.KEYSTORE_JKS_BASE64 }}" | base64 --decode > ./app/android.keystore
 
       - name: Build Project All countries UAT
         run: ./gradlew assembleUatRelease --no-daemon -Dorg.gradle.jvmargs="-Xmx3g -Dorg.gradle.workers.max=2" --info
