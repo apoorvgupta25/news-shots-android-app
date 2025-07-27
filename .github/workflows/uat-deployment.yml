@@ -30,6 +30,16 @@ jobs:
       - name: Clean Gradle
         run: ./gradlew clean --no-daemon
 
+      # Create google-services file
+      - name: Create file
+        run: cat /home/runner/work/news-shots-android-app/news-shots-android-app/app/google-services.json | base64
+
+      # Update google-services file
+      - name: Update data
+        env:
+          DATA: ${{secrets.GOOGLE_SERVICES_JSON}}
+        run: echo $DATA > /home/runner/work/news-shots-android-app/news-shots-android-app/app/google-services.json
+
       - name: Build Project All countries UAT
         run: ./gradlew assembleUatRelease --no-daemon -Dorg.gradle.jvmargs="-Xmx3g -Dorg.gradle.workers.max=2" --info
 
