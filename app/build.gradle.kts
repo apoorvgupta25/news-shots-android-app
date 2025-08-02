@@ -28,15 +28,15 @@ android {
     // Set the namespace for the application
     namespace = "com.apoorvgupta.newsshots"
     // Set the compile SDK version
-    compileSdk = BuildConfig.compileSdk
+    compileSdk = libs.versions.android.compileSdk.get().toInt()
 
     defaultConfig {
         // Application ID
         applicationId = BuildConfig.applicationId
         // Minimum SDK version
-        minSdk = BuildConfig.minSdk
+        minSdk = libs.versions.android.minSdk.get().toInt()
         // Target SDK version
-        targetSdk = BuildConfig.targetSdk
+        targetSdk = libs.versions.android.targetSdk.get().toInt()
         // Version code and version name
         versionCode = BuildConfig.versionCode
         versionName = BuildConfig.versionName
