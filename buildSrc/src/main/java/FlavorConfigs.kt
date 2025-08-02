@@ -9,10 +9,6 @@
  * @author Apoorv Gupta
  */
 object BuildConfig {
-    // Android build configuration
-    const val versionCode = 4
-    const val versionName = "1.0.1"
-
     // Kotlin and JVM configuration
     const val kotlinCompilerExtensionVersion = "1.5.13"
 
