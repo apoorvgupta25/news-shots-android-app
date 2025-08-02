@@ -1,39 +1,49 @@
- name: Android Build Check
+name: Android Build Check
 
- # Run this upon a pull-request to the development branch.
- on:
-   pull_request:
-     branches:
-       - main
-       - deps-and-versions
+# Run this upon a pull-request to the development branch.
+on:
+  pull_request:
+    branches:
+      - main
+      - deps-and-versions
 
- jobs:
-   build:
-     runs-on: ubuntu-latest
-     steps:
-       # Check out the code.
-       - uses: actions/checkout@v4
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      # Check out the code.
+      - uses: actions/checkout@v4
 
-       # Setup the specific JDK.
-       - name: Setup JDK
-         uses: actions/setup-java@v4
-         with:
-           java-version: '17'
-           distribution: 'adopt'
-           cache: gradle
+      # Setup the specific JDK.
+      - name: Setup JDK
+        uses: actions/setup-java@v4
+        with:
+          java-version: '17'
+          distribution: 'adopt'
+          cache: gradle
 
-       # Setup the permission for running Gradle.
-       - name: Grant execute permission for gradlew
-         run: chmod +x gradlew
+      # Setup the permission for running Gradle.
+      - name: Grant execute permission for gradlew
+        run: chmod +x gradlew
 
-       # Run the ktlint check.
-       - name: Lint Checks
-         run: ./gradlew ktlintCheck
+      # Run the ktlint check.
+      - name: Lint Checks
+        run: ./gradlew ktlintCheck
 
-       # Attempt to build the project.
-       - name: Build Project
-         run: ./gradlew assembleDebug
+      # Create google-services file
+      - name: Create file
+        run: cat /home/runner/work/news-shots-android-app/news-shots-android-app/app/google-services.json | base64
 
-       # Attempt to run the unit tests.
-       - name: Run Unit Tests
-         run: ./gradlew test
+      # Update google-services file
+      - name: Update data
+        env:
+          DATA: ${{secrets.GOOGLE_SERVICES_JSON}}
+        run: echo $DATA > /home/runner/work/news-shots-android-app/news-shots-android-app/app/google-services.json
+
+      # Attempt to build the project.
+      - name: Build Project
+        run: ./gradlew assembleDebug
+
+      # Attempt to run the unit tests.
+      - name: Run Unit Tests
+        run: ./gradlew test

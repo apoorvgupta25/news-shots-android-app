@@ -5,6 +5,7 @@ android-minSdk = "29"
 android-targetSdk = "36"
 kotlin = "2.2.0"
 daggerHilt = "2.57"
+googleServices = "4.4.3"
 
 ktlintCli = "1.7.1"
 navigationCompose = "2.9.3"
@@ -26,6 +27,7 @@ androidXBrowser = "1.9.0"
 accompanistWebView = "0.30.1"
 pagination = "3.3.6"
 draftjscompose = "1.1.0"
+firebaseBom = "34.0.0"
 
 [libraries]
 
@@ -65,7 +67,10 @@ accompanist-webView = { group = "com.google.accompanist", name = "accompanist-we
 gson = { group = "com.google.code.gson", name = "gson", version.ref = "gson" }
 # AndroidX Browser
 androidx-browser = { group = "androidx.browser", name = "browser", version.ref = "androidXBrowser" }
+#draftjs
 draftjscompose = { module = "com.github.apoorvgupta25:DraftjsCompose", version.ref = "draftjscompose" }
+# Firebase
+firebase-bom = { module = "com.google.firebase:firebase-bom", version.ref = "firebaseBom" }
 
 [plugins]
 android-application = { id = "com.android.application", version.ref = "agp" }
@@ -75,5 +80,6 @@ jetbrains-kotlin-serialization = { id = "org.jetbrains.kotlin.plugin.serializati
 jetbrains-kotlin-kapt = { id = "org.jetbrains.kotlin.kapt", version.ref = "kotlin" }
 compose-compiler = { id = "org.jetbrains.kotlin.plugin.compose", version.ref = "kotlin" }
 dagger-hilt = { id = "com.google.dagger.hilt.android", version.ref = "daggerHilt" }
+google-services = { id = "com.google.gms.google-services", version.ref = "googleServices" }
 
 
