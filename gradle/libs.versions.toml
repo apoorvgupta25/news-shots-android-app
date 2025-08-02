@@ -4,7 +4,7 @@ kotlin = "2.2.0"
 daggerHilt = "2.57"
 
 ktlintCli = "1.7.1"
-navigationCompose = "2.9.2"
+navigationCompose = "2.9.3"
 kotlinSerialization = "1.9.0"
 junit = "4.13.2"
 mockk = "1.14.5"
