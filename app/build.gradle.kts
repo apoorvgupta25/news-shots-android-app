@@ -38,8 +38,8 @@ android {
         // Target SDK version
         targetSdk = libs.versions.android.targetSdk.get().toInt()
         // Version code and version name
-        versionCode = BuildConfig.versionCode
-        versionName = BuildConfig.versionName
+        versionCode = libs.versions.version.code.get().toInt()
+        versionName = libs.versions.version.name.get()
 
         // Test instrumentation runner for unit tests
         testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"

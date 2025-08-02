@@ -1,8 +1,10 @@
 [versions]
-agp = "8.12.0"
 android-compileSdk = "36"
 android-minSdk = "29"
 android-targetSdk = "36"
+version-code = "4"
+version-name = "1.0.1"
+agp = "8.12.0"
 kotlin = "2.2.0"
 daggerHilt = "2.57"
 googleServices = "4.4.3"
@@ -23,7 +25,7 @@ timber = "5.0.1"
 splashScreen = "1.0.1"
 coil = "2.7.0"
 gson = "2.13.1"
-androidXBrowser = "1.8.0"
+androidXBrowser = "1.9.0"
 accompanistWebView = "0.30.1"
 pagination = "3.3.6"
 draftjscompose = "1.1.0"
@@ -39,36 +41,49 @@ androidx-compose-bom = { group = "androidx.compose", name = "compose-bom", versi
 androidx-ui = { group = "androidx.compose.ui", name = "ui" }
 androidx-ui-tooling = { group = "androidx.compose.ui", name = "ui-tooling" }
 androidx-material3 = { group = "androidx.compose.material3", name = "material3" }
+
 # Pagination
 androidx-pagination = { group = "androidx.paging", name = "paging-compose", version.ref = "pagination" }
+
 # Testing dependencies
 junit = { group = "junit", name = "junit", version.ref = "junit" }
 mockk = { group = "io.mockk", name = "mockk", version.ref = "mockk" }
+
 # Ktlint
 ktlint-cli = { module = "com.pinterest.ktlint:ktlint-cli", version.ref = "ktlintCli" }
+
 # Networking dependencies
 retrofit = { group = "com.squareup.retrofit2", name = "retrofit", version.ref = "retrofit" }
 retrofit-gson = { group = "com.squareup.retrofit2", name = "converter-gson", version.ref = "retrofitGson" }
 okhttp = { group = "com.squareup.okhttp3", name = "okhttp", version.ref = "okhttp" }
 okhttp-logging = { group = "com.squareup.okhttp3", name = "logging-interceptor", version.ref = "okhttpLogging" }
+
 # Dagger and Hilt dependencies
 hilt-android = { group = "com.google.dagger", name = "hilt-android", version.ref = "daggerHilt" }
 hilt-android-compiler = { group = "com.google.dagger", name = "hilt-android-compiler", version.ref = "daggerHilt" }
 hilt-navigation-compose = { group = "androidx.hilt", name = "hilt-navigation-compose", version.ref = "hiltCompose" }
+
 # Timber
 timber = { group = "com.jakewharton.timber", name = "timber", version.ref = "timber" }
+
 # Splash Screen
 splash-screen = { group = "androidx.core", name = "core-splashscreen", version.ref = "splashScreen" }
+
 # Image Loading library
 coil-compose = { group = "io.coil-kt", name = "coil-compose", version.ref = "coil" }
+
 # Accompanist Web-View
 accompanist-webView = { group = "com.google.accompanist", name = "accompanist-webview", version.ref = "accompanistWebView" }
+
 # Gson
 gson = { group = "com.google.code.gson", name = "gson", version.ref = "gson" }
+
 # AndroidX Browser
 androidx-browser = { group = "androidx.browser", name = "browser", version.ref = "androidXBrowser" }
+
 #draftjs
 draftjscompose = { module = "com.github.apoorvgupta25:DraftjsCompose", version.ref = "draftjscompose" }
+
 # Firebase
 firebase-bom = { module = "com.google.firebase:firebase-bom", version.ref = "firebaseBom" }
 
@@ -81,5 +96,3 @@ jetbrains-kotlin-kapt = { id = "org.jetbrains.kotlin.kapt", version.ref = "kotli
 compose-compiler = { id = "org.jetbrains.kotlin.plugin.compose", version.ref = "kotlin" }
 dagger-hilt = { id = "com.google.dagger.hilt.android", version.ref = "daggerHilt" }
 google-services = { id = "com.google.gms.google-services", version.ref = "googleServices" }
-
-
