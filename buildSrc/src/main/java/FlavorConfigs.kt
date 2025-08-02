@@ -10,14 +10,10 @@
  */
 object BuildConfig {
     // Android build configuration
-    const val compileSdk = 35
-    const val minSdk = 29
-    const val targetSdk = 35
     const val versionCode = 4
     const val versionName = "1.0.1"
 
     // Kotlin and JVM configuration
-    const val jvmTarget = "17"
     const val kotlinCompilerExtensionVersion = "1.5.13"
 
     const val applicationId = "com.apoorvgupta.newsshots"

@@ -13,19 +13,19 @@ plugins {
 // Android library configuration
 android {
     namespace = "com.apoorvgupta.newsshots.core" // Package namespace for the library
-    compileSdk = BuildConfig.compileSdk
+    compileSdk = libs.versions.android.compileSdk.get().toInt()
 
     // Default configuration for the Android library
     defaultConfig {
-        minSdk = BuildConfig.minSdk
+        minSdk = libs.versions.android.minSdk.get().toInt()
     }
 
     lint {
-        targetSdk = BuildConfig.targetSdk  // Optional: for lint checks
+        targetSdk = libs.versions.android.targetSdk.get().toInt()  // Optional: for lint checks
     }
 
     testOptions {
-        targetSdk = BuildConfig.targetSdk  // Optional: for instrumented tests
+        targetSdk = libs.versions.android.targetSdk.get().toInt()  // Optional: for instrumented tests
     }
 
     // Configuration for different build types (e.g., release)

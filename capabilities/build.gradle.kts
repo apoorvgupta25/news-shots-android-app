@@ -16,19 +16,19 @@ plugins {
 // Android library configuration
 android {
     namespace = "com.apoorvgupta.newsshots.capabilities"
-    compileSdk = BuildConfig.compileSdk
+    compileSdk = libs.versions.android.compileSdk.get().toInt()
 
     defaultConfig {
-        minSdk = BuildConfig.minSdk
+        minSdk = libs.versions.android.minSdk.get().toInt()
         testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
     }
 
     lint {
-        targetSdk = BuildConfig.targetSdk  // Optional: for lint checks
+        targetSdk = libs.versions.android.targetSdk.get().toInt()  // Optional: for lint checks
     }
 
     testOptions {
-        targetSdk = BuildConfig.targetSdk  // Optional: for instrumented tests
+        targetSdk = libs.versions.android.targetSdk.get().toInt()  // Optional: for instrumented tests
     }
 
     buildFeatures {

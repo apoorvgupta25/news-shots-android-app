@@ -16,20 +16,20 @@ android {
     namespace = "com.apoorvgupta.newsshots.bookmark"
 
     // Set the compile SDK version
-    compileSdk = BuildConfig.compileSdk
+    compileSdk = libs.versions.android.compileSdk.get().toInt()
 
     defaultConfig {
         // Configure default settings such as minSdk, targetSdk, and test runner
-        minSdk = BuildConfig.minSdk
+        minSdk = libs.versions.android.minSdk.get().toInt()
         testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
     }
 
     lint {
-        targetSdk = BuildConfig.targetSdk  // Optional: for lint checks
+        targetSdk = libs.versions.android.targetSdk.get().toInt()  // Optional: for lint checks
     }
 
     testOptions {
-        targetSdk = BuildConfig.targetSdk  // Optional: for instrumented tests
+        targetSdk = libs.versions.android.targetSdk.get().toInt()  // Optional: for instrumented tests
     }
 
     buildFeatures {
