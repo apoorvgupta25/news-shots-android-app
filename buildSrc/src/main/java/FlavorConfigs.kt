@@ -9,9 +9,6 @@
  * @author Apoorv Gupta
  */
 object BuildConfig {
-    // Kotlin and JVM configuration
-    const val kotlinCompilerExtensionVersion = "1.5.13"
-
     const val applicationId = "com.apoorvgupta.newsshots"
     const val appName = "News Shots App"
 }

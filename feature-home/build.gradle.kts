@@ -38,11 +38,6 @@ android {
         compose = true
     }
 
-    composeOptions {
-        // Set the Kotlin compiler extension version for Jetpack Compose
-        kotlinCompilerExtensionVersion = BuildConfig.kotlinCompilerExtensionVersion
-    }
-
     buildTypes {
         release {
             // Enable Progaurd/R8 for release variants
