@@ -17,9 +17,7 @@ mockk = "1.14.5"
 activityCompose = "1.10.1"
 composeBom = "2025.07.00"
 retrofit = "3.0.0"
-retrofitGson = "3.0.0"
 okhttp = "5.1.0"
-okhttpLogging = "5.1.0"
 hiltCompose = "1.2.0"
 timber = "5.0.1"
 splashScreen = "1.0.1"
@@ -54,9 +52,9 @@ ktlint-cli = { module = "com.pinterest.ktlint:ktlint-cli", version.ref = "ktlint
 
 # Networking dependencies
 retrofit = { group = "com.squareup.retrofit2", name = "retrofit", version.ref = "retrofit" }
-retrofit-gson = { group = "com.squareup.retrofit2", name = "converter-gson", version.ref = "retrofitGson" }
+retrofit-gson = { group = "com.squareup.retrofit2", name = "converter-gson", version.ref = "retrofit" }
 okhttp = { group = "com.squareup.okhttp3", name = "okhttp", version.ref = "okhttp" }
-okhttp-logging = { group = "com.squareup.okhttp3", name = "logging-interceptor", version.ref = "okhttpLogging" }
+okhttp-logging = { group = "com.squareup.okhttp3", name = "logging-interceptor", version.ref = "okhttp" }
 
 # Dagger and Hilt dependencies
 hilt-android = { group = "com.google.dagger", name = "hilt-android", version.ref = "daggerHilt" }
