@@ -16,7 +16,7 @@ import java.util.Base64
 object DataStoreSerializer {
     fun <T> createNormalSerializer(
         serializer: KSerializer<T>,
-        default: T
+        default: T,
     ): Serializer<T> = object : Serializer<T> {
         override val defaultValue: T = default
 
@@ -36,7 +36,7 @@ object DataStoreSerializer {
 
     fun <T> createSecuredSerializer(
         serializer: KSerializer<T>,
-        default: T
+        default: T,
     ): Serializer<T> = object : Serializer<T> {
         override val defaultValue: T = default
 
@@ -111,6 +111,5 @@ object UserPreferencesSerializer : Serializer<UserPreferences> {
             }
         }
     }
-    */
-
+     */
 }

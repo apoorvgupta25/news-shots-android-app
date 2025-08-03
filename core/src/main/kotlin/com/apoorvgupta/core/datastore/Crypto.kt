@@ -28,25 +28,23 @@ object Crypto {
         return existingKey?.secretKey ?: createKey()
     }
 
-    private fun createKey(): SecretKey {
-        return KeyGenerator
-            .getInstance(ALGORITHM)
-            .apply {
-                init(
-                    KeyGenParameterSpec.Builder(
-                        KEY_ALIAS,
-                        KeyProperties.PURPOSE_ENCRYPT or
-                        KeyProperties.PURPOSE_DECRYPT
-                    )
-                        .setBlockModes(BLOCK_MODE)
-                        .setEncryptionPaddings(PADDING)
-                        .setRandomizedEncryptionRequired(true)
-                        .setUserAuthenticationRequired(false)
-                        .build()
+    private fun createKey(): SecretKey = KeyGenerator
+        .getInstance(ALGORITHM)
+        .apply {
+            init(
+                KeyGenParameterSpec.Builder(
+                    KEY_ALIAS,
+                    KeyProperties.PURPOSE_ENCRYPT or
+                        KeyProperties.PURPOSE_DECRYPT,
                 )
-            }
-            .generateKey()
-    }
+                    .setBlockModes(BLOCK_MODE)
+                    .setEncryptionPaddings(PADDING)
+                    .setRandomizedEncryptionRequired(true)
+                    .setUserAuthenticationRequired(false)
+                    .build(),
+            )
+        }
+        .generateKey()
 
     fun encrypt(bytes: ByteArray): ByteArray {
         cipher.init(Cipher.ENCRYPT_MODE, getKey())

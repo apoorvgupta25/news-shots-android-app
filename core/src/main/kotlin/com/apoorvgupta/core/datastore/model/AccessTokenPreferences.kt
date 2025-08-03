@@ -10,7 +10,7 @@ import kotlinx.serialization.Serializable
 @SuppressLint("UnsafeOptInUsageError")
 @Serializable
 data class AccessTokenPreferences(
-    val token: String? = null
+    val token: String? = null,
 ) {
     companion object {
         val emptyValue: AccessTokenPreferences

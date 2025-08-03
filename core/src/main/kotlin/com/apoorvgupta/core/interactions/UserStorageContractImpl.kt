@@ -3,7 +3,7 @@ package com.apoorvgupta.core.interactions
 import android.content.Context
 import androidx.datastore.dataStore
 import com.apoorvgupta.core.datastore.DataStoreSerializer
-import com.apoorvgupta.core.datastore.PreferenceFileNames.USER_PREFERENCES_FILE_NAME
+import com.apoorvgupta.core.datastore.PreferenceKeys.USER_PREFERENCES_FILE_NAME
 import com.apoorvgupta.core.datastore.model.UserPreferences
 import kotlinx.coroutines.flow.first
 import javax.inject.Inject
@@ -19,26 +19,24 @@ class UserStorageContractImpl @Inject constructor(
         fileName = USER_PREFERENCES_FILE_NAME,
         serializer = DataStoreSerializer.createNormalSerializer(
             serializer = UserPreferences.serializer(),
-            default = UserPreferences.emptyValue
-        )
+            default = UserPreferences.emptyValue,
+        ),
     )
 
     override suspend fun saveUserPreferences(age: Int) {
         context.dataStorePref.updateData {
             UserPreferences(
-                age = age
+                age = age,
             )
         }
     }
 
-    override suspend fun getUserPreferences(): Int? {
-        return context.dataStorePref.data.first().age
-    }
+    override suspend fun getUserPreferences(): Int? = context.dataStorePref.data.first().age
 
     override suspend fun removeUserPreferences() {
         context.dataStorePref.updateData {
             UserPreferences(
-                age = null
+                age = null,
             )
         }
     }

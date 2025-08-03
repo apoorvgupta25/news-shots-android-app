@@ -11,7 +11,7 @@ import kotlinx.serialization.Serializable
 @SuppressLint("UnsafeOptInUsageError")
 @Serializable
 data class UserPreferences(
-    val age: Int? = null
+    val age: Int? = null,
 ) {
     companion object {
         val emptyValue: UserPreferences
