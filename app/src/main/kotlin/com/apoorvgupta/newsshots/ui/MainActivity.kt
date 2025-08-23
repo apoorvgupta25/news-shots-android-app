@@ -53,7 +53,7 @@ class MainActivity : ComponentActivity() {
         }
         setContent {
             SetStatusBarColor()
-            //need to update start destination if authenticated navController.graph.setStartDestination(startDestinationRoute.value)
+            // need to update start destination if authenticated navController.graph.setStartDestination(startDestinationRoute.value)
             /*val startDestination = remember {
                 mutableStateOf(Destinations.SplashDestination.route)
             }*/
