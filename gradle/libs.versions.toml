@@ -28,6 +28,7 @@ accompanistWebView = "0.30.1"
 pagination = "3.3.6"
 draftjscompose = "1.2.0"
 firebaseBom = "34.0.0"
+dataStorePreferences = "1.1.7"
 
 [libraries]
 
@@ -84,6 +85,9 @@ draftjscompose = { module = "com.github.apoorvgupta25:DraftjsCompose", version.r
 
 # Firebase
 firebase-bom = { module = "com.google.firebase:firebase-bom", version.ref = "firebaseBom" }
+
+# DataStore
+datastore-preferences = { group = "androidx.datastore", name = "datastore-preferences", version.ref = "dataStorePreferences" }
 
 [plugins]
 android-application = { id = "com.android.application", version.ref = "agp" }

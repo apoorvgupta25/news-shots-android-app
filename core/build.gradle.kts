@@ -8,6 +8,7 @@ plugins {
     alias(libs.plugins.android.library)
     alias(libs.plugins.jetbrains.kotlin.android)
     alias(libs.plugins.jetbrains.kotlin.kapt)
+    alias(libs.plugins.jetbrains.kotlin.serialization)
 }
 
 // Android library configuration
@@ -70,6 +71,13 @@ dependencies {
     testImplementation(libs.junit)
 
     // Dagger Hilt for dependency injection
+    implementation(libs.hilt.android)
     implementation(libs.hilt.navigation.compose)
     kapt(libs.hilt.android.compiler)
+    
+    // DataStore
+    implementation(libs.datastore.preferences)
+
+    // Serialization
+    implementation(libs.kotlinx.serialization)
 }
