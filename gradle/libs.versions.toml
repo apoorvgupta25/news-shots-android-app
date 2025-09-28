@@ -6,7 +6,7 @@ version-code = "4"
 version-name = "1.0.1"
 agp = "8.13.0"
 kotlin = "2.2.20"
-daggerHilt = "2.57.1"
+daggerHilt = "2.57.2"
 googleServices = "4.4.3"
 
 ktlintCli = "1.7.1"
