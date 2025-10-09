@@ -11,6 +11,7 @@ import androidx.compose.animation.core.FastOutLinearInEasing
 import androidx.compose.animation.core.tween
 import androidx.compose.animation.fadeIn
 import androidx.compose.animation.fadeOut
+import androidx.compose.foundation.Image
 import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Box
@@ -24,10 +25,7 @@ import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.layout.width
 import androidx.compose.foundation.shape.RoundedCornerShape
-import androidx.compose.material.icons.Icons
-import androidx.compose.material.icons.automirrored.filled.ArrowBack
 import androidx.compose.material3.CircularProgressIndicator
-import androidx.compose.material3.Icon
 import androidx.compose.material3.IconButton
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Text
@@ -42,11 +40,12 @@ import androidx.compose.ui.draw.clip
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.input.pointer.pointerInput
 import androidx.compose.ui.platform.LocalContext
+import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.text.style.TextAlign
-import androidx.compose.ui.unit.dp
 import com.apoorvgupta.capabilities.presentation.theme.Dimensions
 import com.apoorvgupta.capabilities.util.Constants
 import com.apoorvgupta.core.utils.emptyValue
+import com.apoorvgupta.newsshots.capabilities.R
 import com.google.accompanist.web.AccompanistWebChromeClient
 import com.google.accompanist.web.AccompanistWebViewClient
 import com.google.accompanist.web.LoadingState
@@ -165,14 +164,14 @@ private fun WebTopAppBar(
     Row(
         modifier = Modifier
             .fillMaxWidth()
-            .height(56.dp)
-            .padding(horizontal = 16.dp, vertical = 5.dp),
+            .height(Dimensions.SurroundingDimensions.xl4_surrounding_spacing)
+            .padding(horizontal = Dimensions.HorizonalDimensions.m_horizontal_spacing, vertical = Dimensions.VerticalDimensions.xs_vertical_spacing),
         verticalAlignment = Alignment.CenterVertically,
     ) {
         BackButton {
             onCloseWebView.invoke()
         }
-        Spacer(modifier = Modifier.width(16.dp))
+        Spacer(modifier = Modifier.width(Dimensions.HorizonalDimensions.m_horizontal_spacing))
         Text(
             modifier = Modifier.fillMaxWidth(),
             text = text,
@@ -202,8 +201,8 @@ fun BackButton(
                 .clip(RoundedCornerShape(Dimensions.SurroundingDimensions.m_surrounding_spacing)),
         ) {
         }
-        Icon(
-            imageVector = Icons.AutoMirrored.Default.ArrowBack,
+        Image(
+            painter = painterResource(id = R.drawable.ic_back_arrow),
             contentDescription = null,
             modifier = Modifier.size(Dimensions.SurroundingDimensions.m_surrounding_spacing),
         )
