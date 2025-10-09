@@ -72,7 +72,7 @@ dependencies {
 
     // Dagger Hilt for dependency injection
     implementation(libs.hilt.android)
-    implementation(libs.hilt.navigation.compose)
+    implementation(libs.hilt.lifecycle.viewmodel.compose)
     kapt(libs.hilt.android.compiler)
     
     // DataStore
