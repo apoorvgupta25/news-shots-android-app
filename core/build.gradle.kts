@@ -73,11 +73,12 @@ dependencies {
     // Dagger Hilt for dependency injection
     implementation(libs.hilt.android)
     implementation(libs.hilt.lifecycle.viewmodel.compose)
-    kapt(libs.hilt.android.compiler)
     
     // DataStore
     implementation(libs.datastore.preferences)
 
     // Serialization
     implementation(libs.kotlinx.serialization)
+
+    kapt(libs.hilt.android.compiler)
 }
