@@ -7,7 +7,7 @@ version-name = "1.0.1"
 agp = "8.13.0"
 kotlin = "2.2.20"
 daggerHilt = "2.57.2"
-googleServices = "4.4.3"
+googleServices = "4.4.4"
 
 ktlintCli = "1.7.1"
 navigationCompose = "2.9.5"
