@@ -134,7 +134,7 @@ dependencies {
 
     // Dagger Hilt
     implementation(libs.hilt.android)
-    implementation(libs.hilt.navigation.compose)
+    implementation(libs.hilt.lifecycle.viewmodel.compose)
 
     // Firebase
     implementation(platform(libs.firebase.bom))
