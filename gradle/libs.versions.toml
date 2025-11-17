@@ -8,6 +8,7 @@ agp = "8.13.1"
 kotlin = "2.2.21"
 daggerHilt = "2.57.2"
 googleServices = "4.4.4"
+sonarqube = "7.0.1.6134"
 
 ktlintCli = "1.8.0"
 navigationCompose = "2.9.6"
@@ -98,3 +99,4 @@ jetbrains-kotlin-kapt = { id = "org.jetbrains.kotlin.kapt", version.ref = "kotli
 compose-compiler = { id = "org.jetbrains.kotlin.plugin.compose", version.ref = "kotlin" }
 dagger-hilt = { id = "com.google.dagger.hilt.android", version.ref = "daggerHilt" }
 google-services = { id = "com.google.gms.google-services", version.ref = "googleServices" }
+sonarqube = { id = "org.sonarqube", version.ref = "sonarqube" }

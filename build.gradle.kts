@@ -13,9 +13,19 @@ plugins {
     alias(libs.plugins.dagger.hilt) apply false
     alias(libs.plugins.compose.compiler) apply false
     alias(libs.plugins.google.services) apply false
+    alias(libs.plugins.sonarqube)
+}
+
+sonarqube {
+    properties {
+        property("sonar.projectKey", "newshots-android")
+        property("sonar.organization", "apoorvgupta25")
+        property("sonar.host.url", "https://sonarcloud.io")
+    }
 }
 
 // Apply ktlint to the entire project.
 allprojects {
     apply(from = "$rootDir/ktlint.gradle")
+    apply(from = "$rootDir/sonarqube.gradle")
 }
