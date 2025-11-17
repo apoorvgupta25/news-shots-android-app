@@ -28,9 +28,11 @@ fun getConnectionType(context: Context): Int {
                 hasTransport(NetworkCapabilities.TRANSPORT_CELLULAR) -> {
                     result = 1
                 }
+
                 hasTransport(NetworkCapabilities.TRANSPORT_WIFI) -> {
                     result = 2
                 }
+
                 hasTransport(NetworkCapabilities.TRANSPORT_VPN) -> {
                     result = 3
                 }
@@ -77,12 +79,15 @@ fun getNetworkType(context: Context): String {
                 upstreamBandwidth < 500 -> {
                     "2G"
                 }
+
                 upstreamBandwidth < 2000 -> {
                     "3G"
                 }
+
                 upstreamBandwidth < 20000 -> {
                     "4G"
                 }
+
                 else -> {
                     "5G"
                 }
