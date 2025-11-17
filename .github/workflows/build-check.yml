@@ -31,11 +31,15 @@ jobs:
         run: ./gradlew ktlintCheck
 
       # Run the Sonarscan check.
-      - name: Lint Checks
-        run: ./gradlew sonar -Dsonar.token=${{ secrets.SONAR_TOKEN }}
+      - name: Sonarscan Checks
+        env:
+          SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
+        run: ./gradlew sonar -Dsonar.token=$SONAR_TOKEN
 
       - name: Decode and create google-services.json
-        run: echo "${{ secrets.GOOGLE_SERVICES_JSON }}" | base64 --decode > app/google-services.json
+        env:
+          GOOGLE_SERVICES_JSON: ${{ secrets.GOOGLE_SERVICES_JSON }}
+        run: echo "$GOOGLE_SERVICES_JSON" | base64 --decode > app/google-services.json
 
 #      # Create google-services file
 #      - name: Create file

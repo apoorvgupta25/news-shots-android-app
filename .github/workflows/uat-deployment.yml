@@ -31,7 +31,9 @@ jobs:
         run: ./gradlew clean --no-daemon
 
       - name: Decode and create google-services.json
-        run: echo "${{ secrets.GOOGLE_SERVICES_JSON }}" | base64 --decode > app/google-services.json
+        env:
+          GOOGLE_SERVICES_JSON: ${{ secrets.GOOGLE_SERVICES_JSON }}
+        run: echo "$GOOGLE_SERVICES_JSON" | base64 --decode > app/google-services.json
 
 #      # Create google-services file
 #      - name: Create file
@@ -44,25 +46,34 @@ jobs:
 #        run: echo $DATA > /home/runner/work/news-shots-android-app/news-shots-android-app/app/google-services.json
 
       - name: Generate keystore.properties
+        env:
+          KEYSTORE_STORE_PASSWORD: ${{ secrets.KEYSTORE_STORE_PASSWORD }}
+          KEYSTORE_KEY_PASSWORD: ${{ secrets.KEYSTORE_KEY_PASSWORD }}
+          KEYSTORE_KEY_ALIAS: ${{ secrets.KEYSTORE_KEY_ALIAS }}
         run: |
           cat <<EOF > keystore.properties
-          storePassword:${{ secrets.KEYSTORE_STORE_PASSWORD }}
-          keyPassword:${{ secrets.KEYSTORE_KEY_PASSWORD }}
-          keyAlias:${{ secrets.KEYSTORE_KEY_ALIAS }}
+          storePassword:$KEYSTORE_STORE_PASSWORD
+          keyPassword:$KEYSTORE_KEY_PASSWORD
+          keyAlias:$KEYSTORE_KEY_ALIAS
           storeFile:${{ vars.KEYSTORE_STORE_FILE_PATH }}
           EOF
 
       - name: Decode keystore and create jks
-        run: echo "${{ secrets.KEYSTORE_JKS_BASE64 }}" | base64 --decode > ./app/android.keystore
+        env:
+          KEYSTORE_JKS_BASE64: ${{ secrets.KEYSTORE_JKS_BASE64 }}
+        run: echo "$KEYSTORE_JKS_BASE64" | base64 --decode > ./app/android.keystore
 
       - name: Build Project All countries UAT
         run: ./gradlew assembleUatRelease --no-daemon -Dorg.gradle.jvmargs="-Xmx3g -Dorg.gradle.workers.max=2" --info
 
       - name: Upload UAT artifact to Firebase App Distribution
         uses: wzieba/Firebase-Distribution-Github-Action@v1
+        env:
+          FIREBASE_APP_ID_UAT: ${{ secrets.FIREBASE_APP_ID_UAT }}
+          FIREBASE_CREDENTIALS: ${{ secrets.FIREBASE_CREDENTIALS }}
         with:
-          appId: ${{secrets.FIREBASE_APP_ID_UAT}}
-          serviceCredentialsFileContent: ${{secrets.FIREBASE_CREDENTIALS}}
+          appId: $FIREBASE_APP_ID_UAT
+          serviceCredentialsFileContent: $FIREBASE_CREDENTIALS
           file: app/build/outputs/apk/uat/release/app-uat-release.apk
           releaseNotes: "Build flavour: UAT Release from main ### Changelog: ${{ github.event.head_commit.message }}"
           groups: "QA"
