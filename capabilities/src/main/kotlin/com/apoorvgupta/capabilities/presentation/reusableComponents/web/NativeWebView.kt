@@ -11,6 +11,7 @@ import androidx.compose.animation.core.FastOutLinearInEasing
 import androidx.compose.animation.core.tween
 import androidx.compose.animation.fadeIn
 import androidx.compose.animation.fadeOut
+import androidx.compose.foundation.Image
 import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Box
@@ -24,10 +25,7 @@ import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.layout.width
 import androidx.compose.foundation.shape.RoundedCornerShape
-import androidx.compose.material.icons.Icons
-import androidx.compose.material.icons.automirrored.filled.ArrowBack
 import androidx.compose.material3.CircularProgressIndicator
-import androidx.compose.material3.Icon
 import androidx.compose.material3.IconButton
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Text
@@ -42,12 +40,12 @@ import androidx.compose.ui.draw.clip
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.input.pointer.pointerInput
 import androidx.compose.ui.platform.LocalContext
+import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.text.style.TextAlign
-import androidx.compose.ui.unit.dp
-import com.apoorvgupta.capabilities.presentation.theme.m_surrounding_spacing
-import com.apoorvgupta.capabilities.presentation.theme.xl_surrounding_spacing
+import com.apoorvgupta.capabilities.presentation.theme.Dimensions
 import com.apoorvgupta.capabilities.util.Constants
-import com.apoorvgupta.core.utils.EMPTY_STRING
+import com.apoorvgupta.core.utils.emptyValue
+import com.apoorvgupta.newsshots.capabilities.R
 import com.google.accompanist.web.AccompanistWebChromeClient
 import com.google.accompanist.web.AccompanistWebViewClient
 import com.google.accompanist.web.LoadingState
@@ -62,7 +60,7 @@ fun NativeWebView(
 ) {
     var webUrl = url
     var pageTitle by remember {
-        mutableStateOf(EMPTY_STRING)
+        mutableStateOf(String.emptyValue())
     }
     var webViewInitialLoadingIndicator by remember {
         mutableStateOf(true)
@@ -166,14 +164,14 @@ private fun WebTopAppBar(
     Row(
         modifier = Modifier
             .fillMaxWidth()
-            .height(56.dp)
-            .padding(horizontal = 16.dp, vertical = 5.dp),
+            .height(Dimensions.SurroundingDimensions.xl4_surrounding_spacing)
+            .padding(horizontal = Dimensions.HorizonalDimensions.m_horizontal_spacing, vertical = Dimensions.VerticalDimensions.xs_vertical_spacing),
         verticalAlignment = Alignment.CenterVertically,
     ) {
         BackButton {
             onCloseWebView.invoke()
         }
-        Spacer(modifier = Modifier.width(16.dp))
+        Spacer(modifier = Modifier.width(Dimensions.HorizonalDimensions.m_horizontal_spacing))
         Text(
             modifier = Modifier.fillMaxWidth(),
             text = text,
@@ -194,19 +192,19 @@ fun BackButton(
         onClick = {
             onClickListener.invoke()
         },
-        modifier = Modifier.size(xl_surrounding_spacing),
+        modifier = Modifier.size(Dimensions.SurroundingDimensions.xl_surrounding_spacing),
     ) {
         Box(
             modifier = modifier
                 .background(color = backgroundColor)
-                .size(xl_surrounding_spacing)
-                .clip(RoundedCornerShape(m_surrounding_spacing)),
+                .size(Dimensions.SurroundingDimensions.xl_surrounding_spacing)
+                .clip(RoundedCornerShape(Dimensions.SurroundingDimensions.m_surrounding_spacing)),
         ) {
         }
-        Icon(
-            imageVector = Icons.AutoMirrored.Default.ArrowBack,
+        Image(
+            painter = painterResource(id = R.drawable.ic_back_arrow),
             contentDescription = null,
-            modifier = Modifier.size(m_surrounding_spacing),
+            modifier = Modifier.size(Dimensions.SurroundingDimensions.m_surrounding_spacing),
         )
     }
 }

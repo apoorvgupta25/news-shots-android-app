@@ -30,10 +30,6 @@ class SplashViewModel @Inject constructor() : BaseViewModel<SplashIntent, Splash
             is SplashIntent.NavigateToHomeScreen -> {
                 sendNavEffect { SplashNavEffect.OpenHomeScreen }
             }
-
-            else -> {
-                // Do Nothing
-            }
         }
     }
 

@@ -7,6 +7,6 @@ data class BottomNavItem(
     val title: String,
     val visible: Boolean,
     var badgeCount: Int,
-    val icon: Int,
-    val filledIcon: Int,
+    val unselectedIcon: Int,
+    val selectedIcon: Int,
 )

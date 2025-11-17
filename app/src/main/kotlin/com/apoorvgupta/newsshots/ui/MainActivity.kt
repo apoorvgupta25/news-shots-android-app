@@ -1,5 +1,5 @@
 /**
- * Copyright (c) 2024 Apoorv Gupta
+ * Copyright (c) 2025 Apoorv Gupta
  * All rights reserved.
  */
 package com.apoorvgupta.newsshots.ui
@@ -9,7 +9,6 @@ import android.os.Bundle
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
 import androidx.activity.viewModels
-import androidx.compose.material3.MaterialTheme
 import androidx.core.splashscreen.SplashScreen.Companion.installSplashScreen
 import androidx.lifecycle.lifecycleScope
 import com.apoorvgupta.capabilities.network.rest.helpers.ConnectivityChannel
@@ -53,7 +52,7 @@ class MainActivity : ComponentActivity() {
             installSplashScreen()
         }
         setContent {
-            SetStatusBarColor(MaterialTheme.colorScheme.background)
+            SetStatusBarColor()
             // need to update start destination if authenticated navController.graph.setStartDestination(startDestinationRoute.value)
             /*val startDestination = remember {
                 mutableStateOf(Destinations.SplashDestination.route)

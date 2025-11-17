@@ -8,7 +8,6 @@ import androidx.compose.runtime.Composable
 import androidx.compose.runtime.LaunchedEffect
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
-import com.apoorvgupta.core.logger.AppLogger
 import com.apoorvgupta.splash.intents.SplashIntent
 import com.apoorvgupta.splash.intents.SplashViewStates
 
@@ -31,6 +30,5 @@ fun SplashScreen(
     LaunchedEffect(Unit) {
         userIntent.invoke(SplashIntent.NavigateToHomeScreen)
         // Need to update
-        AppLogger.d { "State: ${state.isRefreshing}" }
     }
 }

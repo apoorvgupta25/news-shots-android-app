@@ -16,6 +16,7 @@ sealed class NewsDetailsIntent : UserIntent {
     data class NavigateToIndividualNewsShots(val link: String) : NewsDetailsIntent()
     data class NavigateToChromeCustomTab(val link: String) : NewsDetailsIntent()
     data object NavigateToPreviousScreen : NewsDetailsIntent()
+    data object RefreshNewsDetailsScreen : NewsDetailsIntent()
 }
 
 /**
@@ -37,13 +38,16 @@ sealed class NewsDetailsNavEffect : NavEffect {
 sealed class NewsDetailsViewStates {
     data class LoadedData(
         val showLoader: Boolean = false,
-        val isRefreshing: Boolean = false,
         val data: NewsDetailsDataModel,
     ) : NewsDetailsViewStates()
 
-    data class InitialLoading(
+    data class ErrorData(
         val showLoader: Boolean = false,
-        val isRefreshing: Boolean = false,
+        val data: NewsDetailsDataModel,
+    ) : NewsDetailsViewStates()
+
+    data class Loading(
+        val showLoader: Boolean = false,
         val data: NewsDetailsDataModel,
     ) : NewsDetailsViewStates()
 

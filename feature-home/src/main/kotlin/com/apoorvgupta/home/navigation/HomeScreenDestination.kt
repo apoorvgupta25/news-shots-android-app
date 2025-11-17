@@ -12,7 +12,8 @@ import com.apoorvgupta.core.interactions.session.FinishActivityChannel
 import com.apoorvgupta.home.intent.HomeIntent
 import com.apoorvgupta.home.intent.HomeNavEffect
 import com.apoorvgupta.home.intent.HomeViewStates
-import com.apoorvgupta.home.view.HomeScreen
+import com.apoorvgupta.home.view.HomeScreenErrorContent
+import com.apoorvgupta.home.view.HomeScreenLoadedContent
 import com.apoorvgupta.home.viewmodels.HomeViewModel
 import kotlinx.coroutines.flow.Flow
 
@@ -84,19 +85,26 @@ fun HomeScreenDestination(
     when (homeViewState) {
         is HomeViewStates.LoadedData -> {
             // Display the Home Screen with loaded data.
-            HomeScreen(
+            HomeScreenLoadedContent(
                 state = homeViewState,
                 userIntent = onUserAction(),
             )
         }
 
-        is HomeViewStates.InitialLoading -> {
+        is HomeViewStates.ErrorData -> {
+            // Display the Home Screen with error data.
+            HomeScreenErrorContent(
+                state = homeViewState,
+                userIntent = onUserAction(),
+            )
+        }
+
+        is HomeViewStates.Loading -> {
             CircularProgressBarComponent(homeViewState.showLoader)
         }
 
-        is HomeViewStates.UnInitialized -> {
-            // Display content for the uninitialized state.
-            homeViewModel.emitLoading()
+        HomeViewStates.UnInitialized -> {
+            // Do Nothing.
         }
     }
 }

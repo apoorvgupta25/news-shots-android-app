@@ -1,5 +1,5 @@
 /**
- * Copyright (c) 2024 Apoorv Gupta
+ * Copyright (c) 2025 Apoorv Gupta
  * All rights reserved.
  */
 
@@ -14,7 +14,7 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.window.Dialog
 import androidx.compose.ui.window.DialogProperties
-import com.apoorvgupta.capabilities.presentation.theme.xs_stroke_width
+import com.apoorvgupta.capabilities.presentation.theme.Dimensions
 
 /**
  * Composable function that displays a circular progress bar component.
@@ -40,7 +40,7 @@ fun CircularProgressBarComponent(visibility: Boolean) {
                 ) {
                     CircularProgressIndicator(
                         color = MaterialTheme.colorScheme.primary,
-                        strokeWidth = xs_stroke_width,
+                        strokeWidth = Dimensions.StrokeWidth.xs_stroke_width,
                     )
                 }
             },

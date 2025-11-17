@@ -8,7 +8,8 @@ import com.apoorvgupta.capabilities.presentation.reusableComponents.loader.Circu
 import com.apoorvgupta.newsdetails.intent.NewsDetailsIntent
 import com.apoorvgupta.newsdetails.intent.NewsDetailsNavEffect
 import com.apoorvgupta.newsdetails.intent.NewsDetailsViewStates
-import com.apoorvgupta.newsdetails.view.NewsDetailsScreen
+import com.apoorvgupta.newsdetails.view.NewsDetailScreenErrorContent
+import com.apoorvgupta.newsdetails.view.NewsDetailScreenLoadedContent
 import com.apoorvgupta.newsdetails.viewmodels.NewsDetailsViewModel
 import kotlinx.coroutines.flow.Flow
 
@@ -71,19 +72,26 @@ fun NewsDetailsScreenDestination(
     when (newsDetailsViewState) {
         is NewsDetailsViewStates.LoadedData -> {
             // Display the Home Screen with loaded data.
-            NewsDetailsScreen(
+            NewsDetailScreenLoadedContent(
                 state = newsDetailsViewState,
                 userIntent = onUserAction(),
             )
         }
 
-        is NewsDetailsViewStates.InitialLoading -> {
+        is NewsDetailsViewStates.ErrorData -> {
+            // Display the Home Screen with error data.
+            NewsDetailScreenErrorContent(
+                state = newsDetailsViewState,
+                userIntent = onUserAction(),
+            )
+        }
+
+        is NewsDetailsViewStates.Loading -> {
             CircularProgressBarComponent(newsDetailsViewState.showLoader)
         }
 
         is NewsDetailsViewStates.UnInitialized -> {
-            // Display content for the uninitialized state.
-            newsDetailsViewModel.emitLoading()
+            // Do Nothing.
         }
     }
 }

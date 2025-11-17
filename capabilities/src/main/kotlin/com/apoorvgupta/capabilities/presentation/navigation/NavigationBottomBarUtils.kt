@@ -11,7 +11,7 @@ import androidx.navigation.compose.currentBackStackEntryAsState
  * @return to Show or hide the Navigation BottomBar for the current BackStack Entry
  *
  * @author Apoorv Gupta
- * Jan, 2024
+ * Jan, 2025
  *
  */
 @Composable

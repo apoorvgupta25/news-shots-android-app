@@ -12,6 +12,7 @@ import com.apoorvgupta.newsshots.models.NewsShotsListingDataModel
  */
 sealed class NewsShotsListingIntent : UserIntent {
     data class LoadNewsShotsListingScreen(val categoryName: String) : NewsShotsListingIntent()
+    data object RefreshNewsShotsListingScreen : NewsShotsListingIntent()
     data class NavigateToIndividualNewsShots(val link: String) : NewsShotsListingIntent()
     data object NavigateToPreviousScreen : NewsShotsListingIntent()
 }
@@ -34,13 +35,11 @@ sealed class NewsShotsListingNavEffect : NavEffect {
 sealed class NewsShotsListingViewStates {
     data class LoadedData(
         val showLoader: Boolean = false,
-        val isRefreshing: Boolean = false,
         val data: NewsShotsListingDataModel,
     ) : NewsShotsListingViewStates()
 
     data class InitialLoading(
         val showLoader: Boolean = false,
-        val isRefreshing: Boolean = false,
         val data: NewsShotsListingDataModel,
     ) : NewsShotsListingViewStates()
 

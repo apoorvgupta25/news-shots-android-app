@@ -30,12 +30,10 @@ sealed class SplashNavEffect : NavEffect {
 sealed class SplashViewStates {
     data class LoadedData(
         val showLoader: Boolean = false,
-        val isRefreshing: Boolean = false,
     ) : SplashViewStates()
 
     data class InitialLoading(
         val showLoader: Boolean = false,
-        val isRefreshing: Boolean = false,
     ) : SplashViewStates()
 
     data object UnInitialized : SplashViewStates()

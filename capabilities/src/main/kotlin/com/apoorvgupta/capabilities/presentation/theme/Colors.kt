@@ -1,5 +1,5 @@
 /**
- * Copyright (c) 2024 Apoorv Gupta
+ * Copyright (c) 2025 Apoorv Gupta
  * All rights reserved.
  */
 
@@ -16,10 +16,10 @@ private val md_theme_light_primary = Color(0xFFE3E2DF)
 private val md_theme_light_onPrimary = Color(0xFF000000)
 private val md_theme_light_background = Color(0xFFFFFFFF)
 private val md_theme_light_onBackground = Color(0xFF000000)
-private val md_theme_light_onSurface = Color(0xFF3B3B3B)
+private val md_theme_light_onSurface = Color(0xFF637387)
 private val md_theme_light_outline = Color(0xFFD0D0D0)
 
-private val md_theme_light_surface = Color(0xFFF8F6F7)
+private val md_theme_light_surface = Color(0xFFF2F2F5)
 private val md_theme_light_secondary = Color(0xFF6F5B40)
 private val md_theme_light_onSecondary = Color(0xFFFFFFFF)
 private val md_theme_light_error = Color(0xFFFFFFFF)
@@ -33,6 +33,8 @@ private val md_theme_dark_onSecondary = Color(0xFF3E2D16)
 private val md_theme_dark_background = Color(0xFF000000)
 private val md_theme_dark_error = Color(0xFFFFB4AB)
 private val md_theme_dark_errorContainer = Color(0xFF93000A)
+private val md_theme_dark_onSurface = Color(0xFF9EABB8)
+private val md_theme_dark_surface = Color(0xFF0D0D0A)
 private val md_theme_dark_primaryButton = Color(0xFFE3E2DF)
 
 // App Colors
@@ -70,7 +72,8 @@ val DarkColorScheme =
         background = md_theme_dark_background,
         error = md_theme_dark_error,
         errorContainer = md_theme_dark_errorContainer,
-        surface = md_theme_dark_background,
+        onSurface = md_theme_dark_onSurface,
+        surface = md_theme_dark_surface,
         surfaceTint = md_theme_dark_background,
     )
 

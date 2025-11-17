@@ -5,7 +5,6 @@ import com.apoorvgupta.capabilities.network.rest.api.RemoteDataSource
 import com.apoorvgupta.capabilities.network.rest.data.categories.Category
 import com.apoorvgupta.capabilities.network.rest.helpers.Resource
 import com.apoorvgupta.capabilities.network.rest.helpers.makeSafeApiCall
-import dagger.hilt.android.qualifiers.ApplicationContext
 import kotlinx.coroutines.flow.Flow
 import javax.inject.Inject
 
@@ -13,7 +12,7 @@ import javax.inject.Inject
  * @author Apoorv Gupta
  */
 class CategoriesRepoImpl @Inject constructor(
-    @ApplicationContext val context: Context,
+    val context: Context,
     private val remoteDataSource: RemoteDataSource,
 ) : CategoriesRepo {
 

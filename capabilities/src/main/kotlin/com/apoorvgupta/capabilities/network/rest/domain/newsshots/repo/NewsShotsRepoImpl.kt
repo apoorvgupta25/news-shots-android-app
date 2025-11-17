@@ -9,7 +9,6 @@ import com.apoorvgupta.capabilities.network.rest.data.newsshots.NewsShots
 import com.apoorvgupta.capabilities.network.rest.domain.newsshots.NewsShotsPagingSource
 import com.apoorvgupta.capabilities.network.rest.helpers.makeSafeApiCall
 import com.apoorvgupta.capabilities.util.Constants
-import dagger.hilt.android.qualifiers.ApplicationContext
 import kotlinx.coroutines.flow.Flow
 import javax.inject.Inject
 
@@ -23,7 +22,7 @@ import javax.inject.Inject
  * @author Apoorv Gupta
  */
 class NewsShotsRepoImpl @Inject constructor(
-    @ApplicationContext val context: Context,
+    val context: Context,
     private val remoteDataSource: RemoteDataSource,
 ) : NewsShotsRepo {
 
@@ -35,19 +34,6 @@ class NewsShotsRepoImpl @Inject constructor(
      * @return
      */
     override fun getRecentNewsShots(limit: Int, sortBy: String) = makeSafeApiCall(context) { remoteDataSource.getDailyNewsShots(limit, sortBy) }
-
-    /**
-     * Get news shots by category
-     *
-     * @param categoryName
-     */
-    override fun getNewsShotsByCategory(categoryName: String): Flow<PagingData<NewsShots>> {
-        val perPageLimit = Constants.POST_PER_PAGE
-        return Pager(
-            config = PagingConfig(pageSize = perPageLimit),
-            pagingSourceFactory = { NewsShotsPagingSource(remoteDataSource, perPageLimit, categoryName) },
-        ).flow
-    }
 
     /**
      * Get individual news shots
@@ -73,6 +59,19 @@ class NewsShotsRepoImpl @Inject constructor(
         return Pager(
             config = PagingConfig(pageSize = perPageLimit),
             pagingSourceFactory = { NewsShotsPagingSource(remoteDataSource, perPageLimit) },
+        ).flow
+    }
+
+    /**
+     * Get news shots by category
+     *
+     * @param categoryName
+     */
+    override fun getNewsShotsByCategory(categoryName: String): Flow<PagingData<NewsShots>> {
+        val perPageLimit = Constants.POST_PER_PAGE
+        return Pager(
+            config = PagingConfig(pageSize = perPageLimit),
+            pagingSourceFactory = { NewsShotsPagingSource(remoteDataSource, perPageLimit, categoryName) },
         ).flow
     }
 }
