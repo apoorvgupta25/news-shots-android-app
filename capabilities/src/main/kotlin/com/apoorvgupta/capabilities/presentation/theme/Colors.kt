@@ -5,6 +5,7 @@
 
 package com.apoorvgupta.capabilities.presentation.theme
 
+import androidx.compose.foundation.isSystemInDarkTheme
 import androidx.compose.material3.ColorScheme
 import androidx.compose.material3.darkColorScheme
 import androidx.compose.material3.lightColorScheme
@@ -77,18 +78,21 @@ val DarkColorScheme =
         surfaceTint = md_theme_dark_background,
     )
 
+@Composable
+private fun extendedColor(light: Color, dark: Color): Color = if (isSystemInDarkTheme()) dark else light
+
 val ColorScheme.disabledTextColor: Color
     @Composable
-    get() = text_disabled
+    get() = extendedColor(light = text_disabled, dark = text_disabled)
 
 val ColorScheme.linkTextColor: Color
     @Composable
-    get() = text_link
+    get() = extendedColor(light = text_link, dark = text_link)
 
 val ColorScheme.disabledBackgroundColor: Color
     @Composable
-    get() = disabled_bg
+    get() = extendedColor(light = disabled_bg, dark = disabled_bg)
 
 val ColorScheme.shadowBackgroundColor: Color
     @Composable
-    get() = shadow_bg
+    get() = extendedColor(light = shadow_bg, dark = shadow_bg)
