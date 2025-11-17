@@ -18,9 +18,9 @@ plugins {
 
 sonar {
     properties {
-        property "sonar.projectKey", "apoorvgupta25_news-shots-android-app"
-        property "sonar.organization", "apoorvgupta25"
-        property "sonar.host.url", "https://sonarcloud.io"
+        property("sonar.projectKey", "newshots-android")
+        property("sonar.organization", "apoorvgupta25")
+        property("sonar.host.url", "https://sonarcloud.io")
     }
 }
 
