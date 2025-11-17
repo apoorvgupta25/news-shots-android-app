@@ -16,7 +16,7 @@ plugins {
     alias(libs.plugins.sonarqube)
 }
 
-sonar {
+sonarqube {
     properties {
         property("sonar.projectKey", "newshots-android")
         property("sonar.organization", "apoorvgupta25")
@@ -27,4 +27,5 @@ sonar {
 // Apply ktlint to the entire project.
 allprojects {
     apply(from = "$rootDir/ktlint.gradle")
+    apply(from = "$rootDir/sonarqube.gradle")
 }
