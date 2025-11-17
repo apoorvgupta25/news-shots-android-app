@@ -92,18 +92,4 @@ class NewsDetailsViewModel @Inject constructor(
 
         emitViewState { copy(newsDetailsViewState = newsDetailsViewState) }
     }
-
-    /**
-     * Emits a loading state to update the UI when initial loading is in progress.
-     */
-    fun emitLoading() {
-        emitViewState {
-            copy(
-                newsDetailsViewState = NewsDetailsViewStates.Loading(
-                    showLoader = true,
-                    data = NewsDetailsDataModel(),
-                ),
-            )
-        }
-    }
 }

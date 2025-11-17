@@ -58,6 +58,7 @@ fun NewsShotsListingScreen(
         }
 
         LoadState.Loading -> AppLogger.d { "newsShotsResults.loadState.append.Loading" }
+
         is LoadState.NotLoading -> AppLogger.d { "newsShotsResults.loadState.append.NotLoading" }
     }
 }
