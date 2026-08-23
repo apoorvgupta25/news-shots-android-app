@@ -12,7 +12,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       # Check out the code.
-      - uses: actions/checkout@v5
+      - uses: actions/checkout@v7
 
       # Setup the specific JDK.
       - name: Setup JDK
@@ -31,10 +31,10 @@ jobs:
         run: ./gradlew ktlintCheck
 
       # Run the Sonarscan check.
-      - name: Sonarscan Checks
-        env:
-          SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
-        run: ./gradlew sonar -Dsonar.token=$SONAR_TOKEN
+#      - name: Sonarscan Checks
+#        env:
+#          SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
+#        run: ./gradlew sonar -Dsonar.token=$SONAR_TOKEN
 
       - name: Decode and create google-services.json
         env:

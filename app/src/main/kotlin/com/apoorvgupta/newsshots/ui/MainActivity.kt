@@ -8,12 +8,12 @@ import android.os.Build
 import android.os.Bundle
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
+import androidx.activity.enableEdgeToEdge
 import androidx.activity.viewModels
 import androidx.core.splashscreen.SplashScreen.Companion.installSplashScreen
 import androidx.lifecycle.lifecycleScope
 import com.apoorvgupta.capabilities.network.rest.helpers.ConnectivityChannel
 import com.apoorvgupta.capabilities.network.rest.helpers.getNetworkType
-import com.apoorvgupta.capabilities.presentation.reusableComponents.SetStatusBarColor
 import com.apoorvgupta.capabilities.presentation.theme.AppTheme
 import com.apoorvgupta.core.interactions.session.FinishActivityChannel
 import com.apoorvgupta.core.logger.AppLogger
@@ -52,7 +52,8 @@ class MainActivity : ComponentActivity() {
             installSplashScreen()
         }
         setContent {
-            SetStatusBarColor()
+//            SetStatusBarColor()
+            enableEdgeToEdge()
             // need to update start destination if authenticated navController.graph.setStartDestination(startDestinationRoute.value)
             /*val startDestination = remember {
                 mutableStateOf(Destinations.SplashDestination.route)

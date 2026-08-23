@@ -1,6 +1,7 @@
 import java.io.FileInputStream
 import java.util.Properties
 import java.util.regex.Pattern
+import org.jetbrains.kotlin.gradle.dsl.JvmTarget
 
 /**
  * Copyright (c) 2025 Apoorv Gupta
@@ -8,11 +9,10 @@ import java.util.regex.Pattern
  */
 plugins {
     alias(libs.plugins.android.application)
-    alias(libs.plugins.jetbrains.kotlin.android)
     alias(libs.plugins.dagger.hilt)
-    alias(libs.plugins.jetbrains.kotlin.kapt)
     alias(libs.plugins.compose.compiler)
     alias(libs.plugins.google.services)
+    alias(libs.plugins.ksp)
 }
 
 // For the Release build, setup Keystore properties here.
@@ -97,22 +97,25 @@ android {
         targetCompatibility = JavaVersion.VERSION_17
     }
 
-    kotlin {
-        compilerOptions {
-            jvmTarget.set(org.jetbrains.kotlin.gradle.dsl.JvmTarget.JVM_17)
-        }
-    }
     buildFeatures {
         // Enable Compose support
         compose = true
         //Enable Build Configs
         buildConfig = true
+        // Enable custom resources
+        resValues = true
     }
 
     packaging {
         resources {
             excludes += "/META-INF/{AL2.0,LGPL2.1}"
         }
+    }
+}
+
+kotlin {
+    compilerOptions {
+        jvmTarget.set(JvmTarget.JVM_17)
     }
 }
 
@@ -140,7 +143,7 @@ dependencies {
     implementation(platform(libs.firebase.bom))
     implementation(libs.splash.screen)
 
-    kapt(libs.hilt.android.compiler)
+    ksp(libs.hilt.android.compiler)
 }
 
 // Function definitions must be placed at the top level or within an object/class.

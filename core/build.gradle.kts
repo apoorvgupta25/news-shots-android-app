@@ -6,8 +6,7 @@
 // Apply necessary plugins for Android library development, Kotlin
 plugins {
     alias(libs.plugins.android.library)
-    alias(libs.plugins.jetbrains.kotlin.android)
-    alias(libs.plugins.jetbrains.kotlin.kapt)
+    alias(libs.plugins.ksp)
     alias(libs.plugins.jetbrains.kotlin.serialization)
 }
 
@@ -80,5 +79,5 @@ dependencies {
     // Serialization
     implementation(libs.kotlinx.serialization)
 
-    kapt(libs.hilt.android.compiler)
+    ksp(libs.hilt.android.compiler)
 }
