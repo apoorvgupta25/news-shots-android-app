@@ -11,8 +11,8 @@ import androidx.compose.ui.composed
  *
  * @param darkIcon invert the Status icons color based on theme
  */
-//@Composable
-//fun SetStatusBarColor(darkIcon: Boolean = !isSystemInDarkTheme()) {
+// @Composable
+// fun SetStatusBarColor(darkIcon: Boolean = !isSystemInDarkTheme()) {
 //    val window = LocalActivity.current?.window
 //    window?.apply {
 //        WindowInsetsControllerCompat(window, decorView).apply {
@@ -20,7 +20,7 @@ import androidx.compose.ui.composed
 //            isAppearanceLightNavigationBars = darkIcon
 //        }
 //    }
-//}
+// }
 
 fun Modifier.noRippleClickable(
     onClick: () -> Unit,
