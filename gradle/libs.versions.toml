@@ -4,9 +4,9 @@ android-minSdk = "29"
 android-targetSdk = "36"
 version-code = "4"
 version-name = "1.0.1"
-agp = "8.13.1"
-kotlin = "2.2.21"
-daggerHilt = "2.57.2"
+agp = "9.3.0"
+kotlin = "2.4.10"
+daggerHilt = "2.60.1"
 googleServices = "4.4.4"
 sonarqube = "7.0.1.6134"
 
@@ -30,6 +30,7 @@ pagination = "3.3.6"
 draftjscompose = "1.2.2"
 firebaseBom = "34.6.0"
 dataStorePreferences = "1.1.7"
+ksp = "2.2.20-2.0.3"
 
 [libraries]
 
@@ -93,10 +94,10 @@ datastore-preferences = { group = "androidx.datastore", name = "datastore-prefer
 [plugins]
 android-application = { id = "com.android.application", version.ref = "agp" }
 android-library = { id = "com.android.library", version.ref = "agp" }
-jetbrains-kotlin-android = { id = "org.jetbrains.kotlin.android", version.ref = "kotlin" }
 jetbrains-kotlin-serialization = { id = "org.jetbrains.kotlin.plugin.serialization", version.ref = "kotlin" }
 jetbrains-kotlin-kapt = { id = "org.jetbrains.kotlin.kapt", version.ref = "kotlin" }
 compose-compiler = { id = "org.jetbrains.kotlin.plugin.compose", version.ref = "kotlin" }
 dagger-hilt = { id = "com.google.dagger.hilt.android", version.ref = "daggerHilt" }
 google-services = { id = "com.google.gms.google-services", version.ref = "googleServices" }
 sonarqube = { id = "org.sonarqube", version.ref = "sonarqube" }
+ksp = { id = "com.google.devtools.ksp", version.ref = "ksp" }
