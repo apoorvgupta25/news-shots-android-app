@@ -8,7 +8,7 @@ agp = "9.3.0"
 kotlin = "2.4.10"
 daggerHilt = "2.60.1"
 googleServices = "4.4.4"
-sonarqube = "7.0.1.6134"
+sonarqube = "7.4.0.8496"
 
 ktlintCli = "1.8.0"
 navigationCompose = "2.9.6"
