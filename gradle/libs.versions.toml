@@ -30,7 +30,7 @@ pagination = "3.5.1"
 draftjscompose = "1.2.2"
 firebaseBom = "34.18.0"
 dataStorePreferences = "1.2.1"
-ksp = "2.3.2"
+ksp = "2.3.11"
 
 [libraries]
 
