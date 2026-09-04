@@ -11,7 +11,7 @@ googleServices = "4.5.0"
 sonarqube = "7.4.0.8496"
 
 ktlintCli = "1.8.0"
-navigationCompose = "2.9.8"
+navigationCompose = "2.10.0"
 kotlinSerialization = "1.11.0"
 junit = "4.13.2"
 mockk = "1.14.11"
