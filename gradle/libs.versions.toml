@@ -28,7 +28,7 @@ androidXBrowser = "1.10.0"
 accompanistWebView = "0.30.1"
 pagination = "3.5.1"
 draftjscompose = "1.2.2"
-firebaseBom = "34.18.0"
+firebaseBom = "34.19.0"
 dataStorePreferences = "1.2.1"
 ksp = "2.3.11"
 
